@@ -36,7 +36,7 @@ class Main extends Component {
                 <Route exact={true} path='/home' component={Home} />
                 <Route exact path='/news' component={News} />
                 <Route exact path='/user' component={User} />
-                <Route exact path='/center/:name/:id' component={User} />
+                <Route exact path='/center/:name/:id' component={Center} />
                 <Redirect to='/home'></Redirect>
               </Switch>
             </div>
