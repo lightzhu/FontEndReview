@@ -58,4 +58,7 @@ class Promise {
     }
   }
 }
+function resolvePromise(newPromise, x, resolve, reject) {
+
+}
 module.exports = Promise

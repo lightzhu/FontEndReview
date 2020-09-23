@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVVM</title>
+  <!-- <script src="../node_modules/vue/dist/vue.js"></script> -->
+
+  <script src="./vm/utils.js"></script>
+  <script src="./vm/watcher.js"></script>
+  <script src="./vm/observer.js"></script>
+  <script src="./vm/compile.js"></script>
+  <script src="./vm/index.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="content">
+    <span>{{content}}</span>
+    <div>{{msg}}</div>
+  </div>
+  <script>
+    let Vue = VM ? VM : Vue;
+    // console.log(Vue)
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'mvvm',
+        content: '输入你好'
+      }
+    })
+  </script>
+</body>
+
+</html>
