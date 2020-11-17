@@ -2,15 +2,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    // index: './src/index.js',
+    demo1: './src/myreact/index.js'
+  },
   stats: { children: false, entrypoints: false },
   output: {
     path: path.resolve('dist'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "/",
+    contentBase: path.join(__dirname, "../dist"),
     port: "5000", //监听端口
     inline: true, //设置为true，当源文件改变的时候会自动刷新
     hot: true
@@ -57,9 +60,13 @@ module.exports = {
     ]
   },
   plugins: [
+    // new HtmlWebpackPlugin({
+    //   template: path.resolve(__dirname, './src/index.html'),
+    //   filename: 'index.html'
+    // }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './src/index.html'),
-      filename: 'index.html'
+      template: path.resolve(__dirname, './src/myreact/index.html'),
+      filename: 'myreact-index.html'
     }),
     new MiniCssExtractPlugin({
       // 提取css插件
