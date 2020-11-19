@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   entry: {
-    // index: './src/index.js',
+    index: './src/index.js',
     demo1: './src/myreact/index.js'
   },
   stats: { children: false, entrypoints: false },
@@ -60,13 +60,17 @@ module.exports = {
     ]
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   template: path.resolve(__dirname, './src/index.html'),
-    //   filename: 'index.html'
-    // }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './src/index.html'),
+      filename: 'index.html',
+      inject: true,
+      chunks: ['index']
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/myreact/index.html'),
-      filename: 'myreact-index.html'
+      filename: 'myreact-index.html',
+      inject: true,
+      chunks: ['demo1']
     }),
     new MiniCssExtractPlugin({
       // 提取css插件

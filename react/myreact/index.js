@@ -1,7 +1,7 @@
 
 // 接收type，pro配色等参数返回一个vnode
 function createElement(type, props, ...children) {
-  console.log(children)
+  // console.log(children)
   return {
     type,
     props: {

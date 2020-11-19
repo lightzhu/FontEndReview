@@ -9,12 +9,12 @@ import ReactreduxDemo from '../react-redux/ReactreduxDemo.jsx';
 // ReactDOM.render(<Main />, document.querySelector('#root'));
 
 //dom-diff 相关展示
-// ReactDOM.render(<Domdiff />, document.querySelector('#dom_diff'));
+ReactDOM.render(<Domdiff />, document.querySelector('#dom_diff'));
 //函数组件 相关展示
-// ReactDOM.render(<FunctionComponent />, document.querySelector('#fun_component'));
+ReactDOM.render(<FunctionComponent />, document.querySelector('#fun_component'));
 
 //redux demo展示
-// ReactDOM.render(<ReduxDemo />, document.querySelector('#redux_demo'));
+ReactDOM.render(<ReduxDemo />, document.querySelector('#redux_demo'));
 
 //redux demo展示
 ReactDOM.render(<ReactreduxDemo />, document.querySelector('#ReactreduxDemo')); 
