@@ -6,7 +6,9 @@ let nextWorker = null
 let progressRoot = null
 // 当前的根节点
 let currentRoot = null
-
+// 当前在执行的fiber
+let currentFiber = null
+let hookIndex = null
 
 function render(vnode, container) {
   // 初始化progressRoot
@@ -37,19 +39,39 @@ function createNode(vnode) {
   }
   return node
 }
-// 循环生成子元素
+// 循环生成子元素，执行具体的新增、更新、删除逻辑
 function genChild(fuFiber, children) {
   let nextFiber = null;
   let oldFiber = fuFiber.base && fuFiber.base.child
   for (let i = 0; i < children.length; i++) {
     let child = children[i]
-    let newfiber = {
-      type: child.type,
-      props: child.props,
-      node: null,
-      base: null,
-      parent: fuFiber
+    let newfiber = null
+    let isSameType = child && oldFiber && child.type === oldFiber.type
+    if (isSameType) {
+      // 更新节点
+      newfiber = {
+        type: oldFiber.type,
+        props: child.props,
+        node: oldFiber.node,
+        base: oldFiber,
+        parent: fuFiber,
+        effectTag: UPDATE
+      }
+    } else if (child) {
+      //新增
+      newfiber = {
+        type: child.type,
+        props: child.props,
+        node: null,
+        base: null,
+        parent: fuFiber,
+        effectTag: PLACEMENT
+      }
+    } else if (oldFiber) {
+      //删除
     }
+
+
     if (oldFiber) {
       oldFiber = oldFiber.sibling
     }
@@ -82,10 +104,12 @@ function updateClassComponent(vnode) {
 }
 
 function updateFunctionComponent(vnode) {
+  currentFiber = vnode
+  currentFiber.hooks = []
+  hookIndex = 0
   const { type, props } = vnode
   // console.log(type)
   const fncomp = [type(props)]
-  console.log(fncomp)
   // debugger
   genChild(vnode, fncomp)
 }
@@ -105,7 +129,7 @@ function runWorker(fiber) {
   // console.log(fiber)
   // 执行当前任务，返回下一个子任务
   const { type } = fiber
-  console.log(type)
+  // console.log(type)
   if (typeof type === 'function') {
     type.isReactComponent ? updateClassComponent(fiber) : updateFunctionComponent(fiber)
   } else if (type) {
@@ -138,9 +162,11 @@ function commitWorker(fiber) {
     parentNodeFiber = parentNodeFiber.parent
   }
   let parentNode = parentNodeFiber.node
-  console.log(fiber)
-  if (fiber.node) {
+  // console.log(fiber)
+  if (fiber.effectTag === PLACEMENT && fiber.node) {
     parentNode.appendChild(fiber.node)
+  } else if (fiber.effectTag === UPDATE && fiber.node) {
+    updateNode(fiber.node, fiber.props)
   }
   commitWorker(fiber.child)
   commitWorker(fiber.sibling)
@@ -168,6 +194,33 @@ function workLoop(deadLine) {
 }
 window.requestIdleCallback(workLoop)
 
+// dom diff 的 过程
+function useState(init) {
+  // const state = init
+  const oldHook = currentFiber.base && currentFiber.base.hooks[hookIndex]
+  const hook = {
+    state: oldHook ? oldHook.state : init,
+    actionList: []
+  }
+  const actions = oldHook ? oldHook.actionList : []
+  actions.forEach(action => {
+    hook.state = hook.state + action
+  })
+  const setState = action => {
+    hook.actionList.push(action)
+    // console.log(action)
+    // 更新工作中节点
+    progressRoot = {
+      node: currentRoot.node,
+      props: currentRoot.props,
+      base: currentRoot
+    }
+    nextWorker = progressRoot
+  }
+  currentFiber.hooks.push(hook)
+  hookIndex++
+  return [hook.state, setState]
+}
 export default {
-  render
+  render, useState
 }
