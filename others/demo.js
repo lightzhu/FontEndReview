@@ -1,4 +1,4 @@
-const { co, asyncAwait } = require('./utils')
+const { co, asyncAwait } = require('../utils')
 function promiseFn(d) {
   return new Promise(function (resolve, reject) {
     setTimeout(() => {
