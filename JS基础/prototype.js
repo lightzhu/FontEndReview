@@ -34,4 +34,3 @@ console.log(person.__proto__ === Person.prototype)
 // 所有构造函数的__proto__都是Function.prototype，那Function.prototype的__proto__
 Function.prototype.__proto__ === Object.prototype// true
 Object.prototype.__proto__ === null // true
-
