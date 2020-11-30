@@ -5,15 +5,15 @@ const actionCreator = {
   add: () => {
     return {
       type: 'ADD',
-      payload: 2,
+      payload: 2
     }
   },
   minus: () => {
     return {
       type: 'MINUS',
-      payload: 1,
+      payload: 1
     }
-  },
+  }
 }
 class ChildDemo extends Component {
   constructor(props) {
@@ -23,8 +23,17 @@ class ChildDemo extends Component {
   // add = () => {
   //   this.props.dispatch(actionCreator.add())
   // }
+  componentDidMount() {
+    window.addEventListener('popstate', () => {
+      console.log(window.history)
+    })
+  }
   add = () => {
     this.props.add()
+    history.pushState(null, null, 'www.baidu.com')
+    setTimeout(() => {
+      history.back()
+    }, 1000)
   }
   render() {
     console.log(this.props)
@@ -42,16 +51,16 @@ class ChildDemo extends Component {
 
 export default connect(
   // mapDispatchToProps
-  (state) => {
+  state => {
     return {
-      number: state,
+      number: state
     }
   },
   // mapDispatchToProps
   // 如果不指定mapDispatchToProps，默认props会被注入dispatch本身
   // 可以是一个obj
   {
-    add: () => actionCreator.add(111),
+    add: () => actionCreator.add(111)
   }
   // 可以是一个方法
   // (dispatch, ownProps) => {

@@ -105,3 +105,42 @@ const heapify = (array, i, length) => {
   }
 }
 
+// 数组扁平化
+function _flat(arr) {
+  let newArr = []
+  deepFlat(arr)
+  function deepFlat(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] instanceof Array) {
+        deepFlat(arr[i])
+      } else {
+        if (newArr.indexOf(arr[i]) == -1) {
+          newArr.push(arr[i])
+        }
+      }
+    }
+  }
+  return newArr.sort((a, b) => {
+    return a - b
+  })
+}
+var arr0 = [[1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14]]]], 10];
+console.log(_flat(arr0))
+// 实现打印 0-9，三种方式
+// for (var i = 0; i < 10; i++) {
+//   (function (j) {
+//     setTimeout(() => {
+//       console.log(j);
+//     }, 1000)
+//   })(i)
+// }
+// for (let i = 0; i < 10; i++) {
+//   setTimeout(() => {
+//     console.log(i);
+//   }, 1000)
+// }
+for (var i = 0; i < 10; i++) {
+  setTimeout((i) => {
+    console.log(i);
+  }, 1000, i)
+}
