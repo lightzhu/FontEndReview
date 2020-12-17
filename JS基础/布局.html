@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>布局</title>
+  <style>
+    section {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="float">
+    <style>
+      .float .left {
+        float: left;
+        background: red;
+        height: 50px;
+        width: 200px;
+      }
+
+      .float .right {
+        float: right;
+        background: gold;
+        height: 50px;
+        width: 200px;
+      }
+
+      .float .center {
+        height: 50px;
+        background: green;
+      }
+    </style>
+    <div class='left'></div>
+    <div class='right'></div>
+    <article class='center'>
+      shjdkadfkjafdkasflkslkfskld
+    </article>
+  </section>
+  <section class="position">
+    <style>
+      .position {
+        position: relative;
+      }
+
+      .position .left {
+        position: absolute;
+        left: 0;
+        background: red;
+        height: 50px;
+        width: 200px;
+      }
+
+      .position .right {
+        position: absolute;
+        right: 0;
+        background: gold;
+        height: 50px;
+        width: 200px;
+      }
+
+      .position .center {
+        height: 50px;
+        background: green;
+        margin: 0 200px;
+      }
+    </style>
+    <div class='left'></div>
+    <div class='right'></div>
+    <article class='center'>
+      shjdkadfkjafdkasflkslkfskld
+    </article>
+  </section>
+  <section class="flex">
+    <style>
+      .flex {
+        display: flex;
+
+      }
+
+      .flex>div {
+        width: 200px;
+        background: pink;
+      }
+
+      .flex .center {
+        flex: 1;
+      }
+    </style>
+    <div class='left'></div>
+    <article class='center'>
+      shjdkadfkjafdkasflkslkfskld
+    </article>
+    <div class='right'></div>
+  </section>
+  <section class="table">
+    <style>
+      .table {
+        display: table;
+        width: 100%;
+      }
+
+      .table>div {
+        display: table-cell;
+        width: 200px;
+        background: pink;
+      }
+
+      .table .center {
+        display: table-cell;
+      }
+    </style>
+    <div class='left'></div>
+    <article class='center'>
+      shjdkadfkjafdkasflkslkfskld
+    </article>
+    <div class='right'></div>
+  </section>
+  <section class="grid">
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: 200px auto 200px;
+      }
+
+      .grid>div {
+        background: pink;
+      }
+    </style>
+    <div class='left'></div>
+    <article class='center'>
+      shjdkadfkjafdkasflkslkfskld
+    </article>
+    <div class='right'></div>
+  </section>
+  <section>
+    <style>
+      .top {
+        background-color: red;
+        /* height: 100px; */
+        margin: 100px;
+        overflow: hidden;
+        /* display: flex; */
+      }
+
+      .inner {
+        height: 100px;
+        width: 500px;
+        float: left;
+        border: 1px solid green;
+      }
+
+      .bottom {
+        overflow: hidden;
+        background-color: pink;
+        height: 100px;
+        margin: 100px;
+      }
+    </style>
+    <div class="top">上
+      <div class='inner'></div>
+    </div>
+    <div class="bottom">下</div>
+  </section>
+</body>
+
+</html>

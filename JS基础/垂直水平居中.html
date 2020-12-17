@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .center {
+      height: 200px;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="center center1">
+    <style>
+      .center1 {
+        position: relative;
+      }
+
+      .box1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    </style>
+    <div class="box box1">
+      绝对定位居中
+    </div>
+  </section>
+  <section class="center center2">
+    <style>
+      .center2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <div class="box box2">
+      flex布局居中
+    </div>
+  </section>
+  <section class="center center3">
+    <style>
+      .center3 {
+        position: relative;
+      }
+
+      .box3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /* transform: translate(-50%, -50%); */
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+    </style>
+    <div class="box box3">
+      tranform居中或通过负margin
+    </div>
+  </section>
+  <section class="center center4">
+    <style>
+      .center4 {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100vw;
+      }
+
+      .box4 {
+        margin: 0 auto;
+      }
+    </style>
+    <div class="box box4">
+      display: table;居中
+    </div>
+  </section>
+  <section class="center center5">
+    <style>
+      .center5 {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box5 {
+        /* margin: 0 auto; */
+      }
+    </style>
+    <div class="box box5">
+      grid居中
+    </div>
+  </section>
+  <section class="center center6">
+    <style>
+      .center6 {
+        /* display: grid;
+        justify-content: center;
+        align-items: center; */
+        text-align: center;
+        line-height: 200px;
+      }
+
+      .box6 {
+        width: 90px;
+        height: auto;
+        vertical-align: middle;
+      }
+    </style>
+    <img src="http://resource.muyiy.cn/image/2019-07-24-060202.jpg" class="box6" alt="" srcset="">
+
+    <!-- <div class="box box5">
+        grid居中
+      </div> -->
+  </section>
+</body>
+
+</html>

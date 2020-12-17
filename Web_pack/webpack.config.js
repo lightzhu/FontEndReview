@@ -1,7 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
   entry: {
     index: './src/index.js',
@@ -29,7 +31,7 @@ module.exports = {
     hot: true,
     // hotOnly: true,
     before(app) {
-      // 客用于本地mock
+      // 可用于本地mock
       app.get('/api/getInfo', function (req, res) {
         res.json({ data: 'response-getInfo' });
       });
@@ -58,11 +60,11 @@ module.exports = {
           test: /react|react-dom/, // 正则规则验证，如果符合就提取 chunk,
           name: "react"
         },
-        // axios: {
-        //   chunks: "initial",
-        //   test: /axios/,
-        //   name: "axios"
-        // }
+        commons: {
+          name: 'commons',
+          chunks: 'initial',
+          minChunks: 2
+        }
       }
     },
   },
@@ -108,9 +110,6 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            // presets: [
-            //   "es2015", "react", "stage-0"
-            // ]
             presets: [
               [
                 "babel-preset-env", // 处理浏览器兼容语法
@@ -130,15 +129,16 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              outputPath: 'images/'
+              outputPath: 'images/',
+              limit: 1048 // 小于此值转成base64
             }
           }
         ]
+      },
+      {
+        test: /\.(eot|svg|jpg|png|woff|woff2|ttf)$/,
+        use: 'file-loader'
       }
-      // {
-      //   test: /\.(eot|svg|jpg|png|woff|woff2|ttf)$/,
-      //   use: 'url-loader'
-      // }
     ]
   },
   plugins: [
@@ -161,5 +161,12 @@ module.exports = {
       filename: "./style/[name].css",
       chunkFilename: "./style/[name].css"
     }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, './src/static'),
+        to: 'static/',
+        // ignore: ['.*']
+      }
+    ])
   ]
 }

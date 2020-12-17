@@ -8,6 +8,7 @@
     </keep-alive> -->
     <router-view />
     <!-- <RouterDemo /> -->
+    <router-link to="/communicate"></router-link>
   </div>
 </template>
 

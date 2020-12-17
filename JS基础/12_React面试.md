@@ -10,14 +10,14 @@
 
 - createStore 函数根据传入的 reducer 创建⼀个 store 对象来存储数据
 - 定义一个 getState 函数用于获取当前 store,实现一个 subscrib 用于更新订阅的组件
-- 当调用 createStore 的时候会 dispatch 一个初始化 action，使 store 走(default)初始化
+- 当调用 createStore 的时候会 dispatch 一个初始化 action（@@INIT ），使 store 走(default)初始化
 - 通过 dispatch 的 action 提交到 reducer 函数⾥，根据传⼊的 action 的 type，返回新的 state
 - 状态发生改变之后，触发 subscribe 的函数进行组件更新
 
 ## redux 为什么要把 reducer 设计成纯函数
 
 - 单一数据流 整个应用 state 都被储存在一个 store 里面,State 是只读的 唯一改变 state 的方法就是触发 action, action 是一个用于描述已发生事件的普通对象
-- reducer 的作用的是‘接收旧的 state 和 action，返回新的 state’,educer 的职责不允许有副作用，副作用简单来说就是不确定性，如果 reducer 有副作用，那么返回的 state 就不确定
+- reducer 的作用的是‘接收旧的 state 和 action，返回新的 state’,reducer 的职责不允许有副作用，副作用简单来说就是不确定性，如果 reducer 有副作用，那么返回的 state 就不确定
 - redux 的设计思想就是不产生副作用，数据更改的状态可回溯
 
 ## react-router 的实现原理
@@ -29,7 +29,7 @@
 ## BrowserRouter 与 HashRouter 对⽐
 
 - HashRouter 最简单，不需要服务器端渲染，靠浏览器的#的来区分 path 就可以，BrowserRouter 需要服务器端对不同的 URL 返回相同的 HTML
-- BrowserRouter 使⽤ HTML5 history API（ pushState，replaceState 和 popstate 事件），让⻚⾯的 UI 于 URL 同步。
+- BrowserRouter 使⽤ HTML5 history - 可以通过 pushState() .replaceState()等函数向 history 中添加路由信息，History.back() forward() .go()等操作可以触发 history 的 popstate,从而达到路由效果。
 
 ## React 基本原理
 
@@ -38,3 +38,25 @@
 - ReactDOM.render：当⾸次调⽤时，容器节点⾥的所有 DOM 元素都会被替换，
 - 调用 setState()方法，相同的 render() ⽅法会返回⼀棵不同的树。React 基于这两棵树之间的差别来进⾏⾼效的 dom 更新
 - React 中使用 fiber 及 window.requestIdleCallback()来实现这种高效的 diff 操作
+
+## flux 和 redux
+
+- Flux 的缺点为：一个应用可以拥有多个 store，多个 store 直接可能有依赖关系(相互引用);Store 封装了数据和处理数据的逻辑。
+- Redux 两个特点：在整个应用只提供一个 Store，它是一个扁平的树形结构，一个节点状态应该只属于一个组件;不允许修改数据。即不能修改老状态，只能返回一个新状态。
+
+## Component、PureComponent 与 function Component
+
+- 经过 React.createElement 处理之后，三个组件的区别就是 type 不一样了
+- 在 react-dom.development.js 中，ctor.prototype.isPureReactComponent 判断有没有这个标识，有就是 PureComponent，只会对 props 和 state 进行浅比较
+- class 组件之间复用状态逻辑困难，复杂组件变得不好理解
+
+## react 性能优化
+
+- 减少不必要的渲染，例如使用 shouldComponentUpdate、Purecomponent、Reactmemo
+- 缓存数据：useMemo 缓存参数，useCallback 缓存函数
+- 函数和对象尽量不要用内联方式，Router 中渲染函数使用 render 或者 children,不使用 component
+- 部滥用功能，比如 context、props,对于长列表可以分页
+
+## Route 渲染内容的三种⽅式
+
+- 优先级：children>component>render

@@ -1,21 +1,22 @@
 ## Vuex
 
-- 每一个 Vuex 里面有一个全局的 Store，包含着应用中的状态 State，这个 State 只是需要在组件中共享的数据，不用放所有的 State，这个 State 是单一的，和 Redux 类似，所以，一个应用仅会包含一个 Store 实例。单一状态树的好处是能够直接地定位任一特定的状态片段，在调试的过程中也能轻易地取得整个当前应用状态的快照。Vuex 通过 store 选项，把 state 注入到了整个应用中，这样子组件能通过 this.\$store 访问到 state 了。
+- 每一个 Vuex 里面有一个全局的 Store，包含着应用中的状态 State，这个 State 只是需要在组件中共享的数据，不用放所有的 State，这个 State 是单一的，和 Redux 类似，所以，一个应用仅会包含一个 Store 实例。单一状态树的好处是能够直接地定位任一特定的状态片段，在调试的过程中也能轻易地取得整个当前应用状态的快照。store 实例化的时候会在其构造函数中将 store 的 state 属性做响应式的处理。Vuex 通过 store 选项通过插件的形式把 state 注入到了整个应用中(挂载到 Vue.prototype)，这样子组件能通过 this.\$store 访问到 state 了。
 
 ## vue 实现原理
 
 - 数据响应式，模版引擎，渲染
 - Object.defineProperty 方法（vue3 中通过 Proxy）会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回这个对象。vue 中通过这种方式将所有的 data 数据进行层层的劫持，并将这些数据代理到 vm 实例上。
 - Observer:劫持监听所有属性，defineReactive（定义响应式）的时候创建一个 Dep 对象，用于保存对应依赖数据的 watcher。Dep 对象有两个功能：收集依赖，发布事件（批量更新）
-- Compile:模版编译。vue 中的模版最终绘编译成 js 代码，原理是借鉴 snabbdom 的方式，生成 h()函数(vue 中是\_c 函数)，函数生成对应的虚拟 dom（vnode）,“虚拟 DOM”是我们对由 Vue 组件树建立起来的整个 vnode 树的称呼
+- Compile:模版编译。vue 中的模版最终会通过 vue-loader 编译成 js(createElement 函数) 代码，原理是借鉴 snabbdom 的方式，生成 h()函数(vue 中是\_c 函数)，函数生成对应的虚拟 dom（vnode）,“虚拟 DOM”是我们对由 Vue 组件树建立起来的整个 vnode 树的称呼
 - 渲染：当页面初次渲染的时候会调用\_render 函数，过程中会访问到 data 中的数据，访问之前生成一个 watcher 对象，将此对象的 target 赋值成本身，在对应的 data 的 get 函数中将此 watcher 对象收集到对应值的 dep 对象中（这里是 vm 的关键），当下次 data 的更改会被 set 函数监听到，这个时候会调用对应 dep 对象的 notify 函数，其上的 watcher 对象依次更新，实现数据响应。\_update 会生成真实的 dom，初次 patch 的时候添加 dom 到对应的节点下面，
+- Vue 在更新 DOM 时是异步执行的。只要侦听到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据变更。如果同一个 watcher 被多次触发，只会被推入到队列中一次。这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。然后，在下一个的事件循环“tick”中，Vue 刷新队列并执行实际 (已去重的) 工作。Vue 在内部对异步队列尝试使用原生的 Promise.then、MutationObserver 和 setImmediate，如果执行环境不支持，则会采用 setTimeout(fn, 0) 代替。
 - patchVnode（diff）:包括三种类型操作：属性更新、文本更新、子节点更新
   - 新老节点均有 children 子节点，则对子节点进行 diff 操作，调用 updateChildren
   - 如果老节点没有子节点而新节点有子节点，先清空老节点的文本内容，然后为其新增子节点
   - 当新节点没有子节点而老节点有子节点的时候，则移除该节点的所有子节点
   - 当新老节点都无子节点的时候，只是文本的替换
   - updateChildren 主要作用是用一种较高效的方式比对新旧两个 VNode 的 children 得出最小操作补丁。执行一个双循环是传统方式，vue 中针对 web 场景特点做了特别的算法优化,这也是为什么循环生成的节点需要一个 key 属性，一方面为了重复利用已经生成的 dom,提高效率；另一方面，便于双循环比较。
-  - patch 的过程是实时更新 dom 的，而 vue 中批量更新的实现是通过浏览器微任务（Promise.resolve().then()）实现的
+  - patch 的过程是实时更新 dom 的，只要侦听到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据变更。如果同一个 watcher 被多次触发，只会被推入到队列中一次，而 vue 中批量更新的实现是通过浏览器微任务（Promise.resolve().then()）实现的
   - 概念：Observer：执行数据响应化；Compile：编译模板，初始化视图，收集依赖（更新函数、watcher 创建）；Watcher：执行更新函数（更新 dom）；Dep：管理多个 Watcher，批量更新
 
 ## Virtual DOM 真的比操作原生 DOM 快吗？
@@ -62,7 +63,7 @@
 
 ## vue-router 基本原理
 
-- 作为一个插件存在：实现 VueRouter 类和 install 方法
+- 作为一个插件存在：实现 VueRouter 类和 install 方法，$router 实例化的时候会在其构造函数中将 location相关的值做响应式的处理。Vue.use（Router）Vuex 通过通过插件的形式把 $router 注入到了整个应用中(挂载到 Vue.prototype)，router-veiw 通过属性的方式获取到\$router 的相关属性，根据 location 的变化动态匹配对应的组件。
 
 ```
 let Vue; // 引用构造函数，VueRouter中要使用 // 保存选项
