@@ -1,0 +1,842 @@
+[
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["滴滴", "快手", "掌门一对一", "高思教育"],
+      "is_favorite": false,
+      "qid": 19,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "**1）优化 Webpack 的构建速度**\n- 使用高版本的 Webpack （使用webpack4）\n- 多线程/多实例构建：HappyPack(不维护了)、thread-loader\n- 缩小打包作用域：\n  - exclude/include (确定 loader 规则范围)\n  - resolve.modules 指明第三方模块的绝对路径 (减少不必要的查找)\n  - resolve.extensions 尽可能减少后缀尝试的可能性\n  - noParse 对完全不需要解析的库进行忽略 (不去解析但仍会打包到 bundle 中，注意被忽略掉的文件里不应该包含 import、require、define 等模块化语句)\n  - IgnorePlugin (完全排除模块)\n  - 合理使用alias\n- 充分利用缓存提升二次构建速度：\n  - babel-loader 开启缓存\n  - terser-webpack-plugin 开启缓存\n  - 使用 cache-loader 或者 hard-source-webpack-plugin\n注意：thread-loader 和 cache-loader 兩個要一起使用的話，請先放 cache-loader 接著是 thread-loader 最後才是 heavy-loader\n- DLL：\n  - 使用 DllPlugin 进行分包，使用 DllReferencePlugin(索引链接) 对 manifest.json 引用，让一些基本不会改动的代码先打包成静态资源，避免反复编译浪费时间。\n\n2）使用webpack4-优化原因\n- (a)V8带来的优化（for of替代forEach、Map和Set替代Object、includes替代indexOf）\n- (b)默认使用更快的md4 hash算法\n- (c)webpacks AST可以直接从loader传递给AST，减少解析时间\n- (d)使用字符串方法替代正则表达式\n\n①noParse\n- 不去解析某个库内部的依赖关系\n- 比如jquery 这个库是独立的， 则不去解析这个库内部依赖的其他的东西\n- 在独立库的时候可以使用\n```js\nmodule.exports = {\n  module: {\n    noParse: /jquery/,\n    rules:[]\n  }\n}\n```\n\n②IgnorePlugin\n- 忽略掉某些内容 不去解析依赖库内部引用的某些内容\n- 从moment中引用 ./locol 则忽略掉\n- 如果要用local的话 则必须在项目中必须手动引入 import 'moment/locale/zh-cn'\nmodule.exports = {\n  plugins: [\n    new Webpack.IgnorePlugin(/\\.\\/local/, /moment/),\n  ]\n}\n\n③dillPlugin\n- 不会多次打包， 优化打包时间\n- 先把依赖的不变的库打包\n- 生成 manifest.json文件\n- 然后在webpack.config中引入\n- webpack.DllPlugin Webpack.DllReferencePlugin\n\n④happypack -> thread-loader\n- 大项目的时候开启多线程打包\n- 影响前端发布速度的有两个方面，一个是构建，一个就是压缩，把这两个东西优化起来，可以减少很多发布的时间。\n\n⑤thread-loader\nthread-loader 会将您的 loader 放置在一个 worker 池里面运行，以达到多线程构建。\n把这个 loader 放置在其他 loader 之前（如下图 example 的位置）， 放置在这个 loader 之后的 loader 就会在一个单独的 worker 池(worker pool)中运行。\n```js\n// webpack.config.js\nmodule.exports = {\n  module: {\n    rules: [\n      {\n        test: /\\.js$/,\n        include: path.resolve(\"src\"),\n        use: [\n          \"thread-loader\",\n          // 你的高开销的loader放置在此 (e.g babel-loader)\n        ]\n      }\n    ]\n  }\n}\n```\n每个 worker 都是一个单独的有 600ms 限制的 node.js 进程。同时跨进程的数据交换也会被限制。请在高开销的loader中使用，否则效果不佳\n\n⑥压缩加速——开启多线程压缩\n- 不推荐使用 webpack-paralle-uglify-plugin，项目基本处于没人维护的阶段，issue 没人处理，pr没人合并。\nWebpack 4.0以前：uglifyjs-webpack-plugin，parallel参数\n```js\nmodule.exports = {\n  optimization: {\n    minimizer: [\n      new UglifyJsPlugin({\n        parallel: true,\n      }),\n    ],\n  },};\n```\n- 推荐使用 terser-webpack-plugin\n```js\nmodule.exports = {\n  optimization: {\n    minimizer: [new TerserPlugin(\n      parallel: true   // 多线程\n    )],\n  },\n};\n```\n**2）优化 Webpack 的打包体积**\n- 压缩代码\n  - webpack-paralle-uglify-plugin\n  - uglifyjs-webpack-plugin 开启 parallel 参数 (不支持ES6)\n  - terser-webpack-plugin 开启 parallel 参数\n  - 多进程并行压缩\n  - 通过 mini-css-extract-plugin 提取 Chunk 中的 CSS 代码到单独文件，通过optimize-css-assets-webpack-plugin插件 开启 cssnano 压缩 CSS。\n- 提取页面公共资源：\n  - 使用 html-webpack-externals-plugin，将基础包通过 CDN 引入，不打入 bundle 中\n  - 使用 SplitChunksPlugin 进行(公共脚本、基础包、页面公共文件)分离(Webpack4内置) ，替代了 CommonsChunkPlugin 插件\n  - 基础包分离：将一些基础库放到cdn，比如vue，webpack 配置 external是的vue不打入bundle\n- Tree shaking\n  - purgecss-webpack-plugin 和 mini-css-extract-plugin配合使用(建议)\n  - 打包过程中检测工程中没有引用过的模块并进行标记，在资源压缩时将它们从最终的bundle中去掉(只能对ES6 Modlue生效) 开发中尽可能使用ES6 Module的模块，提高tree shaking效率\n  - 禁用 babel-loader 的模块依赖解析，否则 Webpack 接收到的就都是转换过的 CommonJS 形式的模块，无法进行 tree-shaking\n  - 使用 PurifyCSS(不在维护) 或者 uncss 去除无用 CSS 代码\n- Scope hoisting\n  - 构建后的代码会存在大量闭包，造成体积增大，运行代码时创建的函数作用域变多，内存开销变大。Scope hoisting 将所有模块的代码按照引用顺序放在一个函数作用域里，然后适当的重命名一些变量以防止变量名冲突\n  - 必须是ES6的语法，因为有很多第三方库仍采用 CommonJS 语法，为了充分发挥 Scope hoisting 的作用，需要配置 mainFields 对第三方模块优先采用 jsnext:main 中指向的ES6模块化语法\n- 图片压缩\n  - 使用基于 Node 库的 imagemin (很多定制选项、可以处理多种图片格式)\n  - 配置 image-webpack-loader\n- 动态Polyfill\n  - 建议采用 polyfill-service 只给用户返回需要的polyfill，社区维护。(部分国内奇葩浏览器UA可能无法识别，但可以降级返回所需全部polyfill)\n  - @babel-preset-env 中通过useBuiltIns: 'usage参数来动态加载polyfill。\n\n**3）speed-measure-webpack-plugin**\n简称 SMP，分析出 Webpack 打包过程中 Loader 和 Plugin 的耗时，有助于找到构建过程中的性能瓶颈。\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 19,
+        "subject": "",
+        "title": "webpack 做过哪些优化，开发效率方面、打包策略方面等等"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["玄武科技"],
+      "is_favorite": false,
+      "qid": 718,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "MVC，MVP和MVVM都是常见的软件架构设计模式（Architectural Pattern），它通过分离关注点来改进代码的组织方式。不同于设计模式（Design Pattern），只是为了解决一类问题而总结出的抽象方法，一种架构模式往往使用了多种设计模式。\n\n要了解MVC、MVP和MVVM，就要知道它们的相同点和不同点。不同部分是C(Controller)、P(Presenter)、VM(View-Model)，而相同的部分则是MV(Model-View)。\n\n### 一、Model&View\n\n**Model**\n\nModel层用于封装和应用程序的业务逻辑相关的数据以及对数据的处理方法。\n\n**View**\n\nView作为视图层，主要负责数据的展示。\n\n但对于一个应用程序，这远远是不够的，我们还需要响应用户的操作、同步更新View和Model。于是，在MVC中引入了控制器controller，让它来定义用户界面对用户输入的响应方式，它连接模型和视图，用于控制应用程序的流程，处理用户的行为和数据上的改变。\n\n### 二、MVC\n\n上个世纪70年代，美国施乐帕克研究中心，就是那个发明图形用户界面(GUI)的公司，开发了Smalltalk编程语言，并开始用它编写图形界面的应用程序。\n\n到了Smalltalk-80这个版本的时候，一位叫Trygve Reenskaug的工程师为Smalltalk设计了MVC（Model-View-Controller）这种架构模式，极大地降低了GUI应用程序的管理难度，而后被大量用于构建桌面和服务器端应用程序。\n\nMVC允许在不改变视图的情况下改变视图对用户输入的响应方式，用户对View的操作交给了Controller处理，在Controller中响应View的事件调用Model的接口对数据进行操作，一旦Model发生变化便通知相关视图进行更新。\n\n![MVC](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-718-mvc.png)\n\n\n**Model**\n\nModel层用来存储业务的数据，一旦数据发生变化，模型将通知有关的视图。\n\nModel和View之间使用了观察者模式，View事先在此Model上注册，进而观察Model，以便更新在Model上发生改变的数据。\n\n**View**\n\nview和controller之间使用了策略模式，View引入Controller的实例来实现特定的响应策略\n\n**Controller**\n\n控制器是模型和视图之间的纽带，MVC将响应机制封装在controller对象中，当用户和你的应用产生交互时，控制器中的事件触发器就开始工作了。\n\nMVC模式的业务逻辑主要集中在Controller，而前端的View其实已经具备了独立处理用户事件的能力，当每个事件都流经Controller时，这层会变得十分臃肿。而且MVC中View和Controller一般是一一对应的，捆绑起来表示一个组件，视图与控制器间的过于紧密的连接让Controller的复用性成了问题，如果想多个View共用一个Controller该怎么办呢？这里有一个解决方案：就是MVP\n\n### 三、MVP\n\nMVP（Model-View-Presenter）是MVC模式的改良，由IBM的子公司Taligent提出。和MVC的相同之处在于：Controller/Presenter负责业务逻辑，Model管理数据，View负责显示。\n\n![mvp](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-718-mvp.png)\n\n虽然在MVC里，View是可以直接访问Model的，但MVP中的View并不能直接使用Model，而是通过为Presenter提供接口，让Presenter去更新Model，再通过观察者模式更新View。\n\n与MVC相比，MVP模式通过解耦View和Model，完全分离视图和模型使职责划分更加清晰；由于View不依赖Model，可以将View抽离出来做成组件，它只需要提供一系列接口提供给上层操作。\n\n**Model**\n\nModel层依然是主要与业务相关的数据和对应处理数据的方法。\n\n**View**\n\nMVP定义了Presenter和View之间的接口，用户对View的操作都转移到了Presenter。\n\nView 非常薄，不部署任何业务逻辑，称为\"被动视图\"（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里\n\n**Presenter**\n\nPresenter作为View和Model之间的“中间人”，除了基本的业务逻辑外，还有大量代码需要对从View到Model和从Model到View的数据进行“手动同步”，这样Presenter显得很重，维护起来会比较困难。而且由于没有数据绑定，如果Presenter对视图渲染的需求增多，它不得不过多关注特定的视图，一旦视图需求发生改变，Presenter也需要改动。\n\n### 四、MVVM\n\nMVVM（Model-View-ViewModel）最早由微软提出。ViewModel指 \"Model of View\"——视图的模型。这个概念曾在一段时间内被前端圈热炒，以至于很多初学者拿jQuery和Vue做对比...\n\n![mvvm](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-718-mvvm.png)\n\nMVVM把View和Model的同步逻辑自动化了。以前Presenter负责的View和Model同步不再手动地进行操作，而是交给框架所提供的数据绑定功能进行负责，只需要告诉它View显示的数据对应的是Model哪一部分即可。\n\n基本上与 MVP 模式完全一致。唯一的区别是，它采用双向绑定（data-binding），View的变动，自动反映在 ViewModel，反之亦然。Angular 和 Ember 都采用这种模式。\n\n**Model**\n\n在MVVM中，我们可以把Model称为数据层，因为它仅仅关注数据本身，不关心任何行为（格式化数据由View的负责\n\n**View**\n\n和MVC/MVP不同的是，MVVM中的View通过使用模板语法来声明式的将数据渲染进DOM，当ViewModel对Model进行更新的时候，会通过数据绑定更新到View。\n\n**ViewModel**\n\nViewModel大致上就是MVC的Controller和MVP的Presenter了，也是整个模式的重点，业务逻辑也主要集中在这里，其中的一大核心就是数据绑定。\n\n与MVP不同的是，没有了View为Presente提供的接口，之前由Presenter负责的View和Model之间的数据同步交给了ViewModel中的数据绑定进行处理，当Model发生变化，ViewModel就会自动更新；ViewModel变化，Model也会更新。\n\n整体来看，比MVC/MVP精简了很多，不仅仅简化了业务与界面的依赖，还解决了数据频繁更新（以前用jQuery操作DOM很繁琐）的问题。因为在MVVM中，View不知道Model的存在，ViewModel和Model也察觉不到View，这种低耦合模式可以使开发过程更加容易，提高应用的可重用性。\n\n### 五、总结\n\nMV*的目的是把应用程序的数据、业务逻辑和界面这三块解耦，分离关注点，不仅利于团队协作和测试，更有利于维护和管理。业务逻辑不再关心底层数据的读写，而这些数据又以对象的形式呈现给业务逻辑层。从 MVC --> MVP --> MVVM，就像一个打怪升级的过程，它们都是在MVC的基础上随着时代和应用环境的发展衍变而来的。\n\n在我们纠结于使用什么架构模式或框架的时候，不如先了解它们。静下来思考业务场景和开发需求，不同需求下会有最适合的解决方案。我们使用这个框架就代表认同它的思想，相信它能够提升开发效率解决当前的问题，而不仅仅是因为大家都在学。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 718,
+        "subject": "",
+        "title": "请说出前端框架设计模式(MVVM 或 MVP 又或 MVC)的含义以及原理"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["乘法云"],
+      "is_favorite": false,
+      "qid": 743,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "**持久化缓存**\n\n- 服务端设置 HTTP 缓存头（Cache-Control等）。\n- 打包依赖（dependencies）和运行时（runtime）到不同 chunk（在 webpack 中，编译后的单独文件称为chunk），即作 splitChunks，因为它们几乎是不变的。\n- 延迟加载：使用 `import()` 方式，可以将动态加载的文件分到独立的 chunk，以得到自己的 chunkhash\n- 保证 hash 值稳定：编译过程和文件内容的更改尽量不影响其他文件 hash 的计算。对于低版本 webpack 生成的增量数字 ID 不稳定问题，可用 `HashedModuleIdsPlugin` 基于文件路径生成解决。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 743,
+        "subject": "",
+        "title": "如何实现 webpack 持久化缓存"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["高思教育"],
+      "is_favorite": false,
+      "qid": 727,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### 开发环境热更新优化方式\n\n**其实就是优化开发环境打包时间**\n\n在此之前，我们需要有一个量化的指标证明我们做的是有意义的。 **speed-measure-webpack-plugin**可以测量各个插件和loader的使用时间，量化指标。\n\n1. 关闭文件名 hash 功能\n2. 关闭压缩功能\n3. 如果必须使用 source-map，选择 eval 或 eval-cheap-source-map 速度更快\n4. 使用多线程：如 thread-loader。另外对于有类型检查的语言（如TypeScript），将类型检查与代码编译分到不同线程执行（如fork-ts-checker-webpack-plugin），虽然关闭检查可能更快，但是不建议这么做\n5. 开启缓存：如 cache-loader、ard-source-webpack-plugin 等",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 727,
+        "subject": "",
+        "title": "开发环境热更新的优化方式"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["玄武科技"],
+      "is_favorite": false,
+      "qid": 717,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、JavaScript 进行压缩、合并、打包实现的原理\n\n#### 压缩原理\n\n1. 去掉注释代码\n2. 去掉换行符，空格等\n3. 规范的变量名、函数名对于代码阅读有很大的帮助，但是对于机器来说，没有太多意义，所以缩短变量名长度，可以有效减少代码文件的体积\n\n#### 合并原理\n\n合并即多个JavaScript代码后在输出，Nginx有个concat模块可以多个资源合并在输出；\n\n另外可以自建Combo服务，从URL中获取对应需要获取的静态资源名，再从对应文件中获取后合并输出。\n\n目前前端项目合并一般会在打包过程中已处理完。\n\n#### 打包原理\n\n模块化打包，一般至少有一个入口文件，从入口文件代码中，根据代码中出现的import或者require之类语法，解析推断出这个文件所依赖的资源模块，然后再去分别解析每个资源模块的依赖，最终形成整个项目所有用到文件自己的依赖关系树。之后根据这个依赖树对每个资源文件处理，其中过程可能有代码编译、优化等，结果会被打包到目标文件中\n\n### 二、为什么需要压缩、合并、打包\n\n1. 压缩可以减少JavaScript代码体积大小，加快HTTP请求速度\n2. 因为浏览器对同一个域名有并发请求限制，过多请求会导致HTTP请求队头阻塞等问题，合并可以减少HTTP请求数量\n3. 对于项目代码的模块化，一些规律性的重复工作，甚至是整个前端项目的工程化，提升效率打包工具必不可少\n\n### 三、分别列出一个种常用工具或插件？\n\n1. 压缩：UglifyjsWebpackPlugin\n2. 合并：Combo\n3. 打包：Webpack",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 717,
+        "subject": "",
+        "title": "请说明 JavaScript 进行压缩、合并、打包实现的原理是什么？为什么需要压缩、合并、打包？分别列出一种常用工具或插件"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["58"],
+      "is_favorite": false,
+      "qid": 737,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### webpack一些配置\n\n#### 1.优化 Webpack 的构建速度\n\n- 使用高版本的 Webpack （使用webpack4）\n- 多线程/多实例构建：HappyPack(不维护了)、thread-loader\n- 缩小打包作用域：\n  - exclude/include (确定 loader 规则范围)\n  - resolve.modules 指明第三方模块的绝对路径 (减少不必要的查找)\n  - resolve.extensions 尽可能减少后缀尝试的可能性\n  - noParse 对完全不需要解析的库进行忽略 (不去解析但仍会打包到 bundle 中，注意被忽略掉的文件里不应该包含 import、require、define 等模块化语句)\n  - IgnorePlugin (完全排除模块)\n  - 合理使用alias\n- 充分利用缓存提升二次构建速度：\n  - babel-loader 开启缓存\n  - terser-webpack-plugin 开启缓存\n  - 使用 cache-loader 或者 hard-source-webpack-plugin\n注意：thread-loader 和 cache-loader 兩個要一起使用的話，請先放 cache-loader 接著是 thread-loader 最後才是 heavy-loader\n- DLL：\n  - 使用 DllPlugin 进行分包，使用 DllReferencePlugin(索引链接) 对 manifest.json 引用，让一些基本不会改动的代码先打包成静态资源，避免反复编译浪费时间。\n\n\n#### 2.优化 Webpack 的打包体积\n- 压缩代码\n  - webpack-paralle-uglify-plugin\n  - uglifyjs-webpack-plugin 开启 parallel 参数 (不支持ES6)\n  - terser-webpack-plugin 开启 parallel 参数\n  - 多进程并行压缩\n  - 通过 mini-css-extract-plugin 提取 Chunk 中的 CSS 代码到单独文件，通过optimize-css-assets-webpack-plugin插件 开启 cssnano 压缩 CSS。\n- 提取页面公共资源：\n  - 使用 html-webpack-externals-plugin，将基础包通过 CDN 引入，不打入 bundle 中\n  - 使用 SplitChunksPlugin 进行(公共脚本、基础包、页面公共文件)分离(Webpack4内置) ，替代了 CommonsChunkPlugin 插件\n  - 基础包分离：将一些基础库放到cdn，比如vue，webpack 配置 external是的vue不打入bundle\n- Tree shaking\n  - purgecss-webpack-plugin 和 mini-css-extract-plugin配合使用(建议)\n  - 打包过程中检测工程中没有引用过的模块并进行标记，在资源压缩时将它们从最终的bundle中去掉(只能对ES6 Modlue生效) 开发中尽可能使用ES6 Module的模块，提高tree shaking效率\n  - 禁用 babel-loader 的模块依赖解析，否则 Webpack 接收到的就都是转换过的 CommonJS 形式的模块，无法进行 tree-shaking\n  - 使用 PurifyCSS(不在维护) 或者 uncss 去除无用 CSS 代码\n- Scope hoisting\n  - 构建后的代码会存在大量闭包，造成体积增大，运行代码时创建的函数作用域变多，内存开销变大。Scope hoisting 将所有模块的代码按照引用顺序放在一个函数作用域里，然后适当的重命名一些变量以防止变量名冲突\n  - 必须是ES6的语法，因为有很多第三方库仍采用 CommonJS 语法，为了充分发挥 Scope hoisting 的作用，需要配置 mainFields 对第三方模块优先采用 jsnext:main 中指向的ES6模块化语法\n- 图片压缩\n  - 使用基于 Node 库的 imagemin (很多定制选项、可以处理多种图片格式)\n  - 配置 image-webpack-loader\n- 动态Polyfill\n  - 建议采用 polyfill-service 只给用户返回需要的polyfill，社区维护。(部分国内奇葩浏览器UA可能无法识别，但可以降级返回所需全部polyfill)\n  - @babel-preset-env 中通过useBuiltIns: 'usage参数来动态加载polyfill。\n\n#### 3.其它一些配置\n\n**1）开启多核压缩**\n\n插件：`terser-webpack-plugin`\n\n```js\nconst TerserPlugin = require('terser-webpack-plugin')\nmodule.exports = {\n    optimization: {\n        minimizer: [\n            new TerserPlugin({\n                parallel: true,\n                terserOptions: {\n                    ecma: 6,\n                },\n            }),\n        ]\n    }\n}\n```\n\n**2）监控面板**\n\n插件：**speed-measure-webpack-plugin**\n在打包的时候显示出每一个loader,plugin所用的时间，来精准优化\n```js\n// webpack.config.js文件\nconst SpeedMeasurePlugin = require('speed-measure-webpack-plugin');\nconst smp = new SpeedMeasurePlugin();\n//............\n// 用smp.warp()包裹一下合并的config\nmodule.exports = smp.wrap(merge(_mergeConfig, webpackConfig));\n```\n\n**3）开启一个通知面板**\n\n插件：**webpack-build-notifier**\n\n```js\n// webpack.config.js文件\nconst WebpackBuildNotifierPlugin = require('webpack-build-notifier');\nconst webpackConfig= {\n    plugins: [\n        new WebpackBuildNotifierPlugin({\n            title: '我的webpack',\n            // logo: path.resolve('./img/favicon.png'),\n            suppressSuccess: true\n        })\n    ]\n}\n```\n\n\n**4）开启打包进度**\n\n插件：**progress-bar-webpack-plugin**\n\n```js\n// webpack.config.js文件\nconst ProgressBarPlugin = require('progress-bar-webpack-plugin');\nconst webpackConfig= {\n    plugins: [\n        new ProgressBarPlugin(),\n    ]\n}\n```\n\n\n**5）开发面板更清晰**\n\n插件：**webpack-dashboard** \n\n```js\n// webpack.config.js文件\nconst DashboardPlugin = require('webpack-dashboard/plugin');\nconst webpackConfig= {\n    plugins: [\n        new DashboardPlugin()\n        ]\n}\n```\n```js\n// package.json文件\n{\n  \"scripts\":{\n    \"dev\":\"webpack-dashboard webpack --mode development\",\n  },\n}\n```\n\n\n\n**6）开启窗口的标题**\n\n**node-bash-title** \n这个包mac的item用有效果，windows暂时没看到效果\n\n```js\n// webpack.config.js文件\nconst setTitle = require('node-bash-title');\nsetTitle('server');\n```\n\n\n**7）friendly-errors-webpack-plugin**\n\n插件：**friendly-errors-webpack-plugin**\n\n```js\nnew FriendlyErrorsWebpackPlugin({\n    compilationSuccessInfo: {\n        messages: ['You application is running here http://localhost:3000'],\n        notes: ['Some additionnal notes to be displayed unpon successful compilation']\n    },\n    onErrors: function (severity, errors) {\n        // You can listen to errors transformed and prioritized by the plugin\n        // severity can be 'error' or 'warning'\n    },\n    // should the console be cleared between each compilation?\n    // default is true\n    clearConsole: true,\n    \n    // add formatters and transformers (see below)\n    additionalFormatters: [],\n    additionalTransformers: []\n}),\n```\n\n**8）配置性能分析工具**\n\n`speed-measure-webpack-plugin`，简称 SMP，分析出 Webpack 打包过程中 Loader 和 Plugin 的耗时，有助于找到构建过程中的性能瓶颈。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 737,
+        "subject": "",
+        "title": "你是怎么配置开发环境的？"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["微医"],
+      "is_favorite": false,
+      "qid": 506,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### 1）Webpack 做了什么\n\n1. webpack本质上只是一个js引用程序的静态打包器, 他能够基于文件的依赖，递归的构建一个文件依赖关系图, 最终将文件打包成为一个或者多个bundle;\n2. webpack基于entry识别那个/哪些模块是构建打包的入口;\n3. webpack基于output, 将构建打包的文件输出到指定的目录;\n4. 从入口文件出发,调用所有配置的 Loader 对模块进行翻译,再找出该模块依赖的模块,再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理。\n5. 经过 Loader 翻译完所有模块后,得到了每个模块被翻译后的最终内容以及它们之间的依赖关系。根据入口和模块之间的依赖关系,组装成一个个包含多个模块的 Chunk,再把每个 Chunk 转换成一个单独的文件加入到输出列表\n\n#### 2）webpack构建时有无做一些自定义操作\n\n做的一些自定义操作\n\n1. alias: 指定别名, 能在一定程度上降低开发对文件路径的输入难度, 缓存路径能些微提升打包速度;\n2. module对loader处理添加fallback, 能在loader处理中, 依次进行指定的预处理或后处理, 自定义loader组件也可以在此进行特殊替换;\n3. optimization - splitChunks - cacheGroups 自定义打包中的性能优化部分, 对共用模块的拆分, 识别以及提取后的指定工作;\n4. 自定义的plugins配置: CopyWebpackPlugin对静态文件的拷贝, ProgressBarPlugin打包进度的监控, HappyPack多线程打包等等;\n5. stats调整打包过程中控制台的输出, 详细到每个文件的大小, 耗时及打包状态(warning)等各种显示优化;\n6. devServer - before: 添加打包前的优化, 可以实现较为简洁的mock数据",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 506,
+        "subject": "",
+        "title": "Webpack 做了什么？使用 webpack 构建时有无做一些自定义操作？"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["会小二"],
+      "is_favorite": false,
+      "qid": 619,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 区别\n\ngit pull的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并。\n\n在默认模式下，git pull是git fetch后跟git merge FETCH_HEAD的缩写\n\ngit pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。\n\n使用--rebase，它运行git rebase而不是git merge。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 619,
+        "subject": "",
+        "title": "git pull -rebase 和 git pull 的区别是什么？"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 641,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 优化 Webpack 的打包体积\n\n#### 1.压缩代码\n\n- **webpack-paralle-uglify-plugin**\n- **uglifyjs-webpack-plugin** 开启 parallel 参数 (不支持ES6)\n- **terser-webpack-plugin** 开启 parallel 参数\n- 多进程并行压缩\n- 通过 **mini-css-extract-plugin** 提取 Chunk 中的 CSS 代码到单独文件，通过 **optimize-css-assets-webpack-plugin** 插件 开启 cssnano 压缩 CSS。\n\n#### 2.提取页面公共资源\n\n- 使用 **html-webpack-externals-plugin** ，将基础包通过 CDN 引入，不打入 bundle 中\n- 使用 **SplitChunksPlugin** 进行(公共脚本、基础包、页面公共文件)分离(Webpack4内置) ，替代了 **CommonsChunkPlugin** 插件\n- 基础包分离：将一些基础库放到cdn，比如vue，webpack 配置  **external** 是的vue不打入bundle\n\n#### 3.Tree shaking\n\n- **purgecss-webpack-plugin** 和 **mini-css-extract-plugin** 配合使用(建议)\n- 打包过程中检测工程中没有引用过的模块并进行标记，在资源压缩时将它们从最终的bundle中去掉(只能对ES6 Modlue生效) 开发中尽可能使用ES6 Module的模块，提高tree shaking效率\n- 禁用 babel-loader 的模块依赖解析，否则 Webpack 接收到的就都是转换过的 CommonJS 形式的模块，无法进行 tree-shaking\n- 使用 PurifyCSS(不在维护) 或者 uncss 去除无用 CSS 代码\n\n#### 4.Scope hoisting\n\n- 构建后的代码会存在大量闭包，造成体积增大，运行代码时创建的函数作用域变多，内存开销变大。Scope hoisting 将所有模块的代码按照引用顺序放在一个函数作用域里，然后适当的重命名一些变量以防止变量名冲突\n- 必须是ES6的语法，因为有很多第三方库仍采用 CommonJS 语法，为了充分发挥 Scope hoisting 的作用，需要配置 mainFields 对第三方模块优先采用 jsnext:main 中指向的ES6模块化语法\n\n#### 5.图片压缩\n\n- 使用基于 Node 库的 **imagemin** (很多定制选项、可以处理多种图片格式)\n- 配置 **image-webpack-loader**\n\n#### 6.动态Polyfill\n\n- 建议采用 **polyfill-service** 只给用户返回需要的polyfill，社区维护。(部分国内奇葩浏览器UA可能无法识别，但可以降级返回所需全部polyfill)\n- **@babel-preset-env** 中通过 `useBuiltIns: 'usage` 参数来动态加载polyfill。\n\n#### 7.借助工具分析性能瓶颈\n\n**speed-measure-webpack-plugin** ，简称 SMP，分析出 Webpack 打包过程中 Loader 和 Plugin 的耗时，有助于找到构建过程中的性能瓶颈。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 641,
+        "subject": "",
+        "title": "Webpack 打包出来的体积太大，如何优化体积？"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["微医"],
+      "is_favorite": false,
+      "qid": 505,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n#### 1.Hash\n\nwebpack 生态中存在多种计算 hash 的方式：\n\n- hash\n- chunkhash\n- contenthash。\n\n**hash** 代表每次 webpack 编译中生成的 hash 值，所有使用这种方式的文件 hash 都相同。每次构建都会使 webpack 计算新的 hash。\n\n**chunkhash** 基于入口文件（entry）及其关联的 chunk 生成，某个文件的改动只会影响与它有关联的 chunk 的 hash 值，不会影响其他文件。\n\n**conenthash** 根据文件内容创建。当文件内容发生变化时，contenthash 发生变化。\n\n#### 2.避免相同随机值\n\nwebpack 在计算 hash 后分割 chunk。产生相同随机值可能是因为这些文件属于同一个 chunk，可以将某一个文件提到独立的 chunk（如放入 entry）",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 505,
+        "subject": "",
+        "title": "Webpack 打包时 Hash 码是怎么生成的？随机值存在一样的情况，如何避免？"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 590,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 高效的gulp\n\n我们需要知道gulp打包的是哪些场景问题\n\ngulp主打`简单` ,`高效`, `生态`\n\ngulp内部使用的是node流机制 , 流自然就是不需要说了 , 是一种相当高效且不占内存的一种数据格式 , 它并不会过多的占用node的堆内内存 , 而且所占内存的最大值在30m以内 , 在流向最后一个消费者才会写入磁盘中 , 在打包过程中 , 并不会占用磁盘空间或者是内存\n\n#### 1.node + gulp打造高效开发体验面向未来开发\n\n我们需要清晰的明白gulp如何正确切入node\n\n**nodejs的痛点---es支持度**\n\n由于es版本发布是相当快的 , 以及一些标准也是很超前的 , 但是node作为运行在服务端的js代码 , 对于这些es版本支持的新特性是不会更新这么快的\n\n首当其冲的就是node对es的支持\n\n在node历史长流中 , 要到2019年11月21日的13.2版本才正式支持 ESModule 特效\n\n在13.2版本中的Stability 0 , 1, 2中 \n\n在生产模式只能使用 Stability 2 稳定版的api , 而且在这个版本中nodejs默认启用对ES模块的实验支持 , 就是说 , 这里已经是默认允许我们在任何环境使用实验中的api了 ,  当然即使这些实验中的api不稳定\n\n在以往的Node.js 8.9.0之后的版本中需要在启动项目时需要制定特定的参数 `--experimental-modules` , 开启对es支持以及对实验性api支持\n\n主流浏览器都能通过`<script type=”module”>`标签支持ECMAScript 模块 (ES modules) 。各种项目npm包都使用了ES模块编写，并且可以通过`<script type= \" module \" >`在浏览器中直接使用。支持导入映射（import maps）即将登陆Chrome。import map将让浏览器支持node.js风格的包名导入\n\n基于这个问题 , 在node开发中引入一个中间处理器以支持我们面向未来开发的方式\n\n#### 2.打包工具的对比\n\ngulp / Rollup / webpack\n\n首先对于node程序的打包要求 , 这里简单说几点\n\n1. 在打包后需支持最新的es版本\n2. 打包编译速度不能太慢 , 这样对开发进度可控\n3. 打包后的文件结构不能发生变化 , 如有需要可发生一点点变化\n4. 配置文件友好\n\n首先第一排除的就是webpack , 因为webpack配置起来是比较麻烦的 , 而且还有很多插件需要版本兼容 ; 在第三点中 , 打包后文档结构不能发生变化 , 这样就可以放弃Rollup了 , 因为Rollup号称将所有小文件打包成一个大的lib或者是bin文件 , 就是Rollup是适合多人共同开发一个库 , 比较出名的vue就是使用Rollup打包工具进行打包的\n\n那么这里选择gulp的理由是 , 第一: 编译速度快 , 第二 : 开发并不占用很多的电脑内存空间 , 第三 , 保持文件结构不变 ; 同时gulp还能有rollup同样的功能 , 可以生成cjs或者是mjs格式的js文件\n\n#### 3.gulp打包流程\n\n我们先看一下如何使用gulp打包node项目, 下面是一个简单的示例\n\n```js\n├── app.js\n├── config\n│   └── index.js\n├── controllers\n│   └── IndexController.js\n├── libs\n│   └── SafeRequest.js\n├── logs\n│   └── app.log\n├── middlewares\n│   └── errorHandler.js\n└── services\n    └── IndexController.js\n```\n\n除了logs的文件不需要进行文件转换 , 其他文件都是需要进行es转换的\n\n对于es的转换 , 首先想到的很明显就是babel了 , 所以我们的build文件就如下\n\n```js\nconst gulp, { series } = require('gulp');\nconst watch = require('gulp-watch');\nconst babel = require('gulp-babel');\nconst plumber = require('gulp-plumber'); // 保证在构建流中,一些error 不会影响构建流 , plumber会将这些error unpipe()掉\n\nconst entry = './src/server/**/*.js'; // 需要打包的文件\nconst rollup = require('gulp-rollup');\n\nconst cleanEntry = './src/server/config/index.js';\nconst replace = require('@rollup/plugin-replace');\n\n/* 同时我们需要区分生产环境和开发环境, 同时为了功能分开, 同时还有新起一个转换环境 */\n\n// 开发环境\nfunction buildDev() {\n  return watch(entry, { ignoreInitial: false },\n    () => {\n      gulp\n        .src(entry)\n        .pipe(plumber())\n        .pipe(\n          babel({\n            babelrc: false,\n            plugins: [ /* @babel/plugin-proposal-decorators支持使用装饰器; @babel/plugin-transform-modules-commonjs支持es6开发  */\n              ['@babel/plugin-proposal-decorators', { legacy: true }],\n              '@babel/plugin-transform-modules-commonjs',\n            ],\n          }),\n        )\n        .pipe(gulp.dest('dist'));/*输出到对应的文件中*/\n    })\n}\n\n// 上线环境, 上线环境和开发环境差不多, 只是少了一个watch过程\nfunction buildProd() {\n  return gulp\n    .src(entry)\n    .pipe(\n      babel({\n        babelrc: false,\n        ignore: [cleanEntry],\n        plugins: [\n          ['@babel/plugin-proposal-decorators', { legacy: true }],\n          '@babel/plugin-transform-modules-commonjs',\n        ],\n      }),\n    )\n    .pipe(gulp.dest('dist'));\n}\n\n// 转换环境, 这里就是将我们开发时使用的装饰器和es6,7,8代码转换成nodejs长期支持版本支持的语法\nfunction buildconfig() {\n  return gulp\n    .src(entry)\n    .pipe(\n      rollup({\n        input: cleanEntry,\n        output: {/* 输出的格式 */\n          format: 'cjs',\n        },\n        plugins: [\n          replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),\n        ],\n      }),\n    )\n    .pipe(gulp.dest('./dist'));\n}\n\n/* 环境区分 */\nlet build = gulp.series(buildDev);\nif (process.env.NODE_ENV === 'production') {\n  build = gulp.series(buildprod, buildconfig);\n}\ngulp.task('default', build); // 进行构建任务, 这里的default是一个任务名称, 可以自行命名\n\n\n/*\n开发环境注意 , 初次执行\n调用 watch() 之后，关联的任务（task）是不会被立即执行的，而是要等到第一次文件修之后才执行。\n\n如需在第一次文件修改之前执行，也就是调用 watch() 之后立即执行，请将 ignoreInitial 参数设置为 false。\ndelay: 保存文件后延迟多少时间执行\n*/\n/*\nGulp 有一个名为 fsevents 的可选依赖项，他是一个特定于 Mac 系统的文件监控程序。如果你看到安装 fsevents 时出现的警告信息 - \"npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents\" - 这并不是什么问题，忽略即可。 如果跳过 fsevents 的安装，将使用一个备用文件监控程序，后续在 gulpfile 中产生的任何错误都将与此警告无关。\n*/\n/*\nseries(), 接收多个参数, 表示执行多个任务\n*/\n```\n\n以上就是使用gulp打包node的一个简单配置文件, 同时为了让我们gulp打包更加灵活 , 我们需要对多个打包工具进行合并 ,  比如当团队开发的时候 , 需要开发服务中的util包 , 这时候 , 我们就要新开辟一个util包的入口文件 , 这里就可以使用rollup进行打包util了 ;",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 590,
+        "subject": "",
+        "title": "为什么用 gulp 打包 node"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["酷狗"],
+      "is_favorite": false,
+      "qid": 685,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 一、基础概念\n\n1. **Webpack Compiler:** 将 JS 编译成 Bundle\n2. **Bundle Server:** 提供文件在浏览器的访问，实际上就是一个服务器\n3. **HMR Server:** 将热更新的文件输出给HMR Runtime\n4. **HMR Runtime:** 会被注入到bundle.js中，与HRM Server通过WebSocket链接，接收文件变化，并更新对应文件\n5. **bundle.js:** 构建输出的文件\n\n### 二、原理\n\n#### 1.启动阶段\n\n1. Webpack Compiler 将对应文件打包成bundle.js(包含注入的HMR Server)，发送给Bundler Server\n2. 浏览器即可以访问服务器的方式获取bundle.js\n\n#### 2.更新阶段(即文件发生了变化)\n\n1. Webpack Compiler 重新编译，发送给HMR Server\n2. HMR Server 可以知道有哪些资源、哪些模块发生了变化，通知HRM Runtime\n3. HRM Runtime更新代码\n\n### 三、HMR原理详解\n\n![hmr](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-685-hmr.png)\n\n使用webpack-dev-server去启动本地服务，内部实现主要使用了webpack、express、websocket。\n\n- 使用express启动本地服务，当浏览器访问资源时对此做响应。\n- 服务端和客户端使用websocket实现长连接\n- webpack监听源文件的变化，即当开发者保存文件时触发webpack的重新编译。\n  - 每次编译都会生成hash值、已改动模块的json文件、已改动模块代码的js文件\n  - 编译完成后通过socket向客户端推送当前编译的hash戳\n- 客户端的websocket监听到有文件改动推送过来的hash戳，会和上一次对比\n  - 一致则走缓存\n  - 不一致则通过ajax和jsonp向服务端获取最新资源\n- 使用内存文件系统去替换有修改的内容实现局部刷新\n\n#### 1.server端\n\n- 启动webpack-dev-server服务器\n- 创建webpack实例\n- 创建Server服务器\n- 添加webpack的done事件回调\n- 编译完成向客户端发送消息\n- 创建express应用app\n- 设置文件系统为内存文件系统\n- 添加webpack-dev-middleware中间件\n- 中间件负责返回生成的文件\n- 启动webpack编译\n- 创建http服务器并启动服务\n- 使用sockjs在浏览器端和服务端之间建立一个 websocket 长连接\n- 创建socket服务器\n\n#### 2.client端\n\n- webpack-dev-server/client端会监听到此hash消息\n- 客户端收到ok的消息后会执行reloadApp方法进行更新\n- 在reloadApp中会进行判断，是否支持热更新，如果支持的话发射webpackHotUpdate事件，如果不支持则直接刷新浏览器\n- 在webpack/hot/dev-server.js会监听webpackHotUpdate事件\n- 在check方法里会调用module.hot.check方法\n- HotModuleReplacement.runtime请求Manifest\n- 它通过调用 JsonpMainTemplate.runtime的hotDownloadManifest方法 \n- 调用JsonpMainTemplate.runtime的hotDownloadUpdateChunk方法通过JSONP请求获取到最新的模块代码  \n- 补丁JS取回来后会调用JsonpMainTemplate.runtime.js的webpackHotUpdate方法 \n- 然后会调用HotModuleReplacement.runtime.js的hotAddUpdateChunk方法动态更新模块代码 \n- 然后调用hotApply方法进行热更新",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 685,
+        "subject": "",
+        "title": "Webpack 热更新的原理"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 324,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "**CSS 内联的核心思路是**\n\n将页面打包过程的产生的所有 CSS 提取成一个独立的文件，然后将这个 CSS 文件内联进 HTML head 里面。\n\n可以借助 `mini-css-extract-plugin` 和 `html-inline-css-webpack-plugin` 来实现 CSS 的内联功能，注意 `html-inline-css-webpack-plugin` 需要放在 `html-webpack-plugin` 后面。\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 324,
+        "subject": "",
+        "title": "webpack 怎么处理内联 css 的"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["阿里"],
+      "is_favorite": false,
+      "qid": 357,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 实现原理\n\n* webpack本质是一种事件流机制, 核心模块: **tapable (Sync + Async)Hooks 构造出=> Compiler(编译) + Compilation(创建bundles)**\n* compiler 对象代表了完整的 webpack 环境配置。这个对象在启动 webpack 时被一次性建立，并配置好所有可操作的设置，包括 options，loader 和 plugin。当在 webpack 环境中应用一个插件时，插件将收到此 compiler 对象的引用。可以使用它来访问 webpack 的主环境。\n* compilation 对象代表了一次资源版本构建。当运行 webpack 开发环境中间件时，每当检测到一个文件变化，就会创建一个新的 compilation，从而生成一组新的编译资源。一个 compilation 对象表现了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状态信息。compilation 对象也提供了很多关键时机的回调，以供插件做自定义处理时选择使用。\n* 创建一个插件函数, 在其prototype上定义apply方法;  指定一个绑定到webpack自身的事件钩子;\n* 函数内,处理webpack内部实例的特定数据\n* 处理完成后, 调用webpack提供的回调\n\n代码示例\n\n```js\nfunction MyExampleWebpackPlugin() {\n\n};\n// 在插件函数的 prototype 上定义一个 `apply` 方法。\nMyExampleWebpackPlugin.prototype.apply = function(compiler) {\n  // 指定一个挂载到 webpack 自身的事件钩子。\n  compiler.plugin('webpacksEventHook', function(compilation /* 处理 webpack 内部实例的特定数据。*/, callback) {\n    console.log(\"This is an example plugin!!!\");\n    // 功能完成后调用 webpack 提供的回调。\n    callback();\n  });\n};\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 357,
+        "subject": "",
+        "title": "Webpack 里面的插件是怎么实现的"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["饿了么"],
+      "is_favorite": false,
+      "qid": 454,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 实现分析\n\n可以使用Webpack，gulp,rollup,fis，grunt等，以webpack为例\n\n使用我们最常见的两个loader，`css-loader`以及`style-loader`\n\n`css-loader`会处理我们css的引用，例如`@import url()`以及`require()/import  \n\n`style-loader`则会将 style 标签里的css添加到dom中去\n\n**抽离css**：我们可以使用一些抽离css的plugin，例如`mini-css-extract-plugin`、`extract-text-webpack-plugin`等  \n\n**JavaScript**，webpack内部会解析依赖，将会把js打包成单独的文件，当然，webpack内部对于import以及require的解析做了特别的判断，也就是我们所知的按需加载，将按需加载的js单独打包，并在依赖中加入引用\n\n**html**:我们可以使用`html-webpack-plugin`，将html单独打包文件，对于多页打包，我们也可以多次`new html-webpack-plugin`\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 454,
+        "subject": "",
+        "title": "如何配置把 js、css、html 单独打包成一个文件"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["饿了么"],
+      "is_favorite": false,
+      "qid": 454,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 实现分析\n\n可以使用Webpack，gulp,rollup,fis，grunt等，以webpack为例\n\n使用我们最常见的两个loader，`css-loader`以及`style-loader`\n\n`css-loader`会处理我们css的引用，例如`@import url()`以及`require()/import  \n\n`style-loader`则会将 style 标签里的css添加到dom中去\n\n**抽离css**：我们可以使用一些抽离css的plugin，例如`mini-css-extract-plugin`、`extract-text-webpack-plugin`等  \n\n**JavaScript**，webpack内部会解析依赖，将会把js打包成单独的文件，当然，webpack内部对于import以及require的解析做了特别的判断，也就是我们所知的按需加载，将按需加载的js单独打包，并在依赖中加入引用\n\n**html**:我们可以使用`html-webpack-plugin`，将html单独打包文件，对于多页打包，我们也可以多次`new html-webpack-plugin`\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 454,
+        "subject": "",
+        "title": "如何配置把 js、css、html 单独打包成一个文件"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["阿里"],
+      "is_favorite": false,
+      "qid": 358,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、dev-server运行配置\n\n- 安装webpack-dev-server的npm包\n- 在webpack.config.js中进行配置\n\n**devServer中常用的配置对象属性如下:**\n\n1. `contentBase：”./”`,本地服务器在哪个目录搭建页面，一般在当前目录即可；\n2. `historyApiFallback：true` ,搭建spa应用时有用，它使用的是HTML5 History Api，任意的跳转或404响应可以指向 index.html 页面；\n3. `inline：true` ,用来支持dev-server自动刷新的配置，webpack有两种模式支持自动刷新，一种是iframe模式，一种是inline模式；使用iframe模式是不需要在devServer进行配置的，只需使用特定的URL格式访问即可；不过我们一般还是常用inline模式，在devServer中对inline设置为true后，当启动webpack-dev-server时仍要需要配置inline才能生效\n4. `hot：true` ,启动webpack热模块替换特性\n5. `port`，端口号(默认8080) \n\n### 二、怎么跑起来的\n\n1. 启动HTTP服务\n2. Webpack构建输出Bundle到内存，HTTP服务从内存中读取Bundle文件\n3. 监听文件变化，重新执行第二个步骤\n\ndev-server实际上是一个HTTP服务器，所以还可以做静态资源的访问和API的Proxy代码\n\n#### 1.静态资源访问\n\n```js\n{\n    devServer: {\n        contentBase: 'public'\n    }\n}\n```\n\n#### 2.Proxy 代理\n\n```js\n{\n    devServer: {\n        proxy: {\n            '/api': {\n                target: 'http://api.target.com/'\n            }\n        }\n    }\n}\n```\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 358,
+        "subject": "",
+        "title": "dev-server 是怎么跑起来的"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 325,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### webpack中做异步加载\n\n#### 1.webpack资源异步加载的方法\n\n在webpack中主要提供两种方法：**import函数和require.ensure**。\n\n在webpack4之前，webpack 在编译时，会静态地解析代码中的 require.ensure()，同时将模块添加到一个分开的 chunk 当中。这个新的 chunk 会被 webpack 通过 jsonp 来按需加载。\n\n来看下webpack4以后的import加载。\n\n#### 2.Webpack中的import\n\n与正常ES6中的import语法不同，通过import函数加载的模块及其依赖会被异步地进行加载，并返回一个Promise对象。\n\n一般正常的模块加载代码如下：\n\n```js\n// index.js\nimport { add } from  './index2.js';\nconsole.log(add(2,3));\n\n// index2.js\nexport function add(a, b) {\n  return a + b\n}\n```\n\n![webpack1](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-325-webpack1.png)\n\n假设index2.js的资源体积很大，并且我们在页面初次渲染的时候并不需要使用它，就可以对它进行异步加载。\n\nindex.js和index2.js代码如下：\n\n```js\n// index.js\nimport('./index2.js').then(({add}) => {\n  console.log(add(2,3))\n})\n\n// index2.js\nexport function add(a, b) {\n  return a + b\n}\n```\n\nwebpack.config.js配置代码如下：\n\n```js\nconst path = require('path')\nconst MiniCssExtractPlugin = require('mini-css-extract-plugin')\nmodule.exports = {\n  context: path.join(__dirname, './src'),\n  entry: {\n    index: './index.js'\n  },\n  output: {\n    //path: path.join(__dirname, 'dist'),\n    filename: '[name].js',\n    publicPath: '/dist/'\n  },\n  mode: 'development',\n  module: {\n    rules: [\n      {\n        test: /\\.css$/i,\n        use: ['style-loader', {\n          loader: 'css-loader',\n          options: {\n            modules: {\n              localIdentName: '[path][name]__[local]--[hash:base64:5]',\n            }\n          }\n        }]\n      },\n      {\n        test: /\\.js$/,\n        exclude: /(node_modules|bower_components)/,\n        use: {\n          loader: 'babel-loader',\n          options: {\n            cacheDirectory: true,\n            presets: [\n              [\n                'env', {\n                  modules: false\n                }\n              ]\n            ]\n          }\n        }\n      }\n    ],\n  }\n}\n```\n\n![webpack2](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-325-webpack2.png)\n\n首屏加载的JS资源地址是通过页面中的script标签来指定的，而间接资源（通过首屏JS再进一步加载的JS）的位置则要通过output.publicPath来指定。上面我们的import函数相当于使index2.js成为了一个间接资源，我们需要配置publicPath来告诉Webpack去哪里获取它。\n\n![webpack3](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-325-webpack-3.png)\n\n由上图可以看出，Chrome的nextwork面板看到一个0.js的请求，它就是index2及其依赖产生的资源。观察面板中的Initinator字段，可以看出它是有index.js产生的请求。查看index.js可以看出，是由这段代码动态的在head头部添加script标签引入的方式，引入0.js，查看源代码并不能找到这段引入的代码，所以是js动态添加进去的。\n\n![webpack4](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-325-webpack4.png)\n\n注意：import函数还有一个比较重要的特性。ES6 Module中要求import必须出现在代码的顶层作用域，而Webpack的import函数则可以在任何我们希望的时候调用",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 325,
+        "subject": "",
+        "title": "webpack 如何做异步加载"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["兑吧"],
+      "is_favorite": false,
+      "qid": 482,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### webpack & gulp\n\n两者同属于构建工具，但是侧重点不同。\n\n#### Gulp\n\nGulp 侧重于对开发流程的控制管理。\n\n**优点：**\n\n1. 轻量，配置文件简单。\n2. 基于 nodejs 强大的流(stream)能力，构建速度快。\n3. 适合多页 web 应用及 node 服务端应用\n\n缺点：不太适合单页或自定义模块的开发\n\n#### Webpack\n\nWebpack 侧重于模块的打包。\n\n**优点：**\n\n 1. 任何资源都可以作为模块进行处理\n 2. 社区资源丰富，有很多插件和 loader \n\n**缺点：**\n\n1. 配置复杂\n2. 不适合 node 服务端应用\n3. 构建速度较慢，需要做很多性能优化",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 482,
+        "subject": "",
+        "title": "webpack 和 gulp 的优缺点"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["滴滴"],
+      "is_favorite": false,
+      "qid": 385,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n#### ES6 Module\n\n不同于 CommonJS 和 AMD 的模块加载方案，ES6 在 JavaScript 语言层面上实现了模块功能。它的设计思想是，尽量的静态化，使得编译时就能确定模块的依赖关系。在遇到模块加载命令 import 时，不会去执行模块，而是只生成一个引用。等到真的需要用到时，再到模块里面去取值。这是和 CommonJS 模块规范的最大不同。\n\n#### webpack会对node_modules里的依赖做什么\n\nwebpack会根据定义的引入方式判断模块类型，再进行相关编译转化。当使用import引入时babel默认会把ES6的模块转化为commonjs规范。然后会将node_module里的依赖打包成自执行函数的样子\n\n```js\n(function(modules){\n    // Runtime\n})([\n    // 模块数组\n])\n```\n\n在模块数组中将模块传入，在函数体中经过一系列操作最终将模块通过module.exports导出。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 385,
+        "subject": "",
+        "title": "使用 import 时，webpack 对 node_modules 里的依赖会做什么"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["兑吧"],
+      "is_favorite": false,
+      "qid": 484,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### Webpack 多入口打包\n\n#### 1.基本思路\n\n基本思路就是每个⻚⾯对应⼀个 entry，⼀个 `html-webpack-plugin` ，但是这样的缺点就是每次新增或删除⻚⾯需要改 webpack 配置，如下所示：\n\n```js\nmodule.exports = {\n  entry: {\n    index: './src/index.js',\n    search: './src/search.js'\n  },\n  output: {\n    path:path.resolve(__dirname, 'dist'),\n    filename: '[name]-bundle.js'\n  }，\n  plugins: [\n  \tnew HtmlWebpackPlugin({\n      template: path.join(__dirname, 'src/index.html'),\n      filename: 'index.html',\n      chunks: ['index'],\n      inject: true,\n      minify: {\n      \thtml5: true,\n        collapseWhitespace: true,\n        preserveLineBreaks: false,\n        minifyCSS: true,\n        minifyJS: true,\n        removeComments: false\n      }\n    }),\n    new HtmlWebpackPlugin({\n      template: path.join(__dirname, 'src/search.html'),\n      filename: 'search.html',\n      chunks: ['search'],\n      inject: true,\n      minify: {\n        html5: true,\n        collapseWhitespace: true,\n        preserveLineBreaks: false,\n        minifyCSS: true,\n        minifyJS: true,\n        removeComments: false\n      }\n    })  \n  ]\n}\n```\n\n#### 2.通用方案\n\n利⽤ glob.sync 动态获取 entry 和设置 html-webpack-plugin 数量（不过要求src里面的入口必须按照 `./src/*/index.js`来配置，比如 `./src/index/index.js` 或者 `./src/serach/index.js`，并且在该目录下放入相应的html模板，比如`./src/index/index.html` 或者 `./src/serach/index.html`），如下所示：\n\n```js\nconst setMPA = () => {\n  const entrys = {};\n  const htmlWebpackPlugins = [];\n  // 按照上面说的格式来动态获取入口文件\n  const entryFiles = glob.sync(path.join(__dirname, './src/*/index.js'))\n  Object.keys(entriyFiles).map(index => {\n    const entryFile = entryFiles[index];\n    const match = entryFiles.match(/src\\/(.*)\\/index.js/);\n    const pageName = match && match[1];\n    entry[pageName] = entryFile;\n    htmlWebpackPlugins.push({\n      new HtmlWebpackPlugin({\n        template: path.join(__dirname, `src/${pageName}/index.html`),\n        filename: `${pageName}.html`,\n        chunks: [${pageName}],\n        inject: true,\n        minify: {\n          html5: true,\n          collapseWhitespace: true,\n          preserveLineBreaks: false,\n          minifyCSS: true,\n          minifyJS: true,\n          removeComments: false\n        }\n      }) \n    })\n  })\n  return {\n    entry, htmlWebpackPlugins\n  }\n}\nconst { entry, htmlWebpackPlugins } = setMPA();\n\nmodule.exports = {\n\tentry: entry,\n  ...\n  plugins: [\n    ...\n  ].concat(htmlWebpackPlugins),\n}\n```\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 484,
+        "subject": "",
+        "title": "如何实现分模块打包（多入口）"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["完美世界"],
+      "is_favorite": false,
+      "qid": 145,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### 1.es6模块调用commonjs模块\n\n可以直接使用commonjs模块，commonjs模块将不会被webpack的模块系统编译而是会原样输出，并且commonjs模块没有default属性\n\n#### 2.es6模块调用es6模块\n\n被调用的es6模块不会添加`{__esModule:true}`，只有调用者才会添加`{__esModule:true}`，并且可以进行`tree-shaking`操作，如果被调用的es6模块只是import进来，但是并没有被用到，那么被调用的es6模块将会被标记为`/* unused harmony default export */`，在压缩时此模块将会被删除（例外：如果被调用的es6模块里有立即执行语句，那么这些语句将会被保留）\n\n\n#### 3.commonjs模块引用es6模块\n\nes6模块编译后会添加`{__esModule:true}`。如果被调用的es6模块中恰好有`export default`语句，那么编译后的es6模块将会添加default属性。\n\n#### 4.commonjs模块调用commonjs模块\n\ncommonjs模块会原样输出\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 145,
+        "subject": "",
+        "title": "Import 和 CommonJS 在 webpack 打包过程中有什么不同"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["滴滴"],
+      "is_favorite": false,
+      "qid": 185,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 实现方案\n\n1. 在配置webpack时，我们可使用 `html-webpack-plugin` 来注入到和html一段脚本来实现将第三方或者公用资源进行静态化存储\n在html中注入一段标识，例如 `<% HtmlWebpackPlugin.options.loading.html %>`，在 `html-webpack-plugin` 中即可通过配置html属性，将script注入进去\n2. 利用 `webpack-mainfest-plugin` 通过配置`webpack-mainfest-plugin`，生成 `mainfest json` 文件，用来对比js资源的差异，做到是否替换，当然，也要写缓存script\n3. 在我们做CI以及CD的时候，也可以通过编辑文件流来实现静态化脚本的注入，来降低服务器的压力，提高性能\n4. 可以通过自定义plugin或者 `html-webpack-plugin` 等周期函数，动态注入前端静态化存储script",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 185,
+        "subject": "",
+        "title": "webpack如何用localStorage离线缓存静态资源 "
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["自如"],
+      "is_favorite": false,
+      "qid": 243,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、webpack\n\nwebpack 是用来把你的源文件打包成一个文件的，你做了一系列配置以后，可以用一个命令 `webpack` 实现打包的功能。\n\nwebpack的作用是从若干个文件开始顺藤摸瓜，根据文件之间的引用关系找到所有相关文件，把他们打包到若干打包文件里。\n\n### 二、gulp\n\ngulp 是用来实现自动化的，你写了一堆任务之后，可以用一个命令 `gulp` 执行你所需要的所有任务。用于寻找不同任务之间的依赖关系，找到正确的执行顺序，基本上什么任务都可以做，包括webpack任务。比如：将less文件转成css文件。\n\n需要注意的是，gulp 本身，不载入任何包的话，什么事情都做不了。如果你在 gulp 里只载入了 webpack，那么此时 gulp 的作用等于webpack 的作用；如果你 gulp 里没有载入 webpack，虽然还可以由一些其它工具实现打包，但打包的方式不同于 webpack，所以此时 gulp 与 webpack 没有任何交集。而如果你的 gulp 载入了 webpack 和别的包，那么此时 gulp不但包括webpack的功能，还包括其他包的功能。\n\n### 三、总结\n\ngulp 可以拥有完整的 webpack，也可以实现相似的替代的方案，反之则不行。\n\ngulp 强调的是前端开发的工作流程，我们可以通过配置一系列的 task，定义 task 处理的事务（例如文件压缩合并、雪碧图、启动 server、版本控制等），然后定义执行顺序，来让 gulp 执行这些 task，从而构建项目的整个前端开发流程。简单说就一个 Task Runner，模块化不是他强调的东西，他旨在规范前端开发流程。\n\nwebpack 是一个前端模块化方案，更侧重模块打包，我们可以把开发中的所有资源（图片、js 文件、css 文件等）都看成模块，通过 loader（加载器）和 plugins（插件）对资源进行处理，打包成符合生产环境部署的前端资源。webpack 更是明显强调模块化开发，而那些文件压缩合并、预处理等功能，不过是他附带的功能。\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 243,
+        "subject": "",
+        "title": "说一下 webpack 与 gulp 的区别（源码角度）"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["网易"],
+      "is_favorite": false,
+      "qid": 157,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n#### css-loader 和 style-loader\n\n- `css-loader` 处理 css 文件\n- `style-loader` 把 js 中 import 导入的样式文件代码，打包到 js 文件中，运行 js 文件时，将样式自动插入到 `<style>` 标签中\n\n#### file-loader 和 url-loader\n\n- `file-loader` 返回的是图片的url\n- `url-loader` 可以通过limit属性对图片分情况处理，当图片小于limit（单位：byte）大小时转base64，大于limit时调用`file-loader` 对图片进行处理。\n- `url-loader` 封装了 `file-loader`，但 `url-loader` 并不依赖于 `file-loader`。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 157,
+        "subject": "",
+        "title": "说一下 webpack 中 css-loader 和 style-loader 的区别，file-loader 和 url-loader 的区别"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["易车"],
+      "is_favorite": false,
+      "qid": 167,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 一、脚手架具体做了哪些事？(vue-cli为例)\n\n1. 创建vue项目demo\n2. 搭建webpack基本配置\n3. 搭建babelrc基本配置\n4. 通过设置决定是否帮助搭建vue-router（路由）\n5. 是否帮助配置eslint\n6. 是否帮助配置css预处理器\n7. 是否帮助配置单元测试工具Karma+Mocha\n8. 是否帮助安装e2e来进行用户行为模拟测试\n\n相当于帮助你完成了项目的基础搭建（可以理解为一个新电脑帮助你自动装了个系统）\n\n### 二、webpack 具体做了什么配置\n\n1. 热更新\n2. 代理\n3. 转译\n4. 压缩打包\n5. 自动上传\n\nwebpack整合上面这个服务，一条龙执行\n\n#### 1.开发时的一些配置\n\n**1）开启多核压缩**\n\n插件：`terser-webpack-plugin`\n\n```js\nconst TerserPlugin = require('terser-webpack-plugin')\nmodule.exports = {\n    optimization: {\n        minimizer: [\n            new TerserPlugin({\n                parallel: true,\n                terserOptions: {\n                    ecma: 6,\n                },\n            }),\n        ]\n    }\n}\n```\n\n**2）监控面板**\n\n插件：**speed-measure-webpack-plugin**\n在打包的时候显示出每一个loader,plugin所用的时间，来精准优化\n```js\n// webpack.config.js文件\nconst SpeedMeasurePlugin = require('speed-measure-webpack-plugin');\nconst smp = new SpeedMeasurePlugin();\n//............\n// 用smp.warp()包裹一下合并的config\nmodule.exports = smp.wrap(merge(_mergeConfig, webpackConfig));\n```\n\n**3）开启一个通知面板**\n\n插件：**webpack-build-notifier**\n\n```js\n// webpack.config.js文件\nconst WebpackBuildNotifierPlugin = require('webpack-build-notifier');\nconst webpackConfig= {\n    plugins: [\n        new WebpackBuildNotifierPlugin({\n            title: '我的webpack',\n            // logo: path.resolve('./img/favicon.png'),\n            suppressSuccess: true\n        })\n    ]\n}\n```\n\n\n**4）开启打包进度**\n\n插件：**progress-bar-webpack-plugin**\n\n```js\n// webpack.config.js文件\nconst ProgressBarPlugin = require('progress-bar-webpack-plugin');\nconst webpackConfig= {\n    plugins: [\n        new ProgressBarPlugin(),\n    ]\n}\n```\n\n\n**5）开发面板更清晰**\n\n插件：**webpack-dashboard** \n\n```js\n// webpack.config.js文件\nconst DashboardPlugin = require('webpack-dashboard/plugin');\nconst webpackConfig= {\n    plugins: [\n        new DashboardPlugin()\n        ]\n}\n```\n```js\n// package.json文件\n{\n  \"scripts\":{\n    \"dev\":\"webpack-dashboard webpack --mode development\",\n  },\n}\n```\n\n\n\n**6）开启窗口的标题**\n\n**node-bash-title** \n这个包mac的item用有效果，windows暂时没看到效果\n\n```js\n// webpack.config.js文件\nconst setTitle = require('node-bash-title');\nsetTitle('server');\n```\n\n\n**7）friendly-errors-webpack-plugin**\n\n插件：**friendly-errors-webpack-plugin**\n\n```js\nnew FriendlyErrorsWebpackPlugin({\n    compilationSuccessInfo: {\n        messages: ['You application is running here http://localhost:3000'],\n        notes: ['Some additionnal notes to be displayed unpon successful compilation']\n    },\n    onErrors: function (severity, errors) {\n        // You can listen to errors transformed and prioritized by the plugin\n        // severity can be 'error' or 'warning'\n    },\n    // should the console be cleared between each compilation?\n    // default is true\n    clearConsole: true,\n    \n    // add formatters and transformers (see below)\n    additionalFormatters: [],\n    additionalTransformers: []\n}),\n```\n\n### 三、优化打包大小\n\n- 压缩代码\n  - webpack-paralle-uglify-plugin\n  - uglifyjs-webpack-plugin 开启 parallel 参数 (不支持ES6)\n  - terser-webpack-plugin 开启 parallel 参数\n  - 多进程并行压缩\n  - 通过 mini-css-extract-plugin 提取 Chunk 中的 CSS 代码到单独文件，通过optimize-css-assets-webpack-plugin插件 开启 cssnano 压缩 CSS。\n- 提取页面公共资源：\n  - 使用 html-webpack-externals-plugin，将基础包通过 CDN 引入，不打入 bundle 中\n  - 使用 SplitChunksPlugin 进行(公共脚本、基础包、页面公共文件)分离(Webpack4内置) ，替代了 CommonsChunkPlugin 插件\n  - 基础包分离：将一些基础库放到cdn，比如vue，webpack 配置 external是的vue不打入bundle\n- Tree shaking\n  - purgecss-webpack-plugin 和 mini-css-extract-plugin配合使用(建议)\n  - 打包过程中检测工程中没有引用过的模块并进行标记，在资源压缩时将它们从最终的bundle中去掉(只能对ES6 Modlue生效) 开发中尽可能使用ES6 Module的模块，提高tree shaking效率\n  - 禁用 babel-loader 的模块依赖解析，否则 Webpack 接收到的就都是转换过的 CommonJS 形式的模块，无法进行 tree-shaking\n  - 使用 PurifyCSS(不在维护) 或者 uncss 去除无用 CSS 代码\n- Scope hoisting\n  - 构建后的代码会存在大量闭包，造成体积增大，运行代码时创建的函数作用域变多，内存开销变大。Scope hoisting 将所有模块的代码按照引用顺序放在一个函数作用域里，然后适当的重命名一些变量以防止变量名冲突\n  - 必须是ES6的语法，因为有很多第三方库仍采用 CommonJS 语法，为了充分发挥 Scope hoisting 的作用，需要配置 mainFields 对第三方模块优先采用 jsnext:main 中指向的ES6模块化语法\n- 图片压缩\n  - 使用基于 Node 库的 imagemin (很多定制选项、可以处理多种图片格式)\n  - 配置 image-webpack-loader\n- 动态Polyfill\n  - 建议采用 polyfill-service 只给用户返回需要的polyfill，社区维护。(部分国内奇葩浏览器UA可能无法识别，但可以降级返回所需全部polyfill)\n  - @babel-preset-env 中通过useBuiltIns: 'usage参数来动态加载polyfill。\n\n- `speed-measure-webpack-plugin`\n  - 简称 SMP，分析出 Webpack 打包过程中 Loader 和 Plugin 的耗时，有助于找到构建过程中的性能瓶颈。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 167,
+        "subject": "",
+        "title": "脚手架具体都做了哪些事，webpack 具体做了什么配置，怎样优化的打包大小"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["滴滴", "挖财"],
+      "is_favorite": false,
+      "qid": 168,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n\n**Webpack 的运行流程是一个串行的过程，从启动到结束会依次执行以下流程**\n\n- **初始化参数** 从配置文件和 Shell 语句中读取与合并参数，得出最终的参数\n- **开始编译** 用上一步得到的参数初始化 Compiler 对象，加载所有配置的插件，执行对象的 run 方法开始执行编译\n- **确定入口** 根据配置中的 entry 找出所有的入口文件\n- **编译模块** 从入口文件出发，调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理\n- **完成模块编译** 在经过第4步使用 Loader 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系\n- **输出资源** 根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 Chunk，再把每个 Chunk 转换成一个单独的文件加入到输出列表，这步是可以修改输出内容的最后机会\n- **输出完成** 在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统\n\n在以上过程中，Webpack 会在特定的时间点广播出特定的事件，插件在监听到感兴趣的事件后会执行特定的逻辑，并且插件可以调用 Webpack 提供的 API 改变 Webpack 的运行结果。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 168,
+        "subject": "",
+        "title": "介绍下 Webpack 的整个生命周期"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 50,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 答案\n\n当前端项目到达一定的规模后，我们一般会采用按模块方式组织代码，这样可以方便代码的组织及维护。但会存在一个问题，比如我们有一个utils工具类，在另一个模块中导入它。这会在打包的时候将utils中不必要的代码也打包，从而使得打包体积变大，这时候就需要用到Tree shaking技术了。\n\n> Tree shaking 是一种通过清除多余代码方式来优化项目打包体积的技术，专业术语叫Dead code elimination\n\n#### 原理\n\n利用 ES6 模块的特点:\n\n- 只能作为模块顶层的语句出现\n- import 的模块名只能是字符串常量，不能动态引入模块\n- import binding 是 immutable的，引入的模块不能再进行修改\n\n虽然tree shaking的概念在1990就提出了，但直到ES6的ES6-style模块出现后才真正被利用起来。这是因为tree shaking只能在静态modules下工作。ECMAScript 6 模块加载是静态的,因此整个依赖树可以被静态地推导出解析语法树。所以在ES6中使用tree shaking是非常容易的。而且，tree shaking不仅支持import/export级别，而且也支持statement(声明)级别。\n\n在ES6以前，我们可以使用CommonJS引入模块：require()，这种引入是动态的，也意味着我们可以基于条件来导入需要的代码：\n\n```js\nlet dynamicModule;\n// 动态导入\nif(condition) {\n    myDynamicModule = require(\"foo\");\n} else {\n    myDynamicModule = require(\"bar\");\n}\n```\n\nCommonJS的动态特性模块意味着tree shaking不适用。因为它是不可能确定哪些模块实际运行之前是需要的或者是不需要的。在ES6中，进入了完全静态的导入语法：import。这也意味着下面的导入是不可行的：\n\n```js\n// 不可行，ES6 的import是完全静态的\nif(condition) {\n    myDynamicModule = require(\"foo\");\n} else {\n    myDynamicModule = require(\"bar\");\n}\n```\n\n只能通过导入所有的包后再进行条件获取\n\n```js\nimport foo from \"foo\";\nimport bar from \"bar\";\n\nif(condition) {\n    // foo.xxxx\n} else {\n    // bar.xxx\n}\n```\n\nES6的import语法完美可以使用tree shaking，因为可以在代码不运行的情况下就能分析出不需要的代码。\n\n\n#### 如何使用\n\n从webpack 2开始支持实现了Tree shaking特性，webpack 2正式版本内置支持ES2015 模块（也叫做harmony模块）和未引用模块检测能力。新的webpack 4 正式版本，扩展了这个检测能力，通过package.json的 sideEffects属性作为标记，向compiler 提供提示，表明项目中的哪些文件是 “pure(纯的 ES2015 模块)”，由此可以安全地删除文件中未使用的部分。\n\n如果使用的是webpack4,只需要将mode设置为production即可开启tree shaking\n\n```js\nentry: './src/index.js',\nmode: 'production', // 设置为production模式\noutput: {\n\tpath: path.resolve(__dirname, 'dist'),\n\tfilename: 'bundle.js'\n},\n```\n\n如果是使用webpack2,可能你会发现tree shaking不起作用。因为babel会将代码编译成CommonJs模块，而tree shaking不支持CommonJs。所以需要配置不转义：\n\n```js\noptions: { presets: [ [ 'es2015', { modules: false } ] ] }\n```\n\n#### 关于side effects（副作用）\n\nside effects是指那些当import的时候会执行一些动作，但是不一定会有任何export。比如ployfill,ployfills不对外暴露方法给主程序使用。\n\ntree shaking 不能自动的识别哪些代码属于side effects，因此手动指定这些代码显得非常重要，如果不指定可能会出现一些意想不到的问题。\n\n在webapck中，是通过package.json的sideEffects属性来实现的。\n\n```js\n{\n  \"name\":\"tree-shaking\",\n  \"sideEffects\":false\n}\n```\n\n如果所有代码都不包含副作用，我们就可以简单地将该属性标记为false，来告知 webpack，它可以安全地删除未用到的export导出。\n\n如果你的代码确实有一些副作用，那么可以改为提供一个数组：\n\n```js\n{\n  \"name\":\"tree-shaking\",\n  \"sideEffects\":[\n    \"./src/common/polyfill.js\"\n  ]\n}\n```\n\n#### 总结\n\n- tree shaking 不支持动态导入（如CommonJS的require()语法），只支持纯静态的导入（ES6的import/export）\n- webpack中可以在项目package.json文件中，添加一个 “sideEffects” 属性,手动指定由副作用的脚本\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 50,
+        "subject": "",
+        "title": "说下 tree-shaking 的原理"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["头条", "滴滴", "挖财", "阿里"],
+      "is_favorite": false,
+      "qid": 61,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 答案\n\n#### 一、webpack原理\n\n**1）初始化参数**\n\n从配置文件和 Shell 语句中读取与合并参数，得出最终的参数；\n\n**2）开始编译**\n\n用上一步得到的参数初始化 Compiler 对象，加载所有配置的插件，执行对象的 run 方法开始执行编译。\n\n**3）确定入口**\n\n根据配置中的 entry 找出所有的入口文件；\n\n**4）编译模板**\n\n从入口文件出发，调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理；\n\n**5）模块编译完成**\n\n在经过第 4 步使用 Loader 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系；\n\n**6）输出资源**\n\n根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 Chunk，再把每个 Chunk 转换成一个单独的文件加入到输出列表，这步是可以修改输出内容的最后机会；\n\n**7）输出完成**\n\n在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统；\n\n**8）其它**\n\n整个过程中特定的时间点广播事件，插件可以进行监听和处理；\n\n\n\n#### 二、loader&plugin\n\n**1）loader**\n\nloader是文件加载器，能够加载资源文件，并对这些文件进行一些处理，诸如编译、压缩等，最终一起打包到指定的文件中，处理一个文件可以使用多个loader，loader的执行顺序和配置中的顺序是相反的，即最后一个loader最先执行，第一个loader最后执行，第一个执行的loader接收源文件内容作为参数，其它loader接收前一个执行的loader的返回值作为参数，最后执行的loader会返回此模块的JavaScript源码\n\n编写自己的loader时需要引用官方提供的laoder-utils ，调用loaderUtils.getOptions(this)拿到webpack的配置参数，然后进行自己的处理。\n\nLoader 本身仅仅只是一个函数，接收模块代码的内容，然后返回代码内容转化后的结果，并且一个文件还可以链式的经过多个loader转化(比如scss-loader => css-loader => style-loader)。\n\n一个 Loader 的职责是单一的，只需要完成一种转化。 如果一个源文件需要经历多步转化才能正常使用，就通过多个 Loader 去转化。 在调用多个 Loader 去转化一个文件时，每个 Loader 会链式的顺序执行， 第一个 Loader 将会拿到需处理的原内容，上一个 Loader 处理后的结果会传给下一个接着处理，最后的 Loader 将处理后的最终结果返回给 Webpack。\n\n一个最简单的loader例子:\n\n```js\nmodule.exports = function(source) {\n  // source 为 compiler 传递给 Loader 的一个文件的原内容\n  // 该函数需要返回处理后的内容，这里简单起见，直接把原内容返回了，相当于该 Loader 没有做任何转换\n  return source;\n};\n```\n\n**2）plugin**\n\nplugin功能更强大，Loader不能做的都是它做。它的功能要更加丰富。从打包优化和压缩，到重新定义环境变量，功能强大到可以用来处理各种各样的任务。\n\nplugin让webpack的机制更加灵活，它在编译过程中留下的一系列生命周期的钩子，通过调用这些钩子来实现在不同编译结果时对源模块进行处理。它的编译是基于事件流来编译的，主要通过taptable来实现插件的绑定和执行的，taptable主要是基于发布订阅执行的插件架构，是用来创建声明周期钩子的库。调用complier.hooks.run.tap开始注册，创建compilation，基于配置创建chunks，在通过parser解析chunks，使用模块和依赖管理模块之间的依赖关系，最后使用template基于compilation数据生成结果代码 \n\nplugin 的实现可以是一个类，使用时传入相关配置来创建一个实例，然后放到配置的 `plugins` 字段中，而 plugin 实例中最重要的方法是 `apply`，该方法在 webpack compiler 安装插件时会被调用一次，`apply` 接收 webpack compiler 对象实例的引用，你可以在 compiler 对象实例上注册各种事件钩子函数，来影响 webpack 的所有构建流程，以便完成更多其他的构建任务。\n\n一个最简单的plugin例子：\n\n```js\nclass BasicPlugin{\n  // 在构造函数中获取用户给该插件传入的配置\n  constructor(options){\n  }\n\n  // Webpack 会调用 BasicPlugin 实例的 apply 方法给插件实例传入 compiler 对象\n  apply(compiler){\n    compiler.plugin('compilation',function(compilation) {\n    })\n  }\n}\n\n// 导出 Plugin\nmodule.exports = BasicPlugin;\n```\n\nWebpack 启动后，在读取配置的过程中会先执行 new BasicPlugi(options) 初始化一个 BasicPlugin 获得其实例。 在初始化 compiler 对象后，再调用 basicPlugin.apply(compiler) 给插件实例传入 compiler 对象。 插件实例在获取到 compiler 对象后，就可以通过 compiler.plugin(事件名称, 回调函数) 监听到 Webpack 广播出来的事件。 并且可以通过 compiler 对象去操作 Webpack。\n\n开发 Plugin 最主要的就是理解 compiler 和 compilation，它们是Plugin 和 Webpack 之间的桥梁。这两者提供的各种 hooks 和 api，则是开发plugin 所必不可少的材料，通过 compiler 和 compilation 的生命周期 hooks，也可以更好地深入了解 webpack 的整个构建工作是如何进行的。\n\n**3）常见loader**\n\n1. file-loader:文件加载\n2. url-loader：文件加载，可以设置阈值，小于时把文件base64编码\n3. image-loader：加载并压缩图片\n4. json-loader：webpack默认包含了\n5. babel-loader：ES6+ 转成ES5\n6. ts-loader：将ts转成js\n7. awesome-typescript-loader：比上面那个性能好\n8. css-loader：处理@import和url这样的外部资源\n9. style-loader：在head创建style标签把样式插入；\n10. postcss-loader：扩展css语法，使用postcss各种插件autoprefixer，cssnext，cssnano\n11. eslint-loader,tslint-loader:通过这两种检查代码，tslint不再维护，用的eslint\n12. vue-loader：加载vue单文件组件\n13. i18n-loader：国际化\n14. cache-loader：性能开销大的loader前添加，将结果缓存到磁盘；\n15. svg-inline-loader：压缩后的svg注入代码；\n16. source-map-loader：加载source Map文件，方便调试；\n17. expose-loader:暴露对象为全局变量\n18. imports-loader、exports-loader等可以向模块注入变量或者提供导出模块功能\n19. raw-loader可以将文件已字符串的形式返回\n20. 校验测试：mocha-loader、jshint-loader 、eslint-loader等\n\n**3）常见plugin**\n\n- ignore-plugin：忽略文件\n- uglifyjs-webpack-plugin：不支持 ES6 压缩 (Webpack4 以前使用)\n- terser-webpack-plugin: 支持压缩 ES6 (Webpack4)\n- webpack-parallel-uglify-plugin: 多进程执行代码压缩，提升构建速度\n- mini-css-extract-plugin: 分离样式文件，CSS 提取为独立文件，支持按需加载\n- serviceworker-webpack-plugin：为网页应用增加离线缓存功能\n- clean-webpack-plugin: 目录清理\n- speed-measure-webpack-plugin: 可以看到每个 Loader 和 Plugin 执行耗时\n- webpack内置UglifyJsPlugin，压缩和混淆代码。\n- webpack内置CommonsChunkPlugin，提高打包效率，将第三方库和业务代码分开打包。\n- ProvidePlugin：自动加载模块，代替require和import\n- html-webpack-plugin可以根据模板自动生成html代码，并自动引用css和js文件\n- extract-text-webpack-plugin 将js文件中引用的样式单独抽离成css文件\n- DefinePlugin 编译时配置全局变量，这对开发模式和发布模式的构建允许不同的行为非常有用。\n- HotModuleReplacementPlugin 热更新\n- DllPlugin和DllReferencePlugin相互配合，前者第三方包的构建，只构建业务代码，同时能解决Externals多次引用问题。DllReferencePlugin引用DllPlugin配置生成的manifest.json文件，manifest.json包含了依\n赖模块和module id的映射关系\n- optimize-css-assets-webpack-plugin 不同组件中重复的css可以快速去重\n- webpack-bundle-analyzer 一个webpack的bundle文件分析工具，将bundle文件以可交互缩放的treemap的形式展示。\n- compression-webpack-plugin 生产环境可采用gzip压缩JS和CSS\n- happypack：通过多进程模型，来加速代码构建\n\n\n\n### 三、模块化标准\n\n**1）CommonJS**\n\n通过require方法来同步加载依赖模块  用过exports 或者 module.exports 来导出需要暴露的接口\n\n每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见所有代码都运行在模块作用域，不会污染全局作用域。\n\n模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。\n\n模块加载的顺序，按照其在代码中出现的顺序。\n\n同步的模块加载方式不适合在浏览器环境中，同步意味着阻塞加载 浏览器资源多是异步加载的\n\n不能非阻塞的并行加载多个模块\n\n**2）AMD**\n\n实现有 curl  requireJS,适合在浏览器环境中异步加载模块,可以并行加载多个模块,依赖前置,提前执行\n\n**3）CMD**\n\n实现有 Sea.js、coolie，依赖就近，延迟执行\n\n缺点：依赖SPM打包 模块的加载逻辑偏重\n\n**4）UMD**\n\n规范类似于兼容CommonJS和AMD的语法糖 是模块定义的跨平台解决方案\n\n**5）ES6模块**\n\n- 编译时就能确定模块的依赖关系 以及输入和输出的变量\n- 容易进行静态分析\n- 面向未来的ECMAScript标准\n- 缺点\n    -  原生的浏览器还没有实现该标准\n    - 全新的命令字只有node.js才支持\n\n### 四、cjs 和 esmodule 的区别\n\n**1）加载方式不同**\n\ncommonjs是同步加载的。主要是在nodejs，也就是服务端应用的模块化机制，通过module.export 导出声明，通过require('')加载。每个文件都是一个模块。他有自己的作用域，文件内的变量，属性函数等不被外界访问。node会将模块缓存，第二次加载会直接在缓存中获取。\n\nES6的模块化加载时通过export default 导出 用import导入 可通过 {} 对导出的内容进行解构。\n\nCommonJS 在导出时都是值拷贝，就算导出的值变了，导入的值也不会改变，所以如果想更新值，必须重新导入一次；ES Module 采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会跟随导出值变化\n\nCommonJS 加载的是整个模块，即将所有的接口全部加载进来；ES6 可以单独加载其中的某个方法\n\n**2）运行机制不同**\n\nES6的模块的运行机制与common不一样，js引擎对脚本静态分析的时候，遇到模块加载指令后会生成一个只读引用，等到脚本真正执行的时候才会通过引用去模块中获取值，在引用到执行的过程中 模块中的值发生了变化，导入的这里也会跟着变，ES6模块是动态引用，并不会缓存值，模块里总是绑定其所在的模块。\n\nCommonJS 模块是运行时加载，ES6 模块是编译时输出接口\n\n**3）主要运行环境不同**\n\ncommonjs主要运行在服务端、运行时加载、输出的是整个文件、值的引入是直接导入的、this指向当前模块、node会将模块缓存\n\nES6主要运行在浏览器端、编译时加载/ 延迟加载、异步加载、导出某个接口，可按需加载、值是引用的，执行时获取值、this指向undefined\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 61,
+        "subject": "",
+        "title": "讲一下 webpack 原理， loader 和 plugin，你知道哪些模块化标准，说下 cjs 和 esmodule 的区别"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 1,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/webpack.gif",
+        "style_tpl": 0,
+        "text": "Webpack到现在还不会配？不用担心",
+        "title": "【专题课：从0到1深度理解webpack】",
+        "url": "https://mp.weixin.qq.com/s/AkS7xqZpDwfRYfsqN8AffQ"
+      },
+      "corp_tag": ["头条", "挖财"],
+      "is_favorite": false,
+      "qid": 49,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 答案\n\n#### 1.什么是Webpack\n\nwebpack是一个**打包模块化**JavaScript的工具，它将一切文件都视为模块，通过loader编译转换文件，通过plugin注入钩子，最后将输出的资源模块组合成文件。\n\n它主要的**配置信息**有entry、output、modules、plugins。\n\n#### 2.构建流程\n\n**基础概念**\n\n1. Compiler：Webpack的运行入口，实例化时定义webpack构建主要流程，同时创建构建时使用的核心对象compilation\n2. Compilation：由Compiler实例化，存储构建过程中流程使用到的数据，用于控制这些数据的变化，每一次构建创建一个Compilation实例\n3. Chunk：一般一个入口对应一个Chunk\n4. Module：用于表示代码模块的类型，有很多子类用于处理不同情况的模块，模块相关信息都可以从Module实例中获取，例如dependiencies记录模块的依赖信息\n5. Parser：基于acorn来分析AST语法树，解析出代码模块的依赖\n6. Dependency：解析时用于保存代码模块对应的依赖使用的对象\n7. Template：生成最终代码要使用到的代码模块\n\n**基本流程**\n\n1. 创建Compiler实例，用于控制构建流程，compiler实例包含webpack基本环境信息\n2. 根据配置项转换成对应内部插件，并初始化options配置项\n3. 执行compiler.run\n4. 创建Compiltation实例，每次构建都会新创建一个Compliation实例，包含了这次构建的基本信息\n5. 从entry开始递归分析依赖，对每个依赖模块进行buildModule，通过Loader将不同类型的模块转换成Webpack模块\n6. 调用Parser.parse将上面的结果转换成AST树\n7. 遍历AST树，收集依赖Dependency，并保存在Compliation实例的dependiencies属性中\n8. 生成Chunks，不同entry生成不同chunk，动态导入也会生成自己的chunk，生成chunk后还会进行优化\n9. 使用Template基于Compilation的数据生成结果代码\n\n**编译过程**\n\n- **第一步**先初始化参数，通过yargs将webpack.config.js和shell脚本的配置信息合并，进行参数的初始化；\n- **第二步**利用初始化的参数创建complier对象，complier可以视为一个webpack的实例，存在于webpack从启动到结束的整个过程，它包含了webpack的module、plugin等参数信息，然后调用complier.run方法开始编译。\n- **第三步**根据entry配置信息找到入口文件，创建compilation对象，可以理解为webpack一次编译的过程，包含了当前编译环境的所有资源，包括编译后的文件。\n- **第四步**通过配置信息，调用loader进行模块翻译，使用acorn将模块转换为AST，当遇到require依赖时，创建依赖并加入依赖数组，再找出依赖的依赖，递归异步的处理所有的依赖。\n- **第五步**完成第四步后将得到所有模块的依赖关系和模块翻译后的文件，然后调用compilation.seal方法，对这些模块和根据模块依赖关系创建的chunk进行整理，将所有资源进行合并拆分等操作。这是最后一次能修改输出内容的地方。\n- **第六步**根据配置信息中的output配置，进行最后模块的文件输出，指定输出文件名和文件路径。\n\n#### 3.原理\n\nwebpack打包输出后的文件其实就是一个闭包，传入的参数是一个对象，键值为所有输出文件的路径，内容为eval包裹的文件内容；闭包内重写了模块的加载方式，自己定义了`__webpack_require__方法，来实现模拟的commonjs规范模块加载机制。\n\nWebpack实际上是基于事件流的，通过一系列的插件来运行。Webpack利用tapable库提供各种钩子来实现对于整个构建流程各个步骤的控制\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 49,
+        "subject": "",
+        "title": "介绍下 webpack，并说下 Webpack 的构建流程"
+      },
+      "tech_tag": ["工程化"],
+      "uid": 0
+    },
+    "status": 0
+  }
+]

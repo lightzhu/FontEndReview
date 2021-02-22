@@ -1,0 +1,921 @@
+{
+  "msg": "success",
+  "result": {
+    "list": [
+      {
+        "audit_flag": 0,
+        "corp_tag": ["滴滴"],
+        "date": "Fri, 19 Jun 2020 08:21:40 GMT",
+        "favorite_num": 100,
+        "qid": 12,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 12,
+          "subject": "",
+          "title": "css 伪类与伪元素区别"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 21,
+        "qid": 754,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 754,
+          "subject": "",
+          "title": "行内元素和块级元素有什么区别"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 30,
+        "qid": 746,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 746,
+          "subject": "",
+          "title": "ul 内部除最后一个 li 以外设置右边框效果"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 44,
+        "qid": 772,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 772,
+          "subject": "```js\n/* \n  A元素垂直居中于屏幕中央\n  A元素距离屏幕左右边距各10px\n  A元素里面的文字A的font-size:20px；水平垂直居中\n  A元素的高度始终是A元素宽度的50%；(如果搞不定可以实现为A元素的高度固定为200px)\n  \n  请用html及css实现\n*/\n```\n",
+          "title": "屏幕正中间有个元素A，元素A中有文字A，随着屏幕宽度的增加，始终需要满足下列条件"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 44,
+        "qid": 745,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 745,
+          "subject": "",
+          "title": "Css 实现 div 宽度自适应，宽高保持等比缩放"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["玄武科技"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 22,
+        "qid": 712,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 712,
+          "subject": "",
+          "title": "列举出 css 选择器有哪些分类，并至少写出三个 css 选择器之间的区别，适用场景"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 36,
+        "qid": 755,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 755,
+          "subject": "",
+          "title": "link 和@import 区别"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 46,
+        "qid": 747,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 747,
+          "subject": "",
+          "title": "flex:1 的完整写法是？分别是什么意思？"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["玄武科技"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 28,
+        "qid": 711,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 711,
+          "subject": "",
+          "title": "请画出 css 盒模型，基于盒模型的原理，说明相对定位、绝对定位、浮动实现样式是如何实现的？"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["会小二"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 19,
+        "qid": 604,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 604,
+          "subject": "```js\nA.font\nB.margin\nC.padding\nD.visible\nE.border\n\n```\n",
+          "title": "以下选项为 css 盒模型属性有哪些？(多选题)"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手", "会小二"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 23,
+        "qid": 620,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 620,
+          "subject": "",
+          "title": "说下盒模型的区别？介绍一下标准的 CSS 盒模型？border-box 和 content-box 有什么区别？"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["酷狗"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 14,
+        "qid": 686,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 686,
+          "subject": "",
+          "title": "Css 如何实现一个半圆"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 38,
+        "qid": 653,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 653,
+          "subject": "",
+          "title": "Css 实现多列等高布局，要求元素实际占用的高度以多列中较高的为准"
+        },
+        "tech_tag": ["Css", "编程题"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 38,
+        "qid": 672,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 672,
+          "subject": "",
+          "title": "css 如何实现动画"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 9,
+        "qid": 654,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 654,
+          "subject": "",
+          "title": "一个标签的 class 样式的渲染顺序，id、class、标签、伪类的优先级"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 19,
+        "qid": 652,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 652,
+          "subject": "",
+          "title": "Css 单位都有哪些？"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["网易"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 21,
+        "qid": 371,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 371,
+          "subject": "",
+          "title": "介绍 css3 中 position:sticky"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 40,
+        "qid": 404,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 404,
+          "subject": "",
+          "title": "清除浮动的方式"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["饿了么"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 19,
+        "qid": 455,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 455,
+          "subject": "",
+          "title": "上下固定，中间滚动布局如何实现"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["阿里"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 33,
+        "qid": 356,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 356,
+          "subject": "",
+          "title": "居中为什么要使用 transform（为什么不使用 marginLeft/marginTop）"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["阿里"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 20,
+        "qid": 355,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 355,
+          "subject": "",
+          "title": "移动端适配 1px 的问题"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["兑吧"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 17,
+        "qid": 480,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 480,
+          "subject": "",
+          "title": "em 和 px 的区别"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["兑吧"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 17,
+        "qid": 476,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 476,
+          "subject": "",
+          "title": "如何实现高度自适应"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["有赞", "腾讯应用宝"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 11,
+        "qid": 411,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 411,
+          "subject": "",
+          "title": "transform 动画和直接使用 left、top 改变位置有什么优缺点"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["阿里", "虎扑", "快手"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 37,
+        "qid": 267,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 267,
+          "subject": "",
+          "title": "介绍下 Flex 布局，属性都有哪些，都是干啥的"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["虎扑"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 14,
+        "qid": 266,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 266,
+          "subject": "",
+          "title": "Css inherit、initial、unset 三者的区别"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 12,
+        "qid": 211,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 211,
+          "subject": "```html\n<style>\n  div {\n    color: red;\n  }\n  #title {\n    color: yellow;\n  }\n  div.title {\n    color: bule;\n  }\n</style>\n<div class=\"title\" id=\"title\">abc</div>\n```\n",
+          "title": "以下 css 最后是什么颜色"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["虎扑"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 26,
+        "qid": 265,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 265,
+          "subject": "",
+          "title": "Css 超出省略怎么写，三行超出省略怎么写"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["网易"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 13,
+        "qid": 151,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 151,
+          "subject": "",
+          "title": "flex 布局，如何实现把八个元素分两行摆放"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["会小二", "高思教育", "58"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 22,
+        "qid": 257,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 257,
+          "subject": "",
+          "title": "Css 画一个三角形"
+        },
+        "tech_tag": ["Css", "编程题"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["自如", "头条"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 43,
+        "qid": 233,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 233,
+          "subject": "",
+          "title": "动手实现一个左右固定100px，中间自适应的三列布局？(至少三种)"
+        },
+        "tech_tag": ["Css", "编程题"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["网易"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 9,
+        "qid": 150,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 150,
+          "subject": "",
+          "title": "`<img>`是什么元素"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["完美世界"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 12,
+        "qid": 142,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 142,
+          "subject": "",
+          "title": "Css 选择器都有什么，权重是怎么计算的"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["网易"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 16,
+        "qid": 149,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 149,
+          "subject": "",
+          "title": "`nth-child`和`nth-type-of` 有什么区别"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 28,
+        "qid": 252,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 252,
+          "subject": "",
+          "title": "屏幕占满和未占满的情况下，使 footer 固定在底部，尽量多种方法"
+        },
+        "tech_tag": ["Css", "编程题"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [
+          "阿里",
+          "滴滴",
+          "易车",
+          "新东方",
+          "虎扑",
+          "饿了么",
+          "爱范儿",
+          "心娱",
+          "58"
+        ],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 27,
+        "qid": 172,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 172,
+          "subject": "",
+          "title": "Css 方式实现一个不知道宽高的 div 居中都有哪几种方法"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 37,
+        "qid": 294,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 294,
+          "subject": "",
+          "title": "响应式布局用到的技术，移动端需要注意什么"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 25,
+        "qid": 230,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 230,
+          "subject": "",
+          "title": "简述 Grid 布局"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["完美世界"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 10,
+        "qid": 143,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 143,
+          "subject": "",
+          "title": "布局都有什么方式，float 和 position 有什么区别"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["伴鱼"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 20,
+        "qid": 86,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 86,
+          "subject": "",
+          "title": "什么情况会出现浏览器分层"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手", "伴鱼", "网易"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 41,
+        "qid": 83,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 83,
+          "subject": "",
+          "title": "BFC 是什么？触发 BFC 的条件是什么？有哪些应用场景？"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["伴鱼"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 19,
+        "qid": 88,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 88,
+          "subject": "",
+          "title": "通过 link 进来的 css 会阻塞页面渲染吗，Js 会阻塞吗，如果会如何解决？"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 32,
+        "qid": 48,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 48,
+          "subject": "",
+          "title": "Css 如何画出一个扇形，动手实现下"
+        },
+        "tech_tag": ["Css", "编程题"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["兑吧"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 14,
+        "qid": 45,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 45,
+          "subject": "",
+          "title": "说一下盒子模型，以及标准情况和 IE 下的区别"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 26,
+        "qid": 131,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 131,
+          "subject": "```js\nvar a = { k1: 1 };\nvar b = a;\na.k3 = a = { k2: 2 };\nconsole.log(a); // ?\nconsole.log(b); // ?\n```\n",
+          "title": "写出打印结果，并解释为什么"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 11,
+        "qid": 111,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 111,
+          "subject": "",
+          "title": "justify-content:space-between around 有什么区别"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 28,
+        "qid": 129,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 129,
+          "subject": "",
+          "title": "使用 Css 实现一个水波纹效果"
+        },
+        "tech_tag": ["Css", "编程题"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["滴滴", "伴鱼", "菜鸟网络", "58"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 40,
+        "qid": 85,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 85,
+          "subject": "",
+          "title": "说一下什么是重绘重排，哪些操作会造成重绘重排"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 18,
+        "qid": 130,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 130,
+          "subject": "",
+          "title": "position 定位都有什么属性（不仅仅是绝对定位和相对定位/fix 定位）"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 26,
+        "qid": 137,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 137,
+          "subject": "",
+          "title": "说一下 Css 预处理器，Less 带来的好处？"
+        },
+        "tech_tag": ["Css"],
+        "uid": 0,
+        "uname": ""
+      }
+    ],
+    "page": 1,
+    "pages": 4,
+    "uid": 23015
+  },
+  "status": 0
+}

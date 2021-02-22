@@ -1,0 +1,1132 @@
+[
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["滴滴"],
+      "is_favorite": false,
+      "qid": 12,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "1）伪类(pseudo-classes)\n- 其核⼼就是⽤来选择DOM树之外的信息,不能够被普通选择器选择的⽂档之外的元素，⽤来添加⼀些选择器的特殊效果。\n- ⽐如:hover :active :visited :link :visited :first-child :focus :lang等\n- 由于状态的变化是⾮静态的，所以元素达到⼀个特定状态时，它可能得到⼀个伪类的样式；当状态改变时，它⼜会失去这个样式。\n- 由此可以看出，它的功能和class有些类似，但它是基于⽂档之外的抽象，所以叫 伪类。\n\n2）伪元素(Pseudo-elements)\n- DOM树没有定义的虚拟元素\n- 核⼼就是需要创建通常不存在于⽂档中的元素，\n- ⽐如::before ::after 它选择的是元素指定内容，表示选择元素内容的之前内容或之后内容。\n- 伪元素控制的内容和元素是没有差别的，但是它本身只是基于元素的抽象，并不存在于⽂档中，所以称为伪元素。⽤于将特殊的效果添加到某些选择器\n\n2）伪类与伪元素的区别\n- 表示⽅法\n  - CSS2 中伪类、伪元素都是以单冒号:表示,\n  - CSS2.1 后规定伪类⽤单冒号表示,伪元素⽤双冒号::表示，\n  - 浏览器同样接受 CSS2 时代已经存在的伪元素(:before, :after, :first\\ufffeline, :first-letter 等)的单冒号写法。\n  - CSS2 之后所有新增的伪元素(如::selection)，应该采⽤双冒号的写法。\n  - CSS3中，伪类与伪元素在语法上也有所区别，伪元素修改为以::开头。浏览器对以:开头的伪元素也继续⽀持，但建议规范书写为::开头\n\n- 定义不同\n  - 伪类即假的类，可以添加类来达到效果\n  - 伪元素即假元素，需要通过添加元素才能达到效果\n- 总结:\n  - 伪类和伪元素都是⽤来表示⽂档树以外的\"元素\"。\n  - 伪类和伪元素分别⽤单冒号:和双冒号::来表示。\n  - 伪类和伪元素的区别，关键点在于如果没有伪元素(或伪类)，\n  - 是否需要添加元素才能达到效果，如果是则是伪元素，反之则是伪类。\n\n4）相同之处：\n- 伪类和伪元素都不出现在源⽂件和DOM树中。也就是说在html源⽂件中是看不到伪类和伪元素的。\n不同之处：\n- 伪类其实就是基于普通DOM元素⽽产⽣的不同状态，他是DOM元素的某⼀特征。\n- 伪元素能够创建在DOM树中不存在的抽象对象，⽽且这些抽象对象是能够访问到的。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 12,
+        "subject": "",
+        "title": "css 伪类与伪元素区别"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 754,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 行内元素与块级元素的\n\n#### 1.1 区别\n\n- 行内元素会在一条直线上排列（默认宽度只与内容有关），都是同一行的，水平方向排列。\n- 块级元素各占据一行（默认宽度是它本身父容器的100%（和父元素的宽度一致），与内容无关），垂直方向排列。块级元素从新行开始，结束接着一个断行。\n- 块级元素可以包含行内元素和块级元素。行内元素不能包含块级元素，只能包含文本或者其它行内元素。\n- 行内元素与块级元素属性的不同，主要是盒模型属性上：行内元素设置width无效，height无效(可以设置line-height)，margin上下无效，padding上下无效\n\n#### 1.3 互相转换\n\n- `display:block;`,字面意思表现形式设为块级元素\n- `display:inline`,字面意思表现形式设为行内元素\n\n#### 1.4 扩展：inline-block\n\ninline-block 的元素（如input、img)既具有 block 元素可以设置宽高的特性，同时又具有 inline 元素默认不换行的特性。当然不仅仅是这些特性，比如 inline-block 元素也可以设置 vertical-align（因为这个垂直对齐属性只对设置了inline-block的元素有效） 属性。\n\nHTML 中的换行符、空格符、制表符等合并为空白符，字体大小不为 0 的情况下，空白符自然占据一定的宽度，使用inline-block 会产生元素间的空隙。\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 754,
+        "subject": "",
+        "title": "行内元素和块级元素有什么区别"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["快手"],
+      "is_favorite": false,
+      "qid": 746,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n- last-child\n\n```css\nul li{\n    border-right:1px solid blue;\n}\nul li:last-child{\n    border-right:unset;\n}\n```\n\n- nth-last-of-type/nth-last-child\n\n```css\nul li{\n    border-right:1px solid blue;\n}\nul li:nth-last-of-type(1){\n    border-right:unset;\n}\n/* 或者 */\nul li:nth-last-child(1){\n    border-right:unset;\n}\n\n```\n- not\n\n```css\nul li:not(:last-child) {\n    border-right: 1px solid blue;\n}\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 746,
+        "subject": "",
+        "title": "ul 内部除最后一个 li 以外设置右边框效果"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 772,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n#### 1.实现一\n\n- postion+transform 实现水平垂直居中\n- padding-top 实现高是宽的50%\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n  <title>居中</title>\n</head>\n\n<body>\n  <style>\n    html,\n    body {\n      width: 100%;\n      height: 100%;\n      padding: 0;\n      margin: 0;\n    }\n\n    .wrap {\n      width: 100%;\n      height: 100%;\n      background-color: bisque;\n      position: relative;\n    }\n\n    .A {\n      font-size: 20px;\n      text-align: center;\n      background-color: blueviolet;\n      position: absolute;\n      top: 50%;\n      left: 10px;\n      right: 10px;\n      transform: translate(0, -50%);\n      padding-top: 50%;\n    }\n\n    .f {\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      transform: translate(-50%, -50%);\n    }\n  </style>\n  <div class=\"wrap\">\n    <div class=\"A\">\n      <div class=\"f\">A</div>\n    </div>\n  </div>\n</body>\n\n</html>\n```\n\n#### 2.实现二\n\n- calc+vw\n\n```js\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n  <title>居中</title>\n</head>\n\n<body>\n  <style>\n    * {\n      padding: 0;\n      margin: 0;\n    }\n\n    .A {\n      margin: 0 10px;\n      text-align: center;\n      font-size: 20px;\n      position: absolute;\n      top: 50%;\n      transform: translateY(-50%);\n      width: calc(100vw - 20px);\n      height: calc(50vw - 10px);\n      line-height: calc(50vw - 10px);\n      background-color: aquamarine;\n    }\n  </style>\n  <div class=\"A\">\n    A\n  </div>\n</body>\n\n</html>\n```\n\n#### 3.实现方式三\n\n- flex + 伪元素\n\n```js\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n  <title>居中</title>\n</head>\n\n<body>\n  <style>\n    html,\n    body {\n      padding: 0;\n      margin: 0;\n      height: 100%;\n    }\n\n    body {\n      display: flex;\n      align-items: center;\n    }\n\n    .A {\n      flex: 1;\n      margin: 0 10px;\n      padding-top: 50%;\n      position: relative;\n      background: #999;\n    }\n\n    .A::after {\n      content: 'A';\n      display: block;\n      font-size: 20px;\n      position: absolute;\n      /* 样式1 */\n      top: 50%;\n      left: 50%;\n      transform: translate(-50%, -50%);\n\n      /* 样式2 */\n      /* top: 0%;\n            left: 0%;\n            width: 100%;\n            height: 100%;\n            display: flex;\n            align-items: center;\n            justify-content: center; */\n    }\n  </style>\n  <div class=\"A\"></div>\n</body>\n\n</html>\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 772,
+        "subject": "```js\n/* \n  A元素垂直居中于屏幕中央\n  A元素距离屏幕左右边距各10px\n  A元素里面的文字A的font-size:20px；水平垂直居中\n  A元素的高度始终是A元素宽度的50%；(如果搞不定可以实现为A元素的高度固定为200px)\n  \n  请用html及css实现\n*/\n```\n",
+        "title": "屏幕正中间有个元素A，元素A中有文字A，随着屏幕宽度的增加，始终需要满足下列条件"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["快手"],
+      "is_favorite": false,
+      "qid": 745,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n#### 1.1  实现一个自适应浏览器的正方形，宽高比等比缩放\n\n```css\n.square{\n    width:30%;\n    height:30vh;\n    background:red;\n}\n```\n\n- 优点：简洁方便\n- 缺点：需要注意兼容问题\n\n#### 1.2 使用 padding 来实现\n\n由于margin, padding 的百分比数值是相对父元素的宽度计算的，只需将元素垂直方向的一个padding值设定为与width相同的百分比就可以制作出自适应正方形了。\n\n但要注意，仅仅设置padding-bottom是不够的，若向容器添加内容，内容会占据一定高度，为了解决这个问题，需要设置height: 0。\n\n```css\n.square{\n    width:30%;\n    height:0;\n    padding-bottom:30%;\n    background:red;\n    /* 这样max-height就失效了 */\n    /* max-height: 100px */\n}\n```\n\n- 优点：简洁明了，兼容性好\n- 缺点：会导致在元素设置上的 max-height 属性失效( max-height 不收缩)\n\n\n#### 1.3 利用伪元素的 margin(padding)-top 撑开容器\n\nmax-height属性失效的原因是：max-height属性只限制于height，也就是只会对元素的 content height起作用。\n\n解决方法是：用一个子元素撑开content部分的高度，从而使max-height属性生效。\n\n首先需要设置伪元素，其内容为空，margin-top设置为100%。\n\n但要注意，若使用垂直方向上的margin撑开父元素，仅仅设置伪元素是不够的，这涉及到margin collapse外边距合并的概念，由于容器与伪元素在垂直方向发生了外边距合并，所以撑开父元素高度并没有出现，解决方法是在父元素上触发BFC：设置overflow:hidden。\n\n```css\n.square{\n    width:30%;\n    overflow:hidden;\n    background:red;\n    /* 这样max-height就生效了 */\n    /* max-height: 100px */\n}\n.square:after{\n    content:'';\n    display:block;\n    margin-top:100%;\n}\n```\n\n若使用垂直方向上的padding撑开父元素，则不需要触发BFC。子元素的100%就相当于父元素的30%\n\n```css\n.square{\n    width:30%;\n    overflow:hidden;\n    background:red;\n    /* 这样max-height就生效了 */\n    /* max-height: 100px */\n}\n.square:after{\n    content:'';\n    display:block;\n    padding-top:100%;\n}\n```\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 745,
+        "subject": "",
+        "title": "Css 实现 div 宽度自适应，宽高保持等比缩放"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["玄武科技"],
+      "is_favorite": false,
+      "qid": 712,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、Css 选择器\n\n最基本的选择器是：**标签名选择器、类选择器、ID选择器**。\n\n其它选择器：\n\n- 相邻选择器（h1+p）\n- 子选择器（ul > li）\n- 后代选择器（li a）\n- 通配符选择器（*）\n- 属性选择器（a[rel=\"external\"]）\n- 伪类选择器（a:hover, li:nth-child）\n\n#### 1.1 常见的一些选择器\n\n- `*` \n\n星号会将页面上所有每一个元素都选到。许多开发者都用它来清空margin和padding。当然你在练习的时候使用这个没问题，但是我不建议在生产环境中使用它。它会给浏览器凭添许多不必要的东西。`*` 也可以用来选择某元素的所有子元素。\n\n```css\n#container * {\n  border: 1px solid black;\n}\n```\n\n- id选择器\n\n在选择器中使用#可以用id来定位某个元素。大家通常都会这么使用，然后使用的时候大家还是得相当小心的。需要问自己一下：我是不是必须要给这个元素来赋值个id来定位它呢？\n\nid选择器是很严格的并且你没办法去复用它。如果可能的话，首先试试用标签名字，HTML5中的新元素，或者是伪类。\n\n\n- 类选择器\n\nclass选择器。它跟id选择器不同的是，它可以定位多个元素。当你想对多个元素进行样式修饰的时候就可以使用class。当你要对某个特定的元素进行修饰那就是用id来定位它。\n\n- 后代选择器 `x y`\n\n```css\nli a{\n    color:red;\n}\n```\n\n如果你想更加具体的去定位元素，你可以使用它。例如，假如，你不需要定位所有的a元素，而只需要定位li标签下的a标签？这时候你就需要使用descendant选择器了。\n\n> 如果你的选择器像X Y Z A B.error这样，那你就错了。时刻都提醒自己，是否真的需要对那么多元素修饰。\n\n- 标签选择器\n\n```css\na { color: red; }\nul { margin-left: 0; }\n```\n\n如果你想定位页面上所有的某标签，不是通过id或者是’class’，这简单，直接使用类型选择器。\n\n- `X:visited and X:link`\n\n```css\n/* :link这个伪类来定位所有还没有被访问过的链接 */\na:link {color:red;}\n/* :visited来定位所有已经被访问过的链接。 */\na:visited {color: purple;}\n```\n\n- x + y\n\n```css\nul + p {\n   color: red;\n}\n```\n\n相邻选择器。它指挥选中指定元素的直接后继元素。上面那个例子就是选中了所有ul标签后面的第一段，并将它们的颜色都设置为红色。\n\n- x > y\n\n```css\ndiv#container > ul {\n  border: 1px solid black;\n}\n```\n\nX Y和X > Y的差别就是后面这个指挥选择它的直接子元素\n\n- x ~ y\n\n```css\nul ~ p {\n  color: red;\n}\n```\n\n兄弟节点组合选择器跟X+Y很相似，然后它又不是那么的严格。ul + p选择器只会选择紧挨跟着指定元素的那些元素。而这个选择器，会选择跟在目标元素后面的所有匹配的元素。\n\n- X[title]\n\n```css\na[title] {\n  color: green;\n}\n```\n\n属性选择器，上面的这个例子中，只会选择有title属性的元素。那些没有此属性的锚点标签将不会被这个代码修饰。\n\n\n- X:checked\n\n```css\ninput[type=radio]:checked {\n   border: 1px solid black;\n}\n```\n\n上面这个伪类写法可以定位那些被选中的单选框和多选框\n\n- X:after\n\nbefore和after这俩伪类。好像每天大家都能找到使用它们的创造性方法。它们会在被选中的标签周围生成一些内容。\n\n- X:nth-child(n)\n\n```css\nli:nth-child(3) {\n   color: red;\n}\n```\n\n注意nth-child接受一个整形参数，然后它不是从0开始的。如果你想获取第二个元素那么你传的值就是li:nth-child(2).",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 712,
+        "subject": "",
+        "title": "列举出 css 选择器有哪些分类，并至少写出三个 css 选择器之间的区别，适用场景"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 755,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### link & @import \n\n#### 1.1 链接样式\n\n链接方式指的是使用 HTML 头部的 标签引入外部的 CSS 文件。\n\n```html\n<head>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n</head>\n```\n\n这是最常见的也是最推荐的引入 CSS 的方式。使用这种方式，所有的 CSS 代码只存在于单独的 CSS 文件中，所以具有良好的可维护性。并且所有的 CSS 代码只存在于 CSS 文件中，CSS 文件会在第一次加载时引入，以后切换页面时只需加载 HTML 文件即可。\n\n#### 1.2 导入样式\n\n导入方式指的是使用 CSS 规则引入外部 CSS 文件。\n\n```html\n<style>\n    @import url(style.css);\n</style>\n```\n\n或者在 Css 样式中\n\n```css\n@import url(style.css);\n*{ margin:0; padding:0;}\n.notice-link a{ color:#999;}\n```\n\n#### 1.3 区别\n\n- 区别1：link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。\n- 区别2：link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。所以会出现一开始没有css样式，闪烁一下出现样式后的页面(网速慢的情况下)\n- 区别3：link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。\n- 区别4：link支持使用Javascript控制DOM去改变样式；而@import不支持。\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 755,
+        "subject": "",
+        "title": "link 和@import 区别"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["快手"],
+      "is_favorite": false,
+      "qid": 747,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### Flex\n\n#### 1.1 `flex:1`\n\n利用`flex:1`可以实现三个不同内容的div平分空间\n\n```html\n<style>\n        * {\n            margin: 0;\n            padding: 0;\n        }\n\n        ul {\n            display: flex;\n            list-style: none;\n            border: 4px solid black;\n        }\n\n        li {\n            flex: 1;\n            border: 4px solid red;\n            margin: 5px;\n        }\n    </style>\n    <ul>\n        <li>1</li>\n        <li>2</li>\n        <li>3</li>\n        <li>4</li>\n    </ul>\n```\n\n![img](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-747-1.png)\n\n#### 1.2 flex 属性\n\nflex属性是 `flex-grow、flex-shrink、flex-basis` 的简写，默认值为`0，1，auto。`\n\n- flex-grow 定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大\n- flex-shrink 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小\n- flex-basis 给上面两个属性分配多余空间之前, 计算项目是否有多余空间, 默认值为 auto, 即项目本身的大小\n\n#### 1.3 flex：1 完整写法\n\n`flex:1` 的完整写法是 \n\n```css\nflex-grow:1;\nflex-shrink:1;\nflex-basis:0%;\n```\n\n#### 1.4 flex 赋值情况\n\n- `flex:none`\n\n```css\nflex-grow:0;\nflex-shrink:0;\nflex-basis:auto;\n```\n\n- `flex:auto`\n\n```css\nflex-grow:1;\nflex-shrink:1;\nflex-basis:auto;\n```\n\n- `flex:非负数字`\n\n该数字为flex-grow的值，flex-shrink为1，flex-basis为0%\n\n```css\nflex-grow:1;\nflex-shrink:1;\nflex-basis:0%;\n```\n\n- `flex 取值为一个长度或百分比`\n\n这时这个值则视为是flex-basis的值，flex-grow 为1，flex-shrink 为1\n\n```css\n.item{\n    flex:0%;\n}\n/* 等价于 */\n.item{\n    flex-grow:1;\n    flex-shrink:1;\n    flex-basis:0%;\n}\n\n.item2{\n    flex:10px;\n}\n/* 等价于 */\n.item2{\n    flex-grow:1;\n    flex-shrink:1;\n    flex-basis:10px;\n}\n```\n\n- `flex 取两个非负数字`\n\n这时则视为 flex-grow 和 flex-shrink的值，flex-basis 为0%\n\n```css\n.item{\n    flex:2 3;\n}\n/* 等价于 */\n.item{\n    flex-grow:2;\n    flex-shrink:3;\n    flex-basis:0%;\n}\n```\n\n- `flex 取值为一个非负数字和一个长度或百分比`\n\n这时则视为 flex-grow 和 flex-basis 的值，flex-shrink的值为1\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 747,
+        "subject": "",
+        "title": "flex:1 的完整写法是？分别是什么意思？"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["玄武科技"],
+      "is_favorite": false,
+      "qid": 711,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### Css盒模型\n\n页面上任何一个元素我们都可以看成是一个盒子，盒子会占用一定的空间和位置他们之间相互制约，就形成了网页的布局.\n\nw3c的盒模型的构成：content border padding margin\n\n**IE盒模型与标准盒模型**\n\nIE模型和标准模型唯一的区别是内容计算方式的不同\n\n- IE盒模型,宽度width=content+padding\n\n![IE盒模型](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-711-iebox.png)\n\n- 标准盒模型,宽度width = content\n\n![标准盒模型](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-711-box.png)\n\n### 不同定位\n\n#### 1.相对定位\n\nrelative(相对定位) 对象不可层叠、不脱离文档流，参考自身静态位置通过 top,bottom,left,right 定位，并且可以通过z-index进行层次分级。\n\n#### 2.绝对定位\n\nabsolute(绝对定位) 脱离文档流，通过 top,bottom,left,right 定位。选取其最近一个最有定位设置的父级对象进行绝对定位，如果对象的父级没有设置定位属性，absolute元素将以body坐标原点进行定位，可以通过z-index进行层次分级。\n\n#### 3.浮动\n\n脱离文档流，也就是将元素从普通的布局排版中拿走，其他盒子在定位的时候，会当做脱离文档流的元素不存在而进行定位。\n\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 711,
+        "subject": "",
+        "title": "请画出 css 盒模型，基于盒模型的原理，说明相对定位、绝对定位、浮动实现样式是如何实现的？"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["快手", "会小二"],
+      "is_favorite": false,
+      "qid": 620,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 盒模型\n\n盒模型是css中的一种基础设计模式，web页面中的所有元素都可以当做一个盒模型，每一个盒模型都是由 display，position，float， width，height，margin，padding和border等属性组合所构成的，不同类型的盒模型会有不一样的布局，css中主要有 inline, inline-block, block, table, absolute position, float 等类型。\n\n#### 1.1 W3C标准模型和IE的传统模型(IE6以下)\n\ncss中的盒模型有两种：W3C标准模型和IE的传统模型，相同之处是都是对web中元素计算尺寸的模型， 不同之处在于两者的计算方式不同。\n\nw3c盒子模型的范围包括margin、border、padding、content,并且content部分不包含其他部分，IE盒子模型的范围包括margin、border、padding、content,和w3c盒子模型不同的是，IE盒子模型的content部分包含了padding和border\n\n#### 1.2 W3C标准模型中元素尺寸的计算方式\n\n- height(空间高度) = 内容高度 + 内距 + 边框 + 外距   （height为内容高度）\n- width(空间宽度) = 内容宽度 + 内距 + 边框 + 外距    （width为内容宽度）\n\n#### 1.3 IE的传统模型中元素尺寸的计算方式\n\n- height(空间高度) = 内容高度 + 外距  （height包含了 元素内容高度，边框， 内距）\n- width(空间宽度) = 内容宽度 + 外距  （width包含了 元素内容宽度，边框， 内距）\n\n#### 1.4 代码示例\n\n```css\n.box{\n    border:20px solid;\n    padding:30px;\n    margin:30px;\n    background:red;\n    width:300px;\n}\n/* 标准模型 空间宽度 = 300 + 20*2 + 30*2 + 30*2  */\n/* IE的传统模型 空间宽度  = 300 + 30*2  */\n/* IE的传统模型中的width是包括了padding和border的，而标准模型不包括，不管padding和borde加多少内容区域的宽度不会改变。 */\n```\n\n#### 1.5 border-box & content-box\n\n**content-box**\n\n默认值，其让元素维持W3C的标准盒模型，也就是说元素的宽度和高度（width/height）等于元素边框宽度（border）加上元素内距（padding）加上元素内容宽度或高度（content width/ height），也就是element width/height = border + padding + content width / height\n\n**border-box**\n\n重新定义CSS2.1中盒模型组成的模式，让元素维持IE传统的盒模型（IE6以下版本和IE6-7怪异模式），也就是说元素的宽度或高度等于元素内容的宽度或高度。从上面盒模型介绍可知，这里的内容宽度或高度包含了元素的border、padding、内容的宽度或高度（此处的内容宽度或高度＝盒子的宽度或高度—边框—内距）。\n\n**Css 设置标准模型和IE模型**\n\n- 标准盒模型： `box-sizing: content-box `\n- IE的传统模型：`box-sizing: border-box`\n\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 620,
+        "subject": "",
+        "title": "说下盒模型的区别？介绍一下标准的 CSS 盒模型？border-box 和 content-box 有什么区别？"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["酷狗"],
+      "is_favorite": false,
+      "qid": 686,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n原理：左上、右上角是圆角，右下、左下角是直角： 左上角、右上角的值为宽和高一样的值，右下角、左下角的值不变（等于0）；另外，因为还要设置高度值为原来高度的一半才是标准的半圆。\n\n```js\n/* 上半圆 */\n.semi-circle{\n  width:100px;\n  height:50px; \n  background-color:#cb18f8;\n  border-radius:50px 50px 0 0; /* 左上、右上、右下、左下 */\n}\n/* 下半圆 */\n.semi-circle2{\n  width:100px;\n  height:50px; \n  background-color:#cb18f8;\n  border-radius:0 0 50px 50px; /* 左上、右上、右下、左下 */\n}\n/* 左半圆 */\n.semi-circle3{\n  width:50px;\n  height:100px; \n  background-color:#cb18f8;\n  border-radius:50px 0 0 50px; /* 左上、右上、右下、左下 */\n}\n/* 右半圆 */\n.semi-circle4{\n  width:50px;\n  height:100px; \n  background-color:#cb18f8;\n  border-radius:0 50px 50px 0; /* 左上、右上、右下、左下 */\n}\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 686,
+        "subject": "",
+        "title": "Css 如何实现一个半圆"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["快手"],
+      "is_favorite": false,
+      "qid": 653,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n#### 1.flex布局\n\n`flex-direction` 属性定义的主轴方向，默认值为row，水平展示。`align-item` 属性定义子项在 `flex` 容器的当前行的侧轴方向的对齐方式，默认为 `stretch` ，元素被拉伸以适应容器。\n\n```html\n    <style>\n        html,\n        body,\n        p {\n            padding: 0;\n            margin: 0;\n        }\n        .wrap {\n            display: flex;\n        }\n        .item {\n            width: 0;\n          \tflex:1;\n            margin-right: 5px;\n            background-color: brown;\n        }\n    </style>\n\t<div class=\"wrap\">\n        <div class=\"item\">left</div>\n        <div class=\"item\">\n            <p>center</p>\n            <p>center</p>\n            <p>center</p>\n            <p>center</p>\n            <p>center</p>\n            <p>center</p>\n        </div>\n        <div class=\"item\">right</div>\n    </div>\n```\n\n#### 2.table-cell布局\n\ntable布局具有天然等高特性\n\n```html\n<style>\n    html,body,p{\n        margin:0;\n        padding:0;\n    }\n    .wrap{\n        width:100%;\n        display: table;\n        background-color: darkgrey;\n        table-layout:fixed;\n    }\n    .left,.centerWrap,.right{\n        display: table-cell;\n    }\n    .left,.right,.center{\n        background-color: brown;\n    }\n    .center{\n        margin: 0 10px;\n    }\n    </style>\n    <div class=\"wrap\">\n        <div class=\"left\">left</div>\n        <div class=\"centerWrap\">\n            <div class=\"center\">\n                <p>center</p>\n                <p>center</p>\n                <p>center</p>\n                <p>center</p>\n                <p>center</p>\n                <p>center</p>\n            </div>\n        </div>\n        <div class=\"right\">right</div>\n    </div>\n```\n\n#### 3.假等高布局，内外边距底部正负值\n\n设置父容器的 `overflow` 属性为 `hidden` ，给每列设置比较大的底内边距 `padding-bottom` ,然后用数值相似的负外边距消除这个高度 `margin-bottom`\n\n```html\n<style>\n        html,body,p {\n            padding: 0;\n            margin: 0;\n        }\n        .wrap {\n            overflow: hidden;\n            background-color: darkgray;\n        }\n        .left,.centerWrap,.right {\n            float: left;\n            width: 33.3%;\n            padding-bottom: 9999px;\n            margin-bottom: -9999px;\n        }\n        .left,.center,.right{\n            background-color:brown;\n        }\n        .center{\n            margin: 0 10px;\n        }\n    </style>\n\t<div class=\"wrap\">\n        <div class=\"left\">left</div>\n        <div class=\"centerWrap\">\n            <div class=\"center\">\n                <p>center</p>\n                <p>center</p>\n                <p>center</p>\n                <p>center</p>\n                <p>center</p>\n                <p>center</p>\n                <p>center</p>\n            </div>\n        </div>\n        <div class=\"right\">right</div>\n    </div>\n```\n\n#### 4.grid布局：\n\n`grid-template-columns` 设置列宽， `grid-auto-flow` 自动布局算法，设置优先填充列\n\n```html\n   <style>\n        html,\n        body,\n        p {\n            margin: 0;\n            padding: 0;\n        }\n\n        .wrap {\n            display: grid;\n            grid-template-columns: 33.3% 33.3% 33.3%;\n            grid-auto-flow: column;\n            grid-gap: 10px;\n            background-color: grey;\n        }\n\n        .item {\n            background-color: brown;\n        }\n    </style>\n    <div class=\"wrap\">\n        <div class=\"item\">left</div>\n        <div class=\"item\">\n            <p>center</p>\n            <p>center</p>\n            <p>center</p>\n            <p>center</p>\n            <p>center</p>\n        </div>\n        <div class=\"item\">right</div>\n    </div>\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 653,
+        "subject": "",
+        "title": "Css 实现多列等高布局，要求元素实际占用的高度以多列中较高的为准"
+      },
+      "tech_tag": ["Css", "编程题"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 404,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 清除浮动的几种方式\n\n清除浮动可以理解为清除浮动产生的影响。当元素浮动时也就是为当前元素创建了块格式化上下文（BFC），会对周围的元素或者父元素在布局上会产生一定的影响，比如：父元素因无法自动计算高度而产生的高度塌陷；因脱离文档流而使兄弟元素错位等。\n\n要清除浮动产生的影响，其实就是在解决这两方面的问题。方法是可以通过设置父元素高度，或利用BFC，或者使用自带属性 `clear1 进行清除。\n\n#### 1.1 设置父元素高度\n\n设置父元素的高度解决的是元素浮动产生的父元素高度塌陷问题，其内部元素浮动影响并未彻底清除，且需要进行计算然后再设置，比较固定，一旦子元素的高度发生改变，父元素的高度也需要再次计算设置，不够灵活。除非内容高度固定一成不变，否则不推荐使用。\n\n#### 1.2 自带属性 clear\n\n**clear + 空元素**\n\n在浮动元素下方添加空div,并给该元素写css样式： `{clear:both;height:0;overflow:hidden;}`\n\n**伪元素+clear**\n\n使用自带的属性可以非常好的解决浮动影响。该方法直观有效，哪里需要清除就在哪里添加一个兄弟元素，设置 clear 属性即可，一般属性值都设置为 both 清除两侧的浮动，也可以根据实际需要清除左侧或右侧，灵活方便直观。在 bootstrap 4.0 框架中的 clearfix 应用了该方法，其是在父元素中设置了伪元素，并设置了伪元素隐藏。\n\n```css\n.clearfix::after {\n    display: block;\n    clear: both;\n    content: \"\";\n}\n```\n\n该方法是在元素内部清除兄弟元素浮动影响是比较推崇的，因为其灵活有效，想清哪里清哪里。说这个方法有什么不好的地方，需要添加或者新建一个节点，为新节点添加 clear 属性，也就是我们需要一个存放 clear属性 的盒子，来纠正在他之前兄弟产生的不良影响。\n\n\n#### 1.3 利用BFC\n\n根据 BFC 的规则，计算 BFC 的高度时，浮动元素也参与计算。因此清除浮动，只需要触发一个BFC即可。\n\n实际项目中比较常用的\n\n- display:inline-block;\n- display:table;\n- overflow 不为 visible 的块元素，overflow:hidden;\n- float:left/right;\n- position 为 absolute 或 relative\n\n该方法是需要把属性添加到父元素当中，以解决内部元素浮动影响。不能用于解决兄弟元素的浮动问题。\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 404,
+        "subject": "",
+        "title": "清除浮动的方式"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["网易"],
+      "is_favorite": false,
+      "qid": 371,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### sticky 粘性定位\n\nposition属性中最有意思的就是sticky了，设置了sticky的元素，在屏幕范围（viewport）时该元素的位置并不受到定位影响（设置是top、left等属性无效），当该元素的位置将要移出偏移范围时，定位又会变成fixed，根据设置的left、top等属性成固定位置的效果。\n\nsticky属性有以下几个特点：\n\n- 该元素并不脱离文档流，仍然保留元素原本在文档流中的位置。\n- 当元素在容器中被滚动超过指定的偏移值时，元素在容器内固定在指定位置。亦即如果你设置了top: 50px，那么在sticky元素到达距离相对定位的元素顶部50px的位置时固定，不再向上移动。\n- 元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以滚动，那么是相对于viewport来计算元素的偏移量\n\n> 但是这个属性的兼容性需要注意一下",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 371,
+        "subject": "",
+        "title": "介绍 css3 中 position:sticky"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["饿了么"],
+      "is_favorite": false,
+      "qid": 455,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n#### 1.flex布局\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n    <title>flex</title>\n    <style>\n        html,\n        body {\n            padding: 0;\n            margin: 0;\n            height: 100%;\n        }\n\n        .wrap {\n            display: flex;\n            height: 100%;\n            flex-direction: column;\n        }\n        .header,.footer{\n            height:40px;\n            line-height:40px;\n            text-align: center;\n            background-color:cadetblue;\n        }\n        .main{\n            flex:1;\n            background-color:chocolate;\n            overflow:auto;\n            text-align: center;\n        }\n    </style>\n</head>\n\n<body>\n    <div class=\"wrap\">\n        <div class=\"header\">header</div>\n        <div class=\"main\">\n            main\n            <div style=\"height: 2000px;\"></div>\n        </div>\n        <div class=\"footer\">footer</div>\n    </div>\n</body>\n\n</html>\n```\n\n#### 2.绝对定位\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n    <title>position</title>\n    <style>\n        html,\n        body {\n            padding: 0;\n            margin: 0;\n            height: 100%;\n        }\n\n        .header,\n        .footer {\n            position: absolute;\n            width: 100%;\n            height: 40px;\n            line-height: 40px;\n            text-align: center;\n            background-color: chocolate;\n        }\n\n        .header {\n            top: 0;\n            left: 0;\n        }\n\n        .footer {\n            bottom: 0;\n            left: 0;\n        }\n\n        .main {\n            width: 100%;\n            position: absolute;\n            top: 40px;\n            left: 0;\n            bottom: 40px;\n            right: 0;\n            background-color: cadetblue;\n            overflow:auto;\n            text-align:center;\n        }\n    </style>\n</head>\n\n<body>\n    <div class=\"wrap\">\n        <div class=\"header\">header</div>\n        <div class=\"main\">\n            main\n            <div style=\"height:2000px;\"></div>\n        </div>\n        <div class=\"footer\">footer</div>\n    </div>\n</body>\n\n</html>\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 455,
+        "subject": "",
+        "title": "上下固定，中间滚动布局如何实现"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["阿里"],
+      "is_favorite": false,
+      "qid": 356,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、原因\n\n**transform是独立的层，而margin会导致重绘回流**\n\n### 二、浏览器渲染过程\n\n![渲染过程](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-356-process.jpg)\n\n拿Chrome举例，Chrome渲染主要包括：Parse Html(html解析)、Recalculate Style(查找并计算样式)、Layout(排布)、Paint(绘制)、Image Decode(图片解码)、Image Resize(图片大小设置)、Composite Layers(合并图层并输出页面到屏幕)。浏览器最终渲染出来的页面。\n\n### 三、transform的原理\n\ntransform是通过创建一个RenderLayers（渲染）合成层，拥有独立的GraphicsLayers（绘图层）。每一个GraphicsLayers都有一个Graphics Context，其对应的RenderLayers会paint进Graphics Context中。合成器（Compositor）最终会负责将由Graphics Context输出的位图合并成最终屏幕展示的图案。\n\n### 四、独立的合成层\n\n满足如下条件的RenderLayers，会被认为是一个独立的合成层：\n\n- 有3D或者perspective transform的CSS属性的层\n- video元素的层\n- canvas元素的层\n- flash\n- 对opacity和transform应用了CSS动画的层\n- 使用了CSS滤镜（filters）的层\n- 有合成层后代的层\n- 同合成层重叠，且在该合成层上面（z-index）渲染的层\n\n如果RenderLayer是一个合成层，那么它有属于它自己的单独的GraphicsLayer，否则它和它的最近的拥有GraphicsLayer的父layer共用一个GraphicsLayer。\n\n由此可见，transform发生在Composite Layer这一步，它所引起的paint也只是发生在单独的GraphicsLayer中\n，并不会引起整个页面的回流重绘。\n\n### 五、margin\n\nmarign：外边距，定义元素周围的空间；简言之，可以改变元素的位移。在浏览器页面渲染的时候，margin可以控制元素的位置，也就是说，改变margin，就会改变render tree的结构，必定会引起页面layout回流和repaint重绘。\n\n因此，从浏览器性能考虑，transform会比margin更省时间。\n\n### 六、transform的局限性\n\n上面提到，transform实际上也是用到了GPU加速，也就是说占用了内存。由此可见创建GraphicsLayer，虽然洁身了layout，paint阶段，但Layer创建的越多，占用内存就会越大，而过多的渲染开销会超过性能的改善。\n\n\n\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 356,
+        "subject": "",
+        "title": "居中为什么要使用 transform（为什么不使用 marginLeft/marginTop）"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["兑吧"],
+      "is_favorite": false,
+      "qid": 480,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n#### 1.em-相对长度单位\n\n**使用**\n\n浏览器的默认字体都是16px，那么1em=16px，以此类推计算12px=0.75em，10px=0.625em，2em=32px；\n\n这样使用很复杂，很难很好的与px进行对应,也导致书写、使用、视觉的复杂(0.75em、0.625em全是小数点)；\n\n\n为了简化font-size的换算，我们在body中写入一下代码\n\n```css\nbody {font-size: 62.5%;  } /*  公式16px*62.5%=10px  */  \n```\n\n这样页面中1em=10px,1.2em=12px,1.4em=14px,1.6em=16px，使得视觉、使用、书写都得到了极大的帮助。\n\n**缺点**\n\n- em的值并不是固定的；\n- em会继承父级元素的字体大小（参考物是父元素的font-size；）；\n- em中所有的字体都是相对于父元素的大小决定的；所以如果一个设置了font-size:1.2em的元素在另一个设置了font-size:1.2em的元素里，而这个元素又在另一个设置了font-size:1.2em的元素里，那么最后计算的结果是1.2X1.2X1.2=1.728em\n\n#### 2.px-绝对长度单位\n\n这个大家都不陌生，px像素（Pixel），像素px是相对于显示器屏幕分辨率而言的\n\n#### 3.rem-相对长度单位\n\n**使用**\n\n浏览器的默认字体都是16px，那么1rem=16px，以此类推计算12px=0.75rem，10px=0.625rem，2rem=32px；\n\n这样使用很复杂，很难很好的与px进行对应,也导致书写、使用、视觉的复杂(0.75rem、0.625em全是小数点) ；\n\n为了简化font-size的换算，我们在根元素html中加入font-size: 62.5%;\n\n```css\nhtml {font-size: 62.5%;  } /*  公式16px*62.5%=10px  */  \n```\n\n这样页面中1rem=10px,1.2rem=12px,1.4rem=14px,1.6rem=16px;使得视觉、使用、书写都得到了极大的帮助；\n\n**特点**\n\n- rem单位可谓集相对大小和绝对大小的优点于一身\n- 和em不同的是rem总是相对于根元素(如:root{})，而不像em一样使用级联的方式来计算尺寸。这种相对单位使用起来更简单。\n- rem支持IE9及以上，意思是相对于根元素html（网页），不会像em那样，依赖于父元素的字体大小，而造成混乱。使用起来安全了很多。\n\n**注意**\n\n- 值得注意的浏览器支持问题： IE8，Safari 4或 iOS 3.2中不支持rem单位。\n\n\n#### 4. 总结\n\n- px 在缩放页面时无法调整那些使用它作为单位的字体、按钮等的大小；\n- em 的值并不是固定的，会继承父级元素的字体大小，代表倍数；\n- rem 的值并不是固定的，始终是基于根元素 <html> 的，也代表倍数。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 480,
+        "subject": "",
+        "title": "em 和 px 的区别"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["兑吧"],
+      "is_favorite": false,
+      "qid": 476,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 实现高度自适应的方式\n\n#### 1.1 上下固定，中间高度自适应\n\n- flex 实现\n\n```html\n<style>\n    html,body{\n        height: 100%;\n    }\n    .box {\n        display: flex;\n        flex-direction: column;\n        height: 100%;\n    }\n\n    header {\n        height: 100px;\n        background-color: red;\n    }\n\n    main {\n        flex: 1;\n        height: 100%;\n        background-color: yellow;\n    }\n\n    footer {\n        height: 100px;\n        background-color: green;\n    }\n</style>\n<div class=\"box\">\n    <header>顶部</header>\n    <main>中间内容</main>\n    <footer>底部</footer>\n</div>\n```\n\n- position 实现\n\n```html\n<style>\n    html,\n    body {\n        height: 100%;\n    }\n\n    .box {\n        height: 100%;\n        position: relative;\n    }\n\n    header {\n        width: 100%;\n        height: 100px;\n        position: absolute;\n        top: 0;\n        background-color: red;\n    }\n\n    main {\n        width: 100%;\n        background-color: yellow;\n        position: absolute;\n        top: 100px;\n        bottom: 100px;\n    }\n\n    footer {\n        width: 100%;\n        height: 100px;\n        position: absolute;\n        bottom: 0;\n        background-color: green;\n    }\n</style>\n<div class=\"box\">\n    <header>顶部</header>\n    <main>中间内容</main>\n    <footer>底部内容</footer>\n</div>\n```\n\n#### 1.2 顶部固定下边内容自适应\n\n```html\n<style>\n    html,\n    body {\n        height: 100%;\n    }\n\n    .box {\n        height: 100%;\n        position: relative;\n    }\n\n    header {\n        height: 100px;\n        background-color: red;\n    }\n    main {\n        width: 100%;\n        background-color: yellow;\n        position: absolute;\n        top: 100px;\n        bottom: 0;\n    }\n</style>\n<div class=\"box\">\n    <header>顶部</header>\n    <main>\n       中间内容\n    </main>\n</div>\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 476,
+        "subject": "",
+        "title": "如何实现高度自适应"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["有赞", "腾讯应用宝"],
+      "is_favorite": false,
+      "qid": 411,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 一、浏览器渲染过程\n\n![渲染过程](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-356-process.jpg)\n\n拿Chrome举例，Chrome渲染主要包括：Parse Html(html解析)、Recalculate Style(查找并计算样式)、Layout(排布)、Paint(绘制)、Image Decode(图片解码)、Image Resize(图片大小设置)、Composite Layers(合并图层并输出页面到屏幕)。浏览器最终渲染出来的页面。\n\n\n### 二、transform \n\n**transform是独立的层，而left、top会导致重绘回流**\n\ntransform 属于合成属性（composite property），对合成属性进行 transition/animation 动画将会创建一个合成层（composite layer），这使得被动画元素在一个独立的层中进行动画。通常情况下，浏览器会将一个层的内容先绘制进一个位图中，然后再作为纹理（texture）上传到 GPU，只要该层的内容不发生改变，就没必要进行重绘（repaint），浏览器会通过重新复合（recomposite）来形成一个新的帧。\n\nleft/top/margin 之类的属性会影响到元素在文档中的布局，当对布局（layout）进行动画时，该元素的布局改变可能会影响到其他元素在文档中的位置，就导致了所有被影响到的元素都要进行重新布局，浏览器需要为整个层进行重绘并重新上传到 GPU，造成了极大的性能开销。\n\n#### 2.1 transform的原理\n\ntransform是通过创建一个RenderLayers（渲染）合成层，拥有独立的GraphicsLayers（绘图层）。每一个GraphicsLayers都有一个Graphics Context，其对应的RenderLayers会paint进Graphics Context中。合成器（Compositor）最终会负责将由Graphics Context输出的位图合并成最终屏幕展示的图案。\n\n#### 2.2 独立的合成层\n\n满足如下条件的RenderLayers，会被认为是一个独立的合成层：\n\n- 有3D或者perspective transform的CSS属性的层\n- video元素的层\n- canvas元素的层\n- flash\n- 对opacity和transform应用了CSS动画的层\n- 使用了CSS滤镜（filters）的层\n- 有合成层后代的层\n- 同合成层重叠，且在该合成层上面（z-index）渲染的层\n\n如果RenderLayer是一个合成层，那么它有属于它自己的单独的GraphicsLayer，否则它和它的最近的拥有GraphicsLayer的父layer共用一个GraphicsLayer。\n\n由此可见，transform发生在Composite Layer这一步，它所引起的paint也只是发生在单独的GraphicsLayer中\n，并不会引起整个页面的回流重绘。\n\n#### 2.3 transform的局限性\n\n上面提到，transform实际上也是用到了GPU加速，也就是说占用了内存。由此可见创建GraphicsLayer，虽然洁身了layout，paint阶段，但Layer创建的越多，占用内存就会越大，而过多的渲染开销会超过性能的改善。\n\n### 三、总结\n\n- 对布局属性进行动画，浏览器需要为每一帧进行重绘并上传到 GPU 中\n- 对合成属性进行动画，浏览器会为元素创建一个独立的复合层，当元素内容没有发生改变，该层就不会被重绘，浏览器会通过重新复合来创建动画帧\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 411,
+        "subject": "",
+        "title": "transform 动画和直接使用 left、top 改变位置有什么优缺点"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["阿里", "虎扑", "快手"],
+      "is_favorite": false,
+      "qid": 267,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### 1.父元素属性\n\n- **display:flex**  *定义了一个flex容器*\n\n- **flex-direction** *决定主轴的方向*\n   - row *默认值，水平从左到右*\n   - colunm *垂直从上到下*\n   - row-reverse *水平从右到左*\n   - *column-reverse *垂直从下到上*\n- **flex-wrap** *定义如何换行*\n  - nowrap *默认值，不换行*\n  - wrap *换行*\n  - wrap-reverse *换行，且颠倒行顺序，第一行在下方*\n- **flex-flow** *属性是 flex-direction 属性和 flex-wrap 属性的简写形式，默认值为row nowrap*\n- **justify-content** *设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式*\n  - flex-start *默认值、弹性盒子元素将向行起始位置对齐*\n  - flex-end *弹性盒子元素将向行结束位置对齐*\n  - center *弹性盒子元素将向行中间位置对齐。该行的子元素将相互对齐并在行中居中对齐*\n  - space-between *弹性盒子元素会平均地分布在行里*\n  - space-around *弹性盒子元素会平均地分布在行里，两端保留子元素与子元素之间间距大小的一半*\n- **align-items** *设置或检索弹性盒子元素在侧轴（纵轴）方向上的对齐方式*\n  - flex-start *弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界*\n  - flex-end *弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界*\n  - center *弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）*\n  - baseline *如弹性盒子元素的行内轴与侧轴为同一条，则该值与flex-start等效。其它情况下，该值将参与基线对齐。*\n  - stretch *如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制*\n- **align-content** *设置或检索弹性盒堆叠伸缩行的对齐方式*\n  - flex-start *各行向弹性盒容器的起始位置堆叠。弹性盒容器中第一行的侧轴起始边界紧靠住该弹性盒容器的侧轴起始边界，之后的每一行都紧靠住前面一行*\n  - flex-end *各行向弹性盒容器的结束位置堆叠。弹性盒容器中最后一行的侧轴起结束界紧靠住该弹性盒容器的侧轴结束边界，之后的每一行都紧靠住前面一行*\n  - center *各行向弹性盒容器的中间位置堆叠。各行两两紧靠住同时在弹性盒容器中居中对齐，保持弹性盒容器的侧轴起始内容边界和第一行之间的距离与该容器的侧轴结束内容边界与第最后一行之间的距离相等*\n  - space-between *各行在弹性盒容器中平均分布。第一行的侧轴起始边界紧靠住弹性盒容器的侧轴起始内容边界，最后一行的侧轴结束边界紧靠住弹性盒容器的侧轴结束内容边界，剩余的行则按一定方式在弹性盒窗口中排列，以保持两两之间的空间相等*\n  - space-around *各行在弹性盒容器中平均分布，两端保留子元素与子元素之间间距大小的一半。各行会按一定方式在弹性盒容器中排列，以保持两两之间的空间相等，同时第一行前面及最后一行后面的空间是其他空间的一半*\n  - stretch *各行将会伸展以占用剩余的空间。剩余空间被所有行平分，以扩大它们的侧轴尺寸*\n   \n#### 2.子元素上属性\n\n- **.order** *默认情况下flex order会按照书写顺训呈现，可以通过order属性改变，数值小的在前面，还可以是负数*\n- **flex-grow** *设置或检索弹性盒的扩展比率,根据弹性盒子元素所设置的扩展因子作为比率来分配剩余空间*\n- **.flex-shrink** *设置或检索弹性盒的收缩比率,根据弹性盒子元素所设置的收缩因子作为比率来收缩空间*\n- **flex-basis** *设置或检索弹性盒伸缩基准值，如果所有子元素的基准值之和大于剩余空间，则会根据每项设置的基准值，按比率伸缩剩余空间*\n- **flex**  *flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选*\n- **align-self** *设置或检索弹性盒子元素在侧轴（纵轴）方向上的对齐方式，可以覆盖父容器align-items的设置*",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 267,
+        "subject": "",
+        "title": "介绍下 Flex 布局，属性都有哪些，都是干啥的"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["虎扑"],
+      "is_favorite": false,
+      "qid": 266,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### 1.initail\n\ninitial 关键字用于设置 CSS 属性为它的默认值，可作用于任何 CSS 样式。（IE 不支持该关键字）\n\n简单的来说就是初始化到该属性浏览器默认定义的值。\n\n```html\n<style>\n    .demo{\n        color:#f00;\n    }\n    p{\n        color:initial\n    }\n</style>\n<div class=\"demo\">\n    <p>initial</p>\n</div>\n```\n\n最终文字颜色是黑色，因为浏览器默认颜色就是黑色。\n\n#### 2.inherit\n\n每一个 CSS 属性都有一个特性就是，这个属性必然是默认继承的 (inherited: Yes) 或者是默认不继承的 (inherited: no)其中之一\n\n**可继承属性，默认为 inherited: Yes 的属性**\n\n- 所有元素可继承：visibility 和 cursor\n- 内联元素可继承：letter-spacing、word-spacing、white-space、line-height、color、font、 font-family、font-size、font-style、font-variant、font-weight、text- decoration、text-transform、direction\n- 块状元素可继承：text-indent和text-align\n- 列表元素可继承：list-style、list-style-type、list-style-position、list-style-image\n- 表格元素可继承：border-collapse\n\n看个例子,border 默认是不可继承的，可以通过inherit进行改变\n\n```html\n<style>\n    .box {\n        width: 100px;\n        height: 40px;\n        border: 1px solid red;\n    }\n    .child{\n        width: 40px;\n        height: 20px;\n        /* border 就继承了父级 box的border样式 */\n        border: inherit;\n    }\n</style>\n<div class=\"box\">\n    <div class=\"child\">\n        我是子元素\n    </div>\n</div>\n```\n\n#### 3.unset\n\nunset 关键字我们可以简单理解为不设置。其实，它是关键字 initial 和 inherit 的组合。\n\n设置unset会存在以下几种情况\n\n- 如果该属性是默认继承属性，该值等同于 inherit\n- 如果该属性是非继承属性，该值等同于 initial\n- 换句话说这个unset关键字会优先用inherit的样式，其次会应该用initial的样式。\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 266,
+        "subject": "",
+        "title": "Css inherit、initial、unset 三者的区别"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["虎扑"],
+      "is_favorite": false,
+      "qid": 265,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 实现方式\n\n- 单行\n\n```css\n.single-ellipsis{\n  width: 500px;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n```\n\n- 多行\n\n```css\n.multiline-ellipsis {\n  display: -webkit-box;\n  word-break: break-all;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3; //需要显示的行数\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n```\n\n`-webkit-line-clamp` 是一个 不规范的属性（unsupported WebKit property），它没有出现在 CSS 规范草案中。\n\n为了实现该效果，它需要组合其他外来的WebKit属性。常见结合属性：\n\n- `display: -webkit-box;` 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。\n- `-webkit-box-orient` 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。\n- `text-overflow`，可以用来多行文本的情况下，用省略号“...”隐藏超出范围的文本 。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 265,
+        "subject": "",
+        "title": "Css 超出省略怎么写，三行超出省略怎么写"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["网易"],
+      "is_favorite": false,
+      "qid": 151,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n- 父盒子排列方式为 flex-start，从起点开始放置盒子；通过flex-flow 设置换行\n- 子盒子设置，设置 `flex:0 0 25%`，flex属性是 flex-grow、flex-shrink、flex-basis 的简写，默认值为0，1，auto。\n    - flex-grow:默认0，不放大\n    - flex-shrink:默认0，不缩小\n    - flex-basis:项目占据主轴的空间\n\n```html\n<style>\n    .parent {\n        width: 100%;\n        height: 150px;\n        display: flex;\n        flex-flow: row wrap;\n        align-content: flex-start;\n    }\n    .child {\n        box-sizing: border-box;\n        background-color: white;\n        flex: 0 0 25%;\n        height: 50px;\n        border: 1px solid red;\n    }\n</style>\n<div class=\"parent\">\n    <div class=\"child\"></div>\n    <div class=\"child\"></div>\n    <div class=\"child\"></div>\n    <div class=\"child\"></div>\n    <div class=\"child\"></div>\n    <div class=\"child\"></div>\n    <div class=\"child\"></div>\n    <div class=\"child\"></div>\n</div>\n```\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 151,
+        "subject": "",
+        "title": "flex 布局，如何实现把八个元素分两行摆放"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["自如", "头条"],
+      "is_favorite": false,
+      "qid": 233,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n#### 1.双飞翼布局\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n    <title>3-items双飞翼布局</title>\n    <style>\n        html,\n        body {\n            width: 100%;\n            height: 100%;\n            padding: 0;\n            margin: 0;\n        }\n        body{\n            overflow: hidden;\n        }\n        .main {\n            width: 100%;\n            height: 100%;\n            float: left;\n        }\n        .middle {\n            margin: 0 100px;\n            height: 100%;\n            background: blueviolet;\n        }\n        .left {\n            width: 100px;\n            height: 100%;\n            background: red;\n            float: left;\n            margin-left: -100%;\n        }\n        .right {\n            width: 100px;\n            height: 100%;\n            background: red;\n            float: left;\n            margin-left: -100px;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"main\">\n        <div class=\"middle\"></div>\n    </div>\n    <div class=\"left\"></div>\n    <div class=\"right\"></div>\n</body>\n</html>\n```\n\n#### 2.圣杯布局\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n    <title>3-items圣杯布局</title>\n    <style>\n        html,\n        body {\n            height: 100%;\n            margin: 0;\n            padding: 0\n        }\n\n        body {\n            overflow: hidden;\n            padding: 0 100px;\n        }\n        .main{\n            width: 100%;\n            height: 100%;\n            background: blue;\n            float: left;\n        }\n        .left{\n            width:100px;\n            height:100%;\n            background: red;\n            float: left;\n            margin-left: -100%;\n            position: relative;\n            left: -100px;\n        }\n        .right{\n            width: 100px;\n            height: 100%;\n            background: red;\n            float: left;\n            margin-left: -100px;\n            position: relative;\n            right: -100px;\n        }\n    </style>\n</head>\n\n<body>\n    <div class=\"main\">mainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmain</div>\n    <div class=\"left\"></div>\n    <div class=\"right\"></div>\n</body>\n</html>\n```\n\n#### 3.浮动布局\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n    <title>浮动布局</title>\n    <style>\n        html,\n        body {\n            width: 100%;\n            height: 100%;\n            margin: 0;\n            padding: 0;\n        }\n\n        .main {\n            height: 100%;\n            margin: 0 100px;\n            background: blue;\n        }\n\n        .left {\n            float: left;\n            width: 100px;\n            height: 100%;\n            background: red;\n        }\n\n        .right {\n            width: 100px;\n            height: 100%;\n            background: red;\n            float: right;\n        }\n    </style>\n</head>\n\n<body>\n    <div class=\"left\"></div>\n    <div class=\"right\"></div>\n    <div class=\"main\"></div>\n</body>\n\n</html>\n```\n\n#### 4.position定位\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n    <title>position</title>\n    <style>\n        html,body{\n            width: 100%;\n            height:100%;\n            margin: 0;\n            padding:0;\n            position:relative;\n        }\n        .left{\n            width: 100px;\n            height:100%;\n            background-color: red;\n            position: absolute;\n            left: 0;\n            top: 0;\n        }\n        .right{\n            width: 100px;\n            height: 100%;\n            background-color: red;\n            position:absolute;\n            top:0;\n            right:0;\n        }\n        .main{\n            height: 100%;\n            background-color: blue;\n            margin: 0 100px;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"left\"></div>\n    <div class=\"right\"></div>\n    <div class=\"main\"></div>\n</body>\n</html>\n```\n\n#### 5.flex\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n    <title>flex</title>\n    <style>\n        html,\n        body {\n            width: 100%;\n            height: 100%;\n            padding: 0;\n            margin: 0;\n            background-color: blue;\n            display: flex;\n            flex-direction:row;\n        }\n        .left{\n            width: 100px;\n            height: 100%;\n            background-color: brown;\n        }\n        .main{\n            flex:1;\n            height: 100%;\n            background-color: blue;\n        }\n        .right{\n            width: 100px;\n            height: 100%;\n            background-color: brown;\n        }\n    </style>\n</head>\n\n<body>\n    <div class=\"left\"></div>\n    <div class=\"main\">main</div>\n    <div class=\"right\"></div>\n</body>\n\n</html>\n```\n\n#### 6.calc函数\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n    <title>calc</title>\n    <style>\n        html,\n        body {\n            width: 100%;\n            height: 100%;\n            margin: 0;\n            padding: 0;\n        }\n\n        .left {\n            width: 100px;\n            height: 100%;\n            background-color: red;\n            float: left;\n        }\n\n        .right {\n            width: 100px;\n            height: 100%;\n            background-color: red;\n            float: right;\n        }\n        .main{\n            width: calc(100% - 200px);\n            float: left;\n            height: 100%;\n            background-color: blue;\n        }\n    </style>\n</head>\n\n<body>\n    <div class=\"left\"></div>\n    <div class=\"right\"></div>\n    <div class=\"main\"></div>\n</body>\n\n</html>\n```\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 233,
+        "subject": "",
+        "title": "动手实现一个左右固定100px，中间自适应的三列布局？(至少三种)"
+      },
+      "tech_tag": ["Css", "编程题"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["网易"],
+      "is_favorite": false,
+      "qid": 150,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、答案\n\nimg 是 行内元素(inline)，但同时也是可替换元素(replace)。\n\n它的特性：\n\n1. 可以设置width/height;\n2. 默认的，img元素在屏幕占据的空间与其图片的实际像素一致，除非CSS有设置或者自身的width/height HTML 属性有设置\n3. 如果img标签的包裹元素为也为inline元素，则img的边界可以超出其直接父元素的边界，直到自己的宽、高达到最大或者设定值为止，而且文档流中img的兄弟元素也不能遮盖住img。最常见的就是 `<a>` 里面包含的 `<img>`\n4. 所以从行为上看,img元素作为替换元素，有着类似于Inline-block的行为，尽管在SPEC里面，他的确是一个inline元素\n\n\n### 二、扩展\n\n#### 2.1 行内元素 & 块级元素\n\n我们习惯将html中元素分类为行内元素和块级元素，如下：\n\n**常见块级元素**：html、body、div、header、footer、nav、section、aside、article、p、hr、h1~h6、ul、ol、dl、form、table、tbody、thead、tfoot、tr等；\n\n**常见行内元素有**：span、a、img、textarea、button、input、br、label、select、canvas、progress、cite、code、strong、em、audio、video等\n\n**它们明显的区别：**\n\n- 块级元素：会自动换行，在横向充满其父元素的内容区域，默认独占一行的，可修改宽高\n- 行内元素：不会自动换行，行内元素左右可以有其他元素，行内元素的宽高大多是auto*auto。\n\n> 注意：行内元素设置宽高无效（但是行内替换元素可以设置宽高、设置上下margin无效，设置上下padding类似无效（不影响文档流排列）\n>\n> 当然使用display:block;和display：inline-block;样式可以实现转换为块级元素和行内块级元素（可设置宽高的行内元素），行内元素还可以通过添加float来设置宽高，因为不论什么元素本身是什么，当它浮动时就会生成一个块级框；\n\n#### 2.2 替换元素和不可替换元素\n\n从元素本身的特点来讲，可以分为替换和不可替换元素。\n\n**2.2.1 替换元素**\n\n- 替换元素：浏览器根据元素的标签和属性，来决定元素的具体显示内容。\n\n例如浏览器会根据 `<img>` 标签的src属性的值来读取图片信息并显示出来;根据`<input>`标签的type属性来决定是显示输入框，还是单选按钮等。HTML中的`<img>`、`<input>`、`<textarea>`、`<select>`都是替换元素。这些元素往往没有实际的内容，即是一个空元素,浏览器会根据元素的标签类型和属性来显示这些元素。\n\n**2.2.2 不可替换元素**\n\n- HTML 的大多数元素是不可替换元素，即其内容直接表现给用户端（例如浏览器）。\n\n例如<p>段落的内容</p>，段落<p>是一个不可替换元素，文字“段落的内容”全被显示。\n\n**2.2.3 总结**\n\n几乎所有的替换元素都是行内元素，例如 `<img>`、`<input>` 等等。不过元素的类型也不是固定的，通过设定CSS 的display属性，可以使行内元素变为块级元素，也可以让块级元素变为行内元素。\n\n替换元素一般有内在尺寸，所以具有width和height，可以设定。例如你不指定img的width和height时，就按其内在尺寸显示，也就是图片被保存的时候的宽度和高度。对于表单元素，浏览器也有默认的样式，包括宽度和高度。\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 150,
+        "subject": "",
+        "title": "`<img>`是什么元素"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["完美世界"],
+      "is_favorite": false,
+      "qid": 142,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、Css 选择器\n\n最基本的选择器是：**标签名选择器、类选择器、ID选择器**。\n\n其它选择器：\n\n- 相邻选择器（h1+p）\n- 子选择器（ul > li）\n- 后代选择器（li a）\n- 通配符选择器（*）\n- 属性选择器（a[rel=\"external\"]）\n- 伪类选择器（a:hover, li:nth-child）\n\n### 二、Css 选择器权重计算\n\n一般而言，选择器越特殊，它的优先级越高。也就是选择器指向的越准确，它的优先级就越高。通常我们用1表示标签名选择器的优先级，用10表示类选择器的优先级，用100标示ID选择器的优先级。\n\n比如\n\n- `div.test` => 权重 = 1 + 10 = 11\n- `div#test` => 权重 = 1 + 100 = 101\n- `.div p span` => 权重 = 10 + 1 + 1 = 12\n\n### 三、扩展：简洁高效的 Css\n\n#### 3.1 不要在ID选择器前使用标签名\n\n- 一般写法：`DIV#divBox`\n- 更好写法：`#divBox`\n- 解释： 因为ID选择器是唯一的，加上div反而增加不必要的匹配。\n\n#### 3.2 不要再class选择器前使用标签名\n\n- 一般写法：`span.red`\n- 更好写法：`.red`\n- 解释：同第一条，但如果你定义了多个.red，而且在不同的元素下是样式不一样，则不能去掉，比如你css文件中定义如下：\n\n```css\np.red{color:red;}  \nspan.red{color:#ff00ff} \n```\n\n如果是这样定义的就不要去掉，去掉后就会混淆，不过建议最好不要这样写\n\n#### 3.3 尽量少使用层级关系\n\n- 一般写法：`#divBox p .red{color:red;}`\n-  更好写法：`.red{..}`\n\n#### 3.4 使用class代替层级关系\n\n- 一般写法：`#divBox ul li a{display:block;}`\n- 更好写法：`.block{display:block;}`\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 142,
+        "subject": "",
+        "title": "Css 选择器都有什么，权重是怎么计算的"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["网易"],
+      "is_favorite": false,
+      "qid": 149,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### `nth-child` & `nth-type-of`\n\n`nth-child` & `nth-type-of` 都是 Css3 中的伪类选择器。作用近似但又不完全一样。\n\n#### 1.1 小例子\n\n```html\n<section>\n    <p>第一个标签</p>\n    <p>第二个标签</p>\n</section>\n<style>\np:nth-child(2){color:red};\np:nth-of-type(2){color:red};\n</style>\n```\n\n上面代码中，两个选择器实现的效果是一致的。都是第二个p标签的文字变为了红色。\n\n#### 1.2 区别\n\n虽然上面例子中最后的效果一致，但是两个选择器是有差异的。看段代码\n\n```html\n<section>\n    <h1>标题</h1>\n    <p>第一个标签</p>\n    <p>第二个标签</p>\n</section>\n<style>\np:nth-child(2){color:red};\np:nth-of-type(2){color:green};\n</style>\n```\n\n结果：第一个标签字体颜色变红,第二个标签字体颜色变绿\n\n- `nth-child`：选择父元素 section 的第二个子元素\n- `nth-of-type`\n    - 选择父元素 section 的第二个P元素，注意是第二个p元素\n\n再来看段代码\n\n```html\n<section>\n    <h1>标题</h1>\n     <h2>副标题</h2>\n    <p>第一个标签</p>\n    <p>第二个标签</p>\n</section>\n<style>\np:nth-child(2){color:red};\np:nth-of-type(2){color:green};\n</style>\n```\n\n结果：第二个标签字体颜色变绿，第一个标签字体颜色不变色。\n\n这是因为，`p:nth-child(2)` 不会匹配任何元素，因为此时section的第二个元素并不是p标签。但是 `p:nth-of-type(2)` 仍然可以正常工作，因为它始终选择的是section中的第二个p元素。\n\n#### 1.3 总结\n\n选择器: nth-child(n) 先根据后面的数字选中父元素的第 n 个子元素，再判断这个子元素是否是前面的选择器，如果是则样式生效，否则无效；而 ` 选择器: nth-of-type(n)` 先在父元素中找出所有符合前面选择器的子元素，再从这些子元素中选择第 n 个子元素 (在父元素中有可能不是第 n 个)\n\n如果父元素所有子元素类型都是相同的，那么这两个选择器是没区别的",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 149,
+        "subject": "",
+        "title": "`nth-child`和`nth-type-of` 有什么区别"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 252,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### Css 吸底效果实现\n\nhtml 布局\n\n```html\n<!-- wrapper是包裹content和footer的父容器 -->\n<div class=\"wrapper\">\n   <div class=\"content\">\n     <ul>\n       <!-- 页面主体内容区域 -->\n       <li>1.这是内容，这是内容……</li>\n       <li>2.这是内容，这是内容……</li>\n       <li>3.这是内容，这是内容……</li>\n       <li>4.这是内容，这是内容……</li>\n       <li>5.这是内容，这是内容……</li>\n       <li>6.这是内容，这是内容……</li>\n       <li>7.这是内容，这是内容……</li>\n       <li>8.这是内容，这是内容……</li>\n       <li>9.这是内容，这是内容……</li>\n      </ul>\n   </div>\n  <div class=\"footer\">\n    <!-- 需要吸底的区域 -->\n  </div>\n </div>\n```\n\n\n#### 1.1 position 定位\n\n实现分析：\n\n- 设置wrapper的外容器（包括html、body）的高度充满整个屏幕，即设置高度 `height:100%`，且设置wrapper的 `min-height:100%`，这样就可以保证整个wrapper的最小高度可撑开至全屏，即使内容不足以充满屏幕时，wrapper的高度仍是全屏的高度；当wrapper的高度随着content的高度变化而增大，它的高度是可以大于可视窗口的高度。\n- 设置wrapper的 `padding-bottom` 值大于等于footer的 `height` 值，即可保证content中内容不会被底部的footer区域所覆盖。\n- 设置footer定位方式，这里要区别两种效果：若是希望footer固定于页面底部，此时设置wrapper的 `position:relative` ，相应地，为footer设置`position:absolute` ，使footer相对于wrapper绝对定位，这样一来，无论内容的多少，footer依然可以固定在页面的最底部；而希望固定于可视窗口底部，为footer设置 `position:fixed`，并设置相应定位即可。\n- 设置height为固定高度值。\n\n**固定于页面底部**\n\n```js\nhtml,\nbody\n  height 100%\n.wrapper\n  position relative // 关键\n  box-sizing border-box\n  min-height 100% // 关键\n  padding-bottom 100px  \n  ul\n    list-style none\n    li\n      height 100px\n      background lightblue\n.footer\n  position absolute // 关键\n  bottom 0\n  left 0\n  right 0\n  height 100px // 设置固定高度\n  background orange\n```\n\n**固定于可视窗口底部**\n\n```js\nhtml,\nbody\n  height 100%\n.wrapper\n  box-sizing border-box\n  min-height 100% // 关键\n  padding-bottom 100px   \n  ul\n    list-style: none\n    li\n      height 100px\n      background lightblue\n.footer\n  position fixed\n  bottom 0\n  left 0\n  right 0\n  height 100px  // 设置固定高度\n  background orange\n```\n\n#### 1.2 使用flexbox布局实现\n\nflex布局结构简单，代码精简。但flex有着兼容性问题，在使用这种方式布局时需要注意。 在实现固定于页面底部的效果时，采用这种弹性布局的思想，底部固定区域的高度可灵活设置，无需定义footer的高度，这也是这种方式的优点。\n\n**固定于页面底部**\n\n实现分析：\n\n- 同样设置wrapper的 `min-height:100%`\n- 设置wrapper的布局方式为flex，且content的flex:1，使content的高度始终为wrapper的减去底部footer的高度。\n\n```js\nhtml,\nbody\n  height 100%\n.wrapper\n  min-height 100% // 关键\n  display flex // 关键\n  flex-direction column // 关键\n.content\n  flex 1  //关键\n  ul\n    list-style none\n    li\n      height 100px\n      background lightblue\n// 高度可不设置\n.footer\n    padding 20px\n    background orange\n```\n\n**固定于可视窗口底部**\n\n实现分析\n\n除了上面 固定于可视窗口底部的实现分析，还应该注意以下地方\n\n- 由于footer因设置了fixed而脱离了文档流，因此需给wrapper设置padding，这样才能保证footer不会覆盖content区域的内容。\n- 设置footer定位方式为fixed，并设置相应定位，即可使footer固定于可视窗口的底部。\n\n```js\nhtml,\nbody\n  height 100%\n.wrapper\n  display flex // 关键\n  min-height 100% // 关键\n  padding-bottom 62px \n  flex-direction column // 关键\n.content\n  flex 1  //关键\n  ul\n    list-style: none\n  li\n    height 100px\n    background lightblue\n.footer\n  position fixed  // 关键\n  left 0\n  right 0\n  bottom 0\n  padding 20px\n  background orange\n\n```\n\n\n### 1.3 使用calc实现\n\n该方案不需要任何额外样式处理，代码简洁，但是需要注意兼容问题\n\n**固定于页面底部**\n\n实现分析\n\nwrapper设置min-height:100%\n\n```js\nhtml,\nbody\n  height 100%\n.wrapper\n  min-height 100% //关键：是min-height而不是height\n.content\n  min-height calc(100% - 100px) //关键：是min-height而不是height\n  ul\n    list-style none\n  li\n    height 100px\n    background lightblue\n// 高度固定\n.footer\n  height 100px\n  background orange\n\n```\n\n**固定于可视窗口底部**\n\n实现分析\n\n- wrapper设置height:100%，如此一来，content的高度=父元素wrapper高度-底部需固定元素footer的高度，最后还需要为content加上`overflow:scroll`，使content中隐藏的部分也可通过滚动显示。\n- content的父元素wrapper设置了`height:100%`，保证content的高度在计算时，100%固定等于屏幕的高度，而不会是随着content内容的高度变化的。\n\n```js\nhtml,\nbody,\n.wrapper\n  height 100%\n.content\n  height calc(100% - 100px) // 关键：使用height，而不是min-height\n  overflow scroll // 关键\n  ul\n    list-style none\n    li\n      height 100px\n      background lightblue\n.footer\n  position fixed\n  left 0\n  right 0\n  bottom 0\n  height 100px\n  background orange\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 252,
+        "subject": "",
+        "title": "屏幕占满和未占满的情况下，使 footer 固定在底部，尽量多种方法"
+      },
+      "tech_tag": ["Css", "编程题"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": [
+        "阿里",
+        "滴滴",
+        "易车",
+        "新东方",
+        "虎扑",
+        "饿了么",
+        "爱范儿",
+        "心娱",
+        "58"
+      ],
+      "is_favorite": false,
+      "qid": 172,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 代码实现\n\n- 实现方式一：flex 布局\n\n```html\n<style>\n    .box {\n        width: 200px;\n        height: 200px;\n        border: 1px solid blue;\n        position: relative;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .item {\n        background: red;\n    }\n</style>\n<div class=\"box\">\n    <div class=\"item\">\n        <h1 >宽高不定</h1>\n    </div>\n</div>\n```\n\n- 实现方式二：position + transform\n\n```html\n<style>\n    .box {\n        width: 200px;\n        height: 200px;\n        border: 1px solid blue;\n        position: relative;\n    }\n\n    .item {\n        background: red;\n        position: absolute;\n        top: 50%;\n        left: 50%;\n        transform: translate(-50%, -50%);\n    }\n</style>\n<div class=\"box\">\n    <div class=\"item\">\n        <h1>宽高不定</h1>\n    </div>\n</div>\n```\n\n- 实现方式三：position + margin\n\n```html\n<style>\n.box {\n    width: 200px;\n    height: 200px;\n    border: 1px solid blue;\n    position: relative;\n}\n\n.item {\n    width: 50%;\n    height: 50%;\n    background: red;\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    margin: auto;\n}\n</style>\n<div class=\"box\">\n    <div class=\"item\">\n        <h1>宽高不定</h1>\n    </div>\n</div>\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 172,
+        "subject": "",
+        "title": "Css 方式实现一个不知道宽高的 div 居中都有哪几种方法"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 294,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 一、响应式布局\n\nResponsive design，意在实现不同屏幕分辨率的终端上浏览网页的不同展示方式。通过响应式设计能使网站在手机和平板电脑上有更好的浏览阅读体验。\n\n传统的开发方式是PC端开发一套，手机端再开发一套，而使用响应式布局只要开发一套就够，缺点就是CSS比较重。\n\n\n### 二、响应式布局实现方案\n\n#### 1.媒体查询\n\nCSS3媒体查询可以让我们针对不同的媒体类型定义不同的样式，当重置浏览器窗口大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面。\n\n**1）如何选择屏幕大小分割点**\n\n如何确定媒体查询的分割点也是一个开发中会遇到的问题，不同品牌和型号的设备屏幕分辨率一般都不一样。\n\n选择600px,900px,1200px,1800px作为分割点，也可以选择480px,800px,1400px,1400px作为分割点。\n\n![分割点](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-294-got.png)\n\n如果自己确定分割点不好确定，可以参考经典的响应式布局框架，Bootstrap 是如何进行断点的。\n\n- 超小屏幕手机（<768px）\n- 小屏幕 平板（>=768px）\n- 中等屏幕 桌面显示器（>=992px）\n- 大屏幕 大桌面显示器（>=1200px）\n\n**2）移动优先 OR PC优先**\n\n不管是移动优先还是PC优先，都是依据当随着屏幕宽度增大或减小的时候，后面的样式会覆盖前面的样式。因此，移动端优先首先使用的是min-width，PC端优先使用的max-width。\n\n- 移动优先\n\n```css\n/* iphone6 7 8 */\nbody {\n    background-color: yellow;\n}\n/* iphone 5 */\n@media screen and (max-width: 320px) {\n    body {\n      background-color: red;\n    }\n}\n/* iphoneX */\n@media screen and (min-width: 375px) and (-webkit-device-pixel-ratio: 3) {\n    body {\n      background-color: #0FF000;\n    }\n}\n/* iphone6 7 8 plus */\n@media screen and (min-width: 414px) {\n    body {\n      background-color: blue;\n    }\n}\n/* ipad */\n@media screen and (min-width: 768px) {\n    body {\n      background-color: green;\n    }\n}\n/* ipad pro */\n@media screen and (min-width: 1024px) {\n    body {\n      background-color: #FF00FF;\n    }\n}\n/* pc */\n@media screen and (min-width: 1100px) {\n    body {\n      background-color: black;\n    }\n}\n```\n\n- PC优先\n\n```css\n/* pc width > 1024px */\n    body {\n        background-color: yellow;\n    }\n/* ipad pro */\n@media screen and (max-width: 1024px) {\n    body {\n        background-color: #FF00FF;\n    }\n}\n/* ipad */\n@media screen and (max-width: 768px) {\n    body {\n        background-color: green;\n    }\n}\n/* iphone6 7 8 plus */\n@media screen and (max-width: 414px) {\n    body {\n        background-color: blue;\n    }\n}\n/* iphoneX */\n@media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 3) {\n    body {\n        background-color: #0FF000;\n    }\n}\n/* iphone6 7 8 */\n@media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 2) {\n    body {\n        background-color: #0FF000;\n    }\n}\n/* iphone5 */\n@media screen and (max-width: 320px) {\n    body {\n        background-color: #0FF000;\n    }\n}\n```\n\n#### 2.百分比布局\n\n通过百分比单位，可以使得浏览器中组件的宽和高随着浏览器的高度的变化而变化，从而实现响应式的效果。Bootstrap里面的栅格系统就是利用百分比来定义元素的宽高，CSS3支持最大最小高，可以将百分比和max(min)一起结合使用来定义元素在不同设备下的宽高。\n\n如果使用百分比布局，我们必须要弄清楚css中子元素的百分比到底是相对谁的百分比。\n\n- 子元素的height或width中使用百分比，是相对于子元素的直接父元素，width相对于父元素的width，height相对于父元素的height；\n- 子元素的top和bottom如果设置百分比，则相对于直接非static定位(默认定位)的父元素的高度，同样子元素的left和right如果设置百分比，则相对于直接非static定位(默认定位的)父元素的宽度；\n- 子元素的padding如果设置百分比，不论是垂直方向或者是水平方向，都相对于直接父亲元素的width，而与父元素的height无关。\n- 跟padding一样，margin也是如此，子元素的margin如果设置成百分比，不论是垂直方向还是水平方向，都相对于直接父元素的width；\n- border-radius不一样，如果设置border-radius为百分比，则是相对于自身的宽度\n- 除了border-radius外，还有比如translate、background-size等都是相对于自身的；\n\n所以百分比布局有明显的两个缺点：\n\n- 计算困难，如果我们要定义一个元素的宽度和高度，按照设计稿，必须换算成百分比单位。\n- 可以看出，各个属性中如果使用百分比，相对父元素的属性并不是唯一的。比如width和height相对于父元素的width和height，而margin、padding不管垂直还是水平方向都相对比父元素的宽度、border-radius则是相对于元素自身等等，造成我们使用百分比单位容易使布局问题变得复杂。\n\n#### 3.rem布局\n\nREM是CSS3新增的单位，并且移动端的支持度很高，Android2.x+,ios5+都支持。rem单位都是相对于根元素html的font-size来决定大小的,根元素的font-size相当于提供了一个基准，当页面的size发生变化时，只需要改变font-size的值，那么以rem为固定单位的元素的大小也会发生响应的变化。 因此，如果通过rem来实现响应式的布局，只需要根据视图容器的大小，动态的改变font-size即可（而em是相对于父元素的）。\n\n**1）rem响应式的布局思想**\n\n- 一般不要给元素设置具体的宽度，但是对于一些小图标可以设定具体宽度值\n- 高度值可以设置固定值，设计稿有多大，我们就严格有多大\n- 所有设置的固定值都用rem做单位（首先在HTML总设置一个基准值：px和rem的对应比例，然后在效果图上获取px值，布局的时候转化为rem值)\n- js获取真实屏幕的宽度，让其除以设计稿的宽度，算出比例，把之前的基准值按照比例进行重新的设定，这样项目就可以在移动端自适应了\n\n**2）rem布局的缺点**\n\n在响应式布局中，必须通过js来动态控制根元素font-size的大小，也就是说css样式和js代码有一定的耦合性，且必须将改变font-size的代码放在css样式之前\n\n```js\n/*\n上述代码中将视图容器分为10份，\nfont-size用十分之一的宽度来表示，\n最后在header标签中执行这段代码，\n就可以动态定义font-size的大小，\n从而1rem在不同的视觉容器中表示不同的大小，\n用rem固定单位可以实现不同容器内布局的自适应。\n*/\nfunction refreshRem() {\n    var docEl = doc.documentElement;\n    var width = docEl.getBoundingClientRect().width;\n    var rem = width / 10;\n    docEl.style.fontSize = rem + 'px';\n    flexible.rem = win.rem = rem;\n}\nwin.addEventListener('resize', refreshRem);\n\n```\n\nREM布局也是目前多屏幕适配的最佳方式。默认情况下我们html标签的font-size为16px,我们利用媒体查询，设置在不同设备下的字体大小。\n\n```css\n/* pc width > 1100px */\nhtml{ font-size: 100%;}\nbody {\n    background-color: yellow;\n    font-size: 1.5rem;\n}\n/* ipad pro */\n@media screen and (max-width: 1024px) {\n    body {\n      background-color: #FF00FF;\n      font-size: 1.4rem;\n    }\n}\n/* ipad */\n@media screen and (max-width: 768px) {\n    body {\n      background-color: green;\n      font-size: 1.3rem;\n    }\n}\n/* iphone6 7 8 plus */\n@media screen and (max-width: 414px) {\n    body {\n      background-color: blue;\n      font-size: 1.25rem;\n    }\n}\n/* iphoneX */\n@media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 3) {\n    body {\n      background-color: #0FF000;\n      font-size: 1.125rem;\n    }\n}\n/* iphone6 7 8 */\n@media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 2) {\n    body {\n      background-color: #0FF000;\n      font-size: 1rem;\n    }\n}\n/* iphone5 */\n@media screen and (max-width: 320px) {\n    body {\n      background-color: #0FF000;\n      font-size: 0.75rem;\n    }\n}\n```\n\n#### 4.视口单位\n\ncss3中引入了一个新的单位vw/vh，与视图窗口有关，vw表示相对于视图窗口的宽度，vh表示相对于视图窗口高度，除了vw和vh外，还有vmin和vmax两个相关的单位。\n\n- vw:相对于视窗的宽度，1vw等于视口宽度的1%，即视窗宽度是100vw\n- vh:相对于视窗的高度，1vh等于视口高度的1%，即视窗高度是100vh\n- vmin:vw和vh中较小的值\n- vmax:vw和vh中较小的值\n\n使用视口单位来实现响应式有两种做法：\n\n**1）仅使用vw作为CSS单位**\n\n- 对于设计稿的尺寸转换为为单位，我们使用Sass函数编译\n\n```js\n//iPhone 6尺寸作为设计稿基准\n$vm_base: 375; \n@function vw($px) {\n    @return ($px / 375) * 100vw;\n}\n```\n\n- 无论是文本还是布局宽度、间距等都使用vw作为单位\n\n```js\n.mod_nav {\n    background-color: #fff;\n    &_list {\n        display: flex;\n        padding: vm(15) vm(10) vm(10); // 内间距\n        &_item {\n            flex: 1;\n            text-align: center;\n            font-size: vm(10); // 字体大小\n            &_logo {\n                display: block;\n                margin: 0 auto;\n                width: vm(40); // 宽度\n                height: vm(40); // 高度\n                img {\n                    display: block;\n                    margin: 0 auto;\n                    max-width: 100%;\n                }\n            }\n            &_name {\n                margin-top: vm(2);\n            }\n        }\n    }\n}\n```\n\n**2）搭配vw和rem**\n\n虽然采用vw适配后的页面效果很好，但是它是利用视口单位实现的布局，依赖视口大小而自动缩放，无论视口过大还是过小，它也随着时候过大或者过小，失去了最大最小宽度的限制，此时我们可以结合rem来实现布局\n\n- 给根元素大小设置随着视口变化而变化的vw单位，这样就可以实现动态改变其大小\n- 限制根元素字体大小的最大最小值，配合body加上最大宽度和最小宽度\n\n```js\n// rem 单位换算：定为 75px 只是方便运算，750px-75px、640-64px、1080px-108px，如此类推\n$vm_fontsize: 75; // iPhone 6尺寸的根元素大小基准值\n@function rem($px) {\n     @return ($px / $vm_fontsize ) * 1rem;\n}\n// 根元素大小使用 vw 单位\n$vm_design: 750;\nhtml {\n    font-size: ($vm_fontsize / ($vm_design / 2)) * 100vw; \n    // 同时，通过Media Queries 限制根元素最大最小值\n    @media screen and (max-width: 320px) {\n        font-size: 64px;\n    }\n    @media screen and (min-width: 540px) {\n        font-size: 108px;\n    }\n}\n// body 也增加最大最小宽度限制，避免默认100%宽度的 block 元素跟随 body 而过大过小\nbody {\n    max-width: 540px;\n    min-width: 320px;\n}\n```\n\n#### 5.图片响应式\n\n图片响应式包括两个方面，一个就是大小自适应，这样能够保证图片在不同的屏幕分辨率下出现压缩、拉伸的情况；一个就是根据不同的屏幕分辨率和设备像素比来尽可能选择高分辨率的图片，也就是当在小屏幕上不需要高清图或大图，这样我们用小图代替，就可以减少网络带宽了。\n\n**1）使用max-width（图片自适应）**\n\n图片自适应意思就是图片能随着容器的大小进行缩放\n\n```css\nimg {\n    display: inline-block;\n    max-width: 100%;\n    height: auto;\n}\n```\n\n**2）使用srcset**\n\n```html\n<img srcset=\"photo_w350.jpg 1x, photo_w640.jpg 2x\" src=\"photo_w350.jpg\" alt=\"\">\n```\n\n如果屏幕的dpi = 1的话则加载1倍图，而dpi = 2则加载2倍图，手机和mac基本上dpi都达到了2以上，这样子对于普通屏幕来说不会浪费流量，而对于视网膜屏来说又有高清的体验。\n\n如果浏览器不支持srcset，则默认加载src里面的图片。\n\n**2）使用background-image**\n\n```css\n.banner{\n  background-image: url(/static/large.jpg);\n}\n\n@media screen and (max-width: 767px){\n  background-image: url(/static/small.jpg);\n}\n```\n\n**3）使用picture标签**\n\n解决IE等浏览器不支持 的问题,可以引入 `picturefill.min.js `\n\n```html\n<picture>\n    <source srcset=\"banner_w1000.jpg\" media=\"(min-width: 801px)\">\n    <source srcset=\"banner_w800.jpg\" media=\"(max-width: 800px)\">\n    <img src=\"banner_w800.jpg\" alt=\"\">\n</picture>\n\n<!-- picturefill.min.js 解决IE等浏览器不支持 <picture> 的问题 -->\n<script type=\"text/javascript\" src=\"js/vendor/picturefill.min.js\"></script>\n```\n\n#### 6.总结\n\n响应式布局的实现可以通过媒体查询+px,媒体查询+百分比，媒体查询+rem+js,vm/vh,vm/vh +rem这几种方式来实现。但每一种方式都是有缺点的，\n\n媒体查询需要选取主流设备宽度尺寸作为断点针对性写额外的样式进行适配，但这样做会比较麻烦，只能在选取的几个主流设备尺寸下呈现完美适配，另外用户体验也不友好，布局在响应断点范围内的分辨率下维持不变，而在响应断点切换的瞬间，布局带来断层式的切换变化，如同卡带的唱机般“咔咔咔”地一下又一下。\n\n通过百分比来适配首先是计算麻烦，第二各个属性中如果使用百分比，其相对的元素的属性并不是唯一的，这样就造成我们使用百分比单位容易使布局问题变得复杂。\n\n通过采用rem单位的动态计算的弹性布局，则是需要在头部内嵌一段脚本来进行监听分辨率的变化来动态改变根元素字体大小，使得CSS与JS 耦合了在一起。\n\n通过利用纯css视口单位实现适配的页面，是既能解决响应式断层问题，又能解决脚本依赖的问题的，但是兼容性还没有完全能结构接受。\n\n\n### 三、响应式布局成型方案\n\n现在的css，UI框架等都已经考虑到了适配不同屏幕分辨率的问题，实际项目中我们可以直接使用这些新特性和框架来实现响应式布局。可以有以下选择方案：\n\n- 利用前面介绍的方法自己来实现，比如CSS3 Media Query,rem，vw等\n- Flex弹性布局\n- Grid网格布局\n- Columns栅格系统，往往需要依赖某个UI库，如Bootstrap\n\n\n### 四、响应式布局的要点\n\n在实际项目中，我们可能需要综合上面的方案，比如用rem来做字体的适配，用srcset来做图片的响应式，宽度可以用rem，flex，栅格系统等来实现响应式，然后可能还需要利用媒体查询来作为响应式布局的基础，因此综合上面的实现方案，项目中实现响应式布局需要注意下面几点：\n\n- 设置viewport\n- 媒体查询\n- 字体的适配（字体单位）\n- 百分比布局\n- 图片的适配（图片的响应式）\n- 结合flex，grid，BFC，栅格系统等已经成型的方案\n\n### 五、移动端需要注意什么\n\n#### 1.添加禁止浏览器主动缩放功能\n\n涉及到网页开发历史遗留问题，最开始的手机浏览器网页是直接访问电脑网页或访问专门为诺基亚手机开发的WAP页面，对于电脑网页由于手机分辨率太低，浏览器会使用缩放页面的方式来展示原页面，这个也是为什么在手机页面上直接使用document.documentElement.clientWidth获取到的值为 980（之所以是这个值也是因为国外做过调查，那个时候的网页一般宽度都在980px左右），所以为了避免浏览器的自动缩放，需要在手机端的<head>内添加一行以下代码：\n\n```html\n<meta name=\"viewport\" content=\"width=device-width,user-scalable=no,initial-scale=1.0,maximum=1.0,minimum=1.0\" />\n```\n\n#### 2.移动端字体放大问题\n\n当可视部分的宽度小于480px也就是iPhone横屏时的宽时,需要进行一下处理\n\n- 禁用html节点的字号自动调整。默认情况下，iPhone会将过小的字号放大，我们可以通过 `-webkit-text-size-adjust` 属性进行调整。\n- 将main-nav中的字号设置为90%\n\n```css\n@media screen and (max-width: 480px) {\n    html {\n        -webkit-text-size-adjust: none;\n    }\n    #main-nav a {\n        font-size: 90%;\n        padding: 10px 8px;\n    }\n } \n```\n\n#### 3.移动端1px的问题\n\n在移动端 web 开发中，UI 设计稿中设置边框为 1 像素，前端在开发过程中如果出现 `border:1px`，测试会发现在某些机型上，1px 会比较粗，即是较经典的 移动端 1px 像素问题。 设备的 物理像素[设备像素]和逻辑像素[CSS 像素] 可以使用 `viewport + rem` 或者 `transform: scale(0.5)` 来实现",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 294,
+        "subject": "",
+        "title": "响应式布局用到的技术，移动端需要注意什么"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 230,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### Grid 布局\n\nCSS Grid(网格) 布局（又称为 “Grid(网格)” ），是一个二维的基于网格的布局系统，它的目标是完全改变我们基于网格的用户界面的布局方式。CSS 一直用来布局我们的网页，但一直以来都存在这样或那样的问题。一开始我们用表格（table），然后是浮动（float），再是定位（postion）和内嵌块（inline-block），但是所有这些方法本质上都是只是 hack 而已，并且遗漏了很多重要的功能（例如垂直居中）。Flexbox 的出现很大程度上改善了我们的布局方式，但它的目的是为了解决更简单的一维布局，而不是复杂的二维布局（实际上 Flexbox 和 Grid 能协同工作，而且配合得非常好）。Grid(网格) 布局是第一个专门为解决布局问题而创建的 CSS 模块。\n\n- Grid 布局将网页划分成一个个网格，可以任意组合不同的网格，做出各种各样的布局。\n- Flex 布局是轴线布局，只能指定\"项目\"针对轴线的位置，可以看作是一维布局。\n- Grid 布局则是将容器划分成\"行\"和\"列\"，产生单元格，然后指定\"项目所在\"的单元格，可以看作是二维布局。\n\n#### 1.1 FlexBox 布局也可以做到 n 行 n 列的布局，为什么还会出现 grid 布局？\n\n看个例子\n\n![demo](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-230-grid.png)\n\n上图中的布局使用的是 FlexBox 做的 2 行 2 列布局，主轴对齐方式为 space-around。如果想让第 2 行元素的对齐方式设置为 flex-start，怎么做？FlexBox 布局根本做不到，它只能同时控制所有的行。这就是为什么会出现 grid 布局的原因之一。\n\n\n#### 1.2 掌握Grid布局一些基础知识\n\n\n\n![demo](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-230-gird1.png)\n\n首先，你必须使用 `display: grid` 将容器元素定义为一个 grid(网格) 布局，使用 `grid-template-columns` 和 `grid-template-rows` 设置列和行的尺寸大小，然后通过 `grid-column` 和 `grid-row` 将其子元素放入这个 grid(网格) 中。\n\n#### 1.3 Grid 属性\n\n**1.3.1启动网格布局**\n\n```css\ndisplay:grid;\n```\n\n**1.3.2划分行和列**\n\n```css\n/* 三行三列 */\ngrid-template-columns:200px 200px 200px\ngrid-template-rows:200px 200px 200px\n```\n\n也可以使用 `repeat` 简化上面的写法\n\n```css\ngrid-template-columns：repeat(3,33.33%);\ngrid-template-rows:repeat(3,33.33%);　　　\n```\n\n还可以设置自动填充，当项目宽高固定，容器不固定的情况下，自动填充网格列数\n\n```css\ngrid-template-columns：repeat(auto-fill,33.33%);\n```\n\n**1.3.3 设置行间距 || 列间距**\n\n```css\n　　grid-row-gap:20px /* 行间距 */\n　　grid-column-gap:20px /* 列间距 */\n　　grid-gap:30px 30px /* 复合式写法 */\n```\n\n**1.3.4 规划子元素放置的顺序(默认为先排行后排列)**\n\n```css\ngrid-auto-flow: column | row;　　\n```\n\n**1.3.5 项目属性**\n\n添加在子元素上面\n\n- 指定项目的四个边框，分别定位在哪根网格线。　\n\n```css\ngrid-column-start属性：左边框所在的垂直网格线\ngrid-column-end属性：右边框所在的垂直网格线\ngrid-row-start属性：上边框所在的水平网格线\ngrid-row-end属性：下边框所在的水平网格线\n```\n\n- grid-column ，grid-row\n\n```css\ngrid-column属性是grid-column-start和grid-column-end的合并简写形式\ngrid-row属性是grid-row-start属性和grid-row-end的合并简写形式。\n\ngrid-column: 1 / 3;\ngrid-row: 1 / 2;\n```\n\n#### 1.4 代码示例\n\n```html\n<style>\n        * {\n            margin: 0;\n            padding: 0;\n        }\n\n        img {\n            display: block;\n        }\n\n        .box {\n            width: 500px;\n            height: 400px;\n            margin: 40px auto;\n            /* 触发网格布局 */\n            display: grid;\n            grid-template-columns: repeat(3, 33.33%);\n            grid-template-rows: repeat(3, 150px);\n            grid-gap:30px 30px;\n        }\n\n        .item {\n            background: green;\n        }\n\n        .box div:nth-child(1) {\n            grid-column-start: 1;\n            grid-column-end: 3;\n        }\n\n        .box div:nth-child(4) {\n            grid-column-start: 2;\n            grid-column-end: 4;\n        }\n\n        .box div:nth-child(5) {\n            grid-column-start: 1;\n            grid-column-end: 3;\n        }\n    </style>\n    <div class=\"box\">\n        <div class=\"item\">\n            元素一\n        </div>\n        <div class=\"item\">\n            元素二\n        </div>\n        <div class=\"item\">\n            元素三\n        </div>\n        <div class=\"item\">\n            元素四\n        </div>\n        <div class=\"item\">\n            元素五\n        </div>\n        <div class=\"item\">\n            元素六\n        </div>\n    </div>\n```\n\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 230,
+        "subject": "",
+        "title": "简述 Grid 布局"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["完美世界"],
+      "is_favorite": false,
+      "qid": 143,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n\n### 一、布局方式\n\n1. 静态块级\n2. 弹性布局(Flex)\n3. 网格布局(Grid)\n4. 自适应布局(根据当前访问设备进行多套样式来适配)\n5. 响应式布局(通过媒体查询进行适配，rem/em)\n6. 浮动布局(float)\n7. 定位布局(position)\n\n### 二、float 和 position 有什么区别\n\n#### 1.float\n\n`float: none、left、right、inherit`\n\n**特性**\n\n- 浮动会脱离文档流，并且会随着分辨率和窗口尺寸的变化而变化。\n- 浮动后面的元素如果是块级元素，会占据块级元素的文本位置，但会与块级背景和边框重叠。\n- 多个浮动不会产生重叠现象。\n- 会将块级元素和行内元素变为行内块元素。\n\n#### 2.position\n\n`position: relative，absolute，fixed，static`\n\n**特性**\n\n- relative 和 static 不会脱离文档流。\n- absolute 和 fixed 会脱离文档流。\n- absolute 根据 relative 定位。fixed 根据 body 定位。\n- absolute 和 fixed 会触发 BFC 。\n- 定位的优先级高于浮动。\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 143,
+        "subject": "",
+        "title": "布局都有什么方式，float 和 position 有什么区别"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["伴鱼"],
+      "is_favorite": false,
+      "qid": 86,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### 分层与合成\n\n通常页面的组成是非常复杂的，有的页面里要实现一些复杂的动画效果，比如点击菜单时弹出菜单的动画特效，滚动鼠标滚轮时页面滚动的动画效果，当然还有一些炫酷的 3D 动画特效。如果没有采用分层机制，从布局树直接生成目标图片的话，那么每次页面有很小的变化时，都会触发重排或者重绘机制，这种“牵一发而动全身”的绘制策略会严重影响页面的渲染效率。\n\n为了提升每帧的渲染效率，Chrome 引入了分层和合成的机制。\n\n你可以把一张网页想象成是由很多个图片叠加在一起的，每个图片就对应一个图层，Chrome 合成器最终将这些图层合成了用于显示页面的图片。如果你熟悉 PhotoShop 的话，就能很好地理解这个过程了，PhotoShop 中一个项目是由很多图层构成的，每个图层都可以是一张单独图片，可以设置透明度、边框阴影，可以旋转或者设置图层的上下位置，将这些图层叠加在一起后，就能呈现出最终的图片了。\n\n在这个过程中，将素材分解为多个图层的操作就称为分层，最后将这些图层合并到一起的操作就称为合成。所以，分层和合成通常是一起使用的。\n\n考虑到一个页面被划分为两个层，当进行到下一帧的渲染时，上面的一帧可能需要实现某些变换，如平移、旋转、缩放、阴影或者 Alpha 渐变，这时候合成器只需要将两个层进行相应的变化操作就可以了，显卡处理这些操作驾轻就熟，所以这个合成过程时间非常短。\n\n\n#### 生成层的方式\n\n在某些特定条件下，浏览器会主动将渲染层提至合成层，那么影响 composite 的因素有哪些？\n\n- 3D transforms: translate3d, translateZ 等;\n- video, canvas, iframe 等元素;\n- 通过 Element.animate() 实现的 opacity 动画转换;\n- 通过 СSS 动画实现的 opacity 动画转换;\n- position: fixed;\n- will-change;\n- filter;\n- 有合成层后代同时本身 overflow 不为 visible（如果本身是因为明确的定位因素产生的 SelfPaintingLayer，则需要 z-index 不为 auto）\n- ...",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 86,
+        "subject": "",
+        "title": "什么情况会出现浏览器分层"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["快手", "伴鱼", "网易"],
+      "is_favorite": false,
+      "qid": 83,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### 1.概念\n\n**BFC(Box Formatting context ):**  Box 是 CSS 布局的对象和基本单位，BFC就是页面上的一个隔离的独立 容器，容器里面的子元素不会影响到外面的元素。反之也如此。\n\n块级格式化上下文布局规则\n\n- 内部的BOX会在垂直方向一个接一个的放置；\n- 属于同一个BFC的两个相邻Box的margin会重叠；不同BFC就不会；\n- 是页面上一个隔离的独立容器，里面的元素不会影响到外面的元素；反之亦然；\n- BFC的区域不会和float box重叠；\n- 计算BFC的高度，浮动元素也参与计算；\n\n#### 2.触发条件\n\n**触发条件简要概括**\n\n- 根元素\n- float属性不为none\n- position为absolute或fixed\n- overflow不为visible\n- display为inline-block, table-cell, table-caption, flex, inline-flex。\n\n**触发条件详细介绍:**\n\n1. 根元素(<html>)\n2. 浮动元素（元素的 float 不是 none）\n3. 绝对定位元素（元素的 position 为 absolute 或 fixed）\n4. 行内块元素（元素的 display 为 inline-block）\n5. 表格单元格（元素的 display为 table-cell，HTML表格单元格默认为该值）\n6. 表格标题（元素的 display 为 table-caption，HTML表格标题默认为该值）\n7. 匿名表格单元格元素（元素的 display为 table、table-row、 table-row-group、table-header-group、table-footer-group（分别是HTML table、row、tbody、thead、tfoot的默认属性）或 inline-table）\n8. overflow 值不为 visible 的块元素\n9. display 值为 flow-root 的元素\n10. contain 值为 layout、content或 paint 的元素\n11. 弹性元素（display为 flex 或 inline-flex元素的直接子元素）\n12. 网格元素（display为 grid 或 inline-grid 元素的直接子元素）\n13. 多列容器（元素的 column-count 或 column-width 不为 auto，包括 column-count 为 1）\n14. column-span 为 all 的元素始终会创建一个新的BFC，即使该元素没有包裹在一个多列容器中（标准变更，Chrome bug）。\n\n#### 3.应用场景\n\n**1）清除内部的浮动，触发父元素的BFC属性，会包含float元素；**\n\n防止浮动导致父元素高度塌陷父级设置overflow：hidden,元素float:right;\n\n**2）分属于不同的BFC，可以阻止Margin重叠；**\n\n避免margin重叠,两个块相邻就会导致外边距被折叠，给中间的设置BFC就会避免，方法就是套个父级设置overflow：hidden\n\n**3）阻止元素被浮动元素覆盖，各自是独立的渲染区域；**\n\n**4）自适应两栏布局；**\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 83,
+        "subject": "",
+        "title": "BFC 是什么？触发 BFC 的条件是什么？有哪些应用场景？"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["伴鱼"],
+      "is_favorite": false,
+      "qid": 88,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### 1.`<link>`标签不会阻塞DOM解析但会阻塞DOM渲染\n\n`<link>`标签并不会像带scr属性的`<script>`标签一样会触发页面paint。浏览器并行解析生成DOM` Tree 和 CSSOM Tree，当两者都解析完毕，才会生成rending tree，页面才会渲染。所以应尽量减小引入样式文件的大小，提高首屏展示速度。\n\n\n#### 2.`<script>`标签会阻塞DOM的解析和渲染；\n\n`<script>`标签会阻塞DOM解析和渲染，但在阻塞同时，其他线程会解析文档的其余部分（预解析），找出并加载需要通过网络加载的其他资源。通过这种方式，资源可以在并行连接上加载，从而提高总体速度。预解析不会修改解析出来的 DOM 树，只会解析外部资源（例如外部脚本、样式表和图片）的引用。\n\n#### 3.优化\n\n- 合理放置脚本位置\n- 预加载 Link preload\n- DNS Prefetch 预解析\n- script 延迟脚本加载 defer/async\n\n\n#### 4.总结\n\nhtml代码中往往会引入一些额外的资源，比如图片、CSS、JS脚本等，图片和CSS这些资源需要通过网络下载或从缓存中直接加载，这些资源不会阻塞html的解析，因为他们不会影响DOM树的生成，但当HTML解析过程中遇到script标签，就会停止html解析流程，转而去加载解析并且执行JS。这是因为浏览器并不知道JS执行是否会改变当前页面的HTML结构，如果JS代码里用了document.write方法来修改html，之前的和html解析就没有任何意义了，这也就是为什么我们一直说要把script标签要放在合适的位置，或者使用async或defer属性来异步加载执行JS。\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 88,
+        "subject": "",
+        "title": "通过 link 进来的 css 会阻塞页面渲染吗，Js 会阻塞吗，如果会如何解决？"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 48,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 答案\n\n**简单版**\n\n```css\n/* 简版一  */\n.sector1 {\n   border-radius: 0  0  0 200px;\n   width: 200px;\n   height: 200px;\n   background: yellowgreen;\n}\n /* 简版二  */\n.sector1 {\n  width: 0;\n  height: 0;\n  border-width: 100px;\n  border-style: solid;\n  border-color: transparent transparent red;\n  border-radius: 100px;\n}\n\n```\n\n**1）实现方式一**\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n  <title>使用css3绘制任意角度扇形</title>\n  <style>\n  .pie {\n    position: relative;\n    margin: 1em auto;\n    padding: 0;\n    width: 32em;\n    height: 32em;\n    border-radius: 100%;\n    list-style: none;\n    overflow: hidden;\n    transform: rotate(0deg) /*针对mac safari浏览器兼容*/\n\n  }\n  .slice {   /*一个slice最多设置成一个90度的扇形，超过就需要多个slice进行拼接*/\n    overflow: hidden;\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 50%;\n    height: 50%;\n    transform-origin: 0% 100%;/*设置旋转的基准点*/\n  }\n  .slice-1 {\n    transform: rotate(-36deg) skewY(-54deg);/*通过配置rotate和skewY的值来设置扇形的角度和位置*/\n    background: #FF0088;\n }\n  .slice-2 {\n    transform: rotate(-72deg) skewY(-54deg);\n    background: #FF0000;\n }\n \n  </style>\n</head>\n<body>\n   <ul class='pie'>\n      <li class='slice-1 slice'> </li>\n      <li class='slice-2 slice'> </li>\n  <ul>\n</body>\n</html>\n```\n\n\n**2）实现方式二**\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>扇形绘制</title>\n    <style>\n      .shanxing {\n        position: relative;\n        width: 200px;\n        height: 200px;\n        border-radius: 100px;\n        background-color: yellow;\n      }\n      .sx1 {\n        position: absolute;\n        width: 200px;\n        height: 200px;\n        transform: rotate(0deg);\n        clip: rect(\n          0px,\n          100px,\n          200px,\n          0px\n        ); /*这个clip属性用来绘制半圆，在clip的rect范围内的内容显示出来，使用clip属性，元素必须是absolute的 */\n        border-radius: 100px;\n        background-color: #f00;\n        /*-webkit-animation: an1 2s infinite linear; */\n      }\n      .sx2 {\n        position: absolute;\n        width: 200px;\n        height: 200px;\n        transform: rotate(0deg);\n        clip: rect(0px, 100px, 200px, 0px);\n        border-radius: 100px;\n        background-color: #f00;\n        /*-webkit-animation: an2 2s infinite linear;*/\n      }\n      /*绘制一个60度扇形*/\n      .shanxing1 .sx1 {\n        transform: rotate(-30deg);\n      }\n      .shanxing1 .sx2 {\n        transform: rotate(-150deg);\n      }\n\n      /*绘制一个85度扇形*/\n      .shanxing2 .sx1 {\n        transform: rotate(-45deg);\n      }\n      .shanxing2 .sx2 {\n        transform: rotate(-140deg);\n      }\n\n      /*绘制一个向右扇形，90度扇形*/\n      .shanxing3 .sx1 {\n        transform: rotate(45deg);\n      }\n      .shanxing3 .sx2 {\n        transform: rotate(-45deg);\n      }\n\n      /*绘制一个颜色扇形 */\n      .shanxing4 .sx1 {\n        transform: rotate(45deg);\n        background-color: #fff;\n      }\n      .shanxing4 .sx2 {\n        transform: rotate(-45deg);\n        background-color: #fff;\n      }\n\n      /*绘制一个不同颜色半圆夹角 */\n      .shanxing5 .sx1 {\n        transform: rotate(45deg);\n        background-color: #f00;\n      }\n      .shanxing5 .sx2 {\n        transform: rotate(-45deg);\n        background-color: #0f0;\n      }\n    </style>\n  </head>\n  <body>\n    <h2>CSS之如何绘制任意角度的扇形</h2>\n    <div>\n      扇形制作原理，底部一个纯色原形， 里面2个相同颜色的半圆，可以是白色,\n      内部半圆按一定角度变化，就可以产生出扇形效果\n    </div>\n    <div class=\"shanxing\">\n      <div class=\"sx1\"></div>\n      <div class=\"sx2\"></div>\n    </div>\n    <div class=\"shanxing shanxing1\">\n      <div class=\"sx1\"></div>\n      <div class=\"sx2\"></div>\n    </div>\n    <div class=\"shanxing shanxing2\">\n      <div class=\"sx1\"></div>\n      <div class=\"sx2\"></div>\n    </div>\n    <div class=\"shanxing shanxing3\">\n      <div class=\"sx1\"></div>\n      <div class=\"sx2\"></div>\n    </div>\n    <div class=\"shanxing shanxing4\">\n      <div class=\"sx1\"></div>\n      <div class=\"sx2\"></div>\n    </div>\n    <div class=\"shanxing shanxing5\">\n      <div class=\"sx1\"></div>\n      <div class=\"sx2\"></div>\n    </div>\n  </body>\n</html>\n```\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 48,
+        "subject": "",
+        "title": "Css 如何画出一个扇形，动手实现下"
+      },
+      "tech_tag": ["Css", "编程题"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 129,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n```html\n<style>\n    .wave-content {\n        height: 666px;\n        width: 666px;\n        left: 255px;\n        top: 139px;\n        position: relative;\n    }\n\n    .wave {\n        position: absolute;\n        left: 0px;\n        top: 0px;\n        height: 100%;\n        width: 100%;\n        transform-origin: center center;\n        background-color: transparent;\n        border: 1px solid #979797;\n        animation-duration: 7s;\n        animation-name: wv;\n        animation-timing-function: linear;\n        animation-iteration-count: infinite;\n        border-radius: 50%;\n        opacity: 0;\n    }\n\n    .wave1 {\n        animation-delay: 0s;\n    }\n\n    .wave2 {\n        animation-delay: 1.5s;\n    }\n\n    .wave3 {\n        animation-delay: 3s;\n    }\n\n    .wave4 {\n        animation-delay: 4.5s;\n    }\n\n    @keyframes wv {\n        0% {\n            opacity: 0;\n            transform: scale(0.5);\n        }\n\n        30% {\n            opacity: 0.7;\n            transform: scale(0.65);\n        }\n\n        70% {\n            opacity: 0.1;\n            transform: scale(0.85);\n        }\n\n        100% {\n            opacity: -0.2;\n            transform: scale(1);\n        }\n    }\n</style>\n<div class=\"wave-content \">\n    <div class=\"wave wave1 \"></div>\n    <div class=\"wave wave2 \"></div>\n    <div class=\"wave wave3 \"></div>\n    <div class=\"wave wave4\"></div>\n</div>\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 129,
+        "subject": "",
+        "title": "使用 Css 实现一个水波纹效果"
+      },
+      "tech_tag": ["Css", "编程题"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["滴滴", "伴鱼", "菜鸟网络", "58"],
+      "is_favorite": false,
+      "qid": 85,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、重排、重绘\n\n#### 1.1 什么是重绘重排\n\n当我们改变了一个元素的尺寸位置属性时，会重新进行样式计算（computed style）布局（layout）绘制（paint）以及后面的所有流程，这种行为成为**重排**。\n\n当改变了某个元素的颜色属性时不会重新触发布局，但还是会触发样式计算和绘制这就是**重绘**。\n\n我们可以发现重排和重绘都会占用主线程，还有JS也会运行在主线程，所以就会出现抢占执行时间的问题，如果你写了一个不断导致重排重绘的动画，浏览器则需要在每一帧都运行样式计算布局和绘制的操作。\n\n#### 1.2 触发的一些因素\n\n1. 页面首次进入的渲染。\n2. 浏览器 resize\n3. 元素位置和尺寸发生改变的时候\n4. 可见元素的增删\n5. 内容发生改变\n6. 字体的 font 的改变。\n7. css 伪类激活。\n8. ...\n\n#### 1.3 如何优化\n\n我们知道当前页面以每秒60帧的刷新率时才不会让用户感觉到页面卡顿，如果在运行动画是还有大量的JS任务需要执行，因为布局、绘制和js执行都是在主线程运行的，当在一帧的时间内布局和绘制结束后，还有剩余时间js就会拿到主线程的使用权，如果js执行时间过长，就会导致在下一帧开始时js没有及时归还主线程，导致下一帧动画没有按时渲染，就会出现页面的卡顿。\n\n**1.3.1第一种优化方式：**\n\nrequestAnimationFrame，它会在每一帧被调用，通过回调API的回调，**可以把js运行任务分成一些更小的任务块，在每一帧事件用完前暂停js执行归还主线程**，这样的话在下一帧开始时，主线程就可以按时执行布局和绘制。  \n\n**1.3.2第二种优化方式：** \n\n栅格化的整个流程不占用主线程，只在合成器线程和栅格线程中运行，这就意味着它无需和js抢占主线程。如果反复进行重绘和重排可能会导致掉帧，这是因为有可能js执行阻塞了主线程，而CSS中有个动画属性transform，**通过该属性实现的动画不会经过布局和绘制，而是直接运行在合成器线程和栅格线程**，所以不会受到主线程中js执行的影响。更重要的是听过transform实现的动画由于不需要经过布局绘制样式计算等操作，所以节省了很多运算事件（方便实现负责的动画）\n\n#### 1.4 避免重绘重排具体方案\n\n**1.4.1 CSS**\n\n- 使用 transform 替代 top等位移；\n- 使用 visibility 替换 display: none\n- 避免使用table布局\n- 尽可能在DOM树的最末端改变class\n- 避免设置多层内联样式，尽量层级扁平\n- 将动画效果应用到position属性为absolute或fixed的元素上\n- 避免使用CSS表达式\n- 将频繁重绘或者回流的节点设置为图层，比如video，iframe\n- CSS3 硬件加速（GPU加速），可以是transform: translateZ(0)、opacity、filters、will-change,Will-change提前告诉浏览器元素会发生什么变化；\n\n**1.4.2 JS**\n\n- 避免频繁操作样式，合并操作\n- 避免频繁操作DOM，合并操作；\n- 防抖节流控制频率；\n- 避免频繁读取会引发回流/重绘的属性，比如上面的C、O、S属性\n- 对具有复杂动画的元素使用绝对定位",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 85,
+        "subject": "",
+        "title": "说一下什么是重绘重排，哪些操作会造成重绘重排"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 130,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、position 概念\n\nposition 属性把元素放置到一个静态的、相对的、绝对的、或固定的位置中。\n\n### 二、position属性值\n\nposition的属性值共有四个常用的：static、relative、absolute、fixed。还有不常用的：inherit、initial、sticky。\n\n#### 2.1 Static\n\n它是position的默认值，一般不设置position属性时，元素会按照正常的文档流进行排列。\n\n#### 2.2 Relative\n\nrelative属性，我们只要搞清它是相对哪个对象来进行偏移的就ok了，答案是它原本的位置。需要注意的是，相对定位不会脱离文档流，原来的位置仍然被保留。\n\n#### 2.3 Absolute\n\n它是相对不是static的最近一级父元素来进行定位的，如果没有这样的元素，那么就相对body元素来进行定位，被定位元素会脱离文档流，然后我们可以通过left,right,top,bottom来调整元素的位置。\n\n我们可以这样理解：假设一个div元素，他所有的父级元素属性都是position：static，也就是所有父级元素都没有设置position，那么这个div就会相对body元素来进行定位。如果这个div元素存在某一个父级元素设置了除static以外的position，那么这个div就会相对这个父元素来进行定位。\n\n#### 2.4 Fixed\n\n固定定位是最好理解的，它相对于浏览器的窗口进行定位并脱离文档流，即使拖动滚动条，元素的位置也是不变的，我们使用浏览器时一些广告的效果就是这样的。\n\n#### 2.5 sticky 粘性定位\n\nposition属性中最有意思的就是sticky了，设置了sticky的元素，在屏幕范围（viewport）时该元素的位置并不受到定位影响（设置是top、left等属性无效），当该元素的位置将要移出偏移范围时，定位又会变成fixed，根据设置的left、top等属性成固定位置的效果。\n\nsticky属性有以下几个特点：\n\n- 该元素并不脱离文档流，仍然保留元素原本在文档流中的位置。\n- 当元素在容器中被滚动超过指定的偏移值时，元素在容器内固定在指定位置。亦即如果你设置了top: 50px，那么在sticky元素到达距离相对定位的元素顶部50px的位置时固定，不再向上移动。\n- 元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以滚动，那么是相对于viewport来计算元素的偏移量\n\n> 但是这个属性的兼容性还不是很好,需要注意一下\n\n#### 2.6 initial\n\ninitial 关键字用于设置 CSS 属性为它的默认值，可作用于任何 CSS 样式。（IE 不支持该关键字）\n\n#### 2.7 inherit\n\n继承父元素的position属性，但需要注意的是IE8以及往前的版本都不支持inherit属性。\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 130,
+        "subject": "",
+        "title": "position 定位都有什么属性（不仅仅是绝对定位和相对定位/fix 定位）"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 137,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、CSS预处理器\n\n为CSS增加**编程特性**的拓展语言，可以使用变量、简单逻辑判断、函数等基本编程技巧；\n\nCSS预处理器编译输出还是标准的CSS样式\n\nLess、Sass都是是动态的样式语言，是CSS预处理器,CSS上的一种抽象层。他们是一种特殊的语法/语言而编译成CSS。\n\nless变量符号是@，Sass变量符号是$;\n\n### 二、解决的问题\n\n- CSS语法不够强大，因为**无法嵌套**导致有很多**重复的选择器**\n- 没有变量和合理的样式**复用机制**，导致逻辑上相关的属性值只能以字面量的形式重复输出，难以维护\n\n### 三、常用规范\n\n变量、嵌套语法、混入、@import、运算、函数、继承等\n\n### 四、CSS预处理器带来的好处\n\n- CSS代码更加整洁，更易维护，代码量更少\n- 修改更快,基础颜色使用变量,一处动处处动.\n- 常用代码使用代码块,节省大量代码\n- CSS嵌套减少了大量的重复选择器，避免一些低级错误\n- 变量、混入大大提升了样式的复用性\n- 额外的工具类似颜色函数(`lighten`, `darken`, `transparentize`等等)，mixins，loops，这些方法使css更像一个真正的编程语言，让开发者能够有能力生成更加复杂的css样式。\n\n> 编译需要一定时间",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 137,
+        "subject": "",
+        "title": "说一下 Css 预处理器，Less 带来的好处？"
+      },
+      "tech_tag": ["Css"],
+      "uid": 0
+    },
+    "status": 0
+  }
+]

@@ -1,0 +1,646 @@
+[
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["滴滴", "酷狗"],
+      "is_favorite": false,
+      "qid": 21,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "在NodeJS中，中间件主要是指封装所有Http请求细节处理的方法。一次Http请求通常包含很多工作，如记录日志、ip过滤、查询字符串、请求体解析、Cookie处理、权限验证、参数验证、异常处理等，但对于Web应用而言，并不希望接触到这么多细节性的处理，因此引入中间件来简化和隔离这些基础设施与业务逻辑之间的细节，让开发者能够关注在业务的开发上，以达到提升开发效率的目的。\n\n中间件的行为比较类似Java中过滤器的工作原理，就是在进入具体的业务处理之前，先让过滤器处理。\n\n```js\nconst http = require('http')\nfunction compose(middlewareList) {\n  return function (ctx) {\n    function dispatch (i) {\n      const fn = middlewareList[i]\n      try {\n        return Promise.resolve(fn(ctx, dispatch.bind(null, i + 1)))\n      } catch (err) {\n        Promise.reject(err)\n      }\n    } \n    return dispatch(0)\n  }\n}\nclass App {\n  constructor(){\n    this.middlewares = []\n  }\n  use(fn){\n    this.middlewares.push(fn)\n    return this\n  }\n  handleRequest(ctx, middleware) {\n    return middleware(ctx)\n  }\n  createContext (req, res) {\n    const ctx = {\n      req,\n      res\n    }\n    return ctx\n  }\n  callback () {\n    const fn = compose(this.middlewares)\n    return (req, res) => {\n      const ctx = this.createContext(req, res)\n      return this.handleRequest(ctx, fn)\n    }\n  }\n  listen(...args) {\n    const server = http.createServer(this.callback())\n    return server.listen(...args)\n  }\n}\nmodule.exports = App\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 21,
+        "subject": "",
+        "title": "如何封装 node 中间件"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["易车"],
+      "is_favorite": false,
+      "qid": 22,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "1） 什么是中间层\n\n- 就是前端---请求---> nodejs ----请求---->后端 ----响应--->nodejs--数据处理---响应---->前端。这么一个流程，这个流程的好处就是当业务逻辑过多，或者业务需求在不断变更的时候，前端不需要过多当去改变业务逻辑，与后端低耦合。前端即显示，渲染。后端获取和存储数据。中间层处理数据结构，返回给前端可用可渲染的数据结构。\n- nodejs是起中间层的作用，即根据客户端不同请求来做相应的处理或渲染页面，处理时可以是把获取的数据做简单的处理交由底层java那边做真正的数据持久化或数据更新，也可以是从底层获取数据做简单的处理返回给客户端。\n- 通常我们把Web领域分为客户端和服务端，也就是前端和后端，这里的后端就包含了网关，静态资源，接口，缓存，数据库等。而中间层呢，就是在后端这里再抽离一层出来，在业务上处理和客户端衔接更紧密的部分，比如页面渲染（SSR），数据聚合，接口转发等等。\n- 以SSR来说，在服务端将页面渲染好，可以加快用户的首屏加载速度，避免请求时白屏，还有利于网站做SEO，他的好处是比较好理解的。\n\n2）中间层可以做的事情\n\n- 代理：在开发环境下，我们可以利用代理来，解决最常见的跨域问题；在线上环境下，我们可以利用代理，转发请求到多个服务端。\n- 缓存：缓存其实是更靠近前端的需求，用户的动作触发数据的更新，node中间层可以直接处理一部分缓存需求。\n- 限流：node中间层，可以针对接口或者路由做响应的限流。\n- 日志：相比其他服务端语言，node中间层的日志记录，能更方便快捷的定位问题（是在浏览器端还是服务端）。\n- 监控：擅长高并发的请求处理，做监控也是合适的选项。\n- 鉴权：有一个中间层去鉴权，也是一种单一职责的实现。\n- 路由：前端更需要掌握页面路由的权限和逻辑。\n- 服务端渲染：node中间层的解决方案更灵活，比如SSR、模板直出、利用一些JS库做预渲染等等。\n\n\n3）node转发API（node中间层）的优势\n- 可以在中间层把java|php的数据，处理成对前端更友好的格式\n- 可以解决前端的跨域问题，因为服务器端的请求是不涉及跨域的，跨域是浏览器的同源策略导致的\n- 可以将多个请求在通过中间层合并，减少前端的请求\n\n4）如何做请求合并转发\n- 使用express中间件multifetch可以将请求批量合并\n- 使用express+http-proxy-middleware实现接口代理转发\n\n5）不使用用第三方模块手动实现一个nodejs代理服务器，实现请求合并转发\n\n1.实现思路\n\n- ①搭建http服务器，使用Node的http模块的createServer方法\n- ②接收客户端发送的请求，就是请求报文，请求报文中包括请求行、请求头、请求体\n- ③将请求报文发送到目标服务器，使用http模块的request方法\n\n2.实现步骤\n\n- 第一步：http服务器搭建\n\n```js\nconst http = require(\"http\");\nconst server = http.createServer();\nserver.on('request',(req,res)=>{\n    res.end(\"hello world\")\n})\nserver.listen(3000,()=>{\n    console.log(\"running\");\n})\n```\n- 第二步：接收客户端发送到代理服务器的请求报文\n\n```js\nconst http = require(\"http\");\nconst server = http.createServer();\nserver.on('request',(req,res)=>{\n    // 通过req的data事件和end事件接收客户端发送的数据\n    // 并用Buffer.concat处理一下\n    //\n    let postbody = [];\n    req.on(\"data\", chunk => {\n        postbody.push(chunk);\n    })\n    req.on('end', () => {\n        let postbodyBuffer = Buffer.concat(postbody);\n        res.end(postbodyBuffer)\n    })\n})\nserver.listen(3000,()=>{\n    console.log(\"running\");\n})\n```\n这一步主要数据在客户端到服务器端进行传输时在nodejs中需要用到buffer来处理一下。处理过程就是将所有接收的数据片段chunk塞到一个数组中，然后将其合并到一起还原出源数据。合并方法需要用到Buffer.concat，这里不能使用加号，加号会隐式的将buffer转化为字符串，这种转化不安全。\n\n\n- 第三步：使用http模块的request方法，将请求报文发送到目标服务器\n  - 第二步已经得到了客户端上传的数据，但是缺少请求头，所以在这一步根据客户端发送的请求需要构造请求头，然后发送\n\n```js\nconst http = require(\"http\");\nconst server = http.createServer();\n\nserver.on(\"request\", (req, res) => {\n    var { connection, host, ...originHeaders } = req.headers;\n    var options = {\n        \"method\":req.method,\n        // 随表找了一个网站做测试，被代理网站修改这里\n        \"hostname\":\"www.nanjingmb.com\",\n        \"port\":\"80\",\n        \"path\":req.url,\n        \"headers\":{ originHeaders }\n    }\n    //接收客户端发送的数据\n    var p = new Promise((resolve,reject)=>{\n        let postbody = [];\n        req.on(\"data\", chunk => {\n            postbody.push(chunk);\n        })\n        req.on('end', () => {\n            let postbodyBuffer = Buffer.concat(postbody);\n            resolve(postbodyBuffer)\n        })\n    });\n    //将数据转发，并接收目标服务器返回的数据，然后转发给客户端\n    p.then((postbodyBuffer)=>{\n        let responsebody=[]\n        var request = http.request(options, (response) => {\n            response.on('data', (chunk) => {\n                responsebody.push(chunk)\n            })\n            response.on(\"end\", () => {\n                responsebodyBuffer = Buffer.concat(responsebody)\n                res.end(responsebodyBuffer);\n            })\n        })\n        // 使用request的write方法传递请求体\n        request.write(postbodyBuffer)\n        // 使用end方法将请求发出去\n        request.end();\n    })\n});\nserver.listen(3000, () => {\n    console.log(\"runnng\");\n})\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 22,
+        "subject": "",
+        "title": "node 中间层怎样做的请求合并转发"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["滴滴", "伴鱼", "高德", "自如", "虎扑", "58"],
+      "is_favorite": false,
+      "qid": 20,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 一、为什么会有Event Loop\n\nJavaScript的任务分为两种`同步`和`异步`，它们的处理方式也各自不同，**同步任务**是直接放在主线程上排队依次执行，**异步任务**会放在任务队列中，若有多个异步任务则需要在任务队列中排队等待，任务队列类似于缓冲区，任务下一步会被移到**调用栈**然后主线程执行调用栈的任务。\n\n> **调用栈**：调用栈是一个栈结构，函数调用会形成一个栈帧，帧中包含了当前执行函数的参数和局部变量等上下文信息，函数执行完后，它的执行上下文会从栈中弹出。\n\nJavaScript是`单线程`的，单线程是指 js引擎中解析和执行js代码的线程只有一个（主线程），每次只能做一件事情，然而`ajax`请求中，主线程在等待响应的过程中回去做其他事情，浏览器先在事件表注册ajax的回调函数，响应回来后回调函数被添加到任务队列中等待执行，不会造成线程阻塞，所以说js处理ajax请求的方式是异步的。\n\n综上所述，检查调用栈是否为空以及讲某个任务添加到调用栈中的个过程就是event loop，这就是JavaScript实现异步的核心。\n\n\n### 二、浏览器中的 Event Loop\n\n#### 2.1 Micro-Task 与 Macro-Task\n\n浏览器端事件循环中的异步队列有两种：macro（宏任务）队列和 micro（微任务）队列。\n\n常见的 macro-task：`setTimeout`、`setInterval`、`script（整体代码）`、` I/O 操作`、`UI 渲染`等。\n\n常见的 micro-task: `new Promise().then(回调)`、`MutationObserve `等。\n\n#### 2.1 requestAnimationFrame\n\nrequestAnimationFrame也属于异步执行的方法，但该方法既不属于宏任务，也不属于微任务。按照MDN中的定义：\n\n> `window.requestAnimationFrame()` 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行\n\n`requestAnimationFrame` 是GUI渲染之前执行，但在`Micro-Task`之后，不过`requestAnimationFrame` 不一定会在当前帧必须执行，由浏览器根据当前的策略自行决定在哪一帧执行。\n\n#### 2.2 event loop过程\n\n![](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-20-1.jpg)\n\n1. 检查macrotask队列是否为空，非空则到2，为空则到3\n2. 执行macrotask中的一个任务\n3. 继续检查microtask队列是否为空，若有则到4，否则到5\n4. 取出microtask中的任务执行，执行完成返回到步骤3\n5. 执行视图更新\n\n> 当某个宏任务执行完后,会查看是否有微任务队列。如果有，先执行微任务队列中的所有任务，如果没有，会读取宏任务队列中排在最前的任务，执行宏任务的过程中，遇到微任务，依次加入微任务队列。栈空后，再次读取微任务队列里的任务，依次类推。\n\n### 三、node中的 Event Loop\n\nNode 中的 Event Loop 和浏览器中的是完全不相同的东西。Node.js采用V8作为js的解析引擎，而I/O处理方面使用了自己设计的libuv，libuv是一个基于事件驱动的跨平台抽象层，封装了不同操作系统一些底层特性，对外提供统一的API，事件循环机制也是它里面的实现\n\n![](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-20-2.png)\n\n根据上图node的运行机制如下\n\n1. V8引擎解析JavaScript脚本。\n2. 解析后的代码，调用Node API。\n3. libuv库负责Node API的执行。它将不同的任务分配给不同的线程，形成一个Event Loop（事件循环），以异步的方式将任务的执行结果返回给V8引擎。\n4. V8引擎再将结果返回给用户。\n\n#### 3.1 六大阶段\n\n其中libuv引擎中的事件循环分为 6 个阶段，它们会按照顺序反复运行。每当进入某一个阶段的时候，都会从对应的回调队列中取出函数去执行。当队列为空或者执行的回调函数数量到达系统设定的阈值，就会进入下一阶段。\n\n![](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-20-3.png)\n\n1. `timers` 阶段：这个阶段执行timer（setTimeout、setInterval）的回调，并且是由 poll 阶段控制的。\n2. `I/O callbacks` 阶段：处理一些上一轮循环中的少数未执行的 I/O 回调\n3. `idle, prepare` 阶段：仅node内部使用\n4. `poll` 阶段：获取新的I/O事件, 适当的条件下node将阻塞在这里\n5. `check` 阶段：执行 setImmediate() 的回调\n6. `close callbacks` 阶段：执行 socket 的 close 事件回调\n\n#### 3.2 NodeJs中宏队列主要有4个\n\n1. Timers Queue\n2. IO Callbacks Queue\n3. Check Queue\n4. Close Callbacks Queue\n\n这4个都属于宏队列，但是在浏览器中，可以认为只有一个宏队列，所有的macrotask都会被加到这一个宏队列中，但是在NodeJS中，不同的macrotask会被放置在不同的宏队列中。\n\n#### 3.3 NodeJS中微队列主要有2个\n\n1. Next Tick Queue：是放置process.nextTick(callback)的回调任务的\n1. Other Micro Queue：放置其他microtask，比如Promise等\n\n在浏览器中，也可以认为只有一个微队列，所有的microtask都会被加到这一个微队列中，但是在NodeJS中，不同的microtask会被放置在不同的微队列中。\n\n#### 3.4 Node.js中的EventLoop过程\n\n1. 执行全局Script的同步代码\n2. 执行microtask微任务，先执行所有Next Tick Queue中的所有任务，再执行Other Microtask Queue中的所有任务\n3. 开始执行macrotask宏任务，共6个阶段，从第1个阶段开始执行相应每一个阶段macrotask中的所有任务，注意，这里是所有每个阶段宏任务队列的所有任务，在浏览器的Event Loop中是只取宏队列的第一个任务出来执行，每一个阶段的macrotask任务执行完毕后，开始执行微任务，也就是步骤2\n4. Timers Queue -> 步骤2 -> I/O Queue -> 步骤2 -> Check Queue -> 步骤2 -> Close Callback Queue -> 步骤2 -> Timers Queue ......\n5. 这就是Node的Event Loop\n\n#### 3.5 Node 11.x新变化\n\n现在node11在timer阶段的setTimeout,setInterval...和在check阶段的immediate都在node11里面都修改为一旦执行一个阶段里的一个任务就立刻执行微任务队列。为了和浏览器更加趋同.",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 20,
+        "subject": "",
+        "title": "说一下事件循环机制(node、浏览器)"
+      },
+      "tech_tag": ["Node", "JavaScript"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 770,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、监控分类\n\nnode 应用监控主要分为两类：\n\n- 一种是业务逻辑型的监控\n- 一种是硬件行的监控\n\n### 二、性能监控\n\nnode 性能监控主要分为以下几点：\n\n#### 1）日志监控\n\n可以通过监控异常日志的变动，将新增的异常类型和数量反映出来。\n\n监控日志可以实现 PV 和 UV 的的监控，通过 PV/UV 的监控，可以知道应用使用者们的使用习惯，预知访问高峰\n\n#### 2）响应时间\n\n响应时间也是一个需要监控的点。一旦系统的某个子系统出现异常或者性能瓶颈将会导致\n\n系统的响应时间变长。响应时间可以在 Nginx 一类的反向代理上监控，也可以通过应用自行产生的访问日志来监控。\n\n#### 3）进程监控\n\n监控日志和响应时间都能较好地监控到系统的状态，但是它们的前提是系统是运行状态的，\n\n所以监控进程是比前两者更为紧要的任务。监控进程一般是检査操作系统中运行的应用进程数，\n\n比如对于采用多进程架构的 Web 应用，就需要检査工作进程的数,如果低于预估值，就应当发出报警。\n\n#### 4）磁盘监控\n\n磁盘监控主要是监控磁盘的用量。\n\n由于日志频繁写的缘故，磁盘空间渐渐被用光。一且磁盘不够用，将会引发系统的各种问题 给豪盘的使用量设置一个上限，一旦磁盘用量超过警戒值，服务器的管理者就应诙整理日志或清理磁盘。\n\n#### 5）内存监控\n\n对于 Node 而言，一旦出现内存泄漏，不是那么容易排査的。监控服务器的内存使用状况，可以检査应用中是否存在内存泄漏的状况。如果内存只升不降，那么铁定存在内存泄漏问题。\n\n健康的内存使用应当是有升有降，在访问量大的时候上升，在访问量回落的时候，占用量也随之回落。\n\n监控内存异常时间也是防止系统出现异常的好方法。如果突然岀现内存异常，也能够追踪到是近期的那些代码改动导致的问题。\n\n#### 6）cpu 占用监控\n\n服务器的 CPU 占用监控也是必不可少的项，CPU 的使用分为用户态、内核态、IOWait 等。\n\n如果用户态 CPU 使用率较高，说明服务器上的应用需要大量的 CPU 开销；\n\n如果内核态 CPU 使用率较高，说明服务器花费大量时间进行进程调度或者系统调用；IOWait 使用率则反应的是 CPU 等待磁盘I/O 操作。\n\nCPU 的使用率中，用户态小于 70%、内核态小于 35%且整体小于 70%时，处于健康状态。\n\n监控CPU占用情况，可以帮助分析应用程序在实际业务中的状况。合理设置监控阈值能够很好地预警。\n\n#### 7）CUP load 监控\n\nCPU load 又称 CPU 平均负载，它用来描述操作系统当前的繁忙程度，可以简单地理解为 CPU在单位时间内正在使用和等待使用 CPU 的平均任务数。\n\n它有 3 个指标，即 1 分钟的平均负载、5 分钟的平均负载、15 分钟的平均负载。CPU load 过高说明进程数量过多，这在 Node 中可能体现在用于进程模块反复启动新的进程。监控该值可以防止意外产生。\n\n#### 8）I/O 负载\n\nI/O 负载指的主要是磁盘 I/O。反应的是磁盘上的读写情况，对于 Node 编写的应用，主要是面向网络务，是不太可能出现 I/O 负载过高的情况，大多数的 I/O 压力来自于数据库。不管 Node进程是否与数据库或其他 I/O 密集的应用共处相同的服务器，我们都应监控该值以防万一。\n\n#### 9）网络监控\n\n虽然网络流量监控的优先级没有上述项目那么高，但还是需要对流量进行监控并设量上限值。即便应用突然受到用户的青昧，流量暴涨时也能通过数值感知到网站的宣传是否有效。\n\n一旦流量超过警戒值，开发者就应当找出流量增长的原因。对于正常増长，应当评估是否该增加硬件设备来为更多用户提供服务。\n\n网络流量监控的两个主要指标是流入流量和流出流量。\n\n#### 10）应用状态监控\n\n除了这些硬性需要检测的指标外，应用还应当提供一种机制来反馈其自身的状态信息，外部监控将会持续性地调用应用的反馈接口来检査它的健康状态。\n\n#### 11）DNS 监控\n\nDNS 是网络应用的基础，在实际的对外服务产品中.多数都对域名有依賴。DNS 故障导致产品出现大面积影响的事件并不少见。由于 DNS 服务通常是稳定的，容易让人忽略，但一旦出现故障，就可能是史无前例的故障。\n\n对于产品的稳定性，域名 DNS 状态也需要加入监控。\n\n### 三、性能优化\n\n#### 1）web 应用层的优化\n\n对于 web 应用主要以下几个提升性能的方法：\n\n**1.动静分离**\n\n在普通的 Web 应用中，Node 尽管也能通过中间件实现静态文件服务，但是 Node 处理静态文件的能力并不算突出。\n\n将图片、字体、样式表和多媒体等静态文件都引导到专业的静态文件服务器上，让 Node 只处理动态请求即可。这个过程可以用 Nginx 或者专业的 CDN 来处理。\n\n将动态请求和静态请求分离后，服务器可以专注在动态服务方面，专业的 CDN 会将靜态文件与用户尽可能靠近，同时能够有更精确和高效的缓存机制。\n\n静态文件请求分离后，对动态请求使用不同的域名或多个域名还能消除掉不必要的 Cookie 传输和浏览器对下载线程数的限制。\n\n**2.启用缓存**\n\n提升性能其实羞不多只有两个途经，一是提升服务的速度，二是避免不必要的计算。前者提升的性能在海量流量面前终有瓶颈，但后者却能够在访问量越大是收益越多。避免不必要的计算，应用场景最多的就是缓存。\n\n尽管同步 I/O 在 CPU 等待时浪费的时间较为严重,但是在缓存的帮助下，却能消减同步 I/O带来的时间浪费。但不管是同步哄是异步 I/O,遇免不必要的计算这条原则如果遵循得较好，性能提升是显著的。\n\n**3.多进程架构**\n\n通过多进程架构,不仅可以充分利用多核 CPU, 更是可以建立机制让 Node 进程更加健壮，以保障 Web 应用持续服务。如：pm2 这样的模块用于进程管理\n\n**4.读写分离**\n\n除了动静分离外，另一个较为重要的分离是读写分离，这主要针对数据库而言。就任意数据库而言，读取的速度远远高于写入的速度。而某些数据库在写入时为了保证数据一致性，会进行锁表操作，这同时会彩响到读取的速度。某些系统为了提升性能,通常会进行数据库的读写分离, 将地库进行主从设计，这样读数据操作不再受到写入的影响，降低了性能的彩响。\n\n#### 2）代码层的优化\n\n**1.使用最新版版的 node.js**\n\n仅仅使用最新版本的 node.js 就能提升性能的提升，node 每个版本的性能提升来自两个方面\n\n- V8 的版本更新；\n- Node.js 内部代码的更新优化。\n\n**2.使用 fast-json-stringify 加速 JSON 序列化**\n\n在 JSON 序列化时，我们需要识别大量的字段类型。比如对于string 类型，我们就需要在两边加上 \"，对于数组类型，我们需要遍历数组，把每个对象序列化后，用 `,` 隔开，然后在两边加上 `[` 和 `]`\n\n如果已经提前通过 Schema 知道每个字段的类型，那么就不需要遍历、识别字段类型，而可以直接用序列化对应的字段，这就大大减少了计算开销，这就是 fast-json-stringfy 的原理。\n\n**3.正确的编写异步代码**\n\n使用 Promise.all()\n\n```js\n// bad\nasync function getDatas(params) {\n  const data1 = await getData1(params);\n  const data2 = await getData2(params)\n  return { data1, data2 }\n}\n\n// good\nasync function getDatas(params) {\n  const [data1, data2] = await Promise.all([\n      getData1(params),\n      getData2(params)\n  ])\nreturn { profile, repo }\n```\n\n### 四、如何做错误监控\n\n#### 1）错误类型\n\n- 当出现语法错误或运行时错误时，会触发 JavaScript 错误\n- 当试图试访问一个不存在或没有访问的文件时，会触发系统错误；\n- 除 JavaScript 错误和系统错误错误外，用户还可以自定义错误。\n\n#### 2）监控异常日志\n\n异常日志通常用来记录那些意外产生的异常错误。通过日志的记录，可以根据异常信息，去定位 bug 出现的具体位置，以快速修复问题。\n\n**1.如何生成日志**\n\n使用日志中间件，日志中间件可以将关键数据按一定格式输出到日志文件中。如：\n\n- log4js\n- connect\n\n错误监控平台\n\n- sentry，sentry 是一个开源的实时错误报告工具，支持 web 前后端\n\n**2）异常日志分级**\n\nnode 中提供的 console 对象简单划分：\n\n- `console.logt` 普通日志。\n- `console.info` 普通信息。\n- `console.warn` 警告值息。\n- `console.error` 错误值息。\n- console 块在具体实现时，log 与 info 方法标将侑息输出给标准输出 pxocess.stdout, warn 与 error 方法则将信真输出到标准错误 process.stderr, 而 info 和 error 分别是 log 和 warn 的别名。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 770,
+        "subject": "",
+        "title": "Node性能如何进监控以及优化？"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["高思教育"],
+      "is_favorite": false,
+      "qid": 723,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、使用socket.io 实现PC端、移动端跨域通信\n\n#### 创建服务\n\n```js\nconst server = http.createServer((req,res)=>{\n    // 允许所有跨域请求\n    res.setHeader('Access-Control-Allow-Origin', '*');\n    req.writeHead(200,{'Content-Type':'text/html'})\n    res.end('')\n}).listen(8001)\n\nlet mobile = null,pc = null , mobileReady = false , pcReady = false;\n\n// 连接socket.io\nsocket.listen(server).on('connection',(conn)=>{\n    conn.on('message',(str)=>{\n        if(str===\"Mobile\"){\n            mobile = conn;\n            mobileReady = true;\n            conn.send('连接成功');\n        }\n        if(str===\"PC\"){\n            pc = conn;\n            pcReady = true;\n        }\n\n        if(mobileReady&&pcReady){\n            if(str==='PC') str='PC'\n            pc.send(str);\n        }\n    })\n    \n    conn.on(\"disconnection\",(code, reason) => {\n        console.log(\"关闭连接\")\n    });\n})\n```\n\n#### pc端\n\n```js\n// 跨域地址\n// 这里注意一下 不能写127.0.0.1 或者localhost 不然其他客户端访问不到\nconst socket = io('192.168.1.115:8001')\n\nsocket.on('connect', () => {\n    // 连接成功\n    socket.send('PC')\n    // 监听连接\n    socket.on('message', (msg) => {\n        \n        // console.log(msg)\n    })\n    // 关闭连接\n    socket.on('disconnect', () => {\n\n    })\n})\n```\n\n#### 移动端\n\n```js\nconst socket = io('192.168.1.115:8001')\n\nsocket.on('connect', () => {\n    // 连接成功\n    socket.send('Mobile')\n    // 监听连接\n    socket.on('message', (msg) => {\n        // console.log(msg)\n    })\n    // 关闭连接\n    socket.on('disconnect', () => {\n\n    })\n    socket.send();\n})\n```\n\n### 二、设置Node服务端\n\n```js\nvar app = express();\n//设置跨域访问\napp.all('*', function(req, response, next) {\n    //设置允许跨域的域名，*代表允许任意域名跨域\n    response.header(\"Access-Control-Allow-Origin\", \"*\");\n    //允许的header类型\n    response.header(\"Access-Control-Allow-Headers\", \"X-Requested-With\");\n    //跨域允许的请求方式\n    response.header(\"Access-Control-Allow-Methods\",\"PUT,POST,GET,DELETE,OPTIONS\");\n    //设置响应头信息\n    response.header(\"X-Powered-By\",' 3.2.1')\n    response.header(\"Content-Type\", \"application/json;charset=utf-8\");\n    next();\n});\n```\n\n#### 设置允许指定域名“http://www.XXX.com”跨域：\n\n```js\nres.header(\"Access-Control-Allow-Origin\",\"http://www.XXX.com\");\n```\n\n#### 设置允许多个域名跨域：\n\n```js\nif( req.headers.origin.toLowerCase() == \"http://www.xxxx.com\"  ||  req.headers.origin.toLowerCase() ==\"http://127.0.0.1\" ) {\n    //设置允许跨域的域名\n    res.header(\"Access-Control-Allow-Origin\", req.headers.origin);\n}\n```\n\n#### 如果允许的域名较多，可以将允许跨域的域名放到数组当中：\n\n```js\nvar orginList=[\n    \"http://www.xxx.com\",\n    \"http://www.alibaba.com\",\n    \"http://www.qq.com\",\n    \"http://www.baidu.com\"\n]\nif(orginList.includes(req.headers.origin.toLowerCase())){\n    //设置允许跨域的域名\n    res.header(\"Access-Control-Allow-Origin\",req.headers.origin);\n}\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 723,
+        "subject": "",
+        "title": "node 如何进行跨域通信"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["宝宝树"],
+      "is_favorite": false,
+      "qid": 522,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、Node文件查找流程\n\n![path-search](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-522-path.png)\n\n#### 1.node文件查找优先级\n\n**1.1从文件模块缓存中加载**\n\n尽管原生模块与文件模块的优先级不同，但是都不会优先于从文件模块的缓存中加载已经存在的模块。\n\n**1.2从原生模块加载**\n\n原生模块的优先级仅次于文件模块缓存的优先级。require方法在解析文件名之后，优先检查模块是否在原生模块列表中。以http模块为例，尽管在目录下存在一个 `http/http.js/http.node/http.json` 文件，`require(“http”)` 都不会从这些文件中加载，而是从原生模块中加载。\n\n原生模块也有一个缓存区，同样也是优先从缓存区加载。如果缓存区没有被加载过，则调用原生模块的加载方式进行加载和执行。\n\n**1.3从文件加载**\n\n当文件模块缓存中不存在，而且不是原生模块的时候，Node.js会解析require方法传入的参数，并从文件系统中加载实际的文件，加载过程中的包装和编译细节在前一节中已经介绍过，这里我们将详细描述查找文件模块的过程，其中，也有一些细节值得知晓。\n\nrequire方法接受以下几种参数的传递：\n\n1. http、fs、path等，原生模块。 \n2. ./mod或../mod，相对路径的文件模块。 \n3. /pathtomodule/mod，绝对路径的文件模块。 \n4. mod，非原生模块的文件模块。\n\n在进入路径查找之前有必要描述一下module path这个Node.js中的概念。对于每一个被加载的文件模块，创建这个模块对象的时候，这个模块便会有一个paths属性，其值根据当前文件的路径计算得到。我们创建modulepath.js这样一个文件，其内容为：\n\n```js\nconsole.log(module.paths);\n```\n\n我们将其放到任意一个目录中执行node modulepath.js命令，将得到以下的输出结果。\n\n```javascript\n[\n    '/home/jackson/research/node_modules', \n    '/home/jackson/node_modules', \n    '/home/node_modules', \n    '/node_modules'\n]\n```\n\n可以看出module path的生成规则为：从当前文件目录开始查找node_modules目录；然后依次进入父目录，查找父目录下的node_modules目录；依次迭代，直到根目录下的node_modules目录。\n\n除此之外还有一个全局module path，是当前node执行文件的相对目录（`../../lib/node`）。如果在环境变量中设置了HOME目录和NODE_PATH目录的话，整个路径还包含NODE_PATH和HOME目录下的.`node_libraries`与`.node_modules`。其最终值大致如下：\n\n```javascript\n[NODE_PATH，HOME/.node_modules，HOME/.node_libraries，execPath/../../lib/node]\n```\n\n#### 2.require方法中的文件查找策略\n\n由于Node.js中存在4类模块（原生模块和3种文件模块），尽管require方法极其简单，但是内部的加载却是十分复杂的，其加载优先级也各自不同。\n\n简而言之，如果require绝对路径的文件，查找时不会去遍历每一个node_modules目录，其速度最快。其余流程如下：\n\n1. 从module path数组中取出第一个目录作为查找基准。 \n2. 直接从目录中查找该文件，如果存在，则结束查找。如果不存在，则进行下一条查找。 \n3. 尝试添加.js、.json、.node后缀后查找，如果存在文件，则结束查找。如果不存在，则进行下一条。 \n4. 尝试将require的参数作为一个包来进行查找，读取目录下的package.json文件，取得main参数指定的文件。 \n5. 尝试查找该文件，如果存在，则结束查找。如果不存在，则进行第3条查找。 \n6. 如果继续失败，则取出module path数组中的下一个目录作为基准查找，循环第1至5个步骤。 \n7. 如果继续失败，循环第1至6个步骤，直到module path中的最后一个值。 \n8. 如果仍然失败，则抛出异常。\n\n流程图如下：\n\n![流程图](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-522-handle.png)\n\n### 3.总结\n\n整个查找过程十分类似原型链的查找和作用域的查找。所幸Node.js对路径查找实现了缓存机制，否则由于每次判断路径都是同步阻塞式进行，会导致严重的性能消耗\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 522,
+        "subject": "",
+        "title": "介绍 node 文件查找优先级"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["微医"],
+      "is_favorite": false,
+      "qid": 507,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、Node做接口转发\n\n- api削减，可去除后端接口无用的数据\n- 做缓存\n- 接口代理，解决跨域问题\n\n常见的错误出现在http请求层，所以我们可以利用KOA2 Next()的核心特性来编写5xx和4xx的错误处理，这样至少用户不会看见错误的页面。同时我们可以对 Request等专用请求库进行二次封装，来最小化的降低错误出现的概率，同时一旦出现错误要及时采用 log4js进行日志记录。最后我们也可以使用全局错误监听 uncaughtExcetion进行终极的解决。开发阶段采用PM2进程守护工具，出现错误能够达到0秒热启动。\n\n### 一、node服务的稳定性\n\n对于稳定性,可以分为 **开发, 测试, 代码部署, 正式上线, 回归测试, hotfix处理阶段**\n\n#### 1.开发过程\n\n![](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-507-dev.png)\n\n#### 2.测试阶段\n\n主要分为sql接口测试和接口压力测试\n\n1. **sql接口测试** , 这里通过sql的测试用例, 从业务原型抽取测试逻辑, 设置边界值, 重复循环的测试, 当然这里也是测试对应的sql表是否达到上线标准\n2. **接口压测测试验收** , 主要测的是 ***TPS、QPS和系统吞吐量***, 简单来说就是将测试服务压力提升到100%, 找到瓶颈处, 对于不同环境的接口的吞吐量, 接口压力降级等, 主要使用的jmeter测试工具进行; 设置好线程数, 线程启动时间, 压测时间(可以设置超长时间的测试), 由于本人是做电商的, 所以对于电商的吞吐量达到, 每秒的处理request数在2000个基本就可以了\n\n**1）QPS**\n\nQueries Per Second意思是“每秒查询率”，是一台服务器每秒能够相应的查询次数，是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。\n**2）TPS**\n\nTPS：是TransactionsPerSecond的缩写，也就是事务数/秒。它是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。\n\nTps即每秒处理事务数，包括了\n\n- 用户请求服务器\n- 服务器自己的内部处理\n- 服务器返回给用户\n\n这三个过程，每秒能够完成N个这三个过程，TPS也就是N；\n\nQPS基本类似于TPS，但是不同的是，对于一个页面的一次访问，形成一个TPS；但一次页面请求，可能产生多次对服务器的请求，服务器对这些请求，就可计入“QPS”之中。\n\n例如：访问一个页面会请求服务器3次，一次放，产生一个“TPS”，产生3个“QPS” \n\n**3）系统吞吐量**\n\n一个系统的吞度量（承压能力）与request对CPU的消耗、外部接口、IO等等紧密关联。单个reqeust 对CPU消耗越高，外部系统接口、IO影响速度越慢，系统吞吐能力越低，反之越高。\n\n系统吞吐量几个重要参数：QPS（TPS）、并发数、响应时间\n\n- QPS（TPS）：每秒钟request/事务 数量\n- 并发数： 系统同时处理的request/事务数\n- 响应时间：  一般取平均响应时间\n\n理解了上面三个要素的意义之后，就能推算出它们之间的关系：\n\nQPS（TPS）= 并发数/平均响应时间    或者   并发数 = QPS*平均响应时间\n\n当我们吞吐量不理想时, 这时需要降低一个请求的响应时间, 就算是毫秒级的处理也会给服务性能带来十分大的正向影响;\n\n#### 3.部署阶段\n\n- 网络方面网络均衡方面选用Nginx对我们的服务进行反向代理以及负载均衡\n- 部署方式: 分布式部署不同节点的服务器\n- 部署容器: 使用docker + k8s搭建node服务运行环境, 在大吞吐量下可做到伸缩扩容\n- 多node服务器下, 使用中心指挥官, 对node服务快速部署启动进行管理, 可选用zookeeper和携程的Apollo进行node集群管理\n\n#### 4.正式上线\n\n上线准备主要好日志服务的运行稳定, 因为很多报错信息以及服务复盘资料的来源, 完善的日志服务和日志打点是完善一个服务很好的工具\n\n流量调优以及服务器调优\n\n#### 5.hotfix\n\nhotfix, 是系统出现了问题, 需要紧急处理的一个方案; 下面就是对于master处理的流程, 如果经过了5次修复依然存在bug, 则将出现问题的模块剔除出来, 作为下一次迭代任务的前置任务, 下一次上线\n\n![hotfix处理.png](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-507-hotfix.png)\n\n在服务监控方面\n\n1. 错误日志的监控\n2. 心跳监控\n3. 监控预警系统\n...等等\n\n上面只是简单的叙述了node服务稳定运行的一部分基础措施, 还有很多工作需要根据实际情况再去做方案\n\n### 二、node平缓降级与重启\n\nnode天生就是单线程, 在多线程语言对于服务重启, 以及服务降级, 都可以使用其他线程进行监控, 当主线程的服务发送服务退出命令后, 其他线程就会立即启动进行服务平滑切换和降级, 但是node却因为天生单线程, 所以无法开启多线程去监听服务退出任务\n\n然而node本身的cluster模块就专门这方面的任务\n\ncluster可以做下面的事情\n\n1. 发送重启信号给Master线程\n2. 可以根据cpu核心数起对应的n个新服务并开始监听服务, 理论上可以无数个服务, 但是, 一般来说还是根据os的核心数去起服务\n3. master线程可以等待旧服务\n4. 同时还能杀掉旧服务\n\n```js\n// 一个简单带有cluster自动重启的app.js\nconst cluster = require('cluster');\nconst cpuNums = require('os').cpus().length;\nconst http = require('http');\n\nif(cluster.isMaster){ // 是否在主线程\n  for(var i = 0; i < cpuNums; i++){\n    cluster.fork(); // 有多少个cpu就分多少个cluster出来\n    \n    cluster.on('exit', function(worker, code, signal) {\n        console.log(`线程id为 ${worker.process.pid} 退出`);\n    });\n    cluster.on('listening', function(worker, code, signal) {\n        console.log(`线程id为 ${worker.process.pid} 开始服务`);\n    });\n    cluster.on('disconnect', function(worker, code, signal) {\n        console.log(`线程id为 ${worker.process.pid} 停止服务`);\n    });\n    process.on('SIGUSR2', function () { // 接收kill -SIGUSR2 $pid\n      // 保存旧 worker 的列表，cluster.workers 是个 map\n      var oldWorkers = Object.keys(cluster.workers).map(function (idx) {\n          return cluster.workers[idx];\n      });\n      // 重新起服务\n      cluster.fork();\n\n      // 当新服务起起来之后，关闭所有的旧 worker\n      cluster.once('listening', function (worker) {\n        oldWorkers.forEach(function (worker) {\n            // disconnect 会停止接收新请求，等待旧请求结束后再结束进程\n            worker.disconnect();\n        });\n      });\n    });\n  }\n}else{\n  http.createServer(function(req, res){\n    res.end(123);\n  }).listen(8080);\n\n  console.log(`你的线程id为 ${process.pid}`);\n}\n```\n\n上面是一个简易的线程关闭自动重启的一个过程\n\n但是工程上面可以使用pm2进行服务切换降级, 以及对服务进行更新;\n我们还可以接在全局捕错中间件进行 `process.exit()` 事件, 进行发送-SIGUSR2事件, 可以自定义启动参数;\n\n这个平缓降级主要的两个点: 一个是当主线程死掉的时候, 正在进来的request和正在出去的response如何切换, 但是这些pm2都帮我们做了, 另外我们在工程还需要对线程进行自定义的捕错, 不然, 会遗漏一些不可预知的错误的",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 507,
+        "subject": "",
+        "title": "node 接口转发有无做什么优化？node 起服务如何保证稳定性，平缓降级，重启等"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 9,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/tuxingxue.gif",
+        "style_tpl": 0,
+        "text": "这些性能优化技巧，你一定不知道",
+        "title": "【专题课：你不知道的Vue.js 性能优化】",
+        "url": "https://mp.weixin.qq.com/s/2F6Fsldj0OhmEEDnLqnuJQ"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 308,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### 上传文件的Content_type\n\n使用multipart/form-data\n\n#### 如何拿到上传的文件内容\n\nhttp模块的 `createServer(request, response)` ,\n\n传入请求对象的 request 其实实现了 `ReadableStream` 接口， 这个信息流可以被监听，或者与其它流进行对接。我们可以通过监听 'data' 和 'end' 事件从而把 数据给取出来。\n\n文件的内容不是一次性的传过来，是以流的方式传输\n\n获取到上传文件的内容伪代码如下\n\n```js\nconst http = require('http');\nlet fileData = ''\nhttp.createServer((request, response) => {\n  request.on('error', (err) => {\n    console.error(err);\n  }).on('data', (chunk) => {\n    fileData += data\n  }).on('end', () => {\n    console.log(fileData)\n  });\n}).listen(8080)\n```\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 308,
+        "subject": "",
+        "title": "上传文件的 Content_Type 什么，node 如何拿到上传的文件内容(不适用第三方插件)？文件内容是一次行传输过去的么"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 9,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/tuxingxue.gif",
+        "style_tpl": 0,
+        "text": "这些性能优化技巧，你一定不知道",
+        "title": "【专题课：你不知道的Vue.js 性能优化】",
+        "url": "https://mp.weixin.qq.com/s/2F6Fsldj0OhmEEDnLqnuJQ"
+      },
+      "corp_tag": ["阿里"],
+      "is_favorite": false,
+      "qid": 345,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 解决方案\n\n#### 1.Node.js原生集群模式\n\nNode.js提供了集群模块，简单讲就是复制一些可以共享TCP连接的工作线程。\n\n**工作原理**\n\n集群模块会创建一个master主线程，然后复制任意多份程序并启动，这叫做工作线程。\n\n工作线程通过 IPC 频道进行通信并且使用了 Round-robin algorithm 算法进行工作调度以此实现负载均衡。\n\nRound-robin调度策略主要是master主线程负责接收所有的连接并派发给下面的各个工作线程。\n\n常见的一个例子\n\n```js\nvar cluster = require('cluster');  \nvar http    = require('http');  \nvar os      = require('os');\n\nvar numCPUs = os.cpus().length;\n\nif (cluster.isMaster) {  \n  // Master:\n  // Let's fork as many workers as you have CPU cores\n\n  for (var i = 0; i < numCPUs; ++i) {\n    cluster.fork();\n  }\n} else {\n  // Worker:\n  // Let's spawn a HTTP server\n  // (Workers can share any TCP connection.\n  //  In this case its a HTTP server)\n\n  http.createServer(function(req, res) {\n    res.writeHead(200);\n    res.end(\"hello world\");\n  }).listen(8080);\n}\n```\n\n你可以不受CPU核心限制的创建任意多个工作线程。\n\n使用原生方法有些麻烦而且你还需要处理如果某个工作线程挂掉了等额外的逻辑。\n\n\n#### PM2的方式\n\nPM2内置了处理上述的逻辑，你不用再写这么多繁琐的代码了。\n\n```js\n pm2 start app.js -i 4\n```\n\n> -i <number of workers> 表示实例程序的个数。就是工作线程。如果i为0表示，会根据当前CPU核心数创建\n\n这样一行代码就可以了\n\n\n**1）保持程序不中断运行**\n\n如果有任何工作线程意外挂掉了，PM2会立即重启他们，当前你可以在任何时候重启，只需：\n\n```js\npm2 restart all\n```\n\n**2）实时调整集群数量**\n\n你可以使用命令 `pm2 scale <app name> <n>` 调整你的线程数量，如 `pm2 scale app +3` 会在当前基础上加3个工作线程。\n\n**3）在生产环境让程序永不中断**\n\n`PM2 reload <app name>` 命令会一个接一个的重启工作线程，在新的工作线程启动后才结束老的工作线程。\n\n这种方式可以保持你的Node程序始终是运行状态。即使在生产环境下部署了新的代码补丁。\n\n也可以使用 `gracefulReload` 命令达到同样的目的，它不会立即结束工作线程，而是通过IPC向它发送关闭信号，这样它就可以关闭正在进行的连接，还可以在退出之前执行一些自定义任务。这种方式更优雅。\n\n```js\nprocess.on('message', function(msg) {  \n  if (msg === 'shutdown') {\n    close_all_connections();\n    delete_cache();\n    server.close();\n    process.exit(0);\n  }\n});\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 345,
+        "subject": "",
+        "title": "master 挂了的话 pm2 怎么处理"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["阿里"],
+      "is_favorite": false,
+      "qid": 348,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 服务端渲染\n\n#### 1.简单理解\n\n服务端渲染是数据与模版组成的html，即 html = 数据 + 模版\n\n将组件或页面通过服务器生成html字符串，再发送到浏览器，最后将静态标记\"混合\"为客户端上完全交互的应用程序。\n\n页面没使用服务渲染，当请求页面时，返回的body里为空，之后执行js将html结构注入到body里，结合css显示出来;\n\n#### 2.SSR的优势\n\n- 对SEO友好\n- 所有的模版、图片等资源都存在服务器端\n- 一个html返回所有数据\n- 减少HTTP请求\n- 响应快、用户体验好、首屏渲染快\n\n\n**1）更利于SEO**\n\n不同爬虫工作原理类似，只会爬取源码，不会执行网站的任何脚本（Google除外，据说Googlebot可以运行javaScript）。\n\n使用了React或者其它MVVM框架之后，页面大多数DOM元素都是在客户端根据js动态生成，可供爬虫抓取分析的内容大大减少。\n\n另外，浏览器爬虫不会等待我们的数据完成之后再去抓取页面数据。服务端渲染返回给客户端的是已经获取了异步数据并执行JavaScript脚本的最终HTML，网络爬中就可以抓取到完整页面的信息。\n\n**2）更利于首屏渲染**\n\n首屏的渲染是node发送过来的html字符串，并不依赖于js文件了，这就会使用户更快的看到页面的内容。尤其是针对大型单页应用，打包后文件体积比较大，普通客户端渲染加载所有所需文件时间较长，首页就会有一个很长的白屏等待时间。\n\n#### 3.SSR的局限\n\n**1）服务端压力较大**\n\n本来是通过客户端完成渲染，现在统一到服务端node服务去做。尤其是高并发访问的情况，会大量占用服务端CPU资源；\n\n**2）开发条件受限**\n\n在服务端渲染中，只会执行到componentDidMount之前的生命周期钩子，因此项目引用的第三方的库也不可用其它生命周期钩子，这对引用库的选择产生了很大的限制；\n\n**3）学习成本相对较高**\n\n除了对webpack、MVVM框架要熟悉，还需要掌握node、Koa2等相关技术。相对于客户端渲染，项目构建、部署过程更加复杂。\n\n#### 4.时间耗时比较\n\n**1）数据请求**\n\n由服务端请求首屏数据，而不是客户端请求首屏数据，这是“快”的一个主要原因。服务端在内网进行请求，数据响应速度快。客户端在不同网络环境进行数据请求，且外网http请求开销大，导致时间差\n\n- 客户端数据请求\n\n![客户端](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-348-client.png)\n\n- 服务端数据请求\n\n![服务端](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-348-node.png)\n\n**2）html渲染**\n\n服务端渲染是先向后端服务器请求数据，然后生成完整首屏html返回给浏览器；\n\n而客户端渲染是等js代码下载、加载、解析完成后再请求数据渲染，等待的过程页面是什么都没有的，就是用户看到的白屏。\n\n就是服务端渲染不需要等待js代码下载完成并请求数据，就可以返回一个已有完整数据的首屏页面。\n\n- 非ssr html渲染\n\n![客户端](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-348-chtml.png)\n\n- ssr html渲染\n\n![服务端](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-348-shtml.png)",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 348,
+        "subject": "",
+        "title": "服务端渲染 SSR"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["挖财"],
+      "is_favorite": false,
+      "qid": 439,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 方案\n\n如果不用pm2做进程管理，可以自定义一些进程处理机制，手动管理进程的调度，或者用forever也可以\n\n#### 1.node-forever\n\n使用`forever start simple-server.js`，核心在于forever-monitor，其原理就是崩溃就重启一个\n\n```js\nMonitor.prototype.start = function (restart) {\n  var self = this,\n      child;\n\n  // 非重启则返回自身进程\n  if (this.running && !restart) {\n    process.nextTick(function () {\n      self.emit('error', new Error('Cannot start process that is already running.'));\n    });\n    return this;\n  }\n\n  // 重启标志传入时，重新 fork 进程，方法里使用了 child_process.spawn 执行命令来衍生一个新进程\n  child = this.trySpawn();\n  if (!child) {\n    process.nextTick(function () {\n      self.emit('error', new Error('Target script does not exist: ' + self.args[0]));\n    });\n    return this;\n  }\n\n  this.ctime = Date.now();\n  this.child = child;\n  this.running = true;\n  this.isMaster = cluster.isMaster;\n\n  process.nextTick(function () {\n    self.emit(restart ? 'restart' : 'start', self, self.data);\n  });\n\n  function onMessage(msg) {\n    self.emit('message', msg);\n  }\n\n  // Re-emit messages from the child process\n  this.child.on('message', onMessage);\n\n  // 监听退出事件，崩溃时退出也算。\n  child.on('exit', function (code, signal) {\n    var spinning = Date.now() - self.ctime < self.minUptime;\n    child.removeListener('message', onMessage);\n    self.emit('exit:code', code, signal);\n\n    function letChildDie() {\n      self.running = false;\n      self.forceStop = false;\n      self.emit('exit', self, spinning);\n    }\n\n    function restartChild() {\n      self.forceRestart = false;\n      process.nextTick(function () {\n        self.start(true);\n      });\n    }\n\n    self.times++;\n\n    // 强制关闭，当重启次数过多\n    if (self.forceStop || (self.times >= self.max && !self.forceRestart)\n      || (spinning && typeof self.spinSleepTime !== 'number') && !self.forceRestart) {\n      letChildDie();\n    }\n    // 按照最小的重启时间间隔，防止不停崩溃重启\n    else if (spinning) {\n      setTimeout(restartChild, self.spinSleepTime);\n    }\n    else {\n      restartChild();\n    }\n  });\n\n  // 返回重启后的新进程\n  return this;\n};\n```\n\n#### 2.shell脚本启动守护Node.js\n\n```shell\nWEB_DIR='/var/www/ourjs'\nWEB_APP='svr/ourjs.js'\n\n#location of node you want to use\nNODE_EXE=/root/local/bin/node\n\nwhile true; do\n    {\n        $NODE_EXE $WEB_DIR/$WEB_APP config.magazine.js\n        echo \"Stopped unexpected, restarting \\r\\n\\r\\n\"\n    } 2>> $WEB_DIR/error.log\n    sleep 1\ndone\n```\n\n这个文件非常简单，只有启动的选项，守护的核心功能是由一个无限循环 while true; 来实现的，为了防止过于密集的错误阻塞进程，每次错误后间隔1秒重启服务。\n\n错误日志记录也非常简单，直接将此进程控制台当中的错误输出到`error.log`文件即可： `2>> $WEB_DIR/error.log` 这一行, `2` 代表 Error\n\n#### 3.cluster API\n\nNode 原生提供了 cluster，可以创建共享服务器端口的子进程。可以看到下边EggJS官网多进程模型的说明\n\n```js\n+---------+                 +---------+\n|  Worker |                 |  Master |\n+---------+                 +----+----+\n     | uncaughtException         |\n     +------------+              |\n     |            |              |                   +---------+\n     | <----------+              |                   |  Worker |\n     |                           |                   +----+----+\n     |        disconnect         |   fork a new worker    |\n     +-------------------------> + ---------------------> |\n     |         wait...           |                        |\n     |          exit             |                        |\n     +-------------------------> |                        |\n     |                           |                        |\n    die                          |                        |\n                                 |                        |\n                                 |                        |\n```\n\n可以在业务代码之上起一个 master 进程，它 fork 出多个 worker 进程来处理任务，每当一个 worker 挂了，会有事件传回给 master，master 就能重新 fork 一份新的 worker。\n\n那么只要 master 不挂，就能达到守护进程的目的。\n\n### 结论\n\nNode.js用户使用pm2的优点很明显：\n\n- 操作系统限制一个进程的内存\n- 内存：无法充分利用机器全部内存\n- CPU：无法充分利用多核 CPU 的优势",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 439,
+        "subject": "",
+        "title": "不用 pm2 怎么做进程管理"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["阿里", "宝宝树"],
+      "is_favorite": false,
+      "qid": 340,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、常用的中间件\n\n#### 1.koa-router\n\n路由是Web框架必不可少的基础功能，koa.js为了保持自身的精简，并没有像Express.js自带了路由功能，因此koa-router做了很好的补充，作为koa星数最多的中间件，koa-router提供了全面的路由功能，比如类似Express的app.get/post/put的写法，URL命名参数、路由命名、支持加载多个中间件、嵌套路由等。\n\n#### 2.koa-bodyparser\n\nkoa.js并没有内置Request Body的解析器，当我们需要解析请求体时需要加载额外的中间件，官方提供的koa-bodyparser是个很不错的选择，支持x-www-form-urlencoded, application/json等格式的请求体，但不支持form-data的请求体，需要借助 formidable 这个库，也可以直接使用 koa-body 或 koa-better-body\n\n#### 3.koa-views\n\nkoa-views对需要进行视图模板渲染的应用是个不可缺少的中间件，支持ejs, nunjucks等众多模板引擎。\n\n#### 4.koa-static\n\nNode.js除了处理动态请求，也可以用作类似Nginx的静态文件服务，在本地开发时特别方便，可用于加载前端文件或后端Fake数据，可结合 koa-compress 和 koa-mount 使用。\n\n#### 5.koa-session\n\nHTTP是无状态协议，为了保持用户状态，我们一般使用Session会话，koa-session提供了这样的功能，既支持将会话信息存储在本地Cookie，也支持存储在如Redis, MongoDB这样的外部存储设备。\n\n#### 6.koa-compress\n\n当响应体比较大时，我们一般会启用类似Gzip的压缩技术减少传输内容，koa-compress提供了这样的功能，可根据需要进行灵活的配置。\n\n#### 7.koa-logger\n\nkoa-logger提供了输出请求日志的功能，包括请求的url、状态码、响应时间、响应体大小等信息，对于调试和跟踪应用程序特别有帮助，koa-bunyan-logger 提供了更丰富的功能。\n\n#### 8.koa-static\n\n静态资源服务\n\n### 二、中间件原理\n\nKoa最主要的核心是 **中间件机制洋葱模型**\n\n![洋葱模型](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-487-middleware.png)\n\n通过use()注册多个中间件放入数组中，然后从外层开始往内执行，遇到next()后进入下一个中间件，当所有中间件执行完后，开始返回，依次执行中间件中未执行的部分.整体流程就是递归处理。\n\n```js\nfunction compose(middleware) {\n    // console.log(middleware)\n    // [ [AsyncFunction: fn1], [AsyncFunction: fn2], [AsyncFunction: fn3] ]\n    return () => {\n      // 先执行第一个函数\n      return dispatch(0)\n  \n      function dispatch(i) {\n        let fn = middleware[i]\n        // 如何不存在直接返回 Promise\n        if (!fn) {\n          return Promise.resolve()\n        }\n        // step1: 返回一个 Promise，因此单纯变成一个 Promise 且 立即执行\n        // step2: 往当前中间件传入一个next()方法，当这个中间件有执行 next 的时候才执行下一个中间件\n        return Promise.resolve(fn(function next() {\n          // 执行下一个中间件\n          return dispatch(i + 1)\n        }))\n      }\n    }\n  }\n```\n\n核心代码是 `return Promise.resolve(fn(context, dispatch.bind(null, i + 1)));` 递归遍历，直到遍历完所有的中间件next，生成一个多层嵌套的promise函数。\n\nkoa的中间件处理可以当做是洋葱模型。中间件数组中中间件的执行是通过递归的方式来执行，调用dispatch函数，从第一个开始执行，当有next方法时创建一个promise，等到下一个中间件执行结果后再执行next后端代码。当第二个中间件也有next方法时，依然会创建一个新的promise等待下一个中间件的执行结果，这也就是中间件next的执行原理\n\n`app.use()` 将中间件push到中间件数组中，然后在listen方法中通过调用compose方法进行集中处理。\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 340,
+        "subject": "",
+        "title": "使用过的 koa2 中间件，中间价的原理是什么"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["阿里"],
+      "is_favorite": false,
+      "qid": 334,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### PM2\n\nPM2 是一个带有负载均衡功能的 Node 应用的进程管理器。我们都知道nodejs是单进程执行的，当程序出现错误死掉之后需要能够自动，这时候就需要PM2了。当然进程管理工具有很多，例如forever等等；\n\n#### 1.主要特性\n\n- 启动多子进程，充分使用CPU\n- 子进程之间负载均衡\n- 0秒重启\n- 界面友好\n- 提供进程交互（例如：监控）接口\n\n#### 2.架构图\n\n![架构](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-334-manager.png)\n\npm2包括 Satan进程、God Deamon守护进程、进程间的远程调用rpc、cluster等几个概念.pm2中采用God Deamon守护进程，God进程启动后一直运行，它相当于cluster中的Master进程，守护者worker进程的正常运行。\n\n#### 3.执行流程\n\n![执行流程](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-334-process.jpeg)\n\n每次命令行的输入都会执行一次satan程序。如果God进程不在运行，首先需要启动God进程。然后根据指令，satan通过rpc调用God中对应的方法执行相应的逻辑。\n\n#### 4.依据什么重启服务\n\npm2采用心跳检测查看子进程是否处于活跃状态\n\n每隔数秒向子进程发送心跳包，子进程如果不回复，那么调用kill杀死这个进程，然后再重新cluster.fork()一个新的进程，子进程可以监听到错误事件，这时候可以发送消息给主进程，请求杀死自己，并且主进程此时重新调用cluster.fork一个新的子进程\n\n#### 5.拥有的能力\n\n- **⽇志管理** 两种⽇志，pm2系统⽇志与管理的进程⽇志，默认会把进程的控制台输出记录到⽇志中；\n- **负载均衡** PM2可以通过创建共享同⼀服务器端⼝的多个⼦进程来扩展您的应⽤程序。这样做还允许以零秒停机时间重新启动应⽤程序。\n- **终端监控** 可以在终端中监控应⽤程序并检查应⽤程序运⾏状况（CPU使⽤率，使⽤的内存，请求/分钟等）。\n- **SSH部署** ⾃动部署，避免逐个在所有服务器中进⾏ssh。\n- **静态服务** ⽀持静态服务器功能\n- **⽀持开发调试模式** ，⾮后台运⾏，`pm2-dev start <appName>`；\n\n#### 6.常用命令\n\n启动服务pm2 start <script_file|config_file> [options] 启动指定应⽤\n\n- 启动⼀个node程序\n  - `pm2 start app.js`  启动app.js应⽤\n- 启动进程并指定应⽤的程序名\n  - `pm2 start app.js --name 程序名` 启动应⽤并设置name\n- 添加进程监视\n  - 监听模式启动，当⽂件发⽣变化，⾃动重启\n  - `pm2 start app.js --name 程序名 --watch（指定程序名的情况下）`\n  - `pm2 start app.js --watch （未指定程序名的情况下）`\n- 列出所有进程\n  - `pm2 list`\n  - `pm2 ls`  简写\n- 从进程列表中删除进程\n  - `pm2 delete [appname] | id`\n  - `pm2 delete app` 指定进程名删除\n  - `pm2 delete 0` 指定进程id删除\n  - 如果修改了应⽤配置⾏为，需要先删除应⽤，重新启动后⽅才会⽣效，如修改脚本⼊⼝⽂件；\n- 删除进程列表中所有进程\n  - `pm2 delete all`（关闭并删除应⽤）\n- 查看某个进程具体情况\n  - `pm2 describe app`\n- 查看进程的资源消耗情况\n  - `pm2 monit`（ 监控各个应⽤进程cpu和memory使⽤情况）\n- 重启进程\n  - `pm2 restart app.js` 同时杀死并重启所有进程，短时间内服务不可⽤,⽣成环境慎⽤\n  - `pm2 restart all` 重启所有进程\n  - `pm2 reload app.js` 重新启动所有进程，0秒重启，始终保持⾄少⼀个进程在运⾏　　\n  - `pm2 gracefulReload all`  以群集模式重新加载所有应⽤程序\n- 查看进程⽇志\n  - `pm2 logs [Name]`  根据指定应⽤名查看应⽤⽇志\n  - `pm2 logs [ID]`  根据指定应⽤ID查看应⽤⽇志\n  - `pm2 logs all`  查看所有进程的⽇志\n- 显示应⽤程序详细信息 `pm2 show <appName> [options]` 显示指定应⽤详情\n  - `pm2 show [Name]` 根据name查看\n  - `pm2 show [ID]` 根据id查看\n- 停⽌指定应⽤ `pm2 stop <appName> [options]` 停⽌指定应⽤\n  - `pm2 stop all`  停⽌所有应⽤\n  - `pm2 stop [AppName]` 根据应⽤名停⽌指定应⽤\n  - `pm2 stop [ID]` 根据应⽤id停⽌指定应⽤\n- `pm2 kill` 杀掉pm2管理的所有进程\n- 启动静态服务器 `pm2 serve ./dist 8080` 将⽬录dist作为静态服务器根⽬录，端⼝为8080\n- 集群模式启动\n  - -i 表示 number-instances 实例数量\n  - max 表示 PM2将⾃动检测可⽤CPU的数量 可以⾃⼰指定数量\n  - `pm2 start app.js -i max` 启⽤群集模式（⾃动负载均衡）\n- `pm2-dev start ...`  开发模式启动，即不启⽤后台运⾏\n- 设置pm2开机⾃启\n  - 开启启动设置，此处是CentOS系统，其他系统替换最后⼀个选项（可选项：ubuntu, centos, redhat, gentoo, systemd, darwin, amazon）\n  - `pm2 startup centos`\n  - 然后按照提示需要输⼊的命令进⾏输⼊\n  - 最后保存设置\n  - `pm2 save`\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 334,
+        "subject": "",
+        "title": "介绍下 pm2，pm2 依据什么重启服务"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 9,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/tuxingxue.gif",
+        "style_tpl": 0,
+        "text": "这些性能优化技巧，你一定不知道",
+        "title": "【专题课：你不知道的Vue.js 性能优化】",
+        "url": "https://mp.weixin.qq.com/s/2F6Fsldj0OhmEEDnLqnuJQ"
+      },
+      "corp_tag": ["兑吧", "海风教育"],
+      "is_favorite": false,
+      "qid": 487,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### Koa2\n\nKoa是继Express之后，Node的又一主流Web开发框架。相比于Express，Koa只保留了核心的中间件处理逻辑，去掉了路由，模板，以及其他一些功能，是一个基于Node实现的Web框架，特点是优雅、简洁、健壮、体积小、表现力强。它所有的功能通过插件的形式来实现。\n\n#### 1.原理\n\nKoa2是一个基于Node实现的Web框架，特点是优雅、简洁、健壮、体积小、表现力强。它所有的功能通过插件的形式来实现。\n\nkoa2 是通过封装原生的node http模块。koa的 Context 把 Node 的 Request 对象和 Response 对象封装到单个对象中，并且暴露给中间件等回调函数.\n\n最主要的核心是 **中间件机制洋葱模型**\n\n![洋葱模型](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-487-middleware.png)\n\n通过use()注册多个中间件放入数组中，然后从外层开始往内执行，遇到next()后进入下一个中间件，当所有中间件执行完后，开始返回，依次执行中间件中未执行的部分.整体流程就是递归处理。\n\n```js\nfunction compose(middleware) {\n    // console.log(middleware)\n    // [ [AsyncFunction: fn1], [AsyncFunction: fn2], [AsyncFunction: fn3] ]\n    return () => {\n      // 先执行第一个函数\n      return dispatch(0)\n  \n      function dispatch(i) {\n        let fn = middleware[i]\n        // 如何不存在直接返回 Promise\n        if (!fn) {\n          return Promise.resolve()\n        }\n        // step1: 返回一个 Promise，因此单纯变成一个 Promise 且 立即执行\n        // step2: 往当前中间件传入一个next()方法，当这个中间件有执行 next 的时候才执行下一个中间件\n        return Promise.resolve(fn(function next() {\n          // 执行下一个中间件\n          return dispatch(i + 1)\n        }))\n      }\n    }\n  }\n```\n\n核心代码是 `return Promise.resolve(fn(context, dispatch.bind(null, i + 1)));` 递归遍历，直到遍历完所有的中间件next，生成一个多层嵌套的promise函数。\n\nkoa的中间件处理可以当做是洋葱模型。中间件数组中中间件的执行是通过递归的方式来执行，调用dispatch函数，从第一个开始执行，当有next方法时创建一个promise，等到下一个中间件执行结果后再执行next后端代码。当第二个中间件也有next方法时，依然会创建一个新的promise等待下一个中间件的执行结果，这也就是中间件next的执行原理\n\n`app.use()` 将中间件push到中间件数组中，然后在listen方法中通过调用compose方法进行集中处理。\n\n#### 2.Koa基本组成\n\n- `application.js`：Application(或Koa)负责管理中间件，以及处理请求\n- `context.js`：Context维护了一个请求的上下文环境\n- `request.js`：Request对`req`做了抽象和封装\n- `response.js`：Response对`res`做了抽象和封装\n\n**1）Application**\n\n主要维护中间件以及其它一些环境\n\n```js\n// application.js\nmodule.exports = class Application extends Emitter {\n  constructor() {\n    super();\n    this.proxy = false;\n    this.middleware = [];\n    this.subdomainOffset = 2;\n    this.env = process.env.NODE_ENV || 'development';\n    this.context = Object.create(context);\n    this.request = Object.create(request);\n    this.response = Object.create(response);\n  }\n  // ...\n```\n\n通过 app.use(fn) 可以将 fn 添加到中间件列表 this.middleware 中。\n\napp.listen 方法源码如下：\n\n```js\n// application.js\nlisten() {\n  debug('listen');\n  const server = http.createServer(this.callback());\n  return server.listen.apply(server, arguments);\n}\n```\n\n首先会通过 this.callback 方法来返回一个函数作为 http.createServer 的回调函数，然后进行监听。我们已经知道， http.createServer 的回调函数接收两个参数: req 和 res，下面来看this.callback 的实现：\n\n```js\n// application.js\ncallback() {\n  const fn = compose(this.middleware);\n  if (!this.listeners('error').length) this.on('error', this.onerror);\n  return (req, res) => {\n    res.statusCode = 404;\n    const ctx = this.createContext(req, res);\n    onFinished(res, ctx.onerror);\n    fn(ctx).then(() => respond(ctx)).catch(ctx.onerror);\n  };\n}\n```\n\n首先是将所有的中间件通过 compose 组合成一个函数 fn，然后返回 http.createServer 所需要的回调函数。于是我们可以看到，当服务器收到一个请求的时候，会使用 req 和 res 通过 this.createContext 方法来创建一个上下文环境 ctx，然后使用 fn 来进行中间件的逻辑处理。\n\n**2）Context**\n\n通过上面的分析，我们已经可以大概得知Koa处理请求的过程：当请求到来的时候，会通过 req 和 res 来创建一个 context (ctx)，然后执行中间件。\n\n事实上，在创建 context 的时候，还会同时创建 request 和 response，通过下图可以比较直观地看到所有这些对象之间的关系。\n\n![context](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-487-koa2.png)\n\n- 最左边一列表示每个文件的导出对象\n- 中间一列表示每个Koa应用及其维护的属性\n- 右边两列表示对应每个请求所维护的一些对象\n- 黑色的线表示实例化\n- 红色的线表示原型链\n- 蓝色的线表示属性\n\n实际上， ctx 主要的功能是代理 request 和 response 的功能，提供了对 request 和 response 对象的便捷访问能力。在源码中，我们可以看到：\n\n```js\n// context.js\ndelegate(proto, 'response')\n  .method('attachment')\n  // ...\n  .access('status')\n  // ...\n  .getter('writable');\n\ndelegate(proto, 'request')\n  .method('acceptsLanguages')\n  // ...\n  .access('querystring')\n  // ...\n  .getter('ip');\n```\n\n这里使用了 delegates 模块来实现属性访问的代理。简单来说，通过 delegate(proto, 'response') ，当访问 proto 的代理属性的时候，实际上是在访问 proto.response 的对应属性。\n\n**3）中间件的执行**\n\n在上面已经提到，所有的中间件会经过 compose 处理，返回一个新的函数。该模块源码如下：\n\n```js\nfunction compose(middleware) {\n  // 错误处理\n  if (!Array.isArray(middleware)) throw new TypeError('Middleware stack must be an array!')\n  for (const fn of middleware) {\n    if (typeof fn !== 'function') throw new TypeError('Middleware must be composed of functions!')\n  }\n\n  return function(context, next) {\n    // last called middleware #\n    let index = -1\n    return dispatch(0)\n\n    function dispatch(i) {\n      if (i <= index) return Promise.reject(new Error('next() called multiple times'))\n      // 当前执行第 i 个中间件\n      index = i\n      let fn = middleware[i]\n      // 所有的中间件执行完毕\n      if (i === middleware.length) fn = next\n      if (!fn) return Promise.resolve()\n\n      try {\n        // 执行当前的中间件\n        // 这里的fn也就是app.use(fn)中的fn\n        return Promise.resolve(fn(context, function next() {\n          return dispatch(i + 1)\n        }))\n      } catch (err) {\n        return Promise.reject(err)\n      }\n    }\n  }\n}\n```\n\nKoa的中间件支持普通函数，返回一个Promise的函数，以及async函数。由于generator函数中间件在新的版本中将不再支持，因此不建议使用。\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 487,
+        "subject": "",
+        "title": "介绍 koa2，原理是什么？"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 9,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/tuxingxue.gif",
+        "style_tpl": 0,
+        "text": "这些性能优化技巧，你一定不知道",
+        "title": "【专题课：你不知道的Vue.js 性能优化】",
+        "url": "https://mp.weixin.qq.com/s/2F6Fsldj0OhmEEDnLqnuJQ"
+      },
+      "corp_tag": ["阿里"],
+      "is_favorite": false,
+      "qid": 341,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### Koa-body \n\n#### 1.原理\n\n`koa-body` 中间件作用是将`Post` 等请求的请求体携带的数据解析到 `ctx.request.body` 中。\n\n基本原理是先用 type-is 这个包（`ctx.is`函数，根据请求的`content-type`）判断出请求的数据类型，然后根据不同类型用 co-body（请求体解析）和 formidable（数据类型是`multipart`，文件上传解析）来解析，拿到解析结果以后放到 `ctx.request.body` 或者 `ctx.request.files` 里面。\n\n#### 2.使用方式\n\n```js\nconst Koa = require('koa');\nconst koaBody = require('koa-body');\n \nconst app = new Koa();\n \napp.use(koaBody());\napp.use(ctx => {\n  ctx.body = `Request Body: ${JSON.stringify(ctx.request.body)}`;\n});\n \napp.listen(3000);\n```\n\nkoa-body先处理一堆参数（大多是传给co-body和formidable用的），然后用type-is这个包（ctx.is函数）判断出请求的数据类型，然后根据不同类型用co-body和formidable来解析，取到解析结果以后放到body或者files里面。\n\ntype-is：引用了mime-types和media-typer，但是最终起作用的还是mime-db这个包，type-is就是去匹配了下请求类型是什么(通过content-type来判断，而不是请求内容)，我们也可以用ctx.is来判断请求的类型。在type-is里有一个函数叫hasbody，get请求在这个函数的判断下被认为没有body，所以get请求获取到的结果都是空对象。\n\nco-body：代码结构很简单，提供了json、form、text这三种格式的解析，主要依赖的是inflation和raw-body，处理了一些参数（主要是encoding和limit参数），用inflation和raw-body解析。inflation比较简单，根据content-encoding的类型，做不同的操作，如果是gzip和deflate，调用zlib.Unzip解压缩，如果是identity，直接返回输入值。raw-body，它做的事情是stream解析。\n\nformidable：如果我们的数据类型是被type-is判断为multipart，那么就会调用formidable来进行解析，formidable本身也提供了很多种格式的解析，有json，multipart，urlencoded等。\n\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 341,
+        "subject": "",
+        "title": "koa-body 原理"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 335,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 一、什么是微服务\n\n所谓的微服务是SOA架构下的最终产物，该架构的设计目标是为了肢解业务，使得服务能够独立运行。\n\n微服务可以按照业务划分，将一组特定的业务划分成一个服务，每个服务都有自己独立的数据库，独立部署，服务直接通过rest api进行通讯。每一个独立运行的服务组成整个系统。\n\n总结下，微服务就是，由单一应用程序构成的小服务，拥有自己的进程与轻量化处理，服务依业务功能设计，以全自动的方式部署，与其他服务使用 HTTP API 通讯。同时，服务会使用最小规模的集中管理 （例如 Docker）技术，服务可以用不同的编程语言与数据库等。微服务架构是将复杂臃肿的单体应用进行细粒度的服务化拆分，每个拆分出来的服务各自独立打包部署，并交由小团队进行开发和运维，从而极大地提高了应用交付的效率.\n\n微服务设计的原则：\n\n- 各司其职 \n- 服务高可用和可扩展性\n\n### 二、区别\n\n单体应用：传统架构。集所有功能于一身构建一个项目，不可分开部署。\n\n单体架构所有的模块全都耦合在一块，代码量大，维护困难，而微服务每个模块就相当于一个单独的项目，代码量明显减少，遇到问题也相对来说比较好解决。\n\n单体架构所有的模块都共用一个数据库，存储方式比较单一，微服务每个模块都可以使用不同的存储方式（比如有的用redis，有的用mysql等），数据库也是单个模块对应自己的数据库。\n\n单体架构所有的模块开发所使用的技术一样，微服务每个模块都可以使用不同的开发技术，开发模式更灵活。\n\n单体应用是将所有功能模块放在一个单一进程中，并且通过在不同的服务器上面复制这个单体进行扩展。\n\n\n### 三、好处\n\n1. 微服务应用的一个最大的优点是，它们往往比传统的应用程序更有效地利用计算资源。这是因为它们通过扩展组件来处理性能瓶颈问题。这样一来，开发人员只需要为额外的组件部署计算资源，而不需要部署一个完整的应用程序的全新迭代。最终的结果是有更多的资源可以提供给其它任务。\n2. 微服务应用程序的另一个好处是，它们更快且更容易更新。当开发者对一个传统的单体应用程序进行变更时，他们必须做详细的QA测试，以确保变更不会影响其他特性或功能。但有了微服务，开发者可以更新应用程序的单个组件，而不会影响其他的部分。测试微服务应用程序仍然是必需的，但它更容易识别和隔离问题，从而加快开发速度并支持DevOps和持续应用程序开发。\n3. 第三个好处是，微服务架构有助于新兴的云服务，如事件驱动计算。类似AWS Lambda这样的功能让开发人员能够编写代码处于休眠状态，直到应用程序事件触发。事件处理时才需要使用计算资源，而企业只需要为每次事件，而不是固定数目的计算实例支付。\n\n通俗点解释是：\n\n**易于开发和维护**：因为一个服务只关注一个特定的业务，业务就变得比较清晰。同时维护起来也是比较方便。\n\n**单个服务启动比较快**：单个服务代码量不会很多，启动起来就会很快。\n\n**便于伸缩**：如果系统中有三个服务ABC，服务B的访问量比较大，我们可以将服务B集群部署。\n\n单体应用中，如果需要改动功能，那么则需要重新部署整个单体应用。而微服务则不需要，只需要重新部署修改的功能模块那个微服务。每一个功能模块都可  替换和独立维护的软件单元，完全体现了高可复用性，高可维护性，高可扩展性。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 335,
+        "subject": "",
+        "title": "什么是微服务，微服务跟单体应用的区别是啥，用微服务有啥好处？"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["挖财"],
+      "is_favorite": false,
+      "qid": 438,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n\n### 一、PM2进程管理\n\npm2是守护nodejs进程后台运行的,异常停止后可以自动重启，并且也可以袒护其它第三方的命令行程序\n\n#### 1.安装\n\n```shell\nnpm install pm2 -g\n```\n#### 2.基础命令\n\n```shell\npm2 start <js|json>  // 启动并添加一个进程\npm2 ls  // 显示所有进程\npm2 delete <name|id|script|all|json|stdin>  // 停止并删除指定的进程\n// 此进程使用kill 无效，因为存在守护进程，所以手动kill掉某个进程后会自动重启\npm2 stop <id|name|all|json|stdin>  // 停止进程\npm2 start <id|name|all|json|stdin>  // 启动指定进程\npm2 restart <id|name|all|json|stdin>  // 重启指定进程 也可使用正则匹配多个进程\n```\n\n#### 3.日志\n\n```shell\n// 1 实时查看某进程日志\npm2 logs <id|name|all>\n// 2 当没有指定日志目录时，默认在~/.pm2/logs中存放这所有进程日志历史\n\npm2 flush 清空所有历史应用日志\n```\n\n#### 4.负载均衡\n\n> pm2做负载均衡太爽了 起飞?\n\n```shell\npm2 start app.js -i <number | max> // 启动指定数量的子进程\n```\n\n#### 5.配置文件\n\n**1）使用Generator**\n\n```shell\npm2 init  // 生成 ecosystem.config.js\n// 此时 pm2 start  ||  pm2 start ecosystem.config.js 即可使用配置启动\n```\n\n```json\n// ecosystem.config.js\n// 配置多个环境\nmodule.exports = {\n  apps : [{\n    name: \"app\",\n    script: \"./app.js\",\n    // log start\n    output: \"./out.log\",\n    error: \"./error.log\",\n    log: \"./combined.outerr.log\",\n    log_type: \"json\", // 将日志按json打出\n    log_date_format: \"YYYY-MM-DD\",\n    merge_logs: true,\n    // log end\n    // output:  is only standard output (console.log)\n    // error: is only error output (console.error)\n    // log combines output and error, disabled by default\n\n    // balancing start\n    instances: \"max\",\n    // balancing end\n\n    // watch and reload\n    watch: true,\n    env: {\n      NODE_ENV: \"development\",\n    },\n    env_production: {\n      NODE_ENV: \"production\",\n    }\n  }]\n}\n// 通过--env 指定环境 \n// 当进程被启动后 其环境则一般不可变，可通过--update-env 强制改变环境\n```\n\n**2）自己设置配置文件 app.json**\n\n```json\n[{\n    \"name\":\"app\",\n    \"script\":\"./app.js\",\n    \"error_file\":\"/data/app-logs/argus/err.log\",\n    \"out_file\":\"/data/app-logs/argus/out.log\",\n    \"exec_mode\":\"cluster_mode\",  // 单点/集群\n    \"listen_timeout\" : 10000,\n    \"log_date_format\" :\"YYYY-MM-DD HH:mm:ss.SSS\",\n    \"env\":{\n        \"NODE_ENV\":\"production\"\n    }\n}]\n```\n\n#### 6.保存进程列表\n\n```js\n// ~/.pm2/dump.pm2  ||  ~/.pm2/dump.pm2.bak\npm2 dump | save  // 保存当前的进程列表\npm2 resurrect   // 恢复之前保存的进程列表\n```\n\n### 二、进程挂掉怎么处理\n\npm2采用心跳检测查看子进程是否处于活跃状态\n\n每隔数秒向子进程发送心跳包，子进程如果不回复，那么调用kill杀死这个进程，然后再重新cluster.fork()一个新的进程，子进程可以监听到错误事件，这时候可以发送消息给主进程，请求杀死自己，并且主进程此时重新调用cluster.fork一个新的子进程\n\n#### 1.Node.js原生集群模式\n\nNode.js提供了集群模块，简单讲就是复制一些可以共享TCP连接的工作线程。\n\n**工作原理**\n\n集群模块会创建一个master主线程，然后复制任意多份程序并启动，这叫做工作线程。\n\n工作线程通过 IPC 频道进行通信并且使用了 Round-robin algorithm 算法进行工作调度以此实现负载均衡。\n\nRound-robin调度策略主要是master主线程负责接收所有的连接并派发给下面的各个工作线程。\n\n常见的一个例子\n\n```js\nvar cluster = require('cluster');  \nvar http    = require('http');  \nvar os      = require('os');\n\nvar numCPUs = os.cpus().length;\n\nif (cluster.isMaster) {  \n  // Master:\n  // Let's fork as many workers as you have CPU cores\n\n  for (var i = 0; i < numCPUs; ++i) {\n    cluster.fork();\n  }\n} else {\n  // Worker:\n  // Let's spawn a HTTP server\n  // (Workers can share any TCP connection.\n  //  In this case its a HTTP server)\n\n  http.createServer(function(req, res) {\n    res.writeHead(200);\n    res.end(\"hello world\");\n  }).listen(8080);\n}\n```\n\n你可以不受CPU核心限制的创建任意多个工作线程。\n\n使用原生方法有些麻烦而且你还需要处理如果某个工作线程挂掉了等额外的逻辑。\n\n\n#### PM2的方式\n\nPM2内置了处理上述的逻辑，你不用再写这么多繁琐的代码了。\n\n```js\n pm2 start app.js -i 4\n```\n\n> -i <number of workers> 表示实例程序的个数。就是工作线程。如果i为0表示，会根据当前CPU核心数创建\n\n这样一行代码就可以了\n\n\n**1）保持程序不中断运行**\n\n如果有任何工作线程意外挂掉了，PM2会立即重启他们，当前你可以在任何时候重启，只需：\n\n```js\npm2 restart all\n```\n\n**2）实时调整集群数量**\n\n你可以使用命令 `pm2 scale <app name> <n>` 调整你的线程数量，如 `pm2 scale app +3` 会在当前基础上加3个工作线程。\n\n**3）在生产环境让程序永不中断**\n\n`PM2 reload <app name>` 命令会一个接一个的重启工作线程，在新的工作线程启动后才结束老的工作线程。\n\n这种方式可以保持你的Node程序始终是运行状态。即使在生产环境下部署了新的代码补丁。\n\n也可以使用 `gracefulReload` 命令达到同样的目的，它不会立即结束工作线程，而是通过IPC向它发送关闭信号，这样它就可以关闭正在进行的连接，还可以在退出之前执行一些自定义任务。这种方式更优雅。\n\n```js\nprocess.on('message', function(msg) {  \n  if (msg === 'shutdown') {\n    close_all_connections();\n    delete_cache();\n    server.close();\n    process.exit(0);\n  }\n});\n```\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 438,
+        "subject": "",
+        "title": "pm2 怎么做进程管理，进程挂掉怎么处理"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 9,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/tuxingxue.gif",
+        "style_tpl": 0,
+        "text": "这些性能优化技巧，你一定不知道",
+        "title": "【专题课：你不知道的Vue.js 性能优化】",
+        "url": "https://mp.weixin.qq.com/s/2F6Fsldj0OhmEEDnLqnuJQ"
+      },
+      "corp_tag": ["高德"],
+      "is_favorite": false,
+      "qid": 201,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、Promisify\n\n`promisify` 是 node 的 utils 模块中的一个函数，它作用就是为了转换最后一个参数是回调函数的函数为 promise 函数，且回调函数中有两个参数：`error` 和 `data`\n\n#### 1.未使用Promisify\n\n```js\nfs.readFile(\"./index.js\", (err, data) => {\n  if (!err) {\n    console.log(data.toString())\n  }\n  console.log(err)\n})\n```\n\n### 2.使用Promisfy\n\n```js\nconst readFile = promisify(fs.readFile)\nreadFile(\"./index.js\")\n  .then((data) => {\n    console.log(data.toString())\n  })\n  .catch((err) => {\n    console.log(\"error:\", err)\n  })\n```\n\n### 二、模拟实现Promisfy\n\n#### 1.实现方式一\n\n```js\nfunction promisify (fn) {\n\tif (typeof fn !== 'function') {\n\t\tthrow new Error('argument must be a function')\n\t}\n\treturn function (...args) {\n\t\treturn new Promise((resolve, reject) => {\n\t\t\ttry {\n\t\t\t\tfn.call(this, ...args, (err, res) => {\n\t\t\t\t\tif (err) {\n\t\t\t\t\t\treject(err)\n\t\t\t\t\t} else {\n\t\t\t\t\t\tresolve(res)\n\t\t\t\t\t}\n\t\t\t\t})\n\t\t\t} catch (err) {\n\t\t\t\treject(err)\n\t\t\t}\n\t\t});\n\t}\n}\n```\n\n#### 2.实现方式二\n\n```js\n /*\n* @param fn <function>有回调函数作为参数的函数\n* @param reverse <Boolean> 默认False。当fn的回调函数参数在前时(如setTimeout)，设为True。\n*/\nfunction promisify(fn, reverse) {\n    if ({}.toString.call(fn) !== '[object Function]'){\n        throw new TypeError('Only normal function can be promisified');\n    }\n    return function (...args) {\n        return new Promise((resolve, reject) => {\n            const callback = function (...args) {\n                if ({}.toString.call(args[0]) === '[object Error]') {\n                    return reject(args[0]);\n                }\n                resolve(args);\n            };\n            try {\n                if (reverse === true) {\n                    fn.apply(null, [callback, ...args]);\n                } else {\n                    fn.apply(null, [...args, callback]);\n                }\n            } catch (err) {\n                reject(err);\n            }\n        });\n    }\n}\n```\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 201,
+        "subject": "",
+        "title": "手动实现一个 Promisify 函数"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["道一云"],
+      "is_favorite": false,
+      "qid": 248,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、Node\n\nNode.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时，Node.js 使用一个事件驱动、非阻塞 I/O 模型，使其轻量、高效，让并发编程更简单，适用于以网络编程为主的 I/O 密集型应用。\n\nNode.js内部结构图\n\n![Node内部结构图](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-248-clipboard.png)\n\n自下而上，最底层是 Node.js 依赖的各种库，Chrome V8解释并执行 JavaScript 代码。Libuv 提供的事件循环、线程池管理、异步网络 I/O、文件系统 I/O 等能力，负责 I/O 任务的分布和执行。c-ares（DNS解析）、crypto、http、zlib（压缩）等，提供了对系统底层功能的访问，如网络、加密、压缩等。\n\n中间是桥接层，连接 JavaScript 和 C/C++ 的桥梁。Bindings 把底层 Node.js 核心依赖库暴露的 C/C++ 库接口转接给 JavaScript 环境。Addons 用于 C/C++ 扩展。\n最上层是应用层，可以调用 Node.js 的各种API。\n\n![system](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-248-event.png)\n\n### 二、适用场景\n\n**1）RESTful API**\n\n这是NodeJS最理想的应用场景，可以处理数万条连接，本身没有太多的逻辑，只需要请求API，组织数据进行返回即可。它本质上只是从某个数据库中查找一些值并将它们组成一个响应。由于响应是少量文本，入站请求也是少量的文本，因此流量不高，一台机器甚至也可以处理最繁忙的公司的API需求。\n\n**2）统一Web应用的UI层**\n\n目前MVC的架构，在某种意义上来说，Web开发有两个UI层，一个是在浏览器里面我们最终看到的，另一个在server端，负责生成和拼接页面。\n不讨论这种架构是好是坏，但是有另外一种实践，面向服务的架构，更好的做前后端的依赖分离。如果所有的关键业务逻辑都封装成REST调用，就意味着在上层只需要考虑如何用这些REST接口构建具体的应用。那些后端程序员们根本不操心具体数据是如何从一个页面传递到另一个页面的，他们也不用管用户数据更新是通过Ajax异步获取的还是通过刷新页面。\n\n**3）大量Ajax请求的应用**\n\n例如个性化应用，每个用户看到的页面都不一样，缓存失效，需要在页面加载的时候发起Ajax请求，NodeJS能响应大量的并发请求。　　\n\n总而言之，**NodeJS适合运用在高并发、I/O密集、少量业务逻辑的场景**\n\n例如：\n\n- 用户表单收集\n- 考试系统\n- 聊天室\n- web论坛\n- 图文直播\n\n其实NodeJS能实现几乎一切的应用，NodeJS适合运用在高并发、I/O密集、少量业务逻辑的场景，我们考虑的点只是适不适合用它来做。\n\n### 三、优缺点\n\n#### 优点\n\n1. 是 JavaScript 运行环境，让JavaScript 也可以开发后端程序\n2. 事件驱动。通过单线程维护事件循环队列，没有多线程的资源占用和上下文切换，高效可扩展性强，能充分利用系统资源。\n3. 非阻塞 I/O，能处理高并发（最重要的优点）\n4. 单线程（主线程为单线程）\n5. 可伸缩\n6. 跨平台，可以应用在 PC Web端、PC客户端 nw.js/electron 、移动端 cordova、HTML5、react-native、weex，硬件 ruff.io 等。\n7. npm 上的各种包模块\n8. 配合前端做接口转发 合并请求 削减JSON大小 可以独立控制路由（做SSR同构）让前端更有主动性 可以独立部署上线\n\n#### 缺点\n\n**1）不适合 CPU 密集型应用**\n\nCPU密集型应用给Node带来的挑战主要是：由于JavaScript单线程的原因，如果有长时间运行的计算（比如大循环），将会导致CPU时间片不能释放，使得后续I/O无法发起；\n\n解决方案:分解大型运算任务为多个小任务，使得运算能够适时释放，不阻塞I/O调用的发起；\n\n**2）不适合大内存的应用**\n\nV8 的内存管理机制限制（64位约1.4G，32位约0.7G）\n\n**3）不适合大量同步的应用**\n\n**4）只支持单核CPU，不能充分利用CPU**\n\n**5）可靠性低**\n\n一旦代码某个环节崩溃，整个系统都崩溃\n\n原因：\n\n- 单进程，单线程\n\n解决方案：\n\n- Nnigx反向代理，负载均衡，开多个进程，绑定多个端口；\n- 开多个进程监听同一个端口，使用cluster模块；\n\n**6）开源组件库质量参差不齐，更新快，向下不兼容**\n\n**7）Debug不方便，错误没有stack trace**",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 248,
+        "subject": "",
+        "title": "Node 的适用场景以及优缺点是什么？"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 9,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/tuxingxue.gif",
+        "style_tpl": 0,
+        "text": "这些性能优化技巧，你一定不知道",
+        "title": "【专题课：你不知道的Vue.js 性能优化】",
+        "url": "https://mp.weixin.qq.com/s/2F6Fsldj0OhmEEDnLqnuJQ"
+      },
+      "corp_tag": ["自如", "菜鸟网络"],
+      "is_favorite": false,
+      "qid": 242,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 一、Node 常见一些核心模块\n\n#### 1.Http模块\n\nhttp模块通常给我们用来创建本地的服务器，我们可以借助该模块提供的API，很轻松的在本地创建自己的服务器，并自己书写服务器的逻辑\n\n简单的说，就是我们在浏览器输入一个URL地址的时候，就是在向服务器请求数据，服务器接收到URL之后，会执行一系列的逻辑处理，最后返回给我们响应的文件\n\n```js\n//1. 引入http模块\nconst http = require('http')\n\n//2. 通过http对象，创建服务器\nconst app = http.createServer()\n\n//3. 监听服务器的请求，并打印请求的URL地址\napp.on('request',(req,res)=>{\n    console.log(req.url)\n})\n\n//4. 指定服务器监听的端口号，以及服务器正常启动之后的回调函数\napp.listen(3000,()=>{\n    console.log('Server is runnin on localhost:3000...')\n})\n\n```\n\n#### 2. fs 模块\n\nfs模块用来实现对文件的一些读写操作，它包含很多对文件读写操作相关的API，使我们能够通过js代码，来很便捷的实现对文件的各种处理\n\n```js\n// 引用fs模块\nconst fs = require('fs')\n\n// 调用fs模块中读取文件的方法，该方法接收两个参数\n// 第一个参数是要读取文件的地址，第二个参数为回调函数\n// 回调函数第一个参数为错误信息对象，如果读取报错，错误信息将包含在该文件中，第二个参数是读取成功返回的数据\n// 数据以二进制的方式返回，可以通过 data.toStrin()方法转换为字符串\nfs.readFile('./db.json',(error,data)=>{\n    if(error){\n        return console.log('readFile failed,please contact manager...')\n    }\n\n    // 这里将字符串转换为Json对象，并且直接获取Json对象中的 students属性\n    return console.log(JSON.parse(data).students)\n})\n```\n\n#### 3.path和os\n\n**path模块** 通常用来操作文件的路径\n\n常见API：\n\n- `path.resolve([...paths])`：将路径片段解析为一个文件的绝对路径\n- `path.join([...paths])`：拼接参数路径并返回\n- `path.basename()`：返回给定路径的最后一部分\n- `path.extname(path)`：返回文件的拓展名\n\n**os模块** 提供了操作系统相关的方法\n\n#### 4.Url模块\n\nURL 模块用来处理和解析URL，通常会将URL解析成一个对象，该对象包含URL的完整信息\n\n\n#### 5.stream模块\n\nnode中stream模块是非常，非常，非常重要的一个模块，因为很多模块都是这个模块封装的，比如process.stdout、http.clientRequest。\n\n在nodejs中，有四种stream类型：\n\n1. **Readable**：可读流，用来读取数据，比如 `fs.createReadStream()`。\n2. **Writable**：可写流，用来写数据，比如 `fs.createWriteStream()`。\n3. **Duplex**：双工流，可读+可写，比如 `net.Socket()`。\n4. **Transform**：转换流，在读写的过程中，可以对数据进行修改，比如 `zlib.createDeflate()`（数据压缩/解压）\n\n\n### 二、Stream模块详细介绍\n\n我们知道stream是一个抽象数据结构 , 是数据的一个集合 ; 它主要是读取写入数据\n\n从名字可以知道 , stream流 , 是一个不断输出数据的一个数据格式 , 它会一点一点的将数据流向下一个接收它的地方 , 而且最重要的是 , 它不会占用内存 , 这个怎么说呢 , 我们来一个其他可读写的模块进行对比 , 模块fs\n\n#### 2.1 fs和stream对比\n\n首先是fs模块, 简单看下面例子, foo.txt文件在大小在70m左右\n\n```js\nconst fs = require(\"fs\");\nconst http = require(\"http\");\nhttp\n  .createServer()\n  .on(\"request\", (req, res) => {\n    fs.readFile(\"./foo.txt\", (err, data) => {\n      if (err) throw err;\n      res.end(data);\n    });\n  })\n  .listen(8080);\n```\n\n访问一次localhost:8080后,  node服务占用内存就高达77m了\n\n![fs.readFile](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-242-1.png)\n\n然后我们将文件大小增加到140m , 可以看出下面的node进程所占据的内存差不多是所读取文件的大小\n\n![fs.readFile稍微大点的文件](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-242-2.png)\n\n这次修改成使用流读取 , 修改代码如下\n\n```js\nconst fs = require(\"fs\");\nconst http = require(\"http\");\nhttp\n  .createServer()\n  .on(\"request\", (req, res) => {\n    const stream = fs.createReadStream(\"./foo.txt\"); // 创建读取流\n    stream.pipe(res); // 使用pipe将数据一点一点输出到前端\n  })\n  .listen(8080);\n```\n\n重启服务后 , 看node的刚启动的占用内存\n\n![fs.createStream刚启动node服务的内存大小](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-242-3.png)\n\n然后进行访问localhost:8080\n\n![使用流式读取文件的内存占用](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-242-4.png)\n\n连续测试很多次 , 包括大文件 ; 如500m的文件读取(超过1G的没试过) , 也就占用内存28m左右,\n\n这里相当于将一个文件创建了一个读取流 , `fs.createReadStream(\"./foo.txt\")`不会将文件读取完才将文件流出去 , 而是每读一段文件就将读取到的文件通过pipe(res) ; 将文件输出到对应的地方, 其中pipe()接收的参数就是需要输出的地方 , 这个pipe() , 就是一个管道机制的函数 , 也称链式调用\n\n例如\n\n```js\nstream.pipe(res1).pipe(res2)\n// 如下\nstream.pipe(res1)\nres1.pipe(res2)\n```\n\n#### 2.2 Stream两个重要的方法\n\ndata和end事件官网如下解释\n\n**1）data**\n\nAdded in: v0.9.4\n\n- `chunk` buffer | string | any The chunk of data. For streams that are not operating in object mode, the chunk will be either a string or `Buffer`. For streams that are in object mode, the chunk can be any JavaScript value other than `null`.\n\n意思是 stream监听一个on('data')事件, 其中 `on('data', (chunk) => {})`, 第二个参数是一个函数 , 函数接收一个chunk数据片段 , \n\n当流将大量数据的流向使用者时，都会发出该事件。每当流在流动的模式切换通过调用这可能会发生`readable.pipe()`，`readable.resume()`或由收听者回调附着到`'data'`事件。`'data'`每当`readable.read()`调用该方法并且有大量数据可返回时，也会发出该事件。\n\n将`'data'`事件侦听器附加到尚未显式暂停的流将把流切换为流模式。数据将在可用时立即传递。\n\n如果使用`readable.setEncoding()`方法为流指定了默认编码，则侦听器回调将作为字符串传递数据块 ；否则，数据将作为传递 `Buffer`。\n\n然后在通过on('end')事件接收on('data')输出的chunk片段 , 每有一段流 , 就会在这个函数里面接收并流向下一个事件\n\n**2）Event**\n\nAdded in: v0.9.4\n\nThe `'end'` event is emitted when there is no more data to be consumed from the stream.\n\nThe `'end'` event **will not be emitted** unless the data is completely consumed. This can be accomplished by switching the stream into flowing mode, or by calling `stream.read()` repeatedly until all data has been consumed\n\n在`'end'`当没有更多的数据从流中消耗的发射事件。\n\n除非完全消耗了数据，否则**不会发出**该`'end'`事件。这可以通过将流切换为流模式或重复调用直到所有数据都用完来实现。\n\n当所有数据发送完毕后 , 就不会再出发end事件了\n\ndata和end是两个很常用的事件 , data一边读取 , 一边将流发送到end事件中, 再流向其他地方\n\n下面我们看一个data和end两个事件中是怎么传递数据的\n\n```js\nconst fs = require(\"fs\");\nconst http = require(\"http\");\nconst path = require(\"path\");\nhttp\n  .createServer()\n  .on(\"request\", (req, res) => {\n    const stream = fs.createReadStream(\"./foo.txt\");\n    // stream.pipe(res); // 先把pipe管道注释掉\n    let data = \"\";\n    stream\n      .on(\"data\", (chunk) => { // 每读取到一段chunk就将chunk发送到body中\n        res.end(chunk);\n      })\n```\n\n#### 2.3 我们为什么要使用stream(流)\n\n**1）使用stream解决的问题**\n\n减少node由于单线程读取大文件而导致其他程序停止\n\n避免一次性读取所有文件内容再返回，这样会导致几个问题\n\n  - 读取出来的文件内容会存在堆内内存中，堆内内存，会直接占满了node内存, 如果同时大并发，这种的内存不管是什么系统和服务都是不可取的\n  - 还有一个问题，就是即使读取的文件是一个不大不小的文件，且系统服务都是可以支撑的，用户体验也是不好, 由于需要将所有的文件内容读取完才能返回对于的数据，如果这时候终端环境网速不好，这样的体验更加下降了 ; 同时如果如果用户突然关掉该对于的接口服务，这时候v8就会进行大文件的GC，而且V8在进行CG的时候是会堵塞线程的 ; 而且v8的GC是自动执行的，不受开发者控制，导致另外一个问题就是，对于v8 GC的时刻是不可控的，这也是导致node服务不稳定的原因之一 \n  - 即使用户完全接收完这个文件了, 对于这个文件在内存的占用也是需要v8去GC的无疑对v8的性能就是一个挑战\n\nnode中的pipe(),对数据流控制是相当好的，它在底层帮我们做了很多事件，包括解决数据流挤压和消息堆积问题 ; 同时通知挤压机制介入工作的问题\n\n使用stream进行流处理数据时，可以知道，它传递的是buffer数据，buffer数据，最好的好处就是它开辟的内存都是属于堆外内存，不归v8管理的，在 Node 的 C++ 层面实现内存的申请。因为处理大量的字节数据不能采用需要一点内存就向操作系统申请一点内存的方式，同时node采用了 slab 分配机制高效使用申请来的内存 ; 所以实际上stream在处理超大文件的时候，实际上发生占用大内存的时候，会自动申请堆外内存进行数据管理，在node服务中，最多只会占用30m内存 ; 对v8的内存管理相当友好\n\n\n#### 2.4 stream处理数据过程\n\n![串行执行文件](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-242-7.png)\n\n上面是一个串行执行文件下载并将文件发送到页面的过程 , 是一个耗时为max(a+b+c+...)的过程\n\n##### 2.4.1看看流是怎处理的\n\n![流式处理数据.png](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-242-8.png)\n\n上图一和图二是一个简单的模拟流处理的一个小流程; 可以知道流式工作的一种好处就是 , 当我已经下载一段文件流时 , 就可以将其交给下一个步骤处理了 , 但是这里会出现一个数据流挤压的问题 , 是一个背压问题 , \n\n##### 2.4.2 那么啥是背压问题呢 ? \n\n![流背压](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-242-9.png)\n\n如上图 , 当压缩处理不过来`(管道处理繁忙)`的时候 , 会通过(告诉)前一个流 , 暂停一下 , 已便压缩工作完成后才继续往下流 , 相当于一个在多个管道之间 , 其中一个管道堵塞了 , 就往前管道通知进行暂停处理 \n\n##### 2.4.3 那么我们如何判断某个管道是否出去过度使用状态呢?\n\n当数据缓存超出了highWaterMark或者写入的队列处于繁忙状态 , 那么Writable的.write()函数就会返回false ; 通过`某个机制` , 暂停所有数据流 , 即禁止了所有数据流的Readable\n\n##### 2.4.4 通过哪个机制暂停所有的数据流呢?\n\n这时候真正做事的\"人\"出现了 , 就是``积压机制`` ,`积压机制`一旦介入了它将暂停从任何发送数据的数据流中进入的 `Readable`。一旦数据流清空了，`'drain'`事件将被触发，消耗进来的数据流。而且流stream实现的积压机制是相当完美的 ; \n\n\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 242,
+        "subject": "",
+        "title": "介绍一下 node 核心模块（主要是 stream）"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["菜鸟网络", "海风教育"],
+      "is_favorite": false,
+      "qid": 278,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### Koa2 与 Express\n\n#### 1.概念\n\n`express` 是一个基于 `Node.js` 平台的极简、灵活的 web 应用开发框架，主要基于 `Connect` 中间件，并且自身封装了路由、视图处理等功能，使用人数众多。\n\n`koa` 相对更为年轻， 是 `express` 原班人马基于 `es` 新特性重新开发的框架，主要基于 `co` 中间件，基于 `es6 generator` 特性的异步流程控制，解决了回调地狱问题和麻烦的错误处理。问题框架自身不包含任何中间件，很多功能需要借助第三方中间件解决。`koa2` 是 `koa` 的 2.0 版本，使用 `async` 和 `await`  来实现异步流程控制。\n\n#### 2.区别\n\n1. `express` 自身集成了路由、视图处理等功能；`koa` 本身不集成任何中间件，需要配合路由、视图等中间件进行开发。\n2. 异步流程控制：`express` 采用 `callback` 来处理异步，`koa v1` 采用 `generator`，`koa v2` 采用 `async/await`。`generator` 和 `async/await` 使用同步的写法来处理异步，明显好于 `callback` 和 `promise`，`async/await` 在语义化上又要比 `generator` 更强。\n3. 错误处理：`express` 使用 `callback` 捕获异常，对于深层次的异常捕获不了；`koa` 使用` try catch`，能更好地解决异常捕获。\n4. 中间件模型：`express` 基于 `Connect` 中间件，线性模型；`koa`  中间件采用洋葱模型，所有的请求在经过中间件的时候都会执行两次，能够非常方便的执行一些后置处理逻辑。\n5. `context`：和 `Express` 只有 `Request` 和 `Response` 两个对象不同，`Koa` 增加了一个 `Context` 的对象，作为这次请求的上下文对象（在 `Koa1` 中为中间件的 `this`，在 `Koa2` 中作为中间件的第一个参数传入）。同时 `Context` 上也挂载了 `Request` 和 `Response` 两个对象。和 `Express` 类似，这两个对象都提供了大量的便捷方法辅助开发\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 278,
+        "subject": "",
+        "title": "koa2 和 express 区别"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["快手"],
+      "is_favorite": false,
+      "qid": 70,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### glob库\n\n**1）简介**\n\n程序需要对磁盘文件进行管理，就需要读取磁盘上的文件列表，然后可能会需要判断文件夹或文件名，还可能需要递归扫描子目录。库Glob专门用来扫描磁盘文件，并返回我们需要的文件类型。\n\nglob 工具基于 javascript . 它使用了 minimatch 库来进行匹配。\n\nnode 的 glob 模块允许你使用 * 等符号, 来写一个 glob 规则,像在 shell 里一样,获取匹配对应规则的文件.\n\n```js\nconst glob = require(\"glob\")\nglob(\"**/*.js\", function (error, files) {\n  // files 就是我们得到的文件的列表\n})\n```\n\n上述代码中，我们会递归查找当前目录下的所有.js 文件，因为我们使用了 **/*.js 通配符做查找条件。\n\n**2）glob 支持的通配符模式**\n\nglob 支持强大的匹配规则，但是要注意glob的匹配规则并不是正则表达式，详细支持如下：\n\n- `*` 匹配0到多个字符\n- `?` 匹配一个字符\n- `[...]` 匹配一个字符列表，类似正则表达式的字符列表\n- `!(pattern|pattern|pattern)` 反向匹配括号内的模式\n- `?(pattern|pattern|pattern)` 匹配0或1个括号内的模式\n- `+(pattern|pattern|pattern)` 匹配至少1个括号内的模式\n- `*(pattern|pattern|pattern)` 匹配0到多个括号内的模式\n- `@(pattern|pat*|pat?erN)` 精确匹配括号内的模式\n- `**` 匹配0到多个子目录，递归匹配子目录\n\n**3）其它特性**\n\n除下上文中的异步接口，glob还支持 glob.sync() 同步接口，另外，glob还支持大量的参数选项，比如cwd,root 等等\n\n\n#### Node进行文件处理的几种方式\n\n在使用node开发过程中很多时候会遇到对文件系统做各种处理操纵\n\n**1）文件处理开发中常用的内置模块**\n\n- path：处理文件路径\n- fs：操作文件系统\n- child_process：新建子进程\n- process: 进程\n\n**2）比较好用的第三方模块**\n\n- glob: 使用shell命令的模式匹配文件\n- trash: 文件放到回收站\n\n\n\n\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 70,
+        "subject": "",
+        "title": "是否了解 glob，glob 是如何处理文件的，业界是否还有其它解决方案"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["快手"],
+      "is_favorite": false,
+      "qid": 69,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 一、什么是Node\n\nNode是一个让JavaScript运行在服务端的开发平台，它让JavaScript成为与PHP、Python、Perl、Ruby等服务端语言平起平坐的脚本语言。目前Node.js已发展成一个成熟的开发平台，吸引了许多开发者。有许多大型高流量网站都采用Node.js进行开发，此外，开发人员还可以使用它来开发一些快速移动Web框架。\n\n### 二、Node在企业中的运用\n\n#### 1.中间层\n\n通常说前端和后端，前端负责用户界面，而后端负责提供数据和业务接口。现在我们在两者间加入一层，前端并不是直接去请求后端业务接口，而是请求到中间层。再由中间层去请求业务接口，看一下示意图：\n\n![中间层](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-69-nodemidlle.png)\n\n整个流程可以描述为：客户端直接请求到中间层的Node服务，Node服务分析请求，看需要哪个页面，再去请求对应数据，拿到数据后和模版结合成用户看到页面，再给到客户端。\n\n来看下中间层的优点：\n\n- 减轻客户端内存，项目用户体验好。不会像mvvm模式的项目把页面渲染和数据请求都压在客户端，而是在服务端完成。\n- SEO性好，不像mvvm模式页面由js生成，而是在服务器渲染好html 字符，有利于网页被搜索到。\n- 保持了前后端分离的优点和目的，即解放后端，后端可以继续以接口的形式写业务代码。\n- 前端可以操控的范围增多，甚至可以做服务器，数据库层面的优化，比如中间层中常常用nginx，redis来优化项目，应对高并发。\n\n#### 2.做项目构建工具\n\n很多公司都会开发自己公司的项目构建工具，帮助公司项目做的更标准更方便，一个好的项目构建工具，会极大的加快整个公司的项目开发效率。\n\n这一类的项目构建工具一般都要很多的文件操作，Node对于i/o流的操作，在目前的主流后端语言中数一数二。所以越来越多的公司选择用Node来做项目构建工具。\n\n#### 3.做一些小型网站后端\n\n用Node做后端，可能是大多数人认为的Node作用。其实真正在企业之中，很少会让你去用Node去做后端。 所以一般来说都是做一些小型或者个人站的后端。\n\n\n### 三、Node常用的一些包\n\n- express web开发框架\n- koa  web开发框架\n- multer 处理文件上传\n- formidable 处理表单图片/文件上传和参数上传\n- node-xlsx 读取Excel文件信息后缀只能是xlsx\n- coookie-parser express 中间件\n- express-session express 中间件\n- crypto 主要用于加密\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 69,
+        "subject": "",
+        "title": "是否熟悉 Node，主要做过哪些业务，平时用过什么包？"
+      },
+      "tech_tag": ["Node"],
+      "uid": 0
+    },
+    "status": 0
+  }
+]

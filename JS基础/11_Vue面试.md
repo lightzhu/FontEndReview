@@ -10,7 +10,8 @@
 - Compile:模版编译。vue 中的模版最终会通过 vue-loader 编译成 js(createElement 函数) 代码，原理是借鉴 snabbdom 的方式，生成 h()函数(vue 中是\_c 函数)，函数生成对应的虚拟 dom（vnode）,“虚拟 DOM”是我们对由 Vue 组件树建立起来的整个 vnode 树的称呼
 - 渲染：当页面初次渲染的时候会调用\_render 函数，过程中会访问到 data 中的数据，访问之前生成一个 watcher 对象，将此对象的 target 赋值成本身，在对应的 data 的 get 函数中将此 watcher 对象收集到对应值的 dep 对象中（这里是 vm 的关键），当下次 data 的更改会被 set 函数监听到，这个时候会调用对应 dep 对象的 notify 函数，其上的 watcher 对象依次更新，实现数据响应。\_update 会生成真实的 dom，初次 patch 的时候添加 dom 到对应的节点下面，
 - Vue 在更新 DOM 时是异步执行的。只要侦听到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据变更。如果同一个 watcher 被多次触发，只会被推入到队列中一次。这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。然后，在下一个的事件循环“tick”中，Vue 刷新队列并执行实际 (已去重的) 工作。Vue 在内部对异步队列尝试使用原生的 Promise.then、MutationObserver 和 setImmediate，如果执行环境不支持，则会采用 setTimeout(fn, 0) 代替。
-- patchVnode（diff）:包括三种类型操作：属性更新、文本更新、子节点更新
+- data 属性变化，触发 rerender,修改属性，被响应式的 set 监听到,set 中执行 updateComponent,updateComponent 重新执行 vm.\_render(),生成的 vnode 和 prevVnode ，通过 patch 进行对比
+- patchVnode（diff）:updateComponent 中实现了 vdom 的 patch,包括三种类型操作：属性更新、文本更新、子节点更新
   - 新老节点均有 children 子节点，则对子节点进行 diff 操作，调用 updateChildren
   - 如果老节点没有子节点而新节点有子节点，先清空老节点的文本内容，然后为其新增子节点
   - 当新节点没有子节点而老节点有子节点的时候，则移除该节点的所有子节点
@@ -63,7 +64,7 @@
 
 ## vue-router 基本原理
 
-- 作为一个插件存在：实现 VueRouter 类和 install 方法，$router 实例化的时候会在其构造函数中将 location相关的值做响应式的处理。Vue.use（Router）Vuex 通过通过插件的形式把 $router 注入到了整个应用中(挂载到 Vue.prototype)，router-veiw 通过属性的方式获取到\$router 的相关属性，根据 location 的变化动态匹配对应的组件。
+- 作为一个插件存在：实现 VueRouter 类和 install 方法，$router 实例化的时候会在其构造函数中将 location相关的值做响应式的处理。Vue.use（Router） 通过通过插件的形式把 $router 注入到了整个应用中(挂载到 Vue.prototype)，router-veiw 通过属性的方式获取到\$router 的相关属性，根据 location 的变化动态匹配对应的组件。
 
 ```
 let Vue; // 引用构造函数，VueRouter中要使用 // 保存选项
@@ -120,3 +121,114 @@ export default { Store, install };
 - 实现 commit 根据用户传入 type 执行对应 mutation
 - 实现 dispatch 根据用户传入 type 执行对应 action，同时传递上下文
 - 实现 getters，按照 getters 定义对 state 做派生
+
+## vue-ssr 原理
+
+- 首先，配置 vue.config.js，生成对应的 client 及 server 端的 bundle 清单文件
+- 宿主文件
+  ``<body> <!--vue-ssr-outlet--> </body>`
+- 服务器启动文件
+
+```
+// 加载本地文件
+const fs = require("fs");
+// 处理url
+const path = require("path");
+const express = require('express')
+const server = express()
+const resolve = dir => { return path.resolve(__dirname, dir) }
+// 处理favicon
+const favicon = require('serve-favicon')
+server.use(favicon(path.join(__dirname, '../public', 'favicon.ico')))
+// 第 1 步：开放dist/client目录，关闭默认下载index页的选项，不然到不了后面路由
+server.use(express.static(resolve('../dist/client'), {index: false}))
+// 第 2 步：获得一个createBundleRenderer
+const { createBundleRenderer } = require("vue-server-renderer");
+// 第 3 步：导入服务端打包文件
+const bundle = require(resolve("../dist/server/vue-ssr-server-bundle.json"));
+// 第 4 步：根据清单及宿主文件创建渲染器
+const template = fs.readFileSync(resolve("../public/index.html"), "utf-8")
+const clientManifest = require(resolve("../dist/client/vue-ssr-client- manifest.json"));
+const renderer = createBundleRenderer(bundle,
+    { runInNewContext: false, // https://ssr.vuejs.org/zh/api/#runinnewcontext
+    template, // 宿主文件
+    clientManifest // 客户端清单
+});
+server.get('*', async (req,res)=>{ console.log(req.url);
+// 设置url和title两个重要参数,构建context
+const context = { title:'ssr test', url:req.url // 首屏地址 }
+// 内部会调用entry-server.js的逻辑将context 传递
+const html = await renderer.renderToString(context); res.send(html) })
+server.listen(3000, function() {console.log(`server started at localhost:${port}`);});`
+```
+
+- app.js 应用程序入口文件,工厂函数生成 vue vue-router 以及 vuex
+
+```
+// app.js
+import Vue from 'vue'
+import App from './App.vue'
+import { createRouter } from './router'
+
+export function createApp (context) {
+  // 创建 router 实例
+  const router = createRouter()
+  const app = new Vue({
+    // 注入 router 到根 Vue 实例
+    router,
+    context,
+    render: h => h(App)
+  })
+
+  // 返回 app 和 router
+  return { app, router }
+}
+```
+
+- entry-server.js 服务器端路由逻辑,用于首屏内容渲染
+
+```
+// entry-server.js
+import { createApp } from './app'
+
+export default context => {
+  // 因为有可能会是异步路由钩子函数或组件，所以我们将返回一个 Promise，
+  // 以便服务器能够等待所有的内容在渲染前，
+  // 就已经准备就绪。
+  return new Promise((resolve, reject) => {
+    const { app, router } = createApp()
+    // 设置服务器端 router 的位置
+    router.push(context.url)
+    // 等到 router 将可能的异步组件和钩子函数解析完
+    router.onReady(() => {
+      const matchedComponents = router.getMatchedComponents()
+      // 匹配不到的路由，执行 reject 函数，并返回 404
+      if (!matchedComponents.length) {
+        return reject({ code: 404 })
+      }
+      // 整合vuex
+      Promise.all( matchedComponents.map(Component => {
+        if (Component.asyncData) {
+          return Component.asyncData({ store, route: router.currentRoute, });
+          }
+        })
+      )
+      .then(() => {
+        // 将状态附加到上下文，且 `template` 选项用于 renderer 时， // 状态将自动序列化为 `window.__INITIAL_STATE__`，并注入 HTML。 context.state = store.state;
+        resolve(app); })
+      .catch(reject);
+    }, reject)
+  })
+}
+```
+
+- entry-client.js 客户端入口,用于静态内容“激活”
+
+```
+import { createApp } from "./main";
+// 创建vue、router实例
+ const { app, router } = createApp();
+ // 路由就绪，执行挂载
+ if (window.__INITIAL_STATE__) { store.replaceState(window.__INITIAL_STATE__); }
+ router.onReady(() => { app.$mount("#app"); });
+```

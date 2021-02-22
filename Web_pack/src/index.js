@@ -1,5 +1,5 @@
 import './index.css'
-import './css/index.less'
+import './css/home.less'
 import pick from './img/pick.png'
 import 'babel-polyfill' // 用于ES6的语法
 import './js/request'

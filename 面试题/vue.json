@@ -1,0 +1,695 @@
+{
+  "msg": "success",
+  "result": {
+    "list": [
+      {
+        "audit_flag": 0,
+        "corp_tag": ["58"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 136,
+        "qid": 731,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 731,
+          "subject": "",
+          "title": "计算属性和普通属性的区别"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["爱范儿"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 112,
+        "qid": 703,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 703,
+          "subject": "```js\n/* \n  a)在不使用vue、react的前提下写代码解决一下问题\n    一个List页面上，含有1000个条目的待办列表，现其中100项在同一时间达到了过期时间，需要在对应项的text-node里添加“已过期”文字。需要尽可能减少dom重绘次数以提升性能。\n  b)尝试使用vue或react解决上述问题\n*/\n```\n",
+          "title": "按要求完成题目"
+        },
+        "tech_tag": ["JavaScript", "Vue", "React", "编程题"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["高思教育", "安居客"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 212,
+        "qid": 726,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 726,
+          "subject": "",
+          "title": "Vue 双向绑定原理"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["58"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 53,
+        "qid": 732,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 732,
+          "subject": "",
+          "title": "描述下自定义指令(你是怎么用自定义指令的)"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["高思教育"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 91,
+        "qid": 724,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 724,
+          "subject": "",
+          "title": "Vuex 和 localStorage 的区别"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["58"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 98,
+        "qid": 730,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 730,
+          "subject": "",
+          "title": "说一下路由钩子在 Vue 生命周期的体现？"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["58"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 14,
+        "qid": 733,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 733,
+          "subject": "",
+          "title": "说一下 Vue 中所有带\\$的方法"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["安居客"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 13,
+        "qid": 740,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 740,
+          "subject": "",
+          "title": "Vue-router 除了 router-link 怎么实现跳转"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 71,
+        "qid": 645,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 645,
+          "subject": "",
+          "title": "Vue 子组件和父组件执行顺序"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["会小二"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 41,
+        "qid": 608,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 608,
+          "subject": "",
+          "title": "怎么定义 vue-router 的动态路由？怎么获取传过来的动态参数？"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 83,
+        "qid": 640,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 640,
+          "subject": "",
+          "title": "Vue data 中某一个属性的值发生改变后，视图会立即同步执行重新渲染吗？"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 37,
+        "qid": 588,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 588,
+          "subject": "",
+          "title": "vue hooks 有哪些"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["58"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 39,
+        "qid": 644,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 644,
+          "subject": "",
+          "title": "简述 mixin、extends 的覆盖逻辑"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["寺库", "海康威视"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 26,
+        "qid": 511,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 511,
+          "subject": "",
+          "title": "介绍单页应用和多页应用？"
+        },
+        "tech_tag": ["React", "Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["会小二"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 17,
+        "qid": 614,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 614,
+          "subject": "```js\nA.data 中某一属性的值发生改变后，视图会立即同步进行重新渲染\nB.Vue 实例创建后再添加的属性，该属性改动将不会触发视图更新\nC.计算属性只有在它的相关依赖发生改变时才会重新求值\nD.Vue 组件的 data 选项必须是函数\n\n```\n",
+          "title": "下面关于 Vue 说法正确的是？(单选题)"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 24,
+        "qid": 637,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 637,
+          "subject": "",
+          "title": "为什么 Vue data 必须是函数"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 47,
+        "qid": 589,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 589,
+          "subject": "",
+          "title": "介绍 Vue template 到 render 的过程"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 37,
+        "qid": 636,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 636,
+          "subject": "",
+          "title": "为什么要用 Vuex 或者 Redux，不要说为了保存状态"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 27,
+        "qid": 323,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 323,
+          "subject": "",
+          "title": "子组件可以直接改变父组件的数据么，说明原因"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["有赞", "微医", "58"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 104,
+        "qid": 423,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 423,
+          "subject": "",
+          "title": "对虚拟 DOM 的理解？虚拟 DOM 主要做了什么？虚拟 DOM 本身是什么？"
+        },
+        "tech_tag": ["React", "Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["58"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 12,
+        "qid": 446,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 446,
+          "subject": "",
+          "title": "Vue 中一次性 200 条弹幕怎么处理"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 64,
+        "qid": 322,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 322,
+          "subject": "",
+          "title": "说一下对 vue3.0 的了解，vue3.0 为什么要用代理"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["脉脉", "58"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 82,
+        "qid": 218,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 218,
+          "subject": "",
+          "title": "简述 Vue 的生命周期以及每个阶段做的事"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["高德"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 27,
+        "qid": 200,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 200,
+          "subject": "",
+          "title": "vue 对数组的方法做了重写的操作，如何实现对 vue2 中对数组操作的 push()方法"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["自如"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 57,
+        "qid": 246,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 246,
+          "subject": "",
+          "title": "说一下 vue-router 的原理"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["脉脉"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 46,
+        "qid": 217,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 217,
+          "subject": "",
+          "title": "简述 Vue 的基本原理"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["自如"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 52,
+        "qid": 245,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 245,
+          "subject": "",
+          "title": "说一下 Vue 的\\$nextTick 原理"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["脉脉"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 42,
+        "qid": 222,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 222,
+          "subject": "",
+          "title": "Vue v-model 是如何实现的，语法糖实际是什么"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["脉脉", "58"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 55,
+        "qid": 219,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 219,
+          "subject": "",
+          "title": "说一下 Vue 组件的通信方式都有哪些？(父子组件，兄弟组件，多级嵌套组件等等)"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 38,
+        "qid": 258,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 258,
+          "subject": "",
+          "title": "说一下 Vue 单页与多页的区别"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["高德"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 53,
+        "qid": 199,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 199,
+          "subject": "",
+          "title": "说一下 Vue3 与 Vue2 的对比"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["网易"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 67,
+        "qid": 227,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 227,
+          "subject": "",
+          "title": "说一下 Vue dom diff 算法"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["自如"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 37,
+        "qid": 249,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 249,
+          "subject": "",
+          "title": "Vue 是如何收集依赖的"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["虎扑", "CVTE"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 12,
+        "qid": 275,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 275,
+          "subject": "",
+          "title": "Vue3.0 为什么要用 proxy？是怎么用 proxy 实现数据监听的?"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["网易", "脉脉", "快手"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 77,
+        "qid": 159,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 159,
+          "subject": "",
+          "title": "说一下对 React 和 Vue 的理解，它们的异同"
+        },
+        "tech_tag": ["React", "Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["脉脉"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 55,
+        "qid": 220,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 220,
+          "subject": "",
+          "title": "说一下 Vuex 的原理以及自己的理解"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 55,
+        "qid": 72,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 72,
+          "subject": "",
+          "title": "Redux 和 Vuex 有什么区别，说下一它们的共同思想"
+        },
+        "tech_tag": ["React", "Vue"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 66,
+        "qid": 71,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 71,
+          "subject": "",
+          "title": "说一下 Vue 的 keep-alive 是如何实现的，具体缓存的是什么？"
+        },
+        "tech_tag": ["Vue"],
+        "uid": 0,
+        "uname": ""
+      }
+    ],
+    "page": 1,
+    "pages": 3,
+    "uid": 23015
+  },
+  "status": 0
+}

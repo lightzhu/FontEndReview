@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import List from './page/List.jsx'
 // const _ = require('lodash')
 import { add } from './util'
 console.log(_)
@@ -13,7 +14,13 @@ class App extends React.Component {
     add()
   }
   render() {
-    return <h2>我是大标题</h2>
+    return (
+      <div>
+        <h2>我是大标题</h2>
+        <img src={require('./img/二维码.png').default} alt="" />
+        <List></List>
+      </div>
+    )
   }
 }
 ReactDom.render(<App />, document.querySelector('#app'))

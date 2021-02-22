@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .fu {
+    background: pink;
+    /*fixed*/
+    /* position: absolute; */
+    /* teble-cell */
+    /* display: inline-block; */
+    /* hidden */
+    overflow: auto;
+  }
+
+  .zi {
+    width: 100px;
+    height: 100px;
+    float: left;
+    border: 1px solid #000;
+  }
+
+  .zi2 {
+    background: red;
+    /*触发BFC之后浮动的元素不会盖在上面了*/
+    /* overflow: hidden; */
+  }
+</style>
+
+<body>
+  <div class="fu">
+    <div class="zi"></div>
+    <div class="zi2">我是文本</div>
+  </div>
+  <script>
+    var getname;
+    getname = function () {
+      console.log('get')
+    }
+    function getname() {
+      console.log('fn get')
+    }
+    getname()
+
+    /* jsonp原理 */
+    function cb(data) {
+      console.log(data)
+    }
+    let script = document.createElement("script")
+    let data = { name: 'pig' }
+    script.innerText = `cb(${JSON.stringify(data)})`
+    document.body.appendChild(script)
+  </script>
+</body>
+
+</html>

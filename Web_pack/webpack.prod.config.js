@@ -2,7 +2,9 @@
 const path = require('path')
 const webpack = require('webpack')
 // const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const baseConfig = require('./webpack.config')
 const { merge } = require('webpack-merge')
 module.exports = merge(baseConfig, {
@@ -23,6 +25,11 @@ module.exports = merge(baseConfig, {
     axios: 'axios'
   },
   optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        exclude: /node_modules/,
+      }),
+    ],
     usedExports: true,
     splitChunks: {
       chunks: "all", // 所有的 chunks 代码公共的部分分离出来成为⼀个单独的⽂件
@@ -41,7 +48,48 @@ module.exports = merge(baseConfig, {
     },
   },
   module: {
-    rules: []
+    rules: [
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: './style/'
+            }
+          },
+          {
+            loader: "css-loader",
+            options: {
+              // modules: true // 类似 在js中 element.setAttribute('class', less.pink)
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                path: './postcss.config.js'
+              }
+            }
+          },
+          {
+            loader: "less-loader"
+          }
+        ]
+      },
+    ]
   },
-  plugins: []
+  plugins: [
+    new OptimizeCSSAssetsPlugin({
+      cssProcessor: require("cssnano"), //引⼊cssnano配置压缩选项
+      cssProcessorOptions: {
+        discardComments: { removeAll: true }
+      }
+    }),
+    new MiniCssExtractPlugin({
+      // 提取css插件
+      filename: "./style/[name].css",
+      chunkFilename: "./style/[name].css"
+    }),
+  ]
 })

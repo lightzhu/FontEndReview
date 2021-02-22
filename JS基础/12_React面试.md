@@ -36,8 +36,15 @@
 - jsx：React 使⽤ JSX 来替代常规的 JavaScript，已经成为一种标准写法，babel-loader 会预编译 JSX 为 React.createElement(...)
 - React.createElement：将 jsx 解析并创建虚拟 DOM，vdom 能够完整描述 dom 结构
 - ReactDOM.render：当⾸次调⽤时，容器节点⾥的所有 DOM 元素都会被替换，
-- 调用 setState()方法，相同的 render() ⽅法会返回⼀棵不同的树。React 基于这两棵树之间的差别来进⾏⾼效的 dom 更新
-- React 中使用 fiber 及 window.requestIdleCallback()来实现这种高效的 diff 操作
+- 调用 setState()方法，相同的 render()⽅法会返回⼀棵不同的树（React 都会重新构建整个 DOM 树）,React 基于这两棵树之间的差别来进⾏⾼效的 dom 更新
+- React 中使用 fiber 及 window.requestIdleCallback()来实现这种高效的 diff 操作,渲染过程采用切片的方式
+- 而且 React 能够批处理虚拟 DOM 的刷新，在一个事件循环（Event Loop）内的两次数据变化会被合并
+
+## diff 策略
+
+- tree diff:React 对树的算法进行了简洁明了的优化，即对树进行分层比较，两棵树只会对同一层次的节点进行比较,即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较;
+- component diff:如果是同一类型的组件，按照原策略继续比较 virtual DOM tree,如果不是，则将该组件判断为 dirty component，从而替换整个组件下的所有子节点,允许用户通过 shouldComponentUpdate() 来判断该组件是否需要进行 diff;
+- element diff:当节点处于同一层级时，React diff 提供了三种节点操作，分别为：INSERT_MARKUP（插入）、MOVE_EXISTING（移动）和 REMOVE_NODE（删除）
 
 ## flux 和 redux
 
@@ -52,7 +59,7 @@
 
 ## react 性能优化
 
-- 减少不必要的渲染，例如使用 shouldComponentUpdate、Purecomponent、Reactmemo
+- 减少不必要的渲染，例如使用 shouldComponentUpdate、Purecomponent、React.memo
 - 缓存数据：useMemo 缓存参数，useCallback 缓存函数
 - 函数和对象尽量不要用内联方式，Router 中渲染函数使用 render 或者 children,不使用 component
 - 部滥用功能，比如 context、props,对于长列表可以分页
@@ -60,3 +67,7 @@
 ## Route 渲染内容的三种⽅式
 
 - 优先级：children>component>render
+
+## React context 的理解
+
+在 React 中，数据传递一般使用 props 传递数据，维持单向数据流，这样可以让组件之间的关系变得简单且可预测，但是单向数据流在某些场景中并不适用。单纯一对的父子组件传递并无问题，但要是组件之间层层依赖深入，props 就需要层层传递显然，这样做太繁琐了！Context 提供了一种在组件之间共享此类值的方式，而不必显式地通过组件树的逐层传递 props。可以把 context 当做是特定一个组件树内共享的 store，用来做数据传递。简单说就是，当你不想在组件树中通过逐层传递 props 或者 state 的方式来传递数据时，可以使用 Context 来实现跨层级的组件数据传递。有了解 JS 作用域链概念的开发者应该都知道，JS 的代码块在执行期间，会创建一个相应的作用域链，这个作用域链记录着运行时 JS 代码块执行期间所能访问的活动对象，包括变量和函数，JS 程序通过作用域链访问到代码块内部或者外部的变量和函数。假如以 JS 的作用域链作为类比，React 组件提供的 Context 对象其实就好比一个提供给子组件访问的作用域，而 Context 对象的属性可以看成作用域上的活动对象。由于组件的 Context 由其父节点链上所有组件通过 `getChildContext()` 返回的 Context 对象组合而成，所以，组件通过 Context 是可以访问到其父组件链上所有节点组件提供的 Context 的属性。

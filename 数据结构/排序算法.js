@@ -11,10 +11,49 @@ function bubbleSort(arr) {
   }
   return arr
 }
-
 // test
 // console.log(bubbleSort([1, 3, 4, 6, 2, 0]))
 
+//选择排序
+function selectSort(arr) {
+  let empty = []
+  while (arr.length) {
+    let index = 0 //假设当前数组最小值index是0
+    for (let i = 1; i < arr.length; i++) {
+      // 遍历数组找到其中的最小值下标
+      if (arr[i] < arr[index]) {
+        index = i
+      }
+    }
+    // 将找到的最小值和数组的首元素交换
+    let tem = arr[0]
+    arr[0] = arr[index]
+    arr[index] = tem
+    empty.push(arr.shift())
+  }
+  return empty
+}
+// console.log(selectSort([1, 3, 4, 6, 2, 0]))
+
+// 插入排序
+function insertSort(arr) {
+  let tem = null
+  for (let i = 1; i < arr.length; i++) {
+    tem = arr[i]
+    let j = i
+    while (j > 0) {
+      if (arr[j - 1] > tem) {
+        arr[j] = arr[j - 1]
+      } else {
+        break
+      }
+      j--
+    } 
+    arr[j] = tem
+  }
+  return arr
+}
+console.log(insertSort([1, 3, 4, 6, 2, 8, 0]))
 // 快速排序
 function quickSort(arr) {
   if (arr.length <= 1) { // 数组元素被划分到剩1个时，递归终止
@@ -33,7 +72,7 @@ function quickSort(arr) {
   return [...quickSort(leftArr), pivotVal, ...quickSort(rightArr)]
 }
 // test
-console.log(quickSort([1, 3, 7, 5, 0]))
+// console.log(quickSort([1, 3, 7, 5, 0]))
 
 // 归并排序
 function mergeSort(arr) {
@@ -57,7 +96,7 @@ function mergeSort(arr) {
   }
 }
 // test
-console.log(mergeSort([1, 3, 7, 5, 0]))
+// console.log(mergeSort([1, 3, 7, 5, 0]))
 
 /*堆排序:
 * 初始化大(小)根堆，此时根节点为最大(小)值，将根节点与最后一个节点(数组最后一个元素)交换

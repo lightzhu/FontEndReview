@@ -1,0 +1,422 @@
+[
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 5,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/xiaochengxu.gif",
+        "style_tpl": 0,
+        "text": "你还在寻找小程序最佳开发框架吗？",
+        "title": "【专题课：小程序开发框架深度对比与源码分析】",
+        "url": "https://mp.weixin.qq.com/s/6OdOPgbUtdacRhWPq1PVqg"
+      },
+      "corp_tag": ["安居客"],
+      "is_favorite": false,
+      "qid": 739,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 一、小程序打开页面数量\n\n最多可以打开10层，但是可以通过类似的redirectTo方法来在最后一层进行无限的跳转，但是这样做会无法返回上一个页面，只能返回路由栈中的上一层级\n\n### 二、声明周期\n\n#### 1.组件生命周期\n\n- created 创建  \n- attached 挂载  \n- ready 挂载完毕  \n- moved 移动  \n- detached 移除  \n- error 组件错误  \n\n#### 2.页面生命周期\n\n- onLoad 初始化注册执行一次  \n- onShow 前台展示的时候，即执行多次  \n- onReady 初次渲染完成，执行一次  \n- onHide 页面隐藏  \n- onUnload 页面销毁  \n\n#### 3.app生命周期（在app.js中进行配置）  \n\n- onLaunch 小程序注册，只会执行一次  \n- onShow  小程序唤起的前台展示  \n- onHide  小程序前台隐藏  \n- onError 小程序出现错误  \n\n\n### 三、常用Api\n\n#### 1.路由跳转\n\n- wx.switchTab :只能跳转到导航页,并关闭其他的导航页\n- wx.reLaunch :关闭所有页面，打开到应用内的某个页面\n- wx.redirectTo :关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 导航 页面\n- wx.navigateTo :只保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面(最多10层)\n- wx.navigateBack :返回上一页,可以返回多级页面\n\n#### 2.弹窗提示\n\n- wx.showToast\n- wx.showModal\n- wx.showLoading\n\n#### 3.分享\n\n- wx.showShareMenu\n- onShareAppMessage\n\n#### 4.数据缓存\n\n- wx.setStorageSync\n- wx.getStorageSync\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 739,
+        "subject": "",
+        "title": "小程序里面打开页面最多多少，生命周期、常用的 api 列举几个？"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 8,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/xingnengyouhua.gif",
+        "style_tpl": 0,
+        "text": "有趣又高薪的前端图形学你会了吗？",
+        "title": "【专题课：前端图形学开发实践指南】",
+        "url": "https://mp.weixin.qq.com/s/KhxrFPadMVXC1ShOtUSIlw"
+      },
+      "corp_tag": ["安居客"],
+      "is_favorite": false,
+      "qid": 739,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 一、小程序打开页面数量\n\n最多可以打开10层，但是可以通过类似的redirectTo方法来在最后一层进行无限的跳转，但是这样做会无法返回上一个页面，只能返回路由栈中的上一层级\n\n### 二、声明周期\n\n#### 1.组件生命周期\n\n- created 创建  \n- attached 挂载  \n- ready 挂载完毕  \n- moved 移动  \n- detached 移除  \n- error 组件错误  \n\n#### 2.页面生命周期\n\n- onLoad 初始化注册执行一次  \n- onShow 前台展示的时候，即执行多次  \n- onReady 初次渲染完成，执行一次  \n- onHide 页面隐藏  \n- onUnload 页面销毁  \n\n#### 3.app生命周期（在app.js中进行配置）  \n\n- onLaunch 小程序注册，只会执行一次  \n- onShow  小程序唤起的前台展示  \n- onHide  小程序前台隐藏  \n- onError 小程序出现错误  \n\n\n### 三、常用Api\n\n#### 1.路由跳转\n\n- wx.switchTab :只能跳转到导航页,并关闭其他的导航页\n- wx.reLaunch :关闭所有页面，打开到应用内的某个页面\n- wx.redirectTo :关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 导航 页面\n- wx.navigateTo :只保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面(最多10层)\n- wx.navigateBack :返回上一页,可以返回多级页面\n\n#### 2.弹窗提示\n\n- wx.showToast\n- wx.showModal\n- wx.showLoading\n\n#### 3.分享\n\n- wx.showShareMenu\n- onShareAppMessage\n\n#### 4.数据缓存\n\n- wx.setStorageSync\n- wx.getStorageSync\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 739,
+        "subject": "",
+        "title": "小程序里面打开页面最多多少，生命周期、常用的 api 列举几个？"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["快手"],
+      "is_favorite": false,
+      "qid": 669,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 优势\n\n1. 类型检测:在Typescript中为变量指定具体类型时，IDE会做出类型检测，这个特性减少在开发阶段犯错几率。\n2. 语法提示:在IDE里编写Typescript代码时，IDE会根据你当前的上下文，把你能用的类、变量、方法和关键字都给你提示出来。直接选择，这个特性提高开发效率。\n3. 便于重构:重构是说你可以很方便的去修改你的变量或者方法的名字或者是文件的名字，当你做出这些修改的时候，IDE会帮你自动引用这个变量或者调用这个方法地方的代码自动帮你修改掉\n4. 活跃社区:Typescript拥抱es6的规范，也支持部分ESNext草案规范，大部分的第三方库提供Typescript类型定义的文件\n\nTypeScript的最大特点是静态类型，不同于javascript的动态类型，静态类型有以下优势：\n\n- 其一，静态类型检查可以做到early fail，即你编写的代码即使没有被执行到，一旦你编写代码时发生类型不匹配，语言在编译阶段（解释执行也一样，可以在运行前）即可发现。\n- 其二，静态类型对阅读代码是友好的，针对大型应用，方法众多，调用关系复杂，不可能每个函数都有人编写细致的文档，所以静态类型就是非常重要的提示和约束。此外TS还实现了类，接口，枚举，泛型，方法重载等语法糖，方便了前端开发；",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 669,
+        "subject": "",
+        "title": "使用 typescript 的优势有哪些"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 8,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/xingnengyouhua.gif",
+        "style_tpl": 0,
+        "text": "有趣又高薪的前端图形学你会了吗？",
+        "title": "【专题课：前端图形学开发实践指南】",
+        "url": "https://mp.weixin.qq.com/s/KhxrFPadMVXC1ShOtUSIlw"
+      },
+      "corp_tag": ["滴滴"],
+      "is_favorite": false,
+      "qid": 383,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 网站性能提升\n\n#### 1、静态资源的优化\n  \n主要是减少静态资源的加载时间，主要包括html、js、css和图片。\n\n- a、减少http请求数：合并js、css、制作雪碧图以及使用http缓存；\n- b、减小资源的大小：压缩文件、压缩图片，小图使用base64编码等；\n- c、异步组件和图片懒加载；\n- d、CDN加速和缓存（bootCND）：客户端可通过最佳的网络链路加载静态资源，提高访问的速度和成功率。（CDN：通过在网络各处放置节点服务器构成的一层智能虚拟网络，可将用户的请求重新导向离用户最近的服务节点上）\n     \n      \n     \n#### 2、接口访问的优化\n  \n1. http持久链接（Conection:keep-alive）\n2. 后端优化合并请求（比如在进入一个商品详情页的时候后端会提供一个接口获取商品的基本信息，然后当用户点击假如购物车时）\n3. 冷数据接口缓存到localstorage，减少请求\n     \n    \n     \n#### 3、页面渲染速度的优化\n  \n1. 由于浏览器的js引擎线程和GUI渲染线程是互斥的，所以在执行js的时候会阻塞它的渲染，所以一般会将css放在顶部，优先渲染，js放在底部；\n2. 减少dom的操作：\n3. 使用虚拟DOM渲染方案，做到最小化操作真实的dom；\n4. 事件代理：利用事件冒泡原理，把函数注册到父级元素上。\n5. 减少页面的重绘和回流。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 383,
+        "subject": "",
+        "title": "整个前端性能提升大致分几类"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 332,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n可以实现\n\n#### 1.基本的class装饰器\n\n首先，可以从最基本的 class 装饰器来说，class 装饰器的执行要先与 class 的 constructor，class 的 constructor 本质也是执行函数，代码如下\n\n```js\nfunction sealedd(constructor: Function) {\n  console.log(\"我先走了\");\n}\n@sealedd\nclass Greeter {\n  greeting: string;\n  constructor(message: string) {\n    console.log(\"俺来了\");\n    this.greeting = message;\n  }\n  greet() {\n    return \"hello\" + this.greeting;\n  }\n}\nlet obj1 = new Greeter(\"ts\");\n/**\n*  我先走了\n*  俺来了\n*/\n```\n\n#### 2.方法装饰器\n\n方法装饰器 不用说 测试代码如下\n\n```js\nfunction enumerable(value: boolean) {\n  return function (\n    target: any,\n    propertyKey: string,\n    descriptor: PropertyDescriptor\n  ) {\n    console.log(\"一点寒芒先到\");\n  };\n}\nclass Greeter3 {\n  greeting: string;\n  constructor(message: string) {\n    this.greeting = message;\n  }\n  @enumerable(false)\n  greet() {\n    console.log(\"然后枪出如龙\");\n  }\n}\n\nconst demo = new Greeter3(\"test\");\ndemo.greet();\n\n```\n\n#### 3.访问器装饰器\n\n访问器装饰器 ，和方法装饰器一样，区别就是用于属性的 get 和 set 方法 ，案例将不再演示\n\n#### 4.属性装饰器\n\n```js\nimport \"reflect-metadata\";\nlet MetadataKey: any = Symbol(\"format\");\nfunction format(value: string) {\n  console.log(\"一点寒芒先到\");\n  return Reflect.metadata(MetadataKey, value);\n}\nclass TestMetadata {\n  @format(\"test\")\n  testFunc: Function = () => {\n    console.log(\"随后枪出如龙\");\n  };\n  constructor() {\n    this.testFunc();\n  }\n}\n\nconst demo = new TestMetadata();\n\n```\n\n#### 5.参数装饰器\n\n参数装饰器 和上面的属性装饰器类似 如果参数是一个方法，那么就可以在这个参数方法执行前，装饰器的方法也会先执行\n\n#### 6.总结\n\n装饰器都可以实现函数调用前调用装饰器",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 332,
+        "subject": "",
+        "title": "使用 typescript 的装饰器能否实现函数调用前出现加载动画，调用后关闭，如果能，这个加载动画的控制代码是放在哪种装饰器上呢"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 8,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/xingnengyouhua.gif",
+        "style_tpl": 0,
+        "text": "有趣又高薪的前端图形学你会了吗？",
+        "title": "【专题课：前端图形学开发实践指南】",
+        "url": "https://mp.weixin.qq.com/s/KhxrFPadMVXC1ShOtUSIlw"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 337,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、Docker 是什么？\n\nDocker 是一个平台，它提供哪些服务呢？任何一台装有 Docker 的机器上你都可以建立、发布、运行你的应用程序。\n\nDocker 在很短的时间内就走得很远，如今它基本是解决软件最昂贵的环节：部署的标准解决方案。\n\n在 Docker 出现之前，有一堆与软件部署的工具软件，虚拟机、配置管理工具、打包管理工具、复杂的 webs 库依赖。所有这些工具都需要专业的工程师去管理和维护，多数软件有一套独特的配置方法。\n\n### 二、使用 Docker 有什么好处？\n\n最关键的一句话：使用 Docker 可以省事、省时、省钱。\n\n1. 用来取代虚拟机；\n2. Docker 可以在几毫秒内为您提供一个沙盒环境。\n3. Docker 是一个打包软件的好工具。将用 java 开发的软件打包成镜像后，就可以在任何一台 Linux 操作系统上运行，而不需要 JVM（JAVA 虚拟机）。\n4. Docker 有助于将一个复杂系统分解为一系列可组合的部分，这使您能够以一种更加离散的方式对服务进行推理。\n5. Docker 在一台机器上起成百上千个独立的容器，有助于模拟网络，使网络建模成为一件轻而易举的事情。\n6. 由于你可以将所有系统打包进你的 Docker 容器，所以可以移动工作，甚至脱网离线工作。\n7. 减少调试开销\n8. Docker 强迫你记录软件依赖，方便你其他地方布局或者安装软件。\n9. 实现持续交付\n\n### 三、使用 Docker 来干什么?\n\n比较一下 Docker 诞生前和诞生后软件开发的变化就能感受到 Docker 可以用来干嘛了。\n\n![docker](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-337-docker.png)\n\n### 四、Docker 的核心概念\n\n容器：一个镜像的运行实例就是一个容器。\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 337,
+        "subject": "",
+        "title": "是否了解 docker，介绍一下"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["喜马拉雅"],
+      "is_favorite": false,
+      "qid": 474,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 配置\n\n#### 1.NGINX\n\n```bash\nlocation / {\n  # 匹配正则 [a-z]+\\.ru\\.com$ 的域名\n  if ($http_origin ~ [a-z]+\\.ru\\.com$){\n    add_header Access-Control-Allow-Origin $http_origin;\n  }\n}\n```\n\n#### 2.php\n\n```js\n// PHP\nheader(\"Access-Control-Allow-Origin: www.xxx.xom\");\n```\n\n#### 3.java\n\n```java\n// Servlet\npublic class SimpleCORSFilter implements Filter {\n  public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {\n    HttpServletResponse response = (HttpServletResponse) res;\n\n    String []  allowDomain= {\"http://127.0.0.1:1234\",\"http://127.0.0.1:5678\"};\n\n    Set<String> allowedOrigins= new HashSet<String>(Arrays.asList(allowDomain));\n    String originHeader=((HttpServletRequest) req).getHeader(\"Origin\");\n\n    if (allowedOrigins.contains(originHeader)) {\n      response.setHeader(\"Access-Control-Allow-Origin\", originHeader);\n    }\n\n    chain.doFilter(req, res);\n  }\n\n  public void init(FilterConfig filterConfig) {}\n\n  public void destroy() {}\n}\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 474,
+        "subject": "",
+        "title": "Access-Control-Allow-Origin 在服务端哪里配置"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 5,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/xiaochengxu.gif",
+        "style_tpl": 0,
+        "text": "你还在寻找小程序最佳开发框架吗？",
+        "title": "【专题课：小程序开发框架深度对比与源码分析】",
+        "url": "https://mp.weixin.qq.com/s/6OdOPgbUtdacRhWPq1PVqg"
+      },
+      "corp_tag": ["道一云"],
+      "is_favorite": false,
+      "qid": 390,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 答案\n\n**ABCD**\n\n### 解析\n\nAxios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。\n\n**特性:**\n\n- 可以实现跨平台数据请求，从浏览器中创建 XMLHttpRequests，从 node.js 创建 http 请求\n- 支持 Promise API\n- 拦截请求和响应\n- 转换请求数据和响应数据\n- 取消请求\n- 自动转换 JSON 数据\n- 客户端支持防御 XSRF\n\n**安装**\n\n使用 npm:\n\n```js\nnpm install axios\n```\n\n使用 bower:\n\n```\nbower install axios\n```\n\n使用 cdn:\n\n```js\n<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>\n```\n\n**POST 请求示例**\n\n```js\naxios.post('/user', {\n    firstName: 'Fred',\n    lastName: 'Flintstone'\n  })\n  .then(function (response) {\n    console.log(response);\n  })\n  .catch(function (error) {\n    console.log(error);\n  });\n  ```\n\n**并发**\n\n处理并发请求的助手函数\n\n```js\naxios.all(iterable)\naxios.spread(callback)\n```\n\n**创建实例**\n\n可以使用自定义配置新建一个 axios 实例\n\n```js\naxios.create([config])\n```\n\n**拦截器**\n\n在请求或响应被 then 或 catch 处理前拦截它们。\n\n```js\n// 添加请求拦截器\naxios.interceptors.request.use(function (config) {\n    // 在发送请求之前做些什么\n    return config;\n  }, function (error) {\n    // 对请求错误做些什么\n    return Promise.reject(error);\n  });\n\n// 添加响应拦截器\naxios.interceptors.response.use(function (response) {\n    // 对响应数据做点什么\n    return response;\n  }, function (error) {\n    // 对响应错误做点什么\n    return Promise.reject(error);\n  });\n```\n\n如果你想在稍后移除拦截器，可以这样：\n\n```js\nvar myInterceptor = axios.interceptors.request.use(function () {/*...*/});\naxios.interceptors.request.eject(myInterceptor);\n```\n\n可以为自定义 axios 实例添加拦截器\n\n```js\nvar instance = axios.create();\ninstance.interceptors.request.use(function () {/*...*/});\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 390,
+        "subject": "```js\nA.axios 可以跨平台，支持 promise 的所有 API\nB.可以拦截请求和响应\nC.可以转换请求数据和响应数据，并对响应回来的内容自动转换为 json 类型的数据\nD.安全性更高，客户端支持防御 XSRF\n\n```\n",
+        "title": "以下 axios 的特点正确的有哪些？(多选题)"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 8,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/xingnengyouhua.gif",
+        "style_tpl": 0,
+        "text": "有趣又高薪的前端图形学你会了吗？",
+        "title": "【专题课：前端图形学开发实践指南】",
+        "url": "https://mp.weixin.qq.com/s/KhxrFPadMVXC1ShOtUSIlw"
+      },
+      "corp_tag": ["挖财"],
+      "is_favorite": false,
+      "qid": 433,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 工程化\n\n首先说下前端工程化的目的：进行高效的多人协作、保证项目的可维护性、提高项目的开发质量、降低项目生产的风险等\n\n前端工程化是使用软件工程的技术和方法来进行前端的开发流程、技术、工具、经验等规范化、标准化，其主要目的为了提高效率和降低成本，即提高开发过程中的开发效率，减少不必要的重复工作时间，而前端工程本质上是软件工程的一种，因此我们应该从软件工程的角度来研究前端工程。\n\n前端工程化就是为了让前端开发能够“自成体系”，个人认为主要应该从模块化、组件化、规范化、自动化四个方面思考。\n\n#### 1.模块化\n\n包括JS的模块化，CSS的模块化，资源的模块化\n\n简单来说，模块化就是将一个大文件拆分成相互依赖的小文件，再进行统一的拼装和加载\n\n#### 2.组件化\n\n从UI拆分下来的每个包含模板(HTML)+样式(CSS)+逻辑(JS)功能完备的结构单元，我们称之为组件。\n\n需要注意，组件化≠模块化。模块化只是在文件层面上，对代码或资源的拆分；而组件化是在设计层面上，对UI（用户界面）的拆分。\n\n组件化实际上是一种按照模板(HTML)+样式(CSS)+逻辑(JS)三位一体的形式对面向对象的进一步抽象。\n\n所以我们除了封装组件本身，还要合理处理组件之间的关系，比如 （逻辑）继承、（样式）扩展、（模板）嵌套和包含等，这些关系都可以归为依赖。\n\n#### 3.规范化\n\n目录结构的制定、编码规范、前后端接口规范、文档规范、组件管理、git分支管理、commit描述规范、视觉图标规范\n\n#### 4.自动化\n\n前端工程化的很多脏活累活都应该交给自动化工具来完成。需要秉持的一个理念是:任何简单机械的重复劳动都应该让机器去完成。\n\n图标合并、持续继承、自动化构建、自动化部署、自动化测试。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 433,
+        "subject": "",
+        "title": "如何做工程上的优化"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["阿里", "喜马拉雅"],
+      "is_favorite": false,
+      "qid": 360,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### Web前端安全\n\nWeb前端安全主要包括如下几种：\n\n* 跨站脚本XSS\n* 跨站请求伪造CSRF\n* 界面操作劫持\n* webshell\n* 等。。。\n\n#### 1.CSRF 跨站请求伪造\n\n它也成为`One Click Attack`，或者`Session Riding`，缩写为CSRF，是一种对网站的恶意利用，相对来说更加难以防范。\n\n**原理**\n\n当用户正常登陆访问网站A时，网站A会给用户通过登陆验证，并产生正常访问的`Cookie`。当用户在没有退出网站A的情况下，访问了网站B（可以理解为不安全的网站），那么B就会要求请求访问A的请求，这样A就误以为是用户发送的请求进行处理，这就实现了对用户会话劫持的目的。\n\n**防范方式**\n\n1. 被黑客抓包，不会请求的地址，直接修改参数\n2. 加入验证码，判断reffer，这些参数前端都是可以修改的\n3. 验证Token请求，每次动态刷新\n4. 强验证码+动态Token请求\n\n#### 2.XSS跨站脚本攻击\n\n恶意攻击者往`Web`页面里插入恶意`script`代码，当用户浏览该页之时，嵌入其中`web`里面的`script`代码会被执行，从而达到恶意攻击用户的目的。\n\n**类型**\n\n- **反射型**：被动的非持久性XSS。诱骗用户点击短型URL，服务器解析后相应，在返回的相应内容中隐藏和嵌入攻击者的XSS代码，从而攻击用户。\n- **持久型**: 主动提交恶意数据到服务器，当用户请求后，服务器从数据库中查询数据并发给用户收到攻击。\n- **DOM型**：DOM通过html一个结构执行事件脚本\n\n**防范方式**\n\n* 输入转义\n* 输出转义\n* cookie http only\n* CSP：`Content-Security-Policy:default-src-self`\n\n#### 3.webshell 网站提权渗透\n\n它是以asp、PHP、jsp或者cgj等网页文件形式存在的一种命令执行环境，由于webshell其大多是以动态脚本的形式出现，也有人称之为网站˙的后门工具。\n\n**方式**\n\n* 利用上传文件名的漏洞来实现，比如空格、空字节、apache的解析漏洞或者老版本的IIS\n* 利用上传文件HTTP请求伪造，比如JavaScript验证（禁用JavaScript、修改后缀名）、后端检测文件头、MIME、双文件上传\n\n**防范**\n\n* **控制目录**：修改上传文件名、转移上传目录\n* **控制权限**：让目录只读权限\n\n#### 4.网页挂马与流量劫持\n\n网页挂马指的是吧一个木马程序上传到一个网站里面然后用木马生成器生成一个网页挂马，在上传到空间里面，再加代码使得木马在打开网页时运行。\n\n**挂马方式**\n\n* iframe\n* css挂马\n* JavaScript变形\n\n#### 5.其他安全问题\n\n* cookie安全、Flash安全、DOM渲染、字符集、跨域、原生态攻击、高级钓鱼、蠕虫思想等\n\n#### 6.总结\n\n我们平时开发要注意些什么?开发时要提防用户产生的内容，要对用户输入的信息进行层层检测要注意对用户的输出内容进行过滤(进行转义等)重要的内容记得要加密传输(无论是利用https也好，自己加密也好)。\n\nget与post请求，要严格遵守规范，不要混用，不要将一些危险的提交使用jsonp完成。\n\n对于URL上携带的信息，要谨慎使用。心中时刻记着，自己的网站哪里可能有危险。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 360,
+        "subject": "",
+        "title": "项目中如何处理安全问题"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 5,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/xiaochengxu.gif",
+        "style_tpl": 0,
+        "text": "你还在寻找小程序最佳开发框架吗？",
+        "title": "【专题课：小程序开发框架深度对比与源码分析】",
+        "url": "https://mp.weixin.qq.com/s/6OdOPgbUtdacRhWPq1PVqg"
+      },
+      "corp_tag": ["滴滴"],
+      "is_favorite": false,
+      "qid": 402,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n###  一、WebView 和原生是如何通信\n\n在Android项目中实现对js的支持 , 这里分为两个情况 , 一个是基于系统的jsbridge一个是x5内核的jsbridge\n\n#### 1.1 基于系统的 JsBridge；\n\n**添加 maven 依赖**\n\n```js\n<dependency>\n  <groupId>com.hjhrq1991.library</groupId>\n  <artifactId>jsbridge</artifactId>\n  <version>1.1.0</version>\n  <type>pom</type>\n</dependency>\n```\n\n**添加 gradle 依赖**\n\n```js\ncompile 'com.hjhrq1991.library:jsbridge:1.1.0'\n```\n\n在你的布局上添加 BridgeWebView*\n\n```xml\n<com.hjhrq1991.library.BridgeWebView\n android:id=\"@+id/webView\"\n android:layout_width=\"match_parent\"\n android:layout_height=\"match_parent\" />\n```\n\n**使用默认桥名或自定义桥名**\n\n```js\n//description：如需使用自定义桥名，调用以下方法即可，\n// 传空或不调用 setCustom 方法即使用默认桥名。\n// 默认桥名：WebViewJavascriptBridge\nwebView.setCustom(\"TestJavascriptBridge\");\n```\n\n**Android 上使用方法 注册和使用**\n\n##### 注册一个 handler 方法供 Js 调用\n\n```js\nwebView.registerHandler(\"initSignNetPay\", new BridgeHandler() {\n   @Override\n   public void handler(String data, CallBackFunction function) {\n      Log.i(TAG, \"回传结果：\" + data);\n      Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();\n   }\n});\n```\n\n##### Java 里调用 Js 里的 handler 方法\n\n```js\nwebView.callHandler(\"click1\", \"success\", new CallBackFunction() {\n   @Override\n   public void onCallBack(String data) {\n      Log.i(TAG, \"回传结果：\" + data);\n      Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();\n   }\n});\n```\n\n#### setWebViewClient\n\nJs 桥的处理在 WebViewClient 里进行，因此使用 setWebViewClient()方法会导致 Js 桥失效 因此提供新的 API 方法进行回调\n\n```js\nwebView.setBridgeWebViewClientListener(new SimpleBridgeWebViewClientListener() {});\n```\n\n#### 2.2 TbsBridgeWebView使用\n\nTbsBridgeWebView 基于 Tbs(腾讯浏览服务)X5 内核，结合 JsBridge 的自定义 WebView。\n\n考虑 App 用户群的极少数没装有微信、手 Q 的情况，因此采用 TbsX5 for share。下文基于 Tbs for share 来实现。\n\n**添加 maven 依赖**\n\n```js\n<dependency>\n<groupId>com.hjhrq1991.library.tbs</groupId>\n<artifactId>tbsjsbridge</artifactId>\n<version>1.0.7</version>\n<type>pom</type>\n</dependency>\n```\n\n**添加 gradle 依赖**\n\n```js\ncompile 'com.hjhrq1991.library.tbs:tbsjsbridge:1.0.7'\n```\n\n**添加权限**\n\n```\n<uses-permission android:name=\"android.permission.INTERNET\" />\n<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />\n<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />\n<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />\n<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />\n<uses-permission android:name=\"android.permission.READ_SETTINGS\" />\n<uses-permission android:name=\"android.permission.WRITE_SETTINGS\" />\n<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\" />\n<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />\n```\n\n在你的布局上添加 TbsBridgeWebView\n\n```xml\n<com.hjhrq1991.library.tbs.TbsBridgeWebView\nandroid:id=\"@+id/webView\"\nandroid:layout_width=\"match_parent\"\nandroid:layout_height=\"match_parent\" />\n```\n\nJsBridge 的使用请参考上面的使用方法。\n\n**重要 Tips**\n\nTbs 替换 android.webkit 相同的类\n\n```\n#系统内核                                       #SDK 内核\nandroid.webkit.ConsoleMessage                 com.tencent.smtt.export.external.interfaces.ConsoleMessage\nandroid.webkit.CacheManager                   com.tencent.smtt.sdk.CacheManager(deprecated)\nandroid.webkit.CookieManager                  com.tencent.smtt.sdk.CookieManager\nandroid.webkit.CookieSyncManager              com.tencent.smtt.sdk.CookieSyncManager\nandroid.webkit.CustomViewCallback             com.tencent.smtt.export.external.interfaces.IX5WebChromeClient.CustomViewCallback\nandroid.webkit.DownloadListener               com.tencent.smtt.sdk.DownloadListener\nandroid.webkit.GeolocationPermissions         com.tencent.smtt.export.external.interfaces.GeolocationPermissionsCallback\nandroid.webkit.HttpAuthHandler                com.tencent.smtt.export.external.interfaces.HttpAuthHandler\nandroid.webkit.JsPromptResult                 com.tencent.smtt.export.external.interfaces.JsPromptResult\nandroid.webkit.JsResult                       com.tencent.smtt.export.external.interfaces.JsResult\nandroid.webkit.SslErrorHandler                com.tencent.smtt.export.external.interfaces.SslErrorHandler\nandroid.webkit.ValueCallback                  com.tencent.smtt.sdk.ValueCallback\nandroid.webkit.WebBackForwardList             com.tencent.smtt.sdk.WebBackForwardList\nandroid.webkit.WebChromeClient                com.tencent.smtt.sdk.WebChromeClient\nandroid.webkit.WebHistoryItem                 com.tencent.smtt.sdk.WebHistoryItem\nandroid.webkit.WebIconDatabase                com.tencent.smtt.sdk.WebIconDatabase\nandroid.webkit.WebResourceResponse            com.tencent.smtt.export.external.interfaces.WebResourceResponse\nandroid.webkit.WebSettings                    com.tencent.smtt.sdk.WebSettings\nandroid.webkit.WebSettings.LayoutAlgorithm    com.tencent.smtt.sdk.WebSettings.LayoutAlgorithm\nandroid.webkit.WebStorage                     com.tencent.smtt.sdk.WebStorage\nandroid.webkit.WebView                        com.tencent.smtt.sdk.WebView\nandroid.webkit.WebViewClient                  com.tencent.smtt.sdk.WebViewClient\n```\n\n#### 2.3最后WebView 和原生是如何通信\n\n```javascript\nvar connectMerchantJSBridge = function (callback) {\n   try {\n      if (window.WebViewJavascriptBridge) {\n      callback(WebViewJavascriptBridge);\n   } else {\n      document.addEventListener(\"WebViewJavascriptBridgeReady\", function () {\n         callback(WebViewJavascriptBridge);\n         }, false);\n      }\n   } catch (ex) { }\n};\n\n/* 这里是前面Android项目通过Js 里的 handler 方法进行调用原生app提供方法 */\nconnectMerchantJSBridge(function (bridge) {\n  if (typeof bridge === \"undefined\") {\n    return;\n  }\n  bridge.callHandler(name/* 这里的name是执行原生对外的方法名 */, JSON.stringify(payData));\n});\n/* 这里是js注册方法给原生调用js方法 */\nconnectMerchantJSBridge(function (bridge) {\n  if (typeof bridge === \"undefined\") {\n    return;\n  }\n  bridge.registerHandler(name/* 这里的name是注册原生对外的方法名, 用来注册给原生调用js的方法 */, JSON.stringify(payData));\n});\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 402,
+        "subject": "",
+        "title": "WebView 和原生是如何通信"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 5,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/xiaochengxu.gif",
+        "style_tpl": 0,
+        "text": "你还在寻找小程序最佳开发框架吗？",
+        "title": "【专题课：小程序开发框架深度对比与源码分析】",
+        "url": "https://mp.weixin.qq.com/s/6OdOPgbUtdacRhWPq1PVqg"
+      },
+      "corp_tag": ["喜马拉雅"],
+      "is_favorite": false,
+      "qid": 475,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n\n### 前后端接口联调\n\n确定接口字段格式，在后端完成前，前端自己模拟数据。后端及时更新 API 文档，必要时使用 Swagger 等工具。\n\n后端接口写好之后，把 mock 数据切换成后端提供给的真实的数据。\n\n我们平时本地前端开发环境地址大多是 localhost，而后台服务器的访问地址就有很多种情况，比如后端本地 IP 127.0.0.1:9876 或者外网域名。\n\n当前端与后台进行数据交互时，自然就出现跨域问题（后台服务没做处理情况下）, 所以我们就可以配置中间件代理。参考 webpack 的 [devServer.proxy\n\n```js\ndevServer: {\n    proxy: {\n      '/api': {\n        target: 'http://localhost:3000',\n        pathRewrite: {'^/api' : ''}\n      }\n    }\n  }\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 475,
+        "subject": "",
+        "title": "前端和后端怎么联调"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 5,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/xiaochengxu.gif",
+        "style_tpl": 0,
+        "text": "你还在寻找小程序最佳开发框架吗？",
+        "title": "【专题课：小程序开发框架深度对比与源码分析】",
+        "url": "https://mp.weixin.qq.com/s/6OdOPgbUtdacRhWPq1PVqg"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 51,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 答案\n\nWebp是一种支持有损压缩和无损压缩的图片文件格式，派生自图像编码格式VP8。与png、jpg相比，相同的视觉体验下，WebP图像的尺寸缩小了大约30％。另外，WebP图像格式还支持有损压缩、无损压缩、透明和动画。\n\n#### 一、WebP转换工具\n\n**1）使用`Google`提供的标准工具**\n\n**①cwebp**\n\n![cwebp](http://img-static.yidengxuetang.com/wxapp/issue-img/cwop.png)\n\n**②isparta:** 是对 WebP 和 APNG 两种新型图片格式的转化而开发的一款桌面应用，支持图片批量转换为 WebP，同时提供多种参数配置。\n\n**2）webp-webpack-plugin**\n\n用于生成 `.webp`格式图片的webpack插件。\n\n**3）gulp-webp**\n\n```js\nconst gulp = require('gulp');\nconst webp = require('gulp-webp');\n    \ngulp.task('default', () =>\n    gulp.src('src/image.jpg')\n       .pipe(webp())\n       .pipe(gulp.dest('dist'))\n);\n```\n\n对ie的兼容性不好，现在主要是对谷歌浏览器的兼容，最新的safari14-tp也可以兼容了\n\n\n\n#### 二、浏览器兼容性及使用方案\n\n截止2020年6月24日，在 can i use，上的查询显示全球 WebP 的支持程度已经达到 78.65%\n\n![webp](http://img-static.yidengxuetang.com/wxapp/issue-img/webp.png)\n\n浏览器端使用方案主要是进行javaScript 能力检测，对支持 WebP 的用户输出 WebP 图片，不支持的进行降级处理。\n\n浏览器Webp支持检测方式有HTML picture、嗅探、Request Header等等\n\n**1）HTML5 picture**\n\n这种方法不进行 WebP 支持程度的判断，而是利用 html5 picture 元素的特性，允许开发者列举出多个图片地址，浏览器根据顺序展示出第一个能够展现的图片元素，如\n\n```html\n<picture>\n    <source type=\"image/webp\" srcset=\"images/webp.webp\">\n    <img src=\"images/webp.jpg\" alt=\"webp image\">\n</picture>\n```\n\n**2）嗅探**\n\n嗅探的方式是指直接向浏览器中插入一段 base64 的 WebP 图片，检测图片是否能够正常加载，依据该方法进而判断支持程度，如官方给出的嗅探函数：\n\n```js\n// check_webp_feature:\n//   'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.\n//   'callback(feature, result)' will be passed back the detection result (in an asynchronous way!)\nfunction check_webp_feature(feature, callback) {\n    var kTestImages = {\n        lossy: \"UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA\",\n        lossless: \"UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==\",\n        alpha: \"UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==\",\n        animation: \"UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA\"\n    };\n    var img = new Image();\n    img.onload = function () {\n        var result = (img.width > 0) && (img.height > 0);\n        callback(feature, result);\n    };\n    img.onerror = function () {\n        callback(feature, false);\n    };\n    img.src = \"data:image/webp;base64,\" + kTestImages[feature];\n}\n```\n\n其中包含了对有损、无损、透明图、动图等 WebP 图片的嗅探，这是一种最为保险的方法。不过缺点也很明显，在图片类型不一且量级较大的情况下，前端并不能知道哪些图片是有损，无损，亦或是透明的，也没有办法对其中一种特定类型做特定策略，所以即使知道不支持该类型的 WebP，然而我们也没有办法主观的去做容错。所以这种方法只适合于图片类型单一的情况，如开发者知道所有图片都是有损的，或是动图等，有针对性的去处理。\n\n同时在处理的过程中，为了提高嗅探效率，嗅探之后可以将结果以本地存储的方式进行保存，如cookie ，方便下次直接进行调用。\n\n\n**2）Request Header**\n\n这种方式是较为符合标准的解决方案，浏览器在支持 WebP 图片格式的情况下，会在请求的 http header accept 中携带 webp/image 的字段，后端接收到请求之后可以按照该形式来判断是否返回 WebP 图片内容。\n\nMIP 在实践中采用的是该方法，当用户访问 MIP Cache 上的页面时，不需要开发者替换图片，MIP Cache 根据 http header 自动决定是否返回 WebP 图片内容。\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 51,
+        "subject": "",
+        "title": "Webp 格式的图片怎么生成，使用有什么兼容性问题，如何怎么解决"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 8,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/xingnengyouhua.gif",
+        "style_tpl": 0,
+        "text": "有趣又高薪的前端图形学你会了吗？",
+        "title": "【专题课：前端图形学开发实践指南】",
+        "url": "https://mp.weixin.qq.com/s/KhxrFPadMVXC1ShOtUSIlw"
+      },
+      "corp_tag": ["快手"],
+      "is_favorite": false,
+      "qid": 73,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、微信小程序的架构\n\n#### 1.介绍\n\n微信小程序视图层是 WebView，逻辑层是 JS 引擎。三端的脚本执行环境以及用于渲染非原生组件的环境是各不相同的\n\n**运行环境**\n\n- Android\n- iOS\n- 小程序开发者工具\n\n**逻辑层**\n\n- V8\n- JavaScriptCore\n- NWJS\n\n**渲染层**\n\n- Chromium定制内核\n- WKWebview\n- Chrome Webview\n\n#### 2.设计原理与组成部分\n\n**1）双线程模型**\n\n小程序的渲染层和逻辑层分别由2个线程管理：\n\n- 渲染层：界面渲染相关的任务全都在WebView线程里执行。一个小程序存在多个界面，所以渲染层存在多个WebView线程。\n- 逻辑层：采用JsCore线程运行JS脚本。\n\n视图层和逻辑层通过系统层的WeixinJsBridage进行通信：逻辑层把数据变化通知到视图层，触发视图层页面更新，视图层把触发的事件通知到逻辑层进行业务处理。\n\n（页面渲染的具体流程是：在渲染层，宿主环境会把WXML转化成对应的JS对象，在逻辑层发生数据变更的时候，我们需要通过宿主环境提供的setData方法把数据从逻辑层传递到渲染层，再经过对比前后差异，把差异应用在原来的Dom树上，渲染出正确的UI界面）\n\n![模型](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-73-wxmodel.png)\n\n双线程模型是小程序框架与业界大多数前端Web框架不同之处。基于这个模型，可以更好地管控以及提供更安全的环境。缺点是带来了无处不在的异步问题（任何数据传递都是线程间的通信，也就是都会有一定的延时），不过小程序在框架层面已经封装好了异步带来的时序问题。\n\n**2）组件系统**\n\n小程序是有自己的组件的，这些基本组件就是基于Exparser框架。Exparser基于WebComponents的ShadowDOM模型，但是不依赖浏览器的原生支持，而且可在纯JS环境中运行。\n\nExparser 内置在小程序基础库中，为小程序的各种组件提供基础的支持。小程序内的所有组件，包括内置组件和自定义组件，Exparser 会维护整个页面的节点树相关信息，包括节点的属性、事件绑定等，相当于一个简化版的 Shadow DOM 实现\n\n**3）原生组件**\n\n在内置组件中，有一些组件并不完全在Exparser的渲染体系下，而是由客户端原生参与组件的渲染。比如说Map组件。它渲染的层级比在WebView层渲染的普通组件要高。\n\n**4）运行机制**\n\n①启动\n\n- 热启动：假如用户已经打开过某小程序，然后在一定时间内再次打开该小程序，此时无需重新启动，只需将后台态的小程序切换到前台，这个过程就是热启动；\n- 冷启动：用户首次打开或小程序被微信主动销毁后再次打开的情况，此时小程序需要重新加载启动，即冷启动。\n\n②销毁\n\n只有当小程序进入后台一定时间，或者系统资源占用过高，才会被真正的销毁。\n\n**5）更新机制**\n\n开发者在后台发布新版本之后，无法立刻影响到所有现网用户，但最差情况下，也在发布之后 24 小时之内下发新版本信息到用户。\n\n小程序每次冷启动时，都会检查是否有更新版本，如果发现有新版本，将会异步下载新版本的代码包，并同时用客户端本地的包进行启动，即新版本的小程序需要等下一次冷启动才会应用上。\n\n所以如果想让用户使用最新版本的小程序，可以利用`wx.getUpdateManager`做个检查更新的功能：\n\n```js\ncheckNewVersion() {    const updateManager = wx.getUpdateManager();\n    updateManager.onCheckForUpdate((res) => {      \n      console.log('hasUpdate', res.hasUpdate);// 请求完新版本信息的回调\n      if (res.hasUpdate) {\n        updateManager.onUpdateReady(() => {        \n          this.setData({  \n            hasNewVersion: true\n          });\n        });\n      }\n    });\n  }\n```\n\n### 二、小程序为什么使用双线程\n\n小程序的渲染层和逻辑层分别由两个线程管理：渲染层的界面使用 WebView 进行渲染；逻辑层采用 JSCore 运行 JavaScript 代码。一个小程序存在多个界面，所以渲染层存在多个 WebView。这两个线程间的通信经由小程序 Native 侧中转，逻辑层发送网络请求也经由 Native 侧转发。\n\n![线程](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-73-thread.png)\n\n小程序架构设计时，要求渲染快，加载快，渲染页面的技术主要分为三种：\n\n1）纯客户端原生技术渲染(纯客户端技术需要与微信代码一起编包，跟随微信发布版本，这样的开发节奏不对)；\n\n2）纯web技术渲染(纯web技术，那么一些复杂交互页面可能面临一些性能问题，因为Web技术中，UI和JS的脚本在单线程中，这样容易导致逻辑任务抢占UI渲染资源。)；\n\n3）介于客户端技术和Web技术之间（Hybrid技术）。\n\n最终选取的是类似微信JSSDK之后这样的HyBrid技术，页面用Web技术渲染，辅之以大量的接口提供丰富的客户端原生能力。同时，每个小程序的页面都是使用不同的WebView渲染。\n\n如果开发者可以直接通过JS操作界面的DOM树，那么一些敏感数据就毫无安全性可言，故微信提供了一个沙箱的环境来运行开发者的JS代码，这个环境不能有任何的浏览器先关的接口，只能通过JS解释执行环境，类似于HTML5的ServiceWorker启动另一个线程来执行JS。\n\n但由于小程序是多WebView的架构，所以每一个页面都是不同的WebView渲染显示，所以单独创建了一个线程去执行JS，也就是逻辑层，而界面渲染的任务都在WebView线程里执行（渲染层）。即双线程模型，将逻辑层与视图层进行分离，视图层和逻辑层之间只有数据的通信，可以防止开发者随意操作界面，更好的保证了用户数据安全。\n\n\n\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 73,
+        "subject": "",
+        "title": "谈一下微信小程序的架构以及为什么要用到双线程"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 8,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/xingnengyouhua.gif",
+        "style_tpl": 0,
+        "text": "有趣又高薪的前端图形学你会了吗？",
+        "title": "【专题课：前端图形学开发实践指南】",
+        "url": "https://mp.weixin.qq.com/s/KhxrFPadMVXC1ShOtUSIlw"
+      },
+      "corp_tag": ["顺丰"],
+      "is_favorite": false,
+      "qid": 127,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 工程化\n\n首先说下前端工程化的目的：进行高效的多人协作、保证项目的可维护性、提高项目的开发质量、降低项目生产的风险等\n\n前端工程化是使用软件工程的技术和方法来进行前端的开发流程、技术、工具、经验等规范化、标准化，其主要目的为了提高效率和降低成本，即提高开发过程中的开发效率，减少不必要的重复工作时间，而前端工程本质上是软件工程的一种，因此我们应该从软件工程的角度来研究前端工程。\n\n前端工程化就是为了让前端开发能够“自成体系”，个人认为主要应该从模块化、组件化、规范化、自动化四个方面思考。\n\n#### 1.模块化\n\n包括JS的模块化，CSS的模块化，资源的模块化\n\n简单来说，模块化就是将一个大文件拆分成相互依赖的小文件，再进行统一的拼装和加载\n\n#### 2.组件化\n\n从UI拆分下来的每个包含模板(HTML)+样式(CSS)+逻辑(JS)功能完备的结构单元，我们称之为组件。\n\n需要注意，组件化≠模块化。模块化只是在文件层面上，对代码或资源的拆分；而组件化是在设计层面上，对UI（用户界面）的拆分。\n\n组件化实际上是一种按照模板(HTML)+样式(CSS)+逻辑(JS)三位一体的形式对面向对象的进一步抽象。\n\n所以我们除了封装组件本身，还要合理处理组件之间的关系，比如 （逻辑）继承、（样式）扩展、（模板）嵌套和包含等，这些关系都可以归为依赖。\n\n#### 3.规范化\n\n目录结构的制定、编码规范、前后端接口规范、文档规范、组件管理、git分支管理、commit描述规范、视觉图标规范\n\n#### 4.自动化\n\n前端工程化的很多脏活累活都应该交给自动化工具来完成。需要秉持的一个理念是:任何简单机械的重复劳动都应该让机器去完成。\n\n图标合并、持续继承、自动化构建、自动化部署、自动化测试。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 127,
+        "subject": "",
+        "title": "如果有一个项目，随着业务的增长越来越大，怎么办，如何来进行一个拆分或者处理"
+      },
+      "tech_tag": ["其它"],
+      "uid": 0
+    },
+    "status": 0
+  }
+]

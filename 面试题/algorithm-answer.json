@@ -1,0 +1,954 @@
+[
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 867,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 答案\n\n```js\n/**\n* \n* 解题思路：从array中取出n个数全排列，在取的同时判断是否符合条件，为了不影响后续排列，每次递归完成，将当前的数组添加到正在排序的array中\n* 时间复杂度O(n)\n* 空间复杂度O(n)\n* @param {Array} array 需要判断的数组\n* @param {number} n 取出n个数\n* @param {number} sum 和为sum的值\n* @param {array} temp 输出和为sum的数组 \n*/\n\nfunction getAllCombin(array, n, sum, temp) {\n  if (temp.length === n) {\n    if (temp.reduce((t, c) => t + c) === sum) {\n      return temp;\n    }\n    return false;\n  }\n  for (let i = 0; i < array.length; i++) {\n    const current = array.shift();\n    temp.push(current);\n    const result = getAllCombin(array, n, sum, temp);\n    if (result) {\n      return result;\n    }\n    temp.pop();\n    array.push(current);\n  }\n}\n\nconst arr = [1, 5, 6, 2, 4, 3];\nconsole.log(getAllCombin(arr, 3, 10, []));\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 867,
+        "subject": null,
+        "title": "请用算法实现，从给定的无序、不重复的数组data中，取出n个数，使其相加和为sum。并给出算法的时间/空间复杂度。(不需要找到所有的解，找到一个解即可)"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 2,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "```js\nfunction mergeSort(arr) {\n    const len = arr.length\n    // 处理边界情况\n    if(len <= 1) {\n        return arr[0]\n    }   \n    // 计算分割点\n    const mid = Math.floor(len / 2)    \n    // 递归分割左子数组，然后合并为有序数组\n    const leftArr = mergeSort(arr.slice(0, mid)) \n    // 递归分割右子数组，然后合并为有序数组\n    const rightArr = mergeSort(arr.slice(mid,len))  \n    // 合并左右两个有序数组\n    arr = mergeArr(leftArr, rightArr)  \n    // 返回合并后的结果\n    return arr\n}\n  \nfunction mergeArr(arr1, arr2) {  \n    // 初始化两个指针，分别指向 arr1 和 arr2\n    let i = 0, j = 0   \n    // 初始化结果数组\n    const res = []    \n    // 缓存arr1的长度\n    const len1 = arr1.length  \n    // 缓存arr2的长度\n    const len2 = arr2.length  \n    // 合并两个子数组\n    while(i < len1 && j < len2) {\n        if(arr1[i] < arr2[j]) {\n            res.push(arr1[i])\n            i++\n        } else {\n            res.push(arr2[j])\n            j++\n        }\n    }\n    // 若其中一个子数组首先被合并完全，则直接拼接另一个子数组的剩余部分\n    if(i<len1) {\n        return res.concat(arr1.slice(i))\n    } else {\n        return res.concat(arr2.slice(j))\n    }\n}\n\nvar arr=[[1,2,4],[2,3,7],[3,5,7],[4,5,8]]\nmergeArr(arr)\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 2,
+        "subject": "",
+        "title": "合并二维有序数组成一维有序数组，归并排序的思路"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["腾讯"],
+      "is_favorite": false,
+      "qid": 4,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "```js\n/**\n * @param {string} s\n * @return {number}\n */\nvar lengthOfLongestSubstring = function (s) {\n    const arr = [...s]\n    let res = 1;\n    let result = arr.reduce((total, cur, i, arr) => {\n        if (i == 0) {\n            return cur;\n        } else {\n            if (total.indexOf(cur) < 0) {\n                return total + cur\n            } else if (res < total.length) {\n                res = total.length\n                return total.slice(total.indexOf(cur) + 1, total.length) + cur\n            } else {\n                return total.slice(total.indexOf(cur) + 1, total.length) + cur\n            }\n        }\n    }, \"\")\n    if (res < result.length) {\n        res = result.length\n    }\n\n    return res\n};\n\nconsole.log(lengthOfLongestSubstring(\"loddktdji\"))\nconsole.log(lengthOfLongestSubstring(\"dvdf\"))\nconsole.log(lengthOfLongestSubstring(\"adfafwefffdasdcx\"))\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 4,
+        "subject": "",
+        "title": "字符串出现的不重复最长长度"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["滴滴"],
+      "is_favorite": false,
+      "qid": 13,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n```js\nfunction foo(arr) {\n        let AMOUNT = arr.length\n        if (!AMOUNT) return false;\n        if (AMOUNT === 3) return arr;\n        arr.sort((a, b) => a - b);\n        let total = 0;\n        let maxNumberTotal = 0;\n        for (let i = 0; i < AMOUNT; i++) {\n            total += arr[i];\n        }\n        maxNumberTotal = total / 3;\n        let tempTotal = arr[AMOUNT - 1];\n\n        let firstArr = [arr[AMOUNT - 1]];\n        let delIndex = [AMOUNT - 1];\n        let firstIndex = -1;\n\n        // 获取第一份数组\n        for (let i = AMOUNT - 2; i > 0; i--) {\n            const el = arr[i];\n            tempTotal += el; // 每次拿最大的;\n            firstArr.push(el);\n            delIndex.push(i);\n            if (tempTotal === maxNumberTotal) { // 刚好等于最大值跳出循环\n                break;\n            } else if (tempTotal > maxNumberTotal) { // 发现超过最大值, 减回去\n                tempTotal -= el;\n                delIndex.pop();\n                firstArr.pop();\n            } else if (tempTotal < maxNumberTotal) { // 发现超过最小值, 处理边界问题\n                let nextTotal = tempTotal + arr[i + 1]\n                if (maxNumberTotal - tempTotal < Math.abs(maxNumberTotal - nextTotal)) { // 当前总值比上一个总值大; 这里是临界值, 说明上一个总值肯定是一个比最大值大, 所以这里需要和绝对值比较\n                    if (maxNumberTotal - tempTotal > arr[0]) { // 如果下一个平局值和总值相减, 比数组第一个数还大, 说明还可以继续走下去;\n                        continue;\n                    } else {\n                        break;\n                    }\n                }\n            }\n        }\n        for (let i = 0; i < delIndex.length; i++) {\n            arr.splice(delIndex[i], 1)            \n        }\n\n        AMOUNT = arr.length; // 注意每次的arr都是不一样的\n        let secondArr = [arr[AMOUNT - 1]];\n        delIndex = [AMOUNT - 1];\n        let secondIndex = -1;\n        tempTotal = arr[AMOUNT - 1];\n        // 获取第二份数组\n        for (let i = AMOUNT - 2; i > 0; i--) {\n            const el = arr[i];\n            tempTotal += el; // 每次拿最大的;\n            secondArr.push(el);\n            delIndex.push(i);\n            if (tempTotal === maxNumberTotal) { // 刚好等于最大值跳出循环\n                break;\n            } else if (tempTotal > maxNumberTotal) { // 发现超过最大值, 减回去\n                tempTotal -= el;\n                delIndex.pop();\n                secondArr.pop();\n            } else if (tempTotal < maxNumberTotal) { // 发现超过最小值, 处理边界问题\n                let nextTotal = tempTotal + arr[i + 1]\n                if (maxNumberTotal - tempTotal < Math.abs(maxNumberTotal - nextTotal)) { // 当前总值恒小于下一个总值; 这里是临界值\n                    if (maxNumberTotal - tempTotal > arr[0]) {\n                        continue;\n                    } else {\n                        break;\n                    }\n                }\n            }\n        }\n        for (let i = 0; i < delIndex.length; i++) {\n            arr.splice(delIndex[i], 1)            \n        }\n        // 公平处理, 当出现极差情况就需要做公平处理了, 这里暂时不考虑极差情况\n        return [firstArr, secondArr, arr]\n    }\n    console.log(foo([12, 42, 23, 4, 5, 6, 4, 5, 6, 23, 90, 100, 42, 66, 44]));\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 13,
+        "subject": "",
+        "title": "有一堆整数，请把他们分成三份，确保每一份和尽量相等（11，42，23，4，5，6 4 5 6 11 23 42 56 78 90）"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["腾讯", "CVTE", "微软"],
+      "is_favorite": false,
+      "qid": 3,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 代码实现\n\n```js\n//基础版斐波那契数列\nfunction fabonacci(n) {\n    let num1 = 1,\n        num2 = 1,\n        sum;\n    let arr = [1, 1];\n    for (let i = 3; i <= n; i++) {\n        sum = num1 + num2;\n        num1 = num2;\n        num2 = sum;\n        arr.push(sum);\n    }\n    return arr;\n}\n\n//基于ES6 Generator实现\nfunction* fabonacciG(num) {\n    var a = 1,\n        b = 1,\n        n = 0;\n    while (n < num) {\n        yield a;\n        [a, b] = [b, a + b];\n        n++\n    }\n}\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 3,
+        "subject": "",
+        "title": "多种方式实现斐波那契数列"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["爱范儿"],
+      "is_favorite": false,
+      "qid": 706,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n“下一个排列”的定义是：给定数字序列的字典序中下一个更大的排列。如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。\n\n可以将该问题形式化地描述为：给定若干个数字，将其组合为一个整数。如何将这些数字重新排列，以得到下一个更大的整数。如 123 下一个更大的数为 132。如果没有更大的整数，则输出最小的整数。\n\n```js\nvar nextPermutation = function (nums) {\n    for (let i = nums.length - 1; i > 0; i--) {\n        //第一个升序\n        if (nums[i] > nums[i - 1]) {\n            //查找后面数字中第一个大于nums[i-1]的值，并且交换位置\n            for (let j = nums.length - 1; j > i - 1; j--) {\n                // 第一个大于nums[i-1]的值\n                if (nums[j] > nums[i - 1]) {\n                    //交换位置\n                    [nums[j], nums[i - 1]] = [nums[i - 1], nums[j]];\n                    //i开始的数字需要是升序，交叉替换\n                    let a = i, b = nums.length - 1;\n                    while (a <= b) {\n                        [nums[a], nums[b]] = [nums[b], nums[a]];\n                        a++;\n                        b--;\n                    }\n                    return nums;\n                }\n            }\n        }\n    }\n    //如果没有找到，数组升序排列，最小\n    return nums.sort((a, b) => a - b);\n};\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 706,
+        "subject": "```js\n/* \n  Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.\n  If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).\n  The replacement must be in-place, do not allocate extra memory.\n  Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.\n  1,2,3 → 1,3,2\n  3,2,1 → 1,2,3\n  1,1,5 → 1,5,1\n*/\n```\n",
+        "title": "算法考察：Next Permutation"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["高思教育"],
+      "is_favorite": false,
+      "qid": 729,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n- 实现一\n\n```js\nvar arr = [7, 28, -28, 0, 7, 33];\nfunction sort(n) {\n    arr.sort((a, b) => {\n        return Math.abs(a - n) - Math.abs(b - n);\n    })\n    console.log(arr);\n}\nsort(28);\n```\n\n- 实现二\n\n```js\n// function nearbyNum(){}\n// 基于差距进行归并排序O(nlogn);\nvar nearbySort = function (n, arr) {\n  var splitedArr = [];\n  for (var i = 0; i < arr.length; i++) {\n    splitedArr.push([arr[i]]);\n  }\n  while(splitedArr.length > 1) { // 两两一组，依次归并 ~ 递归就不用了~\n    var half = Math.ceil(splitedArr.length / 2);\n    for(var j = 0; j < half; j++) {\n      splitedArr[j] = mergeArr(n, splitedArr[j], splitedArr[j + half]);\n    }\n    console.log(half, splitedArr);\n    splitedArr.length = half;\n  }\n  return (splitedArr.length === 1) ? splitedArr[0] : [];\n}\nvar getDistance = function (n, m){ // 获取n 与 m数值差异(绝对值)\n  return n > m ? (n - m) : (m - n);\n}\nvar mergeArr = function(n, left, right){ // left right为已排序数组\n  if (!left) {\n    return right;\n  }\n  if (!right) {\n    return left;\n  }\n  var sortedArr = [], leftIndex = 0, rightIndex = 0, leftLen = left.length, rightLen = right.length;\n  while(leftIndex < leftLen || rightIndex < rightLen){\n    var leftNum = left[leftIndex], rightNum = right[rightIndex];\n    if (leftNum === undefined) {\n      sortedArr.push(rightNum);\n      rightIndex++;\n    } else if (rightNum === undefined) {\n      sortedArr.push(leftNum);\n      leftIndex++;\n    } else {\n      var leftDistance = getDistance(n, leftNum);\n      var rightDistanc = getDistance(n, rightNum);\n      if (leftDistance <= rightDistanc) {\n        sortedArr.push(leftNum);\n        leftIndex++;\n      } else {\n        sortedArr.push(rightNum);\n        rightIndex++;\n      }\n    }\n  }\n  return sortedArr;\n}\n```\n\n- 实现三\n\n差距必然只会是固定排序的正整数, 可以创建散列表{0: [], 1: [], ....n: []}进行记录进行最终合并: 复杂度O(n);\n\n```js\nvar getDistance = function (n, m){ // 获取n 与 m数值差异(绝对值)\n  return n > m ? (n - m) : (m - n);\n}\nvar nearbySort = function (n, arr) {\n  var distanceObj = {}, len = arr.length, distance, maxDistance = 0, result = [];\n  for(var i = 0; i < len; i++){\n    distance = getDistance(n, arr[i]);\n    if(distance > maxDistance){\n      maxDistance = distance;\n    }\n    if (distanceObj[distance]) {\n      distanceObj[distance].push(arr[i]);\n    } else {\n      distanceObj[distance] = [arr[i]];\n    }\n  }\n  for(var j = 0; j <= maxDistance; j++) { // 两层for, 但内层循环数固定, 总循环固定O(n);\n    if (distanceObj[j]) {\n      var eachDistance = distanceObj[j];\n      var eachLength = eachDistance.length;\n      for(var m = 0; m < eachLength; m++) {\n        result.push(eachDistance[m])\n      }\n    }\n  }\n  return result;\n}\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 729,
+        "subject": "```js\n/* \n  根据传入参数n(数字)对一维数组(纯数字)按照距离n最近的顺序排序。(距离即数字与n的差值的绝对值)\n*/\nvar arr = [7, 28, -1, 0, 7, 33];\nfunction sort(n) {\n  // your code\n}\n```\n",
+        "title": "按要求实现代码"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["新东方"],
+      "is_favorite": false,
+      "qid": 752,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n#### 1.实现一\n\n```js\nconst NumberOf1 = (n) => {\n    if(n < 0){\n        n = n >>> 0;//能够获取到负数的补码\n    }\n    var arr = n.toString(2).split('');\n    return arr.reduce(function(a,b){\n        return b === \"1\" ? a + 1 : a;\n    },0);\n}\n```\n\n#### 2.实现二\n\n```js\nfunction hammingWeight(n){\n let arr = n.toString(2).split('').filter((item) => item == 1);\n return arr.length;\n}\n\nfunction hammingWeight(n) {\n  let count = 0;\n  while (n !== 0) {\n    n = n & (n - 1);\n    count++;\n  }\n  return count;\n};\n```\n\n#### 3.实现三\n\n```js\nvar hammingWeight = function(n) {\n  let res = 0;\n  while(n!==0){\n    res += n&1;\n    n >>>= 1;\n  }\n  return res;\n};\n```\n\n#### 4.实现四\n\n```js\nvar hammingWeight = function (n) {\n    var ans = 0;\n    while (n) {\n      if (n & 1) ans++;\n      n /= 2;\n    }\n    return ans;\n  };\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 752,
+        "subject": "",
+        "title": "输入一个整数，输出该数二进制表示中 1 的个数"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["乘法云"],
+      "is_favorite": false,
+      "qid": 744,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n#### 1.实现一\n\n```js\nconst getIntersection = (arr1, arr2) =>{\n   let arr = [];\n   if (arr1.length > arr2.length) {\n      for(let i =0; i<arr1.length; i++) {\n          if (arr2.includes[arr1[i]]){\n            arr.push(arr1[i])\n          };\n      }\n   } else {\n       for(let i =0; i<arr1.length; i++) {\n          if (arr1.includes[arr2[i]]){\n            arr.push(arr2[i])\n          };\n      }\n   }\n   return Array.from(new Set(arr))\n}\n```\n\n#### 2.实现二\n\n- ES6中使用Set结构\n\n```js\nlet a = new Set([1,2,3,4,5,6]);\nlet b = new Set([4,5,6,7,8,9]); \nlet jiaoji = new Set([...a].filter(x => b.has(x)));\n```\n\n#### 3.实现三\n\n```js\nvar intersection = function (nums1, nums2) {\n    nums1 = new Set(nums1);\n    nums2 = new Set(nums2);\n    let res = [];\n    for(let item of nums1){\n        if(nums2.has(item)){\n            res.push(item);\n        }\n    }\n    return res;\n};\n```\n\n#### 4.实现四\n\n```js\nvar interaction1 = (nums1, nums2) => {\n  var result = [];\n  var store;\n  var arr;\n  if (nums1.length < nums2.length) {\n    arr = nums1;\n    store = nums2;\n  } else {\n    arr = nums2;\n    store = nums1;\n  }\n  for (let i = 0; i < arr.length; i++) {\n    //store中有，结果中没有\n    if (store.indexOf(arr[i]) !== -1 && result.indexOf(arr[i]) === -1) {\n      result.push(arr[i]);\n    }\n  }\n  return result;\n};\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 744,
+        "subject": "",
+        "title": "找出两个数组的交集元素"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 756,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 代码实现\n\n#### 1.实现方式一\n\n```js\nlet set = new Set();\nconst getRandom = (first, end) => {\n    return Math.floor(Math.random() * (end - first + 1) + first);  //[0,90]+10, 加1是为了取到100\n}\nwhile(set.size < 10){\n    set.add(getRandom(10, 100))\n}\nlet arr = [...set];\narr.sort((a, b)=>{\n    return a - b;\n});\nconsole.log(arr);\n```\n\n#### 2.实现方式二\n\n```js\nfunction sortNum(a, b) {\n  return a - b; //升序\n  // return b-a;//降序\n}\nfunction getRamdon(start, end) {\n  let temp = start - end + 1; //91\n  return Math.abs(Math.floor(Math.random() * temp)) + start; //从start开始\n}\n\nlet iArray = [];\nfor (let i = 0; i < 10; i++) {\n  let n = getRamdon(10, 100)\n  if(iArray.indexOf(n) === -1){\n    iArray.push(n)\n  }else {\n    i--\n  }\n}\niArray.sort(sortNum);\n\nconsole.log(iArray)\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 756,
+        "subject": "",
+        "title": "⽤ js 实现随机选取 10–100 之间的 10 个且不重复的数字，存⼊⼀个数组，还要排序"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 761,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 代码实现\n\n#### 1.实现方式一\n\n```js\nconst mostElement = (arr) => {\n  const map = {}\n  for(let item of arr){\n    map[item] = (map[item] || 0) + 1\n    if(map[item] >  arr.length / 2) {\n        return item\n    }\n  }\n};\nmostElement([2, 2, 3, 2, 2, 1, 1, 1, 1, 1, 1])\n```\n\n#### 2.实现方式二\n\n```js\nfunction maxMiddle2 (arr) {\n  if (Object.prototype.toString.call(arr) !== '[object Array]') {\n    throw new Error('invalid Array');\n  }\n  if(arr.length === 0) return '';\n\n  let maxItem = '';\n  let restNum = 1;\n  let countLast = 0;\n  const lastItem = arr[arr.length - 1];\n  arr.forEach(item => {\n    if (lastItem === item) countLast++;\n    if (maxItem === item) {\n      restNum++;\n    } else {\n      if (restNum > 1) {\n        restNum--;\n      } else {\n        maxItem = item;\n        restNum = 1\n      }\n    }\n  });\n  if (maxItem === lastItem && countLast <= Math.floor(arr.length / 2)) {\n    return ''\n  }\n  return maxItem;\n}\n\nconsole.info(maxMiddle2([2, 2, 3, 2, 2, 1, 1, 1, 1, 1, 1]));\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 761,
+        "subject": "",
+        "title": "给定⼀个⼤⼩为 n 的数组，找到其中的众数。众数是指在数组中出现次数⼤于 n/2 的元素"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 676,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n```js\nvar findMaxSubArr = function(nums){\n  var len = nums.length;\n  var index = 0, initSum = nums[0], maxResult = 0;\n  while(nums[index] < 0) {\n    if (nums[index] > initSum) {\n      initSum = nums[index];\n    }\n    index++;\n  }\n  if (index === len) { // 数组全是负数; 直接返回最大值即可;\n    return initSum;\n  }\n  initSum = 0;\n  while(nums[index] >= 0) { // 初始化第一段正值累计和\n    initSum += nums[index];\n    index++;\n  }\n  maxResult = initSum;\n  while(nums[index] !== undefined) { // 此后的数组变为一段负, 一段正 正 负 分别统计累加和\n    var sumPositive = 0, sumNegative = 0, tmpSum = 0;\n    while(nums[index] < 0) {\n      sumNegative += nums[index];\n      index++;\n    }\n    while(nums[index] >= 0) {\n      sumPositive += nums[index];\n      index++;\n    }\n    if (sumNegative + sumPositive >= 0 && initSum + sumNegative >= 0) { // 和继续增大\n      initSum = sumNegative + sumPositive + initSum;\n    } else { // 负值影响最大值\n      initSum = sumPositive;\n    }\n    maxResult = Math.max(initSum, maxResult);\n  }\n  return maxResult;\n}\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 676,
+        "subject": "",
+        "title": "给定一个整数数组 nums，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["会小二"],
+      "is_favorite": false,
+      "qid": 612,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、快排排序\n\n#### 1.1 思路\n\n- 找到一个基准点，一般指（数组的中部），然后数组就被该基准点分为两部分，依次与该基准点进行比较，如果比他小的放左边，比它大的放右边\n- 左右分别用一个空数组进行去存储比较后的数据\n- 最后递归执行操作，直到数组长度<=1 \n\n#### 1.2 优缺点\n\n- 优点：快速\n- 缺点：多声明了2个数组，浪费了存储空间资源\n\n#### 1.3 复杂度\n\n- 空间复杂度：O(logn)\n- 时间复杂度：\n    - 最佳：O(nlogn)\n    - 最差：O(n^2)\n    - 平均：O(nlogn)\n\n#### 1.3 实现\n\n```js\nfunction quickSort(arr){\n    if(arr.length<=1){\n        return arr\n    }\n    // 保存中间的数组\n    let midIndex = Math.floor(arr.length/2)\n    // 取出中间的值，剩下的内容进行循环比较\n    let midArr = arr.splice(midIndex,1)\n    let midVal = midArr[0]\n    const left = []\n    const right = []\n    for(let i =0;i<arr.length;i++){\n        if(arr[i]<=midVal){\n            left.push(arr[i])\n        }else{\n            right.push(arr[i])\n        }\n    }\n    return quickSort(left).concat(midVal,quickSort(right))\n}\n```\n\n### 二、冒泡排序\n\n冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。\n\n走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端\n\n#### 2.1 思路\n\n外层循环\n\n- 比较两个相邻的元素，如果前一个要比后一个大，就交换两者的位置\n- 对每个对相邻作同样的工作，从开始第一对到结尾的最后一对，这样在最后应该会是最大的数\n- 重复以上步骤，除了最后一个\n- 重复步骤1～3，直到排序完成\n\n#### 2.2 复杂度\n\n- 时间复杂度：\n    - 最好的情况：数组已经是排好序的了：O(n)\n    - 最差的情况：数组是一个反向数组：O(n^2)\n    - 平均的情况：- O(n^2)\n- 空间复杂度：\n    - O(1)\n- 稳定情况：\n    - 稳定\n\n#### 2.2 代码实现\n\n```js\nfunction bubbleSort(arr){\n    var len = arr.length\n    for(let i =0;i<len;i++){\n        for(let j=0;j<len-1-i;j++){\n            if(arr[j]>arr[j+1]){\n                var temp = arr[j+1]\n                arr[j+1] = arr[j]\n                arr[j] = temp\n            }\n        }\n    }\n    return arr\n}\n```\n\n#### 2.3 改进冒泡排序\n\n传统冒泡排序中每一趟排序操作只能找到一个最大值或最小值,\n\n我们考虑利用在每趟排序中进行正向和反向两遍冒泡的方法一次可以得到两个最终值(最大者和最小者) , 从而使排序趟数几乎减少了一半。\n\n```js\nfunction bubbleSort2(arr) {\n    var low = 0;\n    var high= arr.length-1; //设置变量的初始值\n    var tmp,j;\n    console.time('2.改进后冒泡排序耗时');\n    while (low < high) {\n        for (j= low; j< high; ++j) //正向冒泡,找到最大者\n            if (arr[j]> arr[j+1]) {\n                tmp = arr[j]; \n                arr[j]=arr[j+1];\n                arr[j+1]=tmp;\n            }\n        --high;                 //修改high值, 前移一位\n        for (j=high; j>low; --j) //反向冒泡,找到最小者\n            if (arr[j]<arr[j-1]) {\n                tmp = arr[j]; \n                arr[j]=arr[j-1];\n                arr[j-1]=tmp;\n            }\n        ++low;                  //修改low值,后移一位\n    }\n    console.timeEnd('2.改进后冒泡排序耗时');\n    return arr2;\n} \n```\n\n### 三、选择排序\n\n#### 3.1 原理\n\n首先在未排序的序列中找到最小（最大）的元素，然后放到已排序的最前面（最后面），以此类推\n\n#### 3.2 实现\n\n- 无序区为排序数组，有序区为空\n- 第i趟排序(i=1,2,3...n-1)开始时，当前有序区和无序区分别为arr[1..i-1]和arr(i..n）。该趟排序从当前无序区中-选出关键字最小的记录 arr[k]\n- 将它与无序区的第1个记录a交换，使arr[1..i]和arr[i+1..n)分别变为记录个数增加1个的新有序区和记录个数减少1个的新无序区\n\n```js\nfunction selectionSort(arr){\n     var len = arr.length;\n     var minIndex,temp;\n     for(var i=0;i<len-1;i++){\n         minIndex = i;\n         for(var j=i+1;j<len;j++){\n             if(arr[j]<arr[minIndex]){\n                 minIndex = j\n             }\n         }\n        temp = arr[i]\n        arr[i] = arr[minIndex]\n        arr[minIndex] = temp\n     }\n     return arr\n     \n }\n```\n\n### 四、排序算法\n\n![排序算法](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-612-time.png)\n\n#### 4.1 稳定与不稳定\n\n稳定：如果a原本在b前面，而a=b，排序之后a仍然在b的前面；\n\n不稳定：果a原本在b的前面，而a=b，排序之后a可能会出现在b的后面；\n\n#### 4.2 内排序与外排序\n\n内排序：所有排序操作都在内存中完成；\n\n外排序：由于数据太大，因此把数据放在磁盘中，而排序通过磁盘和内存的数据传输才能进行；\n\n#### 4.3 时间复杂度与空间复杂度\n\n时间复杂度：一个算法执行所耗费的时间。\n\n空间复杂度：运行完一个程序所需内存的大小。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 612,
+        "subject": "",
+        "title": "用 JavaScript 实现一个标准的排序算法(快排、冒泡、选择排序)，对某个数字数组进行由低到高的排序。"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["海风教育"],
+      "is_favorite": false,
+      "qid": 554,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### DFS\n\n深度优先搜索算法（英语：Depth-First-Search，DFS）是一种用于遍历或搜索树或图的算法。沿着树的深度遍历树的节点，尽可能深的搜索树的分支。当节点v的所在边都己被探寻过，搜索将回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。属于盲目搜索。\n\n深度优先搜索是图论中的经典算法，利用深度优先搜索算法可以产生目标图的相应拓扑排序表，利用拓扑排序表可以方便的解决很多相关的图论问题，如最大路径问题等等。\n\n深度优先搜索的步骤分为 \n\n1. 递归下去 \n2. 回溯上来\n\n顾名思义，深度优先，则是以深度为准则，先一条路走到底，直到达到目标。这里称之为递归下去。\n\n否则既没有达到目标又无路可走了，那么则退回到上一步的状态，走其他路。这便是回溯上来。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 554,
+        "subject": "",
+        "title": "介绍下 DFS 深度优先"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["心娱"],
+      "is_favorite": false,
+      "qid": 623,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 代码实现\n\n```js\nvar str = \"aaaabbcccdddd\";\nvar o = {};\nfor (var i = 0, length = str.length; i < length; i++) {\n// var char = str[i];\n  var char = str.charAt(i);\n  if (o[char]) { //char就是对象o的一个属性，o[char]是属性值，o[char]控制出现的次数\n    o[char]++; //次数加1\n  } else {\n    o[char] = 1; //若第一次出现，次数记为1\n  }\n}\nconsole.log(o); //输出的是完整的对象，记录着每一个字符及其出现的次数\n//遍历对象，找到出现次数最多的字符和次数\nvar max = 0;\nvar maxChar = null;\nfor (var key in o) {\nif (max < o[key]) {\n  max = o[key]; //max始终储存次数最大的那个\n  maxChar = key; //那么对应的字符就是当前的key\n  }\n}\nconsole.log(\"最多的字符是\" + maxChar);\nconsole.log(\"出现的次数是\" + max);\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 623,
+        "subject": "",
+        "title": "找出“aaaabbcccdddd”字符串中出现最多的字母？"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["百分点"],
+      "is_favorite": false,
+      "qid": 548,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 代码实现\n\n#### 1.实现方式一\n\n- 暴力全排\n\n```js\nvar findK = function (arr, k) {\n  arr = arr.sort((a, b) => b - a)\n  return arr[k - 1]\n};\n```\n\n#### 2.实现方式二\n\n- 冒泡半排\n\n```js\nvar findK = function (arr, k) {\n  for (let i = 0; i < k; i++) {\n    for (let j = 0; j < arr.length - 1 - i; j++) {\n      if (arr[j] > arr[j + 1])\n        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]\n    }\n  }\n  return arr[arr.length - k]\n};\n```\n\n#### 3.实现方式三\n\n```js\nconst quickTopK = function (arr, k) {\n  if (k==0) return []\n  if (arr.length < 2) return arr\n  let midValue = arr.splice(0, 1), left = [], right = []\n    arr.forEach((el) => {\n      el > midValue ? left.push(el) : right.push(el)\n    });\n  if (left.length == k) {\n      return left\n    } else if (left.length > k) {\n      return quickTopK(left, k)\n    } else {\n      return left.concat(midValue, quickTopK(right, k - left.length - 1))\n    }\n}\n```\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 548,
+        "subject": "",
+        "title": "找到前 K 个最大的元素"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 674,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n\n### 代码实现\n\n思路:\n\n- DFS\n- 找出终止条件：当前节点为空\n- 找出返回值：节点为空时说明高度为0，所以返回0；节点不为空时则分别求左右子树的高度的最大值，同时加1表示当前节点的高度，返回该数值\n- 某层的执行过程：在返回值部分基本已经描述清楚\n- 时间复杂度：O(n)\n\n```js\nvar maxDepth = function(root) {\n    if(!root) {\n        return 0;\n    } else {\n        const left = maxDepth(root.left);\n        const right = maxDepth(root.right);\n        return Math.max(left, right) + 1;\n    }\n};\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 674,
+        "subject": "",
+        "title": "给定一个二叉树，找出其最大深度。二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。说明: 叶子节点是指没有子节点的节点"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["有赞"],
+      "is_favorite": false,
+      "qid": 410,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、冒泡排序\n\n冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。\n\n走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端\n\n#### 1.1 思路\n\n外层循环\n\n1. 比较两个相邻的元素，如果前一个要比后一个大，就交换两者的位置\n2. 对每个对相邻作同样的工作，从开始第一对到结尾的最后一对，这样在最后应该会是最大的数\n3. 重复以上步骤，除了最后一个\n4. 重复步骤1～3，直到排序完成\n\n#### 1.2 复杂度\n\n**时间复杂度**\n\n- 最好的情况：数组已经是排好序的了：O(n)\n- 最差的情况：数组是一个反向数组：O(n^2)\n- 平均的情况：O(n^2)\n\n**空间复杂度**\n\n- O(1)\n\n**稳定情况**\n\n- 稳定\n\n#### 1.3 代码演示\n\n```js\nfunction bubbleSort(arr){\n    var len = arr.length\n    for(let i =0;i<len;i++){\n        for(let j=0;j<len-1-i;j++){\n            if(arr[j]>arr[j+1]){\n                var temp = arr[j+1]\n                arr[j+1] = arr[j]\n                arr[j] = temp\n            }\n        }\n    }\n    return arr\n}\n\nconsole.log(bubbleSort(arr2))\n```\n\n#### 1.4 冒泡排序优化\n\n- 传统冒泡排序中每一趟排序操作只能找到一个最大值或最小值,\n- 我们考虑利用在每趟排序中进行正向和反向两遍冒泡的方法一次可以得到两个最终值(最大者和最小者) , 从而使排序趟数几乎减少了一半。\n\n```js\nfunction bubbleSort2(arr) {\n    var low = 0;\n    var high= arr.length-1; //设置变量的初始值\n    var tmp,j;\n    console.time('2.改进后冒泡排序耗时');\n    while (low < high) {\n        for (j= low; j< high; ++j) //正向冒泡,找到最大者\n            if (arr[j]> arr[j+1]) {\n                tmp = arr[j]; \n                arr[j]=arr[j+1];\n                arr[j+1]=tmp;\n            }\n        --high;                 //修改high值, 前移一位\n        for (j=high; j>low; --j) //反向冒泡,找到最小者\n            if (arr[j]<arr[j-1]) {\n                tmp = arr[j]; \n                arr[j]=arr[j-1];\n                arr[j-1]=tmp;\n            }\n        ++low;                  //修改low值,后移一位\n    }\n    console.timeEnd('2.改进后冒泡排序耗时');\n    return arr2;\n} \nconsole.log(bubbleSort2(arr2));//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]\n```\n\n\n### 二、选择排序\n\n选择排序是表现最稳定的排序，无论数据量,情况是怎么样的，它的时间复杂度都是O(n^2) ，空间复杂度为O(1)\n\n#### 2.1 原理\n\n首先在未排序的序列中找到最小（最大）的元素，然后放到已排序的最前面（最后面），以此类推\n\n#### 2.2 代码实现\n\n1. 无序区为排序数组，有序去为空\n2. 第i趟排序(i=1,2,3...n-1)开始时，当前有序区和无序区分别为arr[1..i-1]和arr(i..n）。该趟排序从当前无序区中-选出关键字最小的记录 arr[k]，\n3. 将它与无序区的第1个记录a交换，使arr[1..i]和arr[i+1..n)分别变为记录个数增加1个的新有序区和记录个数减少1个的新无序区\n\n```js\nfunction selectionSort(arr){\n     var len = arr.length;\n     var minIndex,temp;\n     for(var i=0;i<len-1;i++){\n         minIndex = i;\n         for(var j=i+1;j<len;j++){\n             if(arr[j]<arr[minIndex]){\n                 minIndex = j\n             }\n         }\n        temp = arr[i]\n        arr[i] = arr[minIndex]\n        arr[minIndex] = temp\n     }\n     return arr\n     \n }\n\nconsole.log(selectionSort(arr2))\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 410,
+        "subject": "",
+        "title": "介绍冒泡排序、选择排序，说说冒泡排序如何优化"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["有赞"],
+      "is_favorite": false,
+      "qid": 412,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 实现方案\n\n可以采用“快慢指针”的方法。就是有两个指针：fast、slow。开始的时候两个指针都指向链表头 head，然后在准备阶段及之后每一步操作中：slow = slow->next，fast = fast->next->next。\n\n由于 fast 比 slow 移动快，如果有环，fast 一定会先进入环，slow 后进入环。当两个指针都进入环之后，经过一定的操作后二者一定能在环上相遇，且此时 slow 还没有绕环一圈，也就是说一定是在 slow 走完第一圈之前相遇。\n\n#### 1.代码实现一\n\n```js\nclass Node {\n  constructor(val, next) {\n    this.val = val;\n    this.next = next;\n  }\n}\n\nfunction hasLoop(node) {\n  if (!node || !node.next) {\n    // 节点数小于2，不可能有环\n    return false;\n  }\n\n  let slow = node.next;\n  let fast = node.next.next;\n\n  // 没有找到相同节点（即没有环时）继续查找\n  while (slow !== fast) {\n    // 没有可查找的节点了，说明没有环\n    if (!fast || !fast.next) return false;\n    slow = slow.next;\n    fast = fast.next.next;\n  }\n\n  // 循环正常结束，说明有环\n  return true;\n}\n```\n\n#### 2.代码实现二\n\n```js\nfunction ListNode(val){\n this.val = val;\n this.next = null;\n}\n\nvar hasCycle = function(head){\n let fast = head;\n let slow = head;\n\n while(fast != null && fast.next != null){\n  fast = fast.next.next;\n  slow = slow.next;\n\n  if(fast == slow){ return true;}\n }\n return false;\n}\nlet list = new ListNode(0);\nlet cur = list;\n\nfor(let i = 1; i < 10; i++){\n let node = new ListNode(i);\n while(cur.next){\n  cur = cur.next;\n }\n cur.next = node;\n}\nconsole.log(list);\nconsole.log(hasCycle(list));\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 412,
+        "subject": "",
+        "title": "如何判断链表是否有环"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["有赞"],
+      "is_favorite": false,
+      "qid": 413,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 二叉搜索\n\n二叉搜索树（Binary Search Tree），它或者是一棵空树，或者是具有下列性质的二叉树： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值； 它的左、右子树也分别为二叉排序树。二叉搜索树作为一种经典的数据结构，它既有链表的快速插入与删除操作的特点，又有数组快速查找的优势；所以应用十分广泛，例如在文件系统和数据库系统一般会采用这种数据结构进行高效率的排序与检索操作。\n\n\n\n",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 413,
+        "subject": "",
+        "title": "介绍二叉搜索树的特点"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["新东方"],
+      "is_favorite": false,
+      "qid": 180,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### 1.思路\n\n- 首先，我们通过上边的例子可以分析出什么样子括号匹配是复合物条件的，两种情况。\n  - 第一种（非嵌套情况）：{} [] ；\n  - 第二种（嵌套情况）：{ [ ( ) ] } 。\n  - 除去这两种情况都不是符合条件的。\n- 然后，我们将这些括号自右向左看做栈结构，右侧是栈顶，左侧是栈尾。\n- 如果编译器中的括号是左括号，我们就入栈（左括号不用检查匹配）；如果是右括号，就取出栈顶元素检查是否匹配。\n- 如果匹配，就出栈。否则，就返回 false；\n\n#### 2.代码实现\n\n```js\nvar isValid = function(s){\n  let stack = [];\n  var obj = {\n     \"[\":\"]\",\n     \"{\":\"}\",\n     \"(\":\")\",\n  };\n  // 取出字符串中的括号\n  for (var i = 0; i < s.length;i++){\n    if(s[i] === \"[\" || s[i] === \"{\" || s[i] === \"(\"){\n      // 如果是左括号，就进栈\n      stack.push(s[i]);\n    }else{\n   \t\tvar key = stack.pop();\n      // 如果栈顶元素不相同，就返回false\n      if(obj[key] !== s[i]){\n        return false;\n      }\n    }\n  }\n  return stack.length ===  0\n}\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 180,
+        "subject": "```js\n/*\n  有效字符串需满⾜：\n \t \t1. 左括号必须⽤相同类型的右括号闭合。\n  \t2. 左括号必须以正确的顺序闭合。\n  注意空字符串可被认为是有效字符串。\n  示例1：\n  \t输⼊: \"()\"\n  \t输出: true\n  示例2：\n  \t输⼊: \"()[]{}\"\n  \t输出: true\n  示例 3:\n  \t输⼊: \"(]\"\n  \t输出: false\n  示例 4:\n  \t输⼊: \"([)]\"\n  \t输出: false\n  示例 5:\n  \t输⼊: \"{[]}\"\n  \t输出: true\n*/\n```\n",
+        "title": "给定⼀个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效."
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["微软"],
+      "is_favorite": false,
+      "qid": 161,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n```js\nfunction findLetterAccoringToNum(num){\n    let str = '';\n    // 求余数，决定结果的最后一个字母\n    let remainder = num%26;\n    // 求商，一共有循环了几轮字母表，决定结果除最后一位一共显示多少个‘a'\n    let quotient = Math.floor(num/26);\n    // 如果remainder为0，说明最后一位是'z'，应该quotient-1，remainder = 26\n    if(remainder === 0){\n        remainder = 26\n        quotient --;\n    }\n    while(quotient >= 1){\n        str += 'a';\n        quotient --;\n    }\n    // 根据unicode编码求字母，如：a->97 = 1 + 96,z->122 = 26 + 96\n    str += String.fromCharCode(remainder + 96);\n    return str;\n}\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 161,
+        "subject": "```js\n/*\n\t如输入1 返回a\n\t输入26返回z\n\t输入27返回aa\n\t输入28返回ab\n\t输入53返回aaa\n*/\n```\n",
+        "title": "输入一个数字，找到对应的字母"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 282,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n```js\n/**\n * @param {number[]} nums\n * @param {number} target\n * @return {number[][]}\n */\nfunction threeSum(nums, target) {\n    let res = [];\n    let n = nums.length;\n    if (nums == null || n < 3) return res;\n    nums.sort((a, b) => a - b);\n    for (let i = 0; i < n - 2; i++) {\n        if (nums[i] === nums[i - 1]) continue;\n        let left = i + 1;\n        let right = n - 1;\n        while (left < right) {\n            let sum = nums[i] + nums[left] + nums[right];\n            if (sum === target) {\n                res.push([nums[i], nums[left++], nums[right--]]);\n                while(nums[left] === nums[left - 1]) left++;\n            } else if (sum < target) {\n                left++;\n            } else {\n                right--;\n            }\n        }\n    }\n  return res;\n}\nthreeSum([2,11,20,160,3,1,77],100);\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 282,
+        "subject": "",
+        "title": "现在有随机整数数组，例如[2,11,20,160,3,1...]，请挑出数组内，三个随机整数和为 100 的所有数据。"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["易车"],
+      "is_favorite": false,
+      "qid": 173,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n- 实现方式一\n\n```js\nvar str = 'asdasdfaffjasaso';\nvar strs = [];\nvar len = str.length;\nvar num = 0;\nfor (var i = 0; i < len; i++) {\n\tstrs.push(str.slice(i, i + 1));\n}\nfor (var j = 0; j < len; j++) {\n\tfor (var k = 0; k < len; k++) {\n\t\tif (j != k) {\n\t\t\tif (strs[j] != strs[k]) {\n\t\t\t\tnum++;\n\t\t\t}\n\t\t}\n\t}\n\tif (num == len - 1) {\n\t\tconsole.log(strs[j]);\n\t\tbreak;\n\t}\n\tnum = 0;\n}\n```\n\n- 实现方式二\n\n```js\nvar firstUniqChar = function(s) {\n        let stack = {}\n        for(let i=0;i<s.length;i++){\n            if(!stack[s[i]]){\n                stack[s[i]] = 1\n            }else{\n                stack[s[i]]++\n            }\n        }\n        let ret = -1;\n        for(let j=0;j<s.length;j++){\n            if(stack[s[j]]==1){\n                ret = j\n                return ret\n            }\n        }\n        return ret\n};\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 173,
+        "subject": "",
+        "title": "给一个字符串比如'abca'，返回第一个不重复的字母"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["快手"],
+      "is_favorite": false,
+      "qid": 216,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n#### 1.递归解法\n\n走到第n层, 实际上是走到(n - 1)层 + 1层 或者 (n - 2)层 + 2层 => f(n) = f(n - 1) + f(n - 2);\n\n```js\nfunction stairs(stariNum){\n  if (!(stariNum > 0)) {\n    throw new Error('请输入正整数');\n  }\n  if(stariNum === 1) {\n    return 1;\n  }\n  if (stariNum === 2) {\n    return 2;\n  }\n  return stairs(stariNum - 1) + stairs(stariNum - 2); // 在不考虑递归优化的情况下, 超过1000时, firefox有内存泄露风险;\n}\n```\n\n#### 2.数学分析法\n\n实质上 z层 = 2x + y; 其中x为走两层的数, y为走一层的数; 对应方程的多个解即为分别走一层和二层的数值, 求出对应排列C((x + y), x)即可\n\n```js\nfunction mathStair(stariNum, m = 2, n = 1) {\n  var resultNum = 0;\n  for(let x = 0; x <= stariNum / 2; x++){\n    let y = stariNum - 2 * x; // 每一组(x, y)的值; x为走两层数, y走一层数 C((x + y), x)\n    let productOfXY = 1, productOfX = 1;\n    for(let i = (x + y); i > y; i--){\n      productOfXY *= i;\n    }\n    for (let j = 1; j <= x; j++){\n      productOfX *= j;\n    }\n    resultNum += productOfXY / productOfX\n  }\n  return resultNum;\n}\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 216,
+        "subject": "",
+        "title": "一个人每次只能走一层楼梯或者两层楼梯，问走到第 80 层楼梯一共有多少种方法"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["寺库", "百分点"],
+      "is_favorite": false,
+      "qid": 193,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 一、排序算法\n\n#### 1.1排序算法定义\n\n所谓排序算法，即通过特定的算法因式将一组或多组数据按照既定模式进行重新排序。\n\n这种新序列遵循着一定的规则，体现出一定的规律，因此，经处理后的数据便于筛选和计算，大大提高了计算效率。对于排序，我们首先要求其具有一定的稳定性，即当两个相同的元素同时出现于某个序列之中，则经过一定的排序算法之后，两者在排序前后的相对位置不发生变化。换言之，即便是两个完全相同的元素，它们在排序过程中也是各有区别的，不允许混淆不清。\n\n在算法中有以下几种基本排序：\n\n- 冒泡排序\n- 选择排序\n- 插入排序\n- 希尔排序\n- 归并排序\n- 快速排序\n- 基数排序\n- 堆排序\n- 计数排序\n- 桶排序\n\n#### 1.2评价一个排序算法的好坏\n\n评价一个排序算法的好坏往往可以从下边几个方面入手\n\n- 时间复杂度：即从序列的初始状态到经过排序算法的变换移位等操作变到最终排序好的结果状态的过程所花费的时间度量。\n- 空间复杂度：就是从序列的初始状态经过排序移位变换的过程一直到最终的状态所花费的空间开销。\n- 使用场景：排序算法有很多，不同种类的排序算法适合不同种类的情景，可能有时候需要节省空间对时间要求没那么多，反之，有时候则是希望多考虑一些时间，对空间要求没那么高，总之一般都会必须从某一方面做出抉择。\n- 稳定性：稳定性是不管考虑时间和空间必须要考虑的问题，往往也是非常重要的影响选择的因素。\n\n##### 常见排序算法的时间和空间复杂度\n\n![复杂度](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-193-time.png)\n\n###  二、快排原理\n\n#### 2.1原理简单描述\n\n基本思想是:通过一趟排序算法把所需要排序的序列的元素分割成两大块，其中，一部分的元素都要小于或等于另外一部分的序列元素，然后仍根据该种方法对划分后的这两块序列的元素分别再次实行快速排序算法，排序实现的整个过程可以是递归的来进行调用，最终能够实现将所需排序的无序序列元素变为一个有序的序列。\n\n#### 2.2具体步骤\n\n设要排序的数组是A[0]……A[N-1]，首先任意选取一个数据（通常选用数组的第一个数）作为关键数据，然后将所有比它小的数都放到它左边，所有比它大的数都放到它右边，这个过程称为一趟快速排序。值得注意的是，快速排序不是一种稳定的排序算法，也就是说，多个相同的值的相对位置也许会在算法结束时产生变动。\n\n一趟快速排序的算法是： \n\n1. 设置两个变量i、j，排序开始的时候：i=0，j=N-1\n2. 以第一个数组元素作为关键数据，赋值给key，即key=A[0]\n3. 从j开始向前搜索，即由后开始向前搜索(j--)，找到第一个小于key的值A[j]，将A[j]和A[i]的值交换\n4. 从i开始向后搜索，即由前开始向后搜索(i++)，找到第一个大于key的A[i]，将A[i]和A[j]的值交换\n5. 重复第3、4步，直到i=j； (3,4步中，没找到符合条件的值，即3中A[j]不小于key,4中A[i]不大于key的时候改变j、i的值，使得j=j-1，i=i+1，直至找到为止。找到符合条件的值，进行交换的时候i， j指针位置不变。另外，i==j这一过程一定正好是i+或j-完成的时候，此时令循环结束）。",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 193,
+        "subject": "",
+        "title": "介绍排序算法和快排原理"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["滴滴"],
+      "is_favorite": false,
+      "qid": 186,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 代码实现\n\n```js\nvar getPlusMinusIndex = function(numArr){\n  var numMap = {}, curIndex = 0, curNum = numArr[curIndex];\n  while(typeof curNum === 'number'){ // 不用特意去判定NaN吧······; Number.isNaN\n    if (numMap[curNum] === undefined) { // 不存在, 加入map映射\n      numMap[-curNum] = curIndex;\n    } else { // 找到了, 直接返回下标;\n      return [numMap[curNum], curIndex]\n    }\n    curNum = numArr[++curIndex]\n  }\n  return [];\n}\ngetPlusMinusIndex([1, 0, 5, 4, 0, -4, -1]);\ngetPlusMinusIndex([1 , 0, 5, 3]);\ngetPlusMinusIndex([0, 0]);\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 186,
+        "subject": "",
+        "title": "手动实现一个函数，给定一个数组[1,0,2,3,4,-1,-3]，输出任意两个值和为 0 的下标"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": ["心娱"],
+      "is_favorite": false,
+      "qid": 306,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 代码实现\n\n```js\nconst maxDiff = arr => {\n  // solution 1\n  // arr = arr.flat().sort((a, b) => a - b);\n  // return arr[arr.length - 1] - arr[0];\n\n  // solution 2\n  let max = 0;\n  let min = 0;\n  for (let i = 0; i < arr.length; i++) {\n    let tempArr = arr[i].sort((a, b) => a - b);\n    max = tempArr[tempArr.length - 1] > max ? tempArr[tempArr.length - 1] : max;\n    min = min > tempArr[0] ? tempArr[0] : min;\n  }\n  return max - min;\n};\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 306,
+        "subject": "",
+        "title": "统计一组整形数组的最大差值？"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["微软"],
+      "is_favorite": false,
+      "qid": 160,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n\n### 实现\n\n```js\nfunction serialize(tree){\n  var arr = [];\n  innerSerialize(tree, arr);\n  return arr.join(\",\");\n    \n  function innerSerialize(tree, arr){\n    if(!tree){\n      // 占位符，可用其他代替\n      arr.push(\"#\");\n    } else {\n      arr.push(tree.value);\n      innerSerialize(tree.left, arr);\n      innerSerialize(tree.right, arr);\n    }\n  }\n}\n  \nfunction deserialize(serializedTree) {\n  var arr = serializedTree.split(\",\");\n  return innerDeserialize();\n    \n  function innerDeserialize(){\n    if(!arr.length){\n      return;\n    }\n      \n    var val = arr.shift();\n      \n      if(val === \"#\"){\n        return;\n      }\n      \n      var node = {\n        value: val\n      };\n      \n      node.left = innerDeserialize();\n      node.right = innerDeserialize();\n      \n      return node;\n  }\n}\n\nvar testTree = {\n  value: 1,\n  left: {\n    value: 2\n  },\n  right: {\n    value: 3,\n    left: {\n      value: 4\n    },\n    right: {\n      value: 5\n    }\n  }\n}\n  \nvar serializedTree = serialize(testTree);\nconsole.log(serializedTree);\nvar deserializedTree = deserialize(serializedTree);\nconsole.log(deserializedTree);\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 160,
+        "subject": "",
+        "title": "二叉树序列化反序列化"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 4,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/zhiyeguihua.gif",
+        "style_tpl": 0,
+        "text": "前端路上没人带，老走弯路？",
+        "title": "【专题课：十年前端老兵亲述：我和前端这十年】",
+        "url": "https://mp.weixin.qq.com/s/J4qABCwfd6HyafOLLSgbvQ"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 255,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n\n### 代码实现\n\n```js\nfunction count (array, number) {\n    const countArr = array.reduce((accumulator, currentValue) => {\n      accumulator[currentValue] ?\n        accumulator[currentValue]++ : accumulator[currentValue] = 1\n      return accumulator\n    }, {});\n    return countArr[number] || 0;\n  }\n  console.log(count([1, 1, 2, 3, 3, 4, 6, 6], 3));\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 255,
+        "subject": "",
+        "title": "给定一个数组，形如 [1, 1, 2 , 3, 3, 3, 3, 4, 6, 6]，给定一个数 n，例如 3，找出给定的数 n 在数组内出现的次数，要求时间复杂度小于 O(n)"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["头条"],
+      "is_favorite": false,
+      "qid": 63,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "#### 代码实现\n\n**1）代码实现一**\n\n```js\nfunction Node(data) {\n    this.data = data;\n    this.next = null\n}\n\nfunction Queue() {\n    this.front = null; //初始化队列：创建一个指向队列节点的头指针\n}\nQueue.prototype = {\n    add(node) { //入队：创建一个新节点，将它添加到链表尾部，如果链表为空，让头指针指向该节点\n        var current = this.front;\n        if (current) {\n            while (current.next != null) {\n                current = current.next;\n            }\n            current.next = new Node(node);\n        } else {\n            this.front = new Node(node)\n        }\n\n    },\n    remove() { // 出队 free 头指针指向第一个节点， 让头指针指向该节点的下一个节点， 然后返回该节点的值。\n        if (this.front) {\n            let current = this.front;\n            let data = current.data;\n            this.front = current.next;\n            return data;\n        } else {\n            throw new Error('the queue is empty!');\n        }\n    },\n    isEmpty() { //判空\n        return this.front === null;\n    },\n    getFront() { // 读队头\n        return this.front.data\n    },\n    printQueue() {  //输出队列\n        var temp = this.front;\n        while (temp) {\n            console.log(temp.data);\n            temp = temp.next\n        }\n    }\n}\n/** test ***/\nvar queue = new Queue();\nqueue.add(1);\nqueue.add(2);\nqueue.add(3);\nqueue.printQueue();\nconsole.log('-----split----')\nqueue.remove();\nqueue.add(1);\nqueue.printQueue();\nconsole.log('-----split----')\nconsole.log(queue.getFront());\nconsole.log(queue.isEmpty());\n```\n\n**2）代码实现二**\n\n- 队列的特点：先进先出\n- 队列的方法：进队列、出队列\n- 获得队列长度\n- 清空队列\n- 返回队头指针\n- 单链表实现队列\n\n```js\nfunction Node(val,next) {\n    this.val = val\n    this.next = next || null\n}\n\nfunction LinkQueue() {\n    // 记录头部指针\n    this.head = null\n    this.len = 0\n}\n\n// 入队列\nLinkQueue.prototype.add = function (val) {\n    const node = new Node(val,this.head)\n    this.head = node\n    this.len++\n}\n\n// 出队列\nLinkQueue.prototype.remove = function () {\n    if (this.len === 0) {\n        return\n    }\n    if (this.len === 1) {\n        this.head = null\n    } else {\n        let p = this.head\n        while (p.next.next !== null) {\n            p = p.next\n        }\n        p.next = null\n    }\n    this.len--\n}\n// 获得队头指针\nLinkQueue.prototype.getHead = function () {\n    return this.head\n}\n// 清空队列\nLinkQueue.prototype.clear = function () {\n    while (this.head) {\n        let node = this.head\n        node.next = null\n        node = null\n        this.head = this.head.next\n    }\n}\n// 打印队列所有元素\nLinkQueue.prototype.console = function () {\n    console.log('打印队列')\n    while (this.head) {\n        console.log(this.head.val)\n        this.head = this.head.next\n    }\n    console.log('打印队列完成')\n}\n\nconst queue = new LinkQueue()\nqueue.add(1)\nqueue.add(2)\nqueue.add(3)\nqueue.add(4)\nqueue.remove()\nconsole.log('队列长度：' + queue.len)\nqueue.console()\nqueue.clear()\nqueue.console()\n\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 63,
+        "subject": "",
+        "title": "单向链表实现队列"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["腾讯"],
+      "is_favorite": false,
+      "qid": 33,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 实现代码\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Title</title>\n</head>\n<body style=\"text-align: center;\">\n<canvas id=\"canvas\" style=\"border: 1px solid #000; text-align: center\"></canvas>\n</body>\n</html>\n<script>\n  class Canvas {\n    constructor(canvas, options = {}) {\n      const defaultOptions = {\n        canvasWidth: 400,\n        canvasHeight: 600,\n        lineWidth: 1,\n        lineColor: '#aaa',\n        points: []\n      };\n      this.defaultOptions = Object.assign(defaultOptions, options);\n      const { canvasWidth, canvasHeight, lineWidth, lineColor } = this.defaultOptions;\n      this.canvas = canvas;\n      this.canvas.width = canvasWidth;\n      this.canvas.height = canvasHeight;\n      this.ctx = this.canvas.getContext('2d');\n      this.ctx.strokeStyle = lineColor;\n      this.ctx.lineWidth = lineWidth;\n      this.ctx.translate(canvasWidth / 2, canvasHeight / 2);\n      this.ctx.scale(1, -1);\n    }\n\n    drawLines() {\n      this.ctx.beginPath();\n\n      const { points } = this.defaultOptions;\n      points.forEach(point => {\n        this.ctx.lineTo(point[0], point[1]);\n      });\n\n      this.ctx.stroke();\n      this.ctx.closePath();\n    }\n\n    drawMiddleDot() {\n      const middlePoint = this.findMiddlePoint();\n      this.drawDot(middlePoint, 'red', 2);\n    }\n\t\n\tdrawDot(point, color, size) {\n      this.ctx.beginPath();\n\t  \n      this.ctx.fillStyle = color;\n      this.ctx.arc(point[0], point[1], size, 0, 2 * Math.PI);\n\n      this.ctx.fill();\n      this.ctx.closePath();\n    }\n\t\n\tdrawOriginDot() {\n\t  this.drawDot([0, 0], '#000', 2);\n\t}\n\n    findMiddlePoint() {\n      const { points } = this.defaultOptions;\n      if (points.length <= 1) return points;\n\n      let lineSum = 0;\n      const eachPointsInfo = [];\n      for (let i = 0; i < points.length - 1; i++) {\n        const offsetX = points[i + 1][0] - points[i][0];\n        const offsetY = points[i + 1][1] - points[i][1];\n        let pointCount = Number(Math.sqrt(offsetX * offsetX + offsetY * offsetY).toFixed(5));\n        lineSum += pointCount;\n        eachPointsInfo.push({\n          value: pointCount,\n          degree: Math.atan2(offsetY, offsetX) * 180 / Math.PI\n        });\n      }\n      let middleNum = Number((lineSum / 2).toFixed(5));\n      for (let i = 0; i < eachPointsInfo.length; i++) {\n        const { value, degree } = eachPointsInfo[i];\n        middleNum -= value;\n        if (middleNum === 0) {\n          return points[i];\n        }\n        if (middleNum < 0) {\n          const prePoint = points[i];\n          const l = value + middleNum;\n          const y = Math.sin(degree * Math.PI / 180) * l;\n          const x = Math.cos(degree * Math.PI / 180) * l;\n          console.info(prePoint, x, y, l, (lineSum / 2).toFixed(5));\n          return [prePoint[0] + x, prePoint[1] + y];\n        }\n      }\n    }\n  }\n\n  const canvas = new Canvas(document.getElementById('canvas'), {\n    points: [[10, 20], [20, 200], [30, 220], [40, 300], [100, 400]]\n  });\n  canvas.drawOriginDot();\n  canvas.drawLines();\n  canvas.drawMiddleDot();\n</script>\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 33,
+        "subject": "```js\n算法：输入一条polyline，输出polyline的中点\n绘制：在浏览器中绘制出polyline和中点\n说明：中点是指沿着polyline，到polyline的起点和终点，距离相等，中点要求在polyline上\n输入：[[10, 20], [20, 200], [30, 220], [40, 300], [100, 400]]，以[10, 20]举例，10代表x坐标，20代表y坐标，单位是像素\n要求：提供源代码，用原生JavaScript实现，不使用任何框架、类库、构建工具，本地打开html文件可直接看到效果\n```\n",
+        "title": "[实操题]输入一条 polyline，输出 polyline 的中点"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": ["顺丰"],
+      "is_favorite": false,
+      "qid": 123,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "### 代码实现\n\n#### 实现一\n\n- 思路：先洗牌，再依次发牌即可\n\n```js\n// 洗牌\nfunction shuffle(arr) {\n    let res = arr.slice(0)\n    let len = res.length\n    for(let i = len - 1; i > 0; i--) {\n      let random = parseInt(Math.random() * i)\n      if (random !== i) {\n        let temp = res[i]\n        res[i] = res[random]\n        res[random] = temp\n      }\n    }\n    return res\n}\n\nfunction deal(arr, num) {\n    const randomArr = shuffle(arr)\n    const res = []\n    for (let i = 0; i < num; i++) {\n        res.push([])\n    }\n    for (let i = 0; i < randomArr.length; i = i + num) {\n        res.forEach((r, j) => {\n            r.push(randomArr[i + j])\n        })\n    }\n    return res\n}\n\nconst arr = []\nfor (let i = 0; i < 52; i++) {\n    arr.push(i)\n}\nconsole.log(deal(arr, 4))\n```\n\n#### 实现二\n\n```js\nvar randomEqualCard = function(cards, num){ // cards 卡牌, num 分成的份数\n  var len = cards.length;\n  if (!cards || !(num > 1) || !(cards.length > num) || (cards.length % num !== 0)) {\n    return; // 输入不合要求;\n  }\n  // 任意从数组中, 抽取一个元素, 将该元素与数组最末元素互换位置; 且将该元素推入对应人的对应位置, 然后从剩余的n - 1个元素中, 继续任意选一个, 依次保证随机\n  var cardRange = len;\n  var result = [];\n  for(var i = 0; i < num; i++){\n    result[i] = []; // 每个人的牌\n  }\n  while(cardRange > 0){\n    var randomNum = Math.floor(cardRange * Math.random()) // (0 - len - 1的随机数);\n    var tmp = cards[cardRange - 1];\n    cards[cardRange - 1] = cards[randomNum];\n    cards[randomNum] = tmp; // 将随机数放到末尾,\n    result[cardRange % num].push(cards[cardRange - 1]); // 将这个随机数推入一个人; 发牌操作~\n    cardRange--; // 缩小随机范围\n  }\n  return result;\n}\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 123,
+        "subject": "",
+        "title": "实现一个将 52 张牌随机均等的分给四个人，比如输入 [0,1,2,3....51] ，输出[[1,2,16...],[4,3,6..],[....],[....]]"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "ad": {
+        "id": 7,
+        "img_url": "http://img-static.yidengxuetang.com/wxapp/course_ad_gif/mianshi.gif",
+        "style_tpl": 0,
+        "text": "面试通不过，问啥都心慌",
+        "title": "【专题课：面试官亲讲：中高级前端大厂面试秘籍】",
+        "url": "https://mp.weixin.qq.com/s/4NBqKq2kdB7MCnv6BmPyRw"
+      },
+      "corp_tag": [],
+      "is_favorite": false,
+      "qid": 65,
+      "qtype": "short_answer",
+      "short_answer": {
+        "analysis": "\n### 代码实现\n\n```js\nfunction getTree (data, root = 0, idTxt = 'id', pidTxt = 'parentId', cTxt = 'children') {\n  // 递归方法\n  function getNode(id) {\n    var node = []\n    for (var i = 0; i < data.length; i++) {\n      if (data[i][pidTxt] == id) {\n        data[i][cTxt] = getNode(data[i][idTxt])\n        node.push(data[i])\n      }\n    }\n    if (node.length == 0) {\n      return []\n    } else {\n      return node\n    }\n  }\n  // 使用根节点\n  return getNode(root)\n}\n\n// 测试\nconst arr = [{id:1, parentId: 0}, {id:2, parentId:1},{id:3, parentId:1}];\ngetTree(arr);\n```",
+        "answer": "",
+        "biz_type": 1,
+        "qid": 65,
+        "subject": "```js\n/*\n *数组：[{id:1, parentId: 0}, {id:2, parentId:1},{id:3, parentId:1}]\n *输出结果：[{id:1, parentId: 0,children:[{id:2, parentId:1},{id:3, parentId:1}]}]\n *说明：parentId为0 的是根节点\n */\n```\n",
+        "title": "将给定的数组从顶级分类递归查找子分类，最终构建一个树状数组"
+      },
+      "tech_tag": ["算法"],
+      "uid": 0
+    },
+    "status": 0
+  }
+]

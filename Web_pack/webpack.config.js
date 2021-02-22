@@ -23,23 +23,6 @@ module.exports = {
     },
     modules: [path.resolve(__dirname, "src"), "node_modules"] //设置包查找路径
   },
-  // 开发服务
-  devServer: {
-    contentBase: path.join(__dirname, "../dist"),
-    port: "5000", //监听端口
-    inline: true, //设置为true，当源文件改变的时候会自动刷新
-    hot: true,
-    // hotOnly: true,
-    before(app) {
-      // 可用于本地mock
-      app.get('/api/getInfo', function (req, res) {
-        res.json({ data: 'response-getInfo' });
-      });
-      app.get('/api/list', function (req, res) {
-        res.json({ data: [1, 2, 3, 4] });
-      });
-    }
-  },
   externals: {
     // 防止将某些 import 的包(package)打包到 bundle 中，而是在运行时(runtime)再去从外部获取这些扩展依赖,
     // 项目开发过程中正常引用安装，项目打包时会自动处理
@@ -79,8 +62,8 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          // 'style-loader',
+          // MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: "css-loader",
             options: {
@@ -126,17 +109,17 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              name: '[path][name].[ext]',
-              outputPath: 'images/',
-              limit: 1048 // 小于此值转成base64
+              name: '[name].[ext]',
+              outputPath: 'img/',
+              limit: 5 * 1048 // 小于此值转成base64
             }
           }
         ]
       },
       {
-        test: /\.(eot|svg|jpg|png|woff|woff2|ttf)$/,
+        test: /\.(eot|woff|woff2|ttf)$/,
         use: 'file-loader'
       }
     ]

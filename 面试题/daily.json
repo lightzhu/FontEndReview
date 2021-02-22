@@ -1,0 +1,4217 @@
+[
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 21 Jan 2021 08:56:27 GMT",
+          "favorite_num": 1,
+          "qid": 1002,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 1002,
+            "subject": null,
+            "title": "Day225:介绍 instanceof 原理并实现"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 20 Jan 2021 09:00:14 GMT",
+          "favorite_num": 5,
+          "qid": 1001,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 1001,
+            "subject": null,
+            "title": "Day224:多种方式实现圆形可点击区域(至少三种)"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 19 Jan 2021 08:31:05 GMT",
+          "favorite_num": 4,
+          "qid": 1000,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 1000,
+            "subject": "击鼓传花的规则:\n\n几个朋友一起玩一个游戏, 围成一圈, 开始数数（数数时数字都是挨着的，第一个人数 1，之后的人数 2）, 数到某个数字的人自动淘汰。汰的人后面再从 1 开始数，重复上面的游戏，直到就剩下一个人，请问剩下了谁?\n\n```js\n// 测试例子\nvar names = [\"John\", \"Jack\", \"Camila\", \"Ingrid\", \"Carl\"];\nvar endName = passGame(names, 8); // 数到 8 的人淘汰\nconsole.log(\"最终留下:\" + endName); // 'john'\n```",
+            "title": "Day223:使用队列来实现击鼓传花"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 18 Jan 2021 08:55:59 GMT",
+          "favorite_num": 15,
+          "qid": 999,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 999,
+            "subject": null,
+            "title": "Day222:说一下 ES6 对 Object 类型做了哪些优化更新?"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 15 Jan 2021 08:56:38 GMT",
+          "favorite_num": 12,
+          "qid": 998,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 998,
+            "subject": null,
+            "title": "Day221:说下 Webpack Runtime 和 Manifest 代码的作用？"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 14 Jan 2021 08:56:30 GMT",
+          "favorite_num": 13,
+          "qid": 997,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 997,
+            "subject": null,
+            "title": "Day220:了解函数式编程中的 compose 吗？动手实现一下？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 13 Jan 2021 08:16:37 GMT",
+          "favorite_num": 33,
+          "qid": 996,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 996,
+            "subject": null,
+            "title": "Day219:说下 prototype 和 `__proto__`的关系"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 12 Jan 2021 08:58:35 GMT",
+          "favorite_num": 27,
+          "qid": 995,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 995,
+            "subject": "```js\n// 代码片段一：是否存在堆栈溢出错误?\nfunction foo() {\n  setTimeout(foo, 0);\n}\nfoo();\n\n// 代码片段二:如果在控制台中运行以下函数，页面(选项卡)的 UI 是否仍然响应?\nfunction foo() {\n  return Promise.resolve().then(foo);\n}\n```",
+            "title": "Day218:说下下面两段代码执行情况\n"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 11 Jan 2021 08:57:09 GMT",
+          "favorite_num": 14,
+          "qid": 994,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 994,
+            "subject": "```js\nconst value = { number: 10 };\nlet number = 2;\nconst multiply = (x = { ...value }, y = number) => {\n  y++;\n  console.log((x.number *= y));\n};\n\nmultiply();\nmultiply();\nmultiply(value, number);\nmultiply(value, number);\n```",
+            "title": "Day217:写出下面代码输出结果，并解释为什么？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 08 Jan 2021 08:51:04 GMT",
+          "favorite_num": 35,
+          "qid": 993,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 993,
+            "subject": null,
+            "title": "Day216:说一下 escape、encodeURI、encodeURIComponent 有什么区别？具体的使用场景？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 07 Jan 2021 08:40:16 GMT",
+          "favorite_num": 25,
+          "qid": 992,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 992,
+            "subject": "\n```js\nconst person = { name: \"yd\" };\nObject.defineProperty(person, \"age\", { value: 21 });\nperson.age = 18;\nconsole.log(person);\nconsole.log(Object.keys(person));\n```\n",
+            "title": "Day215 下面代码的输出是什么？为什么？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 06 Jan 2021 08:58:45 GMT",
+          "favorite_num": 27,
+          "qid": 991,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 991,
+            "subject": "```js\n//counter.js\nlet counter = 10;\nconst add = () => {\n  console.log(counter);\n};\nexport { counter, add };\n\n//index.js\nadd();\nimport { counter, add } from \"./counter\";\ncounter += 1;\nconsole.log(counter);\n```",
+            "title": "Day214:写出下面代码的输出结果，并解释为什么？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 05 Jan 2021 08:29:48 GMT",
+          "favorite_num": 21,
+          "qid": 990,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 990,
+            "subject": null,
+            "title": "Day213:如何封装一个 localStorage，保证数据的时效性?"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 04 Jan 2021 09:00:05 GMT",
+          "favorite_num": 11,
+          "qid": 989,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 989,
+            "subject": null,
+            "title": "Day212:说下对 AST（Abstract Syntax Tree）抽象语法树的理解？都有哪些用途？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 31 Dec 2020 08:55:09 GMT",
+          "favorite_num": 6,
+          "qid": 988,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 988,
+            "subject": null,
+            "title": "Day211:有没有写过 Koa 中间件，说下中间件原理，介绍下自己写过的中间件"
+          },
+          "tech_tag": ["Node"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 1,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 30 Dec 2020 08:56:03 GMT",
+          "favorite_num": 15,
+          "qid": 987,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 987,
+            "subject": null,
+            "title": "Day210:项目中有没有涉及到 Cluster，说一下你的理解"
+          },
+          "tech_tag": ["Node"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 29 Dec 2020 08:55:53 GMT",
+          "favorite_num": 8,
+          "qid": 986,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 986,
+            "subject": null,
+            "title": "Day209:介绍一下 node 核心模块，并且详细介绍下 Stream"
+          },
+          "tech_tag": ["Node"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 28 Dec 2020 08:47:38 GMT",
+          "favorite_num": 9,
+          "qid": 985,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 985,
+            "subject": null,
+            "title": "Day208:模拟实现 Object.freeze"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 25 Dec 2020 09:09:05 GMT",
+          "favorite_num": 19,
+          "qid": 984,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 984,
+            "subject": null,
+            "title": "Day207:说一下 OAuth2.0 的登录详细流程\n"
+          },
+          "tech_tag": ["网络&安全"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 24 Dec 2020 07:53:47 GMT",
+          "favorite_num": 7,
+          "qid": 983,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 983,
+            "subject": null,
+            "title": "Day206:秒 转换为 时分秒格式，不能使用 js API"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 23 Dec 2020 09:00:37 GMT",
+          "favorite_num": 18,
+          "qid": 982,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 982,
+            "subject": "```js\n//str = \"2[a]1[bc]\", 返回 \"aabc\".\n// str = \"2[e2[d]]\", 返回 \"eddedd\".\n// str = \"3[abc]2[cd]ff\", 返回 \"abcabcabccdcdff\".\n// 可以看出: N[string]，表示string 正好重复 N 次。假设字符串一定是有效正确的字符串；但是你需要考虑其他可能出现的入参错误场景。\n```",
+            "title": "Day205:这里有个约定规则，实现一个方法 decodeStr，输入一个字符串，根据约定规则输出编码结果。约定规则如下："
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 22 Dec 2020 07:58:14 GMT",
+          "favorite_num": 17,
+          "qid": 981,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 981,
+            "subject": null,
+            "title": "Day204:说一下 Vue3 的 Composition API"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 21 Dec 2020 08:12:53 GMT",
+          "favorite_num": 19,
+          "qid": 980,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 980,
+            "subject": null,
+            "title": "Day203:Vue-router history 模式部署的时候要注意什么？server 端用 nginx 和 node 时候分别怎么处理？"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 18 Dec 2020 08:56:04 GMT",
+          "favorite_num": 51,
+          "qid": 979,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 979,
+            "subject": null,
+            "title": "Day202:说下 v8 引擎解释执行 js 代码的大致流程"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 17 Dec 2020 08:55:37 GMT",
+          "favorite_num": 36,
+          "qid": 978,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 978,
+            "subject": null,
+            "title": "Day201:说一下从获得 HTML 到页面渲染的全部流程？为什么栅格线程使用 GPU 计算而不是 CPU 计算？"
+          },
+          "tech_tag": ["网络&安全"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 16 Dec 2020 08:56:36 GMT",
+          "favorite_num": 7,
+          "qid": 977,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 977,
+            "subject": null,
+            "title": "Day200:Git 的快照是指什么？Git 的工作区域由哪三部分组成？在 Git 中，如何为提交的版本打标签？"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 15 Dec 2020 08:55:52 GMT",
+          "favorite_num": 76,
+          "qid": 976,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 976,
+            "subject": null,
+            "title": "Day199:你有封装过 axios 吗？主要是封装哪些方面？如何中断 axios 请求？"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 14 Dec 2020 08:57:37 GMT",
+          "favorite_num": 16,
+          "qid": 975,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 975,
+            "subject": null,
+            "title": "Day198:说一下 IoC 是啥，应用场景是啥？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 11 Dec 2020 08:57:25 GMT",
+          "favorite_num": 11,
+          "qid": 974,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 974,
+            "subject": null,
+            "title": "Day197:对 git flow 了解吗，应该如何使用"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": ["爱奇艺"],
+          "date": "Thu, 10 Dec 2020 08:53:50 GMT",
+          "favorite_num": 8,
+          "qid": 973,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 973,
+            "subject": null,
+            "title": "Day196:有看过 V8 源码吗？ 说下 `v8::Isolate`？"
+          },
+          "tech_tag": ["算法"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 2,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": ["支付宝"],
+          "date": "Wed, 09 Dec 2020 08:58:25 GMT",
+          "favorite_num": 10,
+          "qid": 972,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 972,
+            "subject": "```js\n/*\n * cargo 说明：\n * key代表类目/子类目名称\n * value 为 number时，代表这个类目的数量，为object 时，代表下一层货物的集合，最多嵌套两层\n * {\n *  productA:{  // 代表货物的类目名称\n *    a:1, // 1 代表子类目 a 的数量\n *    b:2,\n *    c:{   // c 代表货物的子类名称\n *      c1:1, // c1代表货物的子类名称\n *    }\n *   }，\n *  productB:{\n *      e:6\n *   }\n * }\n *\n * 爆仓情况：如转入 {productA:{a:3,c:1}} 转出 {productA:{a:4}},就会发生子类目a爆仓，此时要返回报错。\n *\n */\n\nclass Depository {\n  /**\n   * @param options\n   */\n  constructor(options) {}\n  // 转入货物\n  transferIn(cargo) {}\n  // 转出货物\n  transferOut(cargo) {}\n}\n```",
+            "title": "Day195:实现一个简单的仓储系统，可以不断转入和转出货物，货物最多有两层子类目，数字代表该子类目转入/转出的数量。转出时不能出现爆仓情况。"
+          },
+          "tech_tag": ["JavaScript", "编程题"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": ["美团"],
+          "date": "Tue, 08 Dec 2020 08:42:47 GMT",
+          "favorite_num": 22,
+          "qid": 971,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 971,
+            "subject": null,
+            "title": "Day194: `var arr =[[‘A’,’B’],[‘a’,’b’],[1,2]]` 求二维数组的全排列组合 结果：Aa1,Aa2,Ab1,Ab2,Ba1,Ba2,Bb1,Bb2"
+          },
+          "tech_tag": ["算法"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 07 Dec 2020 07:48:45 GMT",
+          "favorite_num": 12,
+          "qid": 970,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 970,
+            "subject": "```js\nfunction createImg(url) {}\ncreateImg(url).then((value) => {\n  document.body.appendChild(value);\n});\n```",
+            "title": "Day193:完善下面函数，实现图片的加载"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 04 Dec 2020 09:08:35 GMT",
+          "favorite_num": 26,
+          "qid": 969,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 969,
+            "subject": null,
+            "title": "Day192:将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树。本题中，一个高度平衡二叉树是指一个二叉树每个节点的左右两个子树的高度差的绝对值不超过 1。"
+          },
+          "tech_tag": ["算法"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 03 Dec 2020 09:05:03 GMT",
+          "favorite_num": 53,
+          "qid": 968,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 968,
+            "subject": null,
+            "title": "Day191:移动端适配方案具体实现以及对比"
+          },
+          "tech_tag": ["Css"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 02 Dec 2020 08:57:11 GMT",
+          "favorite_num": 12,
+          "qid": 967,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 967,
+            "subject": null,
+            "title": "Day190:怎么获取相交链表的第一个相交点？"
+          },
+          "tech_tag": ["编程题"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 01 Dec 2020 07:56:02 GMT",
+          "favorite_num": 30,
+          "qid": 966,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 966,
+            "subject": "```js\nfunction test() {\n  console.log(\"out\");\n}\n(function () {\n  if (false) {\n    function test() {\n      console.log(\"in\");\n    }\n  }\n  test();\n})();\n```\n",
+            "title": "Day189 写出代码正确执行结果，并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 30 Nov 2020 07:57:03 GMT",
+          "favorite_num": 18,
+          "qid": 965,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 965,
+            "subject": null,
+            "title": "Day188:DOM 树中，如何判断节点 A 是否包含于节点 B?"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 27 Nov 2020 08:56:18 GMT",
+          "favorite_num": 26,
+          "qid": 964,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 964,
+            "subject": null,
+            "title": "Day187:浏览器为什么要阻止跨域请求？如何解决跨域？每次跨域请求都需要到达服务端吗？"
+          },
+          "tech_tag": ["编程题"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 26 Nov 2020 08:56:02 GMT",
+          "favorite_num": 17,
+          "qid": 963,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 963,
+            "subject": null,
+            "title": "Day186:如何获取 html 元素实际的样式值？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 25 Nov 2020 08:59:29 GMT",
+          "favorite_num": 14,
+          "qid": 962,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 962,
+            "subject": "```js\nfunction lottery(whiteList, participant) {\n  // your code\n}\n// whiteList:类型字符串数组,意义是表示从其他系统中计算出来的活跃用户，如果这批用户参与抽奖，则必定让他中奖。长度不超过1万\n// participant:类型字符串数组,意义是表示此次活动中真正参与抽奖的用户，长度约是10万。\n\n// 函数希望从participant返回 2 万个用户，表示中奖用户，优先选取whiteList上的用户，若不在whiteList上，对participant 剩余的随机 选取即可。\n```",
+            "title": "Day185:按要求完成代码"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 24 Nov 2020 09:10:32 GMT",
+          "favorite_num": 24,
+          "qid": 961,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 961,
+            "subject": null,
+            "title": "Day184:请写一个方法，把 16 进制颜色转成 10 进制。(#fff => rgb(255,255,255))"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 23 Nov 2020 08:55:43 GMT",
+          "favorite_num": 18,
+          "qid": 960,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 960,
+            "subject": null,
+            "title": "Day183:有 100 瓶水，其中有一瓶有毒，小白鼠只要尝一点带毒的水 3 天后就会死亡，至少要多少只小白鼠才能在 3 天内鉴别出哪瓶水有毒？"
+          },
+          "tech_tag": ["其它"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 20 Nov 2020 09:07:18 GMT",
+          "favorite_num": 25,
+          "qid": 959,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 959,
+            "subject": null,
+            "title": "Day182:怎么计算组件在视口内出现了几次？IntersectionObserver 怎么使用的？怎么知道一个 DOM 节点出现在视口内？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 19 Nov 2020 08:56:18 GMT",
+          "favorite_num": 60,
+          "qid": 958,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 958,
+            "subject": null,
+            "title": "Day181:说一下组件库设计遵循的一些原则？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 3,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 18 Nov 2020 08:52:21 GMT",
+          "favorite_num": 73,
+          "qid": 957,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 957,
+            "subject": null,
+            "title": "Day180:说一下平时项目是怎么优化的？优化之后是怎么度量的？首屏时间是怎么计算的？"
+          },
+          "tech_tag": ["其它"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 17 Nov 2020 09:10:42 GMT",
+          "favorite_num": 25,
+          "qid": 956,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 956,
+            "subject": null,
+            "title": "Day179:Promise.allSettled 了解吗？动手实现一下 Promise.allSettled"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 16 Nov 2020 08:40:25 GMT",
+          "favorite_num": 21,
+          "qid": 955,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 955,
+            "subject": null,
+            "title": "Day178:React 挂载的时候有 3 个组件，textComponent、composeComponent、domComponent，说一下它们的区别和关系，Dom 结构发生变化时怎么区分 data 的变化，怎么更新，更新怎么调度，如果更新的时候还有其他任务存在怎么处理"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 13 Nov 2020 08:56:05 GMT",
+          "favorite_num": 38,
+          "qid": 954,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 954,
+            "subject": null,
+            "title": "Day177:说一下对 React Hook 的理解，它的实现原理，和生命周期有哪些区别？"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": ["顺丰"],
+          "date": "Thu, 12 Nov 2020 08:57:39 GMT",
+          "favorite_num": 27,
+          "qid": 953,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 953,
+            "subject": null,
+            "title": "Day176:怎么理解 to B 和 to C 的业务"
+          },
+          "tech_tag": ["其它"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": ["头条", "边锋", "菜鸟网络", "爱范儿", "心娱"],
+          "date": "Wed, 11 Nov 2020 08:56:36 GMT",
+          "favorite_num": 112,
+          "qid": 952,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 952,
+            "subject": null,
+            "title": "Day175:从输入 URL 到页面加载全过程"
+          },
+          "tech_tag": ["网络&安全"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": ["头条"],
+          "date": "Mon, 09 Nov 2020 08:09:33 GMT",
+          "favorite_num": 30,
+          "qid": 951,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 951,
+            "subject": "```js\nvar versions = [\"1.45.0\", \"1.5\", \"6\", \"3.3.3.3.3.3.3\"];\n// 要求从小到大排序，注意'1.45'比'1.5'大\nfunction sortVersion(versions) {\n  // TODO\n}\n// => ['1.5','1.45.0','3.3.3.3.3.3','6']\n```",
+            "title": "Day174:versions 是一个项目的版本号列表，因多人维护，不规则，动手实现一个版本号处理函数"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 06 Nov 2020 09:04:39 GMT",
+          "favorite_num": 40,
+          "qid": 950,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 950,
+            "subject": null,
+            "title": "Day173:说一下 HTTP2.0 多路复⽤有哪些优势？"
+          },
+          "tech_tag": ["网络&安全"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 05 Nov 2020 09:06:00 GMT",
+          "favorite_num": 41,
+          "qid": 949,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 949,
+            "subject": null,
+            "title": "Day172:用 JavaScript 实现一个标准的排序算法(快排、冒泡、选择排序)，对某个数字数组进行由低到高的排序。"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 04 Nov 2020 08:32:17 GMT",
+          "favorite_num": 20,
+          "qid": 948,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 948,
+            "subject": null,
+            "title": "Day171:请实现一个 JSON.stringfy"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 03 Nov 2020 08:57:58 GMT",
+          "favorite_num": 10,
+          "qid": 947,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 947,
+            "subject": null,
+            "title": "Day170:请实现一个 JSON.parse"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 02 Nov 2020 08:31:41 GMT",
+          "favorite_num": 44,
+          "qid": 946,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 946,
+            "subject": null,
+            "title": "Day169:怎么给 Vue 定义全局方法"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 30 Oct 2020 08:05:50 GMT",
+          "favorite_num": 47,
+          "qid": 945,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 945,
+            "subject": "```js\n<template>\n  <div>{{a.b}}</div>\n</template>\n\n<script>\nexport default {\n  data () {\n    return {\n      a: {}\n    }\n  },\n  created () {\n    this.a.b = 1\n  },\n  mounted () {\n    this.a.b = 2\n  }\n}\n</script>\n```",
+            "title": "Day168:写出页面渲染值，并解释为什么？"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 29 Oct 2020 08:53:53 GMT",
+          "favorite_num": 19,
+          "qid": 944,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 944,
+            "subject": "```js\nwhile(1){\n  console.log(Math.random());\n}\n```",
+            "title": "Day167:修改代码不造成死循环"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 28 Oct 2020 09:04:08 GMT",
+          "favorite_num": 38,
+          "qid": 943,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 943,
+            "subject": null,
+            "title": "Day166:项目中如何处理安全问题"
+          },
+          "tech_tag": ["其它"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 4,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 27 Oct 2020 08:56:53 GMT",
+          "favorite_num": 13,
+          "qid": 942,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 942,
+            "subject": null,
+            "title": "Day165:Node 如何和 MySQL 进行通信"
+          },
+          "tech_tag": ["Node"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 26 Oct 2020 08:57:36 GMT",
+          "favorite_num": 6,
+          "qid": 941,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 941,
+            "subject": null,
+            "title": "Day164:说一下 koa-body 原理"
+          },
+          "tech_tag": ["Node"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 23 Oct 2020 08:56:14 GMT",
+          "favorite_num": 29,
+          "qid": 940,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 940,
+            "subject": null,
+            "title": "Day163:什么是微服务，微服务跟单体应用的区别是啥，用微服务有啥好处？"
+          },
+          "tech_tag": ["Node"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 22 Oct 2020 08:56:15 GMT",
+          "favorite_num": 30,
+          "qid": 939,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 939,
+            "subject": null,
+            "title": "Day162:说一下 RN、Weex、Flutter 的优缺点"
+          },
+          "tech_tag": ["其它"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 21 Oct 2020 08:56:50 GMT",
+          "favorite_num": 27,
+          "qid": 938,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 938,
+            "subject": null,
+            "title": "Day161:说一下 koa2 和 express 区别"
+          },
+          "tech_tag": ["Node"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 20 Oct 2020 09:24:58 GMT",
+          "favorite_num": 35,
+          "qid": 937,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 937,
+            "subject": null,
+            "title": "Day160:动手实现一个左右固定100px，中间自适应的三列布局？(至少三种)"
+          },
+          "tech_tag": ["Css"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 19 Oct 2020 08:16:03 GMT",
+          "favorite_num": 30,
+          "qid": 936,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 936,
+            "subject": null,
+            "title": "Day159:如何把真实 dom 转变为虚拟 dom，代码实现一下"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 16 Oct 2020 08:56:15 GMT",
+          "favorite_num": 17,
+          "qid": 935,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 935,
+            "subject": "\n```js\n/*\n已知对象A = {name: 'sfd', getName: function(){console.log(this.name)}},\n现要求⽤不同⽅式对A进⾏改造实现A.name发⽣变化时⽴即执⾏A.getName\n*/\n```",
+            "title": "Day158:要求⽤不同⽅式对 A 进⾏改造实现 A.name 发⽣变化时⽴即执⾏ A.getName"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 15 Oct 2020 08:56:32 GMT",
+          "favorite_num": 16,
+          "qid": 934,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 934,
+            "subject": "",
+            "title": "Day157:实现一个函数将中文数字转成数字"
+          },
+          "tech_tag": ["算法"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 14 Oct 2020 08:44:28 GMT",
+          "favorite_num": 6,
+          "qid": 933,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 933,
+            "subject": "```js\n/*\n\t如输入1 返回a\n\t输入26返回z\n\t输入27返回aa\n\t输入28返回ab\n\t输入53返回aaa\n*/\n```",
+            "title": "Day156:输入一个数字，找到对应的字母"
+          },
+          "tech_tag": ["算法"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 13 Oct 2020 08:57:21 GMT",
+          "favorite_num": 19,
+          "qid": 932,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 932,
+            "subject": "```js\nfunction repeat(func, times, wait) {\n  // TODO\n}\nconst repeatFunc = repeat(alert, 4, 3000);\n// 调用这个 repeatFunc (\"hellworld\")，会alert4次 helloworld, 每次间隔3秒\n```",
+            "title": "Day155:动手实现一个 repeat 方法"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 12 Oct 2020 08:23:02 GMT",
+          "favorite_num": 16,
+          "qid": 931,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 931,
+            "subject": "```js\n// 输入两个字符串 2018-08  2018-12\n// 输出他们中间的月份 [2018-10, 2018-11]\n```\n",
+            "title": "Day154:给定起止日期，返回中间的所有月份"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 10 Oct 2020 08:47:14 GMT",
+          "favorite_num": 27,
+          "qid": 930,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 930,
+            "subject": null,
+            "title": "Day153:Promise.resolve(obj)，obj 有几种可能"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 09 Oct 2020 07:39:40 GMT",
+          "favorite_num": 44,
+          "qid": 929,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 929,
+            "subject": null,
+            "title": "Day152:for..in 和 Object.keys 的区别"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 30 Sep 2020 07:36:44 GMT",
+          "favorite_num": 47,
+          "qid": 928,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 928,
+            "subject": null,
+            "title": "Day151:for..of 和 for...in 是否可以直接遍历对象？为什么？如果不可以有什么解决方案？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 5,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 29 Sep 2020 08:55:08 GMT",
+          "favorite_num": 12,
+          "qid": 927,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 927,
+            "subject": null,
+            "title": "Day150:说一下对 React context 的理解"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 28 Sep 2020 08:55:58 GMT",
+          "favorite_num": 33,
+          "qid": 926,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 926,
+            "subject": null,
+            "title": "Day149:一个人每次只能走一层楼梯或者两层楼梯，问走到第 80 层楼梯一共有多少种方法"
+          },
+          "tech_tag": ["算法"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 27 Sep 2020 08:44:04 GMT",
+          "favorite_num": 25,
+          "qid": 925,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 925,
+            "subject": null,
+            "title": "Day148:请实现一个 cacheRequest 方法，保证发出多次同一个 ajax 请求时都能拿到数据，而实际上只发出一次请求"
+          },
+          "tech_tag": ["JavaScript", "编程题"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 25 Sep 2020 08:28:30 GMT",
+          "favorite_num": 43,
+          "qid": 924,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 924,
+            "subject": "```js\nconsole.log(\"start\");\nsetTimeout(() => {\n  console.log(\"children2\");\n  Promise.resolve().then(() => {\n    console.log(\"children3\");\n  });\n}, 0);\nnew Promise(function (resolve, reject) {\n  console.log(\"children4\");\n  setTimeout(function () {\n    console.log(\"children5\");\n    resolve(\"children6\");\n  }, 0);\n}).then((res) => {\n  console.log(\"children7\");\n  setTimeout(() => {\n    console.log(res);\n  }, 0);\n});\n```",
+            "title": "Day147:在浏览器执行以下代码，写出打印结果"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 24 Sep 2020 08:55:51 GMT",
+          "favorite_num": 50,
+          "qid": 923,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 923,
+            "subject": null,
+            "title": "Day146:原生 JavaScript 实现图片懒加载的思路"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 23 Sep 2020 08:55:39 GMT",
+          "favorite_num": 29,
+          "qid": 922,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 922,
+            "subject": null,
+            "title": "Day145:介绍下 pm2，pm2 依据什么重启服务"
+          },
+          "tech_tag": ["Node"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 22 Sep 2020 08:40:43 GMT",
+          "favorite_num": 43,
+          "qid": 921,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 921,
+            "subject": null,
+            "title": "Day144:说一下 Vue 单页与多页的区别"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 18 Sep 2020 08:58:12 GMT",
+          "favorite_num": 57,
+          "qid": 920,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 920,
+            "subject": null,
+            "title": "Day143:说一下 Vue3 与 Vue2 的对比"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 17 Sep 2020 08:58:34 GMT",
+          "favorite_num": 49,
+          "qid": 919,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 919,
+            "subject": null,
+            "title": "Day142:请列出目前主流的 JavaScript 模块化实现的技术有哪些？说出它们的区别？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 16 Sep 2020 08:56:02 GMT",
+          "favorite_num": 77,
+          "qid": 918,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 918,
+            "subject": null,
+            "title": "Day141:请描述下 JavaScript 中 Scope、Closure、Prototype 概念，并说明 JavaScript 封装、继承实现原理。"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 15 Sep 2020 08:18:30 GMT",
+          "favorite_num": 23,
+          "qid": 917,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 917,
+            "subject": null,
+            "title": "Day140:Fiber算法原理，相比之前的stack算法哪些方面做了优化？"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 14 Sep 2020 07:55:42 GMT",
+          "favorite_num": 39,
+          "qid": 916,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 916,
+            "subject": null,
+            "title": "Day139:Vue data 中某一个属性的值发生改变后，视图会立即同步执行重新渲染吗？为什么？"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 11 Sep 2020 08:39:08 GMT",
+          "favorite_num": 47,
+          "qid": 915,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 915,
+            "subject": null,
+            "title": "Day138:有 1000 个 dom，需要更新其中的 100 个，如何操作才能减少 dom 的操作？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 10 Sep 2020 08:30:19 GMT",
+          "favorite_num": 72,
+          "qid": 914,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 914,
+            "subject": null,
+            "title": "Day137:说说浏览器渲染流程，分层之后在什么时候合成，什么是重排、重绘，怎样避免"
+          },
+          "tech_tag": ["Css"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 09 Sep 2020 08:18:15 GMT",
+          "favorite_num": 55,
+          "qid": 913,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 913,
+            "subject": null,
+            "title": "Day136:BFC 是什么？触发 BFC 的条件是什么？有哪些应用场景？"
+          },
+          "tech_tag": ["Css"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 6,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 08 Sep 2020 08:22:32 GMT",
+          "favorite_num": 11,
+          "qid": 912,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 912,
+            "subject": null,
+            "title": "Day135:说一下单元测试、E2E测试？它们有什么区别？"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 07 Sep 2020 08:56:21 GMT",
+          "favorite_num": 28,
+          "qid": 911,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 911,
+            "subject": null,
+            "title": "Day134:Typescript 里有哪些 JavaScript 没有的类型？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 04 Sep 2020 08:48:23 GMT",
+          "favorite_num": 26,
+          "qid": 910,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 910,
+            "subject": null,
+            "title": "Day133:说一下 mobox 和 redux 有什么区别？"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 03 Sep 2020 07:30:32 GMT",
+          "favorite_num": 36,
+          "qid": 909,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 909,
+            "subject": null,
+            "title": "Day132:说下 tree-shaking 的原理"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 02 Sep 2020 08:01:25 GMT",
+          "favorite_num": 70,
+          "qid": 908,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 908,
+            "subject": null,
+            "title": "Day131:介绍下 webpack，并说下 Webpack 的构建流程"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 01 Sep 2020 08:16:54 GMT",
+          "favorite_num": 66,
+          "qid": 907,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 907,
+            "subject": "",
+            "title": "Day130:什么是深拷贝，和浅拷贝有什么区别，动手实现一个深拷贝"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 31 Aug 2020 07:33:30 GMT",
+          "favorite_num": 13,
+          "qid": 906,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 906,
+            "subject": null,
+            "title": "Day129:React 高阶组件 、Render props 和 hooks 有什么区别，为什么要不断迭代"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 28 Aug 2020 07:56:17 GMT",
+          "favorite_num": 13,
+          "qid": 905,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 905,
+            "subject": null,
+            "title": "Day128:说一下 React.Component 和 React.PureComponent 的区别"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 27 Aug 2020 07:51:09 GMT",
+          "favorite_num": 26,
+          "qid": 904,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 904,
+            "subject": "```js\nconst timeout = (ms) =>\n  new Promise((resolve, reject) => {\n    setTimeout(() => {\n      resolve();\n    }, ms);\n  });\nconst ajax1 = () =>\n  timeout(2000).then(() => {\n    console.log(\"1\");\n    return 1;\n  });\nconst ajax2 = () =>\n  timeout(1000).then(() => {\n    console.log(\"2\");\n    return 2;\n  });\nconst ajax3 = () =>\n  timeout(2000).then(() => {\n    console.log(\"3\");\n    return 3;\n  });\nconst mergePromise = (ajaxArray) => {\n  // 1,2,3 done [1,2,3] 此处写代码 请写出ES6、ES3 2中解法\n};\nmergePromise([ajax1, ajax2, ajax3]).then((data) => {\n  console.log(\"done\");\n  console.log(data); // data 为[1,2,3]\n});\n// 执行结果为：1 2 3 done [1,2,3]\n```",
+            "title": "Day127:按要求完成 mergePromise 代码"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 26 Aug 2020 07:23:50 GMT",
+          "favorite_num": 54,
+          "qid": 903,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 903,
+            "subject": null,
+            "title": "Day126:请描述 CSRF、XSS 的基本概念、攻击原理和防御措施？"
+          },
+          "tech_tag": ["网络&安全"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 25 Aug 2020 07:55:43 GMT",
+          "favorite_num": 18,
+          "qid": 902,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 902,
+            "subject": "```js\n/* \n根据传入参数n(数字)对一维数组(纯数字)按照距离n最近的顺序排序。\n(距离即数字与n的差值的绝对值) \n*/ \nvar arr = [7, 28, -1, 0, 7, 33]; \nfunction sort(n) { \n  //your code\n}\n```",
+            "title": "Day125:按要求实现代码"
+          },
+          "tech_tag": ["算法"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 24 Aug 2020 07:43:21 GMT",
+          "favorite_num": 31,
+          "qid": 901,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 901,
+            "subject": null,
+            "title": "Day124:说一下 Https 加密握手的过程"
+          },
+          "tech_tag": ["网络&安全"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 21 Aug 2020 07:17:34 GMT",
+          "favorite_num": 35,
+          "qid": 900,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 900,
+            "subject": null,
+            "title": "Day123:说下 webpack 的 loader 和 plugin 的区别，都使用过哪些 loader 和 plugin"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 20 Aug 2020 07:35:53 GMT",
+          "favorite_num": 70,
+          "qid": 899,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 899,
+            "subject": null,
+            "title": "Day122:说一下 import 的原理，与 require 有什么不同?"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 19 Aug 2020 08:28:29 GMT",
+          "favorite_num": 29,
+          "qid": 898,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 898,
+            "subject": null,
+            "title": "Day121:说一下 在 map 中和 for 中调用异步函数的区别"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 7,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 18 Aug 2020 07:35:15 GMT",
+          "favorite_num": 28,
+          "qid": 897,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 897,
+            "subject": null,
+            "title": "Day120:说一下 CORS 的简单请求和复杂请求的区别"
+          },
+          "tech_tag": ["网络&安全"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 17 Aug 2020 08:19:35 GMT",
+          "favorite_num": 25,
+          "qid": 896,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 896,
+            "subject": null,
+            "title": "Day119:怎样判断一个对象是否是数组，如何处理类数组对象"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 14 Aug 2020 07:45:57 GMT",
+          "favorite_num": 63,
+          "qid": 895,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 895,
+            "subject": null,
+            "title": "Day118:说一下单点登录实现原理"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 13 Aug 2020 04:49:28 GMT",
+          "favorite_num": 43,
+          "qid": 894,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 894,
+            "subject": null,
+            "title": "Day117:React SSR实现过程？原理是什么？有什么注意事项？"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 12 Aug 2020 03:55:47 GMT",
+          "favorite_num": 61,
+          "qid": 893,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 893,
+            "subject": null,
+            "title": "Day116:商城的列表页跳转到商品的详情页，详情页数据接口很慢，前端可以怎么优化用户体验？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 11 Aug 2020 04:36:17 GMT",
+          "favorite_num": 65,
+          "qid": 892,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 892,
+            "subject": null,
+            "title": "Day115:说一下 vue-router 的原理"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 10 Aug 2020 09:28:02 GMT",
+          "favorite_num": 52,
+          "qid": 891,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 891,
+            "subject": null,
+            "title": "Day114:说一下Webpack 热更新的原理"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 07 Aug 2020 04:38:48 GMT",
+          "favorite_num": 20,
+          "qid": 890,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 890,
+            "subject": null,
+            "title": "Day113:Import 和 CommonJS 在 webpack 打包过程中有什么不同"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 06 Aug 2020 05:10:25 GMT",
+          "favorite_num": 18,
+          "qid": 889,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 889,
+            "subject": null,
+            "title": "Day112:数组里面有 10 万个数据，取第一个元素和第 10 万个元素的时间相差多少"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 05 Aug 2020 07:51:46 GMT",
+          "favorite_num": 37,
+          "qid": 888,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 888,
+            "subject": null,
+            "title": "Day111:原生 JavaScript 实现图片懒加载的思路"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 04 Aug 2020 09:21:34 GMT",
+          "favorite_num": 36,
+          "qid": 887,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 887,
+            "subject": null,
+            "title": "Day110:客户端缓存有几种方式？浏览器出现 from disk、from memory 的策略是啥"
+          },
+          "tech_tag": ["网络&安全"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 31 Jul 2020 08:15:05 GMT",
+          "favorite_num": 12,
+          "qid": 886,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 886,
+            "subject": null,
+            "title": "Day109:动画性能如何检测"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 30 Jul 2020 05:02:21 GMT",
+          "favorite_num": 48,
+          "qid": 885,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 885,
+            "subject": null,
+            "title": "Day108:Webpack 为什么慢，如何进行优化"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 29 Jul 2020 07:10:03 GMT",
+          "favorite_num": 28,
+          "qid": 884,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 884,
+            "subject": null,
+            "title": "Day107:对虚拟 DOM 的理解？虚拟 DOM 主要做了什么？虚拟 DOM 本身是什么？"
+          },
+          "tech_tag": ["Vue", "React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 28 Jul 2020 05:03:33 GMT",
+          "favorite_num": 22,
+          "qid": 883,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 883,
+            "subject": null,
+            "title": "Day106:Webpack 里面的插件是怎么实现的？"
+          },
+          "tech_tag": ["工程化"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 8,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 27 Jul 2020 08:30:10 GMT",
+          "favorite_num": 25,
+          "qid": 882,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 882,
+            "subject": null,
+            "title": "Day105:JavaScript 中如何模拟实现方法的重载,动手实现下"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 24 Jul 2020 04:32:05 GMT",
+          "favorite_num": 29,
+          "qid": 881,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 881,
+            "subject": null,
+            "title": "Day104:项目中如何进行异常捕获"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 23 Jul 2020 07:06:02 GMT",
+          "favorite_num": 38,
+          "qid": 880,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 880,
+            "subject": null,
+            "title": "Day103:多个 tab 只对应一个内容框，点击每个 tab 都会请求接口并渲染到内容框，怎么确保频繁点击 tab 但能够确保数据正常显示？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 22 Jul 2020 07:08:01 GMT",
+          "favorite_num": 27,
+          "qid": 879,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 879,
+            "subject": null,
+            "title": "Day102:说一下减少 dom 数量的办法？一次性给你大量的 dom 怎么优化？"
+          },
+          "tech_tag": ["Html"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 21 Jul 2020 07:04:24 GMT",
+          "favorite_num": 28,
+          "qid": 878,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 878,
+            "subject": null,
+            "title": "Day101:Vue v-model 是如何实现的，语法糖实际是什么"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 20 Jul 2020 07:05:50 GMT",
+          "favorite_num": 28,
+          "qid": 877,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 877,
+            "subject": null,
+            "title": "Day100:哪些方法会触发 react 重新渲染？重新渲染 render 会做些什么？"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 17 Jul 2020 07:21:00 GMT",
+          "favorite_num": 34,
+          "qid": 876,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 876,
+            "subject": null,
+            "title": "Day99:React 中 setState 后发生了什么？setState 为什么默认是异步？setState 什么时候是同步？"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 16 Jul 2020 07:25:22 GMT",
+          "favorite_num": 37,
+          "qid": 875,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 875,
+            "subject": "```js\nObject.prototype.yideng = \"京程一灯\";\nvar a = 123;\na.b = 456;\nconsole.log(a.yideng);\nconsole.log(a.b)\n```",
+            "title": "Day98:写出下面代码的执行结果，并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 14 Jul 2020 07:38:30 GMT",
+          "favorite_num": 44,
+          "qid": 874,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 874,
+            "subject": null,
+            "title": "Day97:请讲一下react-redux的实现原理?"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 13 Jul 2020 07:11:42 GMT",
+          "favorite_num": 71,
+          "qid": 873,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 873,
+            "subject": null,
+            "title": "Day96:请能尽可能多的说出 Vue 组件间通信方式？在组件的通信中EventBus非常经典，你能手写实现下EventBus么？"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 10 Jul 2020 07:52:17 GMT",
+          "favorite_num": 45,
+          "qid": 872,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 872,
+            "subject": null,
+            "title": "Day95:Promise.all中任何一个Promise出现错误的时候都会执行reject，导致其它正常返回的数据也无法使用。你有什么解决办法么？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 09 Jul 2020 07:35:09 GMT",
+          "favorite_num": 32,
+          "qid": 871,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 871,
+            "subject": null,
+            "title": "Day94:说一下React Hooks在平时开发中需要注意的问题和原因？"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 08 Jul 2020 07:56:33 GMT",
+          "favorite_num": 48,
+          "qid": 870,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 870,
+            "subject": null,
+            "title": "Day93:Vue组件中写name选项有除了搭配keep-alive还有其他作用么？你能谈谈你对keep-alive了解么？（平时使用和源码实现方面）"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 07 Jul 2020 07:23:13 GMT",
+          "favorite_num": 66,
+          "qid": 869,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 869,
+            "subject": null,
+            "title": "Day92:既然 Vue 通过数据劫持可以精准探测数据在具体dom上的变化,为什么还需要虚拟 DOM diff 呢?"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 06 Jul 2020 04:44:24 GMT",
+          "favorite_num": 53,
+          "qid": 868,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 868,
+            "subject": "```js\nVue.set (object, propertyName, value) \nvm.$set (object, propertyName, value)\n```\n",
+            "title": "Day91:Vue 为什么要用 vm.$set() 解决对象新增属性不能响应的问题 ？你能说说如下代码的实现原理么？"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 9,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 03 Jul 2020 06:54:49 GMT",
+          "favorite_num": 71,
+          "qid": 866,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 866,
+            "subject": null,
+            "title": "Day90:Vue父组件可以监听到子组件的生命周期吗？如果能请写出你的实现方法。"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 02 Jul 2020 06:47:19 GMT",
+          "favorite_num": 55,
+          "qid": 865,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 865,
+            "subject": null,
+            "title": "Day89:请问React调用机制一共对任务设置了几种优先级别？每种优先级都代表的具体含义是什么？在你开发过程中如果遇到影响主UI渲染卡顿的任务，你又是如何利用这些优先级的？"
+          },
+          "tech_tag": ["React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 01 Jul 2020 07:01:49 GMT",
+          "favorite_num": 103,
+          "qid": 864,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 864,
+            "subject": "```js\nlet yd = { x: 1, y: 2 };\n// 以下两段代码会抛出异常吗？\nlet ydWithXGetter1 = {\n  ...yd,\n  get x() {\n    throw new Error();\n  },\n};\n\nlet ydWithXGetter2 = {\n  ...yd,\n  ...{\n    get x() {\n      throw new Error();\n    },\n  },\n};\n```",
+            "title": "Day88:以下两段代码会抛出异常吗？解释原因？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 29 Jun 2020 08:28:56 GMT",
+          "favorite_num": 66,
+          "qid": 863,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 863,
+            "subject": "```js\nconsole.log(1 < 2 < 3);\nconsole.log(3 > 2 > 1);\n```\n",
+            "title": "Day87:写出下面代码1，2，3的大小判断结果"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 28 Jun 2020 08:14:17 GMT",
+          "favorite_num": 52,
+          "qid": 862,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 862,
+            "subject": "```js\nconst arrLike = {\n  length:4,\n  0:0,\n  1:1,\n  '-1':2,\n  3:3,\n  4:4,\n}\nconsole.log(Array.from(arrLike));\nconsole.log(Array.prototype.slice.call(arrLike));\n```\n",
+            "title": "Day86:写出类数组转换结果，并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 27 Jun 2020 08:14:17 GMT",
+          "favorite_num": 36,
+          "qid": 861,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 861,
+            "subject": "```js\nlet ydObject = { ...null, ...undefined };\nconsole.log(ydObject);\nlet ydArray = [...null, ...undefined];\nconsole.log(ydArray);\n```\n\n",
+            "title": "Day85:对于扩展运算符，下面代码的执行结果是什么？并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 26 Jun 2020 08:14:17 GMT",
+          "favorite_num": 47,
+          "qid": 860,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 860,
+            "subject": "```js\n function foo(){\n   console.log(length);\n }\nfunction bar(){\n  var length = \"京程一灯\";\n  foo();\n}\nbar();\n```\n",
+            "title": "Day84:对于length下面代码的输出结果是什么？并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 25 Jun 2020 08:14:17 GMT",
+          "favorite_num": 33,
+          "qid": 859,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 859,
+            "subject": "```js\nvar obj = {};\nvar x = +obj.yideng?.name ?? '京程一灯';\nconsole.log(x);\n```\n",
+            "title": "Day83:请写出如下代码的打印结果，并解释为什么"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 24 Jun 2020 08:14:17 GMT",
+          "favorite_num": 47,
+          "qid": 858,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 858,
+            "subject": "\n```js\nlet a = [];\nlet b = \"0\";\nconsole.log(a == 0);\nconsole.log(a == !a);\nconsole.log(b == 0);\nconsole.log(a == b);\n```\n",
+            "title": "Day82:关于隐式转换，下面代码的执行结果是什么？并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 23 Jun 2020 08:14:17 GMT",
+          "favorite_num": 45,
+          "qid": 857,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 857,
+            "subject": "```js\nconst debounce = (fn,delay) => {\n  // 介绍防抖函数原理，并实现\n  // your code\n}\nconst throttle = (fn,delay = 500) => {\n  // 介绍节流函数原理，并实现\n   // your code\n}\n```\n",
+            "title": "Day81:介绍防抖与节流的原理，并动手实现"
+          },
+          "tech_tag": ["JavaScript", "编程题"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 22 Jun 2020 08:14:17 GMT",
+          "favorite_num": 25,
+          "qid": 856,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 856,
+            "subject": "```js\nconst arr1 = ['a', 'b', 'c'];\nconst arr2 = ['b', 'c', 'a'];\nconsole.log(\n  arr1.sort() === arr1,\n  arr2.sort() == arr2,\n  arr1.sort() === arr2.sort()\n);\n```\n",
+            "title": "Day80:关于数组sort，下面代码的正确打印结果是什么，并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 21 Jun 2020 08:14:17 GMT",
+          "favorite_num": 29,
+          "qid": 855,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 855,
+            "subject": "```js\nconsole.log(null == 0);\nconsole.log(null <= 0);\nconsole.log(null < 0);\n```\n",
+            "title": "Day79:写出下面代码null和0进行比较的代码执行结果，并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 20 Jun 2020 08:08:32 GMT",
+          "favorite_num": 34,
+          "qid": 854,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 854,
+            "subject": "```html \n<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <title>京程一灯，每日一题</title>\n  </head>\n  <body>\n    <!--\n        1.Script放在底部还会影响dom的解析和渲染吗？\n        2.Script内部的代码执行会等待css加载完吗？\n        3.css加载会影响DOMContentLoaded么？\n\t-->\n    <link href=\"https://cdn/css/bootstrap.css\" ref=\"stylesheet\">\n    <h1>京程一灯</h1>\n    <script>\n    \tconsole.log(\"DOMContentLoaded\");\n    </script>\n  </body>\n</html>\n```\n",
+            "title": "Day78:Script放在底部还会影响dom的解析和渲染吗？Script内部的代码执行会等待css加载完吗？css加载会影响DOMContentLoaded么？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 19 Jun 2020 08:21:51 GMT",
+          "favorite_num": 36,
+          "qid": 853,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 853,
+            "subject": "```js\nconst str = '1234567890';\nfunction formatNumber(str){\n  // your code\n}\nconsole.log(formatNumber(str)); //1,234,567,890\n// 补充代码，使代码可以正确执行\n```\n",
+            "title": "Day77:补充代码，使代码可以正确执行"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 18 Jun 2020 08:21:51 GMT",
+          "favorite_num": 27,
+          "qid": 852,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 852,
+            "subject": "```js\nconst a = [1,2,3],\n    b = [1,2,3],\n    c = [1,2,4],\n\t\td = \"2\",\n\t\te = \"11\";\nconsole.log([a == b, a === b, a > c, a < c, d > e]);\n```\n",
+            "title": "Day76:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 10,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 17 Jun 2020 08:21:51 GMT",
+          "favorite_num": 24,
+          "qid": 851,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 851,
+            "subject": "```js\nvar F = function(){}\nObject.prototype.a = function(){\nconsole.log('yideng')\n}\nFunction.prototype.b = function(){\nconsole.log('xuetang')\n}\nvar f = new F()\nF.a();\nF.b();\nf.a();\nf.b();\n```\n",
+            "title": "Day75:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 16 Jun 2020 08:21:51 GMT",
+          "favorite_num": 21,
+          "qid": 850,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 850,
+            "subject": "```js\nvar arr1 = \"ab\".split('');\nvar arr2 = arr1.reverse(); \nvar arr3 = \"abc\".split('');\narr2.push(arr3);\nconsole.log(arr1.length);\nconsole.log(arr1.slice(-1));\nconsole.log(arr2.length);\nconsole.log(arr2.slice(-1));\n```\n",
+            "title": "Day74:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 15 Jun 2020 08:21:51 GMT",
+          "favorite_num": 21,
+          "qid": 849,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 849,
+            "subject": "```js\nfunction yideng(n,o){\n    console.log(o); // ？\n    return {\n        yideng:function(m){\n            return yideng(m,n);\n        }\n    }\n}\nconst a=yideng(0);a.yideng(1);a.yideng(2);a.yideng(3);\nconst b=yideng(0).yideng(1).yideng(2).yideng(3);\nconst c = yideng(0).yideng(1);c.yideng(2);c.yideng(3);\n```\n",
+            "title": "Day73:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 14 Jun 2020 08:21:51 GMT",
+          "favorite_num": 22,
+          "qid": 848,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 848,
+            "subject": "```js\n/*\n\t给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效\n  有效字符串需满⾜：\n \t \t1. 左括号必须⽤相同类型的右括号闭合。\n  \t2. 左括号必须以正确的顺序闭合。\n  注意空字符串可被认为是有效字符串。\n  示例1：\n  \t输⼊: \"()\"\n  \t输出: true\n  示例2：\n  \t输⼊: \"()[]{}\"\n  \t输出: true\n  示例 3:\n  \t输⼊: \"(]\"\n  \t输出: false\n  示例 4:\n  \t输⼊: \"([)]\"\n  \t输出: false\n  示例 5:\n  \t输⼊: \"{[]}\"\n  \t输出: true\n*/\n```\n",
+            "title": "Day72:有效括号算法题"
+          },
+          "tech_tag": ["算法"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 13 Jun 2020 08:21:51 GMT",
+          "favorite_num": 27,
+          "qid": 847,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 847,
+            "subject": "",
+            "title": "Day71:[手写代码]实现Promise.all方法"
+          },
+          "tech_tag": ["JavaScript", "编程题"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 12 Jun 2020 08:21:51 GMT",
+          "favorite_num": 17,
+          "qid": 846,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 846,
+            "subject": "```js\nfunction captureOne(re, str) {\n  var match = re.exec(str);\n  return match && match[1];\n}\nvar numRe  = /num=(\\d+)/ig,\n    wordRe = /yideng=(\\w+)/i,\n    a1 = captureOne(numRe,  \"num=1\"),\n    a2 = captureOne(wordRe, \"yideng=1\"),\n    a3 = captureOne(numRe,  \"NUM=2\"),\n    a4 = captureOne(wordRe,  \"YIDENG=2\"),\n\t\ta5 = captureOne(numRe,  \"Num=3\"),\n    a6 = captureOne(wordRe,  \"YiDeng=3\");\nconsole.log(a1 === a2);\nconsole.log(a3 === a4);\nconsole.log(a5 === a6);\n```\n",
+            "title": "Day70:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 11 Jun 2020 08:21:51 GMT",
+          "favorite_num": 19,
+          "qid": 845,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 845,
+            "subject": "```js\nconst lowerCaseOnly =  /^[a-z]+$/;\nconsole.log(lowerCaseOnly.test('yideng'));\nconsole.log(lowerCaseOnly.test(null));\nconsole.log(lowerCaseOnly.test());\n```\n",
+            "title": "Day69:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 10 Jun 2020 08:21:51 GMT",
+          "favorite_num": 27,
+          "qid": 844,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 844,
+            "subject": "```js\nfunction yideng(){}\nconst a = {}, b = Object.prototype;\nconsole.log(a.prototype === b);\nconsole.log(Object.getPrototypeOf(a) === b);\nconsole.log(yideng.prototype === Object.getPrototypeOf(yideng));\n```\n",
+            "title": "Day68:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 09 Jun 2020 08:21:51 GMT",
+          "favorite_num": 21,
+          "qid": 843,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 843,
+            "subject": "```js\n3.toString()\n3..toString()\n3...toString()\n```\n",
+            "title": "Day67:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 08 Jun 2020 08:21:51 GMT",
+          "favorite_num": 26,
+          "qid": 842,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 842,
+            "subject": "```js\n给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，这两个整数可能有多种组合，找出其中一组组合即可，并返回他们的数组下标。\n\n示例:\n给定 nums = [2, 7, 11, 15], target = 9\n因为 nums[0] + nums[1] = 2 + 7 = 9\n所以返回 [0, 1]\n```\n",
+            "title": "Day66:一个简单的算法题目"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 07 Jun 2020 08:21:51 GMT",
+          "favorite_num": 23,
+          "qid": 841,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 841,
+            "subject": "```js\nclass YiDeng {\n  static str = '京程一灯';\n\tsayStr = ()=>{\n    throw new Error('Need to implement');\n  }\n}\nclass Student extends YiDeng(){\n  constructor(){\n    super();\n  }\n  sayStr(){\n    console.log(Student.str);\n  }\n}\nconst laoyuan = new Student();\nconsole.log(Student.str);\nlaoyuan.sayStr();\n\n//A.undefiend， 报错Need to implement\n// B. undefiend, 京程一灯\n// C. undefined, undefined\n// D.京程一灯， 报错Need to implement\n// E. 京程一灯，京程一灯\n// F.京程一灯，undefined\n// G. str is not defined, 京程一灯\n```\n",
+            "title": "Day65:选择正确的选项"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 06 Jun 2020 08:21:51 GMT",
+          "favorite_num": 19,
+          "qid": 840,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 840,
+            "subject": "```js\n/*\n\t说明：该文件名未知，位于当前项目内的dist/scripts文件夹内\n\t要求：一句话补全代码，获取它的完整位置:http://xx.com/dis/scripts/xx.js\n\t注：非node环境，node可以使用__dirname\n*/\nconst url = ✍️代码书写处；\nexport default url;\n```\n",
+            "title": "Day64:补全代码"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 05 Jun 2020 08:21:51 GMT",
+          "favorite_num": 20,
+          "qid": 839,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 839,
+            "subject": "```js\n// 实现一个isNegtiveZero函数，只检查+0和-0，-0则返回true,+0返回false\nfunction isNegtiveZero(num){\n  // 代码实现\n}\n```\n",
+            "title": "Day63:实现一个isNegtiveZero函数，只检查+0和-0，-0则返回true,+0返回false"
+          },
+          "tech_tag": ["JavaScript", "编程题"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 04 Jun 2020 08:21:51 GMT",
+          "favorite_num": 23,
+          "qid": 838,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 838,
+            "subject": "```js\n不借助中间变量交换两个变量的值\n比如 let a = 1,b = 2;交换a,b的值\n```\n",
+            "title": "Day62:不借助中间变量交换两个变量的值"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 03 Jun 2020 08:21:51 GMT",
+          "favorite_num": 24,
+          "qid": 837,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 837,
+            "subject": "```js\nvar yideng_a = Function.length;\nvar yideng_b = new Function().length;\nconsole.log(yideng_a === yideng_b);\n```\n",
+            "title": "Day61:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 11,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 02 Jun 2020 08:21:51 GMT",
+          "favorite_num": 20,
+          "qid": 836,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 836,
+            "subject": "```js\n[].forEach.call($$(\"*\"),function(a){  \n  a.style.outline=\"1px solid #\"+(~~(Math.random()*(1<<24))).toString(16)  \n})  \n```\n",
+            "title": "Day60:解释下这段代码的意思以及用到的技术点"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 01 Jun 2020 08:21:51 GMT",
+          "favorite_num": 19,
+          "qid": 835,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 835,
+            "subject": "```js\n'use strict';\nfunction plus(n){\n  \n}\nmodule.exports = plus\n// 测试用例如下\n'use strict';\nvar assert = require('assert');\nvar plus = require('../lib/assign-4');\ndescribe('测试用例',function(){\n  it('plus(0) === 0',function(){\n    assert.equal(0,plus(0).toString())\n  })\n  it('plus(1)(1)(2)(3)(5) === 12',function(){\n    assert.equal(12,plus(1)(1)(2)(3)(5).toString())\n  })\n  it('plus(1)(4)(2)(3) === 10',function(){\n    assert.equal(10,plus(1)(4)(2)(3).toString())\n  })\n  it('plus(1,1)(2,2)(3)(4) === 13',function(){\n   \tassert.equal(13,plus(1,1)(2,2)(3)(4).toString())\n  })\n})\n```\n",
+            "title": "Day59:完成plus函数，通过全部的测试用例"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 31 May 2020 08:21:51 GMT",
+          "favorite_num": 20,
+          "qid": 834,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 834,
+            "subject": "",
+            "title": "Day58:Object.seal和Object.freeze方法之间有什么区别"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 30 May 2020 08:21:51 GMT",
+          "favorite_num": 16,
+          "qid": 833,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 833,
+            "subject": "",
+            "title": "Day57:如何在不使用%摸运算符的情况下检查一个数字是否是偶数"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 29 May 2020 08:21:51 GMT",
+          "favorite_num": 24,
+          "qid": 832,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 832,
+            "subject": "",
+            "title": "Day56:介绍下Set、Map、WeakSet和WeakMap的区别"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 28 May 2020 08:21:51 GMT",
+          "favorite_num": 25,
+          "qid": 831,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 831,
+            "subject": "```js\n// 实现 (5).add(3).minus(2) 功能\nconsole.log((5).add(3).minus(2)); // 6\n```\n",
+            "title": "Day55:实现 (5).add(3).minus(2) 功能"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 27 May 2020 08:21:51 GMT",
+          "favorite_num": 31,
+          "qid": 830,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 830,
+            "subject": "",
+            "title": "Day54:new操作符都做了什么，并手动实现一下"
+          },
+          "tech_tag": ["JavaScript", "编程题"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 26 May 2020 08:21:51 GMT",
+          "favorite_num": 23,
+          "qid": 829,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 829,
+            "subject": "```js\nuniq([1, 2, 3, 5, 3, 2]);//[1, 2, 3, 5]\n// 请实现一个 uniq 函数，实现数组去重\n```\n",
+            "title": "Day53:请实现一个 uniq 函数，实现数组去重~~"
+          },
+          "tech_tag": ["算法"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 25 May 2020 08:21:51 GMT",
+          "favorite_num": 26,
+          "qid": 828,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 828,
+            "subject": "```js\nflattenDeep([1, [2, [3, [4]], 5]]); //[1, 2, 3, 4, 5]\n// 请实现一个flattenDeep函数，把嵌套的数组扁平化\n```\n",
+            "title": "Day52:请实现一个flattenDeep函数，把嵌套的数组扁平化~~"
+          },
+          "tech_tag": ["JavaScript", "编程题"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 23 May 2020 08:21:51 GMT",
+          "favorite_num": 23,
+          "qid": 826,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 826,
+            "subject": "```js\n写一个isPrime()函数，当其为质数时返回true，否则返回false。\n提示：质数是指在大于1的自然数中，除了1和它本身以外不再有其他因数的自然数。\n```\n",
+            "title": "Day50:写一个isPrime()函数"
+          },
+          "tech_tag": ["算法"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 22 May 2020 08:21:51 GMT",
+          "favorite_num": 23,
+          "qid": 825,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 825,
+            "subject": "```js\n// 请你完成一个safeGet函数，可以安全的获取无限多层次的数据，一旦数据不存在不会报错，会返回 undefined，例如\nvar data = { a: { b: { c: 'yideng' } } }\nsafeGet(data, 'a.b.c') // => yideng\nsafeGet(data, 'a.b.c.d') // => undefined\nsafeGet(data, 'a.b.c.d.e.f.g') // => undefined\n```\n",
+            "title": "Day49:请你完成一个safeGet函数，可以安全的获取无限多层次的数据"
+          },
+          "tech_tag": ["JavaScript", "编程题"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 21 May 2020 08:21:51 GMT",
+          "favorite_num": 22,
+          "qid": 824,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 824,
+            "subject": "```js\nvar obj = { x: 1, y: 2, z: 3 };\n[...obj]; // TypeError\n// 能否以某种方式为上面的语句使用展开运算而不导致类型错误\n// 如果可以，写出解决方式\n```\n",
+            "title": "Day48:能否以某种方式为下面的语句使用展开运算而不导致类型错误"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 20 May 2020 08:21:51 GMT",
+          "favorite_num": 34,
+          "qid": 823,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 823,
+            "subject": "```js\nvar a = 0;\nif(true){\n  a = 10;\n  console.log(a,window.a);\n  function a(){};\n  console.log(a,window.a);\n  a = 20;\n  console.log(a,window.a);\n}\nconsole.log(a);\n```\n",
+            "title": "Day47:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 19 May 2020 08:21:51 GMT",
+          "favorite_num": 19,
+          "qid": 822,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 822,
+            "subject": "```js\nfunction addToList(item, list) {\n return list.push(item);\n}\nconst result = addToList(\"company\", [\"yideng\"]);\nconsole.log(result);\n```\n",
+            "title": "Day46:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 18 May 2020 08:21:51 GMT",
+          "favorite_num": 22,
+          "qid": 821,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 821,
+            "subject": "```js\n// index.js\nconsole.log('running index.js');\nimport { sum } from './sum.js';\nconsole.log(sum(1, 2));\n\n// sum.js\nconsole.log('running sum.js');\nexport const sum = (a, b) => a + b;\n```\n",
+            "title": "Day45:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 12,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 17 May 2020 08:21:51 GMT",
+          "favorite_num": 22,
+          "qid": 820,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 820,
+            "subject": "```js\n[1, 2, 3, 4].reduce((x, y) => console.log(x, y));\n```\n",
+            "title": "Day44:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 16 May 2020 08:21:51 GMT",
+          "favorite_num": 17,
+          "qid": 819,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 819,
+            "subject": "```js\nconst value = { number: 10 };\nconst multiply = (x = { ...value }) => {\n  console.log(x.number *= 2);\n};\nmultiply();\nmultiply();\nmultiply(value);\nmultiply(value);\n```\n",
+            "title": "Day43:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 15 May 2020 08:21:51 GMT",
+          "favorite_num": 17,
+          "qid": 818,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 818,
+            "subject": "```js\nlet num = 10;\nconst increaseNumber = () => num++;\nconst increasePassedNumber = number => number++;\nconst num1 = increaseNumber();\nconst num2 = increasePassedNumber(num1);\nconsole.log(num1);\nconsole.log(num2);\n```\n",
+            "title": "Day42:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 14 May 2020 08:21:51 GMT",
+          "favorite_num": 20,
+          "qid": 827,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 827,
+            "subject": "```js\nvar x = 20;\nvar temp = {\n    x: 40,\n    foo: function() {\n        var x = 10;\n      \tconsole.log(this.x);\n    }\n};\n(temp.foo, temp.foo)();\n```\n",
+            "title": "Day51:写出打印结果"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 14 May 2020 08:21:51 GMT",
+          "favorite_num": 19,
+          "qid": 817,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 817,
+            "subject": "```js\nconst company = { name: \"京程一灯\" };\nObject.defineProperty(company, \"address\", { value: \"北京\" });\nconsole.log(company);\nconsole.log(Object.keys(company));\n/*\nA. {name:\"京程一灯\",address:\"北京\"},[\"name\",\"age\"]\nB. {name:\"京程一灯\",address:\"北京\"},[\"name\"]\nC. {name:\"京程一灯\"},[\"name\",\"age\"]\nD. {name:\"京程一灯\"},[\"name\",\"age\"]\n*/\n```\n",
+            "title": "Day41:选择正确答案，并解释为什么"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 13 May 2020 08:21:51 GMT",
+          "favorite_num": 15,
+          "qid": 816,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 816,
+            "subject": "```js\nconst num = parseInt(\"2*4\",10);\nconsole.log(num);\n```\n",
+            "title": "Day40:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 12 May 2020 08:21:51 GMT",
+          "favorite_num": 18,
+          "qid": 815,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 815,
+            "subject": "```js\nfunction getName(){\n  for(let i = 0;i<5;i++){\n    setTimeout(function(){\n      console.log(i)\n    },i*1000);\n  }\n  return\n  {\n    name:'京程一灯'\n  }\n}\nconsole.log(getName());\n```\n",
+            "title": "Day39:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 11 May 2020 08:21:51 GMT",
+          "favorite_num": 23,
+          "qid": 814,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 814,
+            "subject": "```js\nvar a=10;\nvar foo={\n  a:20,\n  bar:function(){\n      var a=30;\n      return this.a;\n    }\n}\nconsole.log(foo.bar());\nconsole.log((foo.bar)());\nconsole.log((foo.bar=foo.bar)());\nconsole.log((foo.bar,foo.bar)());\n```\n",
+            "title": "Day38:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 10 May 2020 08:21:51 GMT",
+          "favorite_num": 24,
+          "qid": 813,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 813,
+            "subject": "```js\nlet length = 10;\nfunction fn() {\n\tconsole.log(this.length);\n}\nvar obj = {\n  length: 5,\n  method: function(fn) {\n    fn();\n    arguments[0]();\n  }\n};\nobj.method(fn,1);\n```\n",
+            "title": "Day37:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 09 May 2020 08:21:51 GMT",
+          "favorite_num": 20,
+          "qid": 812,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 812,
+            "subject": "```js\nfunction fn() {\n    getValue = function () { console.log(1); };\n    return this;\n}\nfn.getValue = function () { console.log(2);};\nfn.prototype.getValue = function () {console.log(3);};\nvar getValue = function () {console.log(4);};\nfunction getValue() {console.log(5);}\n \n//请写出以下输出结果：\ngetValue();\nfn().getValue();\ngetValue();\nnew fn.getValue();\nnew fn().getValue();\n```\n",
+            "title": "Day36:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 08 May 2020 08:21:51 GMT",
+          "favorite_num": 21,
+          "qid": 811,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 811,
+            "subject": "```js\nlet x, y;\ntry {\n  throw new Error();\n} catch (x) {\n  x =1;\n  y=2;\n  console.log(x);\n}\nconsole.log(x);\nconsole.log(y);\n```\n",
+            "title": "Day35:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 07 May 2020 08:21:51 GMT",
+          "favorite_num": 20,
+          "qid": 810,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 810,
+            "subject": "```js\nfunction user(obj) {\n  obj.name = \"京程一灯\"\n  obj = new Object()\n  obj.name = \"精英班\"\n} \nlet person = new Object();\nuser(person);\nconsole.log(person.name);\n```\n",
+            "title": "Day34:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 06 May 2020 08:21:51 GMT",
+          "favorite_num": 20,
+          "qid": 809,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 809,
+            "subject": "```js\nfunction Foo() {\n    Foo.a = function() {\n        console.log(1)\n    }\n    this.a = function() {\n        console.log(2)\n    }\n}\nFoo.prototype.a = function() {\n    console.log(3)\n}\nFoo.a = function() {\n    console.log(4)\n}\nFoo.a();\nlet obj = new Foo();\nobj.a();\nFoo.a();\n```\n",
+            "title": "Day33:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 05 May 2020 08:21:51 GMT",
+          "favorite_num": 18,
+          "qid": 808,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 808,
+            "subject": "```js\nvar a1={}, b1='123', c1=123;  \na1[b1]='b';\na1[c1]='c';  \nconsole.log(a1[b1]);\nvar a2={}, b2=Symbol('123'), c2=Symbol('123');  \na2[b2]='b';\na2[c2]='c';  \nconsole.log(a2[b2]);\nvar a3={}, b3={key:'123'}, c3={key:'456'};  \na3[b3]='b';\na3[c3]='c';  \nconsole.log(a3[b3]);\n```\n",
+            "title": "Day32:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 04 May 2020 08:21:51 GMT",
+          "favorite_num": 29,
+          "qid": 807,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 807,
+            "subject": "```js\nlet a = {n: 1};\nlet b = a;\na.x = a = {n: 2};\nconsole.log(a.x) \t\nconsole.log(b.x)\n```\n",
+            "title": "Day31:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 13,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 03 May 2020 08:21:51 GMT",
+          "favorite_num": 26,
+          "qid": 806,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 806,
+            "subject": "```js\nconst obj = {\n    '2': 3,\n    '3': 4,\n    'length': 2,\n    'splice': Array.prototype.splice,\n    'push': Array.prototype.push\n}\nobj.push(1)\nobj.push(2)\nconsole.log(obj)\n```\n",
+            "title": "Day30:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 02 May 2020 08:21:51 GMT",
+          "favorite_num": 24,
+          "qid": 805,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 805,
+            "subject": "```js\nvar a = ?;\nif(a == 1 && a== 2 && a== 3){\n \tconsole.log(1);\n}\n```\n",
+            "title": "Day29:下面代码中 a 在什么情况下会打印 1"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 01 May 2020 08:21:51 GMT",
+          "favorite_num": 18,
+          "qid": 804,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 804,
+            "subject": "```js\nasync function async1() {\n    console.log('async1 start');\n    await async2();\n    console.log('async1 end');\n}\nasync function async2() {\n\tconsole.log('async2');\n}\nconsole.log('script start');\nsetTimeout(function() {\n    console.log('setTimeout');\n}, 0)\nasync1();\nnew Promise(function(resolve) {\n    console.log('promise1');\n    resolve();\n}).then(function() {\n    console.log('promise2');\n});\nconsole.log('script end');\n```\n",
+            "title": "Day28:写出执行结果,并解释原因(以最新谷歌浏览器为准)"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 30 Apr 2020 08:21:51 GMT",
+          "favorite_num": 20,
+          "qid": 803,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 803,
+            "subject": "```js\nvar arr = [0,1];\narr[5] = 5;\nnewArr = arr.filter(function(x) { return x === undefined;});\nconsole.log(newArr.length);\n```\n",
+            "title": "Day27:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 29 Apr 2020 08:21:51 GMT",
+          "favorite_num": 19,
+          "qid": 802,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 802,
+            "subject": "```js\nconst value  = 'Value is' + !!Number(['0']) ? 'yideng' : 'undefined';\nconsole.log(value);\n```\n",
+            "title": "Day26:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 28 Apr 2020 08:21:51 GMT",
+          "favorite_num": 17,
+          "qid": 801,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 801,
+            "subject": "```js\nfunction test(){\n    var a = 1;\n    return function(){\n        eval(\"\");\n    }\n}\ntest();\n```\n",
+            "title": "Day25:请问变量a会被GC吗"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 27 Apr 2020 08:21:51 GMT",
+          "favorite_num": 20,
+          "qid": 800,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 800,
+            "subject": "```js\nconsole.log([2,1,0].reduce(Math.pow));\nconsole.log([].reduce(Math.pow));\n\n/ *\nA. 2 报错\nB. 2 NaN\nC. 1 报错\nD. 1 NaN\n*/\n```\n",
+            "title": "Day24:选择正确的答案"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 26 Apr 2020 08:21:51 GMT",
+          "favorite_num": 16,
+          "qid": 799,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 799,
+            "subject": "```js\nfunction showCase(value) {\n    switch(value) {\n    case 'A':\n        console.log('Case A');\n        break;\n    case 'B':\n        console.log('Case B');\n        break;\n    case undefined:\n        console.log('undefined');\n        break;\n    default:\n        console.log('Do not know!');\n    }\n}\nshowCase(new String('A'));\n```\n",
+            "title": "Day23:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 25 Apr 2020 08:21:51 GMT",
+          "favorite_num": 22,
+          "qid": 798,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 798,
+            "subject": "```js\nfunction f() {}\nconst a = f.prototype,b = Object.getPrototypeOf(f)\nconsole.log(a === b);\n```\n",
+            "title": "Day22:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 24 Apr 2020 08:21:51 GMT",
+          "favorite_num": 17,
+          "qid": 797,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 797,
+            "subject": "```js\n[typeof null, null instanceof Object]\n```\n",
+            "title": "Day21:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 23 Apr 2020 08:21:51 GMT",
+          "favorite_num": 20,
+          "qid": 796,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 796,
+            "subject": "```js\n[\"1\", \"2\", \"3\"].map(parseInt);\n```\n",
+            "title": "Day20:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 22 Apr 2020 08:21:51 GMT",
+          "favorite_num": 13,
+          "qid": 795,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 795,
+            "subject": "```js\nconst person = { name: \"yideng\" };\n\nfunction sayHi(age) {\n  return `${this.name} is ${age}`;\n}\nconsole.log(sayHi.call(person, 5));\nconsole.log(sayHi.bind(person, 5));\n```\n",
+            "title": "Day19:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 21 Apr 2020 08:21:51 GMT",
+          "favorite_num": 16,
+          "qid": 794,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 794,
+            "subject": "```js\nconst num = {\n  a: 10,\n  add() {\n    return this.a + 2;\n  },\n  reduce: () => this.a -2;\n};\nconsole.log(num.add());\nconsole.log(num.reduce());\n```\n",
+            "title": "Day18:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 20 Apr 2020 08:21:51 GMT",
+          "favorite_num": 13,
+          "qid": 793,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 793,
+            "subject": "```js\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}\n```\n",
+            "title": "Day17:下面代码输出什么？"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 19 Apr 2020 08:21:51 GMT",
+          "favorite_num": 19,
+          "qid": 792,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 792,
+            "subject": "```js\n关于Vue.js虚拟DOM的优缺点说法正确的是？（多选）\n\nA.可以保证性能下限，比起粗暴的 DOM 操作性能要好很多，因此框架的虚拟 DOM 至少可以保证在你不需要手动优化的情况下，依然可以提供还不错的性能，即保证性能的下限；\nB.无需手动操作DOM，不再需要手动去操作 DOM，只需要写好 View-Model 的代码逻辑，框架会根据虚拟 DOM 和 数据双向绑定，帮我们以可预期的方式更新视图，极大提高我们的开发效率；\nC.可以进行极致优化： 虚拟 DOM + 合理的优化，可以使性能达到极致\nD.可以跨平台，虚拟 DOM 本质上是 JavaScript 对象,而 DOM 与平台强相关，相比之下虚拟 DOM 可以进行更方便地跨平台操作，例如服务器渲染、weex 开发等等。\n```\n",
+            "title": "Day16:关于Vue.js虚拟DOM的优缺点说法正确的是？（多选）"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 14,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  },
+  {
+    "msg": "success",
+    "result": {
+      "list": [
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 18 Apr 2020 08:21:51 GMT",
+          "favorite_num": 22,
+          "qid": 791,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 791,
+            "subject": "```js\n下面对Vue.js中keep-alive的理解正确的是？（多选）\n\nA.一般结合路由和动态组件一起使用，用于缓存组件；\nB.提供 include 和 exclude 属性，两者都支持字符串或正则表达式， include 表示只有名称匹配的组件会被缓存，exclude 表示任何名称匹配的组件都不会被缓存 ，其中 include  的优先级比 exclude 高；\nC.对应两个钩子函数 activated 和 deactivated ，当组件被激活时，触发钩子函数 activated，当组件被移除时，触发钩子函数 deactivated。\nD.keep-alive 是 Vue 内置的一个组件，可以使被包含的组件保留状态，但是不能避免重新渲染\n\n```\n",
+            "title": "Day15:下面对Vue.js中keep-alive的理解正确的是？（多选）"
+          },
+          "tech_tag": ["Vue"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 17 Apr 2020 08:21:51 GMT",
+          "favorite_num": 24,
+          "qid": 790,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 790,
+            "subject": "```js\n关于SPA单页页面的理解正确的是?\n\nA.用户体验好、快，但是内容的改变需要重新加载整个页面，会造成不必要的跳转和重复渲染；\nB.前后端职责分离，架构清晰，前端进行交互逻辑，后端负责数据处理；\nC.初次加载耗时多：为实现单页 Web 应用功能及显示效果，需要在加载页面的时候将 JavaScript、CSS 统一加载，部分页面按需加载；\nD.前进后退路由管理需要使用浏览器的前进后退功能\nE.SEO 难度较大：由于所有的内容都在一个页面中动态替换显示，所以在 SEO 上其有着天然的弱势。\n```\n",
+            "title": "Day14:关于SPA单页页面的理解正确的是?"
+          },
+          "tech_tag": ["Vue", "React"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 16 Apr 2020 08:21:51 GMT",
+          "favorite_num": 20,
+          "qid": 789,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 789,
+            "subject": "```js\n关于AMD、CMD规范区别说法正确的是？（多选）\n\nA.AMD规范：是 RequireJS在推广过程中对模块定义的规范化产出的\nB.CMD规范：是SeaJS 在推广过程中对模块定义的规范化产出的\nC.CMD 推崇依赖前置;AMD 推崇依赖就近\nD.CMD 是提前执行;AMD 是延迟执行\nE.AMD性能好,因为只有用户需要的时候才执行;CMD用户体验好,因为没有延迟,依赖模块提前执行了\n```\n",
+            "title": "Day13:关于AMD、CMD规范区别说法正确的是？（多选）"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 15 Apr 2020 08:21:51 GMT",
+          "favorite_num": 17,
+          "qid": 788,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 788,
+            "subject": "```js\nvar foo = {\n        bar: function(){\n            return this.baz;\n        },\n         baz:1\n    }\nconsole.log(typeof (f=foo.bar)());\n```\n",
+            "title": "Day12:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 14 Apr 2020 08:21:51 GMT",
+          "favorite_num": 19,
+          "qid": 787,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 787,
+            "subject": "```js\nfunction f(){\n      return f;\n }\n console.log(new f() instanceof f);\n```\n",
+            "title": "Day11:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 13 Apr 2020 08:21:51 GMT",
+          "favorite_num": 23,
+          "qid": 786,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 786,
+            "subject": "```js\nvar x=1;\nif(function f(){}){\n    x += typeof f;\n}\nconsole.log(x)\n```\n",
+            "title": "Day10:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 12 Apr 2020 08:21:51 GMT",
+          "favorite_num": 24,
+          "qid": 785,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 785,
+            "subject": "```js\nvar foo = function bar(){ return 12; };\nconsole.log(typeof bar());  \n```\n",
+            "title": "Day9:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sat, 11 Apr 2020 08:21:51 GMT",
+          "favorite_num": 24,
+          "qid": 784,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 784,
+            "subject": "```js\nvar company = {\n    address: 'beijing'\n}\nvar yideng = Object.create(company);\ndelete yideng.address\nconsole.log(yideng.address);\n```\n",
+            "title": "Day8:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Fri, 10 Apr 2020 08:21:51 GMT",
+          "favorite_num": 16,
+          "qid": 783,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 783,
+            "subject": "```js\nvar fullname = 'a';\nvar obj = {\n   fullname: 'b',\n   prop: {\n      fullname: 'c',\n      getFullname: function() {\n         return this.fullname;\n      }\n   }\n};\n \nconsole.log(obj.prop.getFullname()); // c\nvar test = obj.prop.getFullname;\nconsole.log(test());  // a\n```\n",
+            "title": "Day7:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Thu, 09 Apr 2020 08:21:51 GMT",
+          "favorite_num": 17,
+          "qid": 782,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 782,
+            "subject": "```js\n(function () {\n  var a = (b = 5);\n})();\n\nconsole.log(b);\nconsole.log(a);\n```\n",
+            "title": "Day6:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 08 Apr 2020 08:21:51 GMT",
+          "favorite_num": 25,
+          "qid": 781,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 781,
+            "subject": "```js\nvar a = [0];\nif (a) {\n  console.log(a == true);\n} else {\n  console.log(a);\n}\n```\n",
+            "title": "Day5:写出执行结果,并解释原因"
+          },
+          "tech_tag": [],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Tue, 07 Apr 2020 08:21:51 GMT",
+          "favorite_num": 28,
+          "qid": 780,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 780,
+            "subject": "```js\nvar a = 1;\n(function a () {\n    a = 2;\n    console.log(a);\n})();\n\n```\n",
+            "title": "Day4:写出执行结果,并解释原因"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Mon, 06 Apr 2020 08:21:51 GMT",
+          "favorite_num": 17,
+          "qid": 779,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 779,
+            "subject": "```js\nvar min = Math.min();\nmax = Math.max();\nconsole.log(min < max);\n```\n",
+            "title": "Day3:写出执行结果"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Sun, 05 Apr 2020 08:21:51 GMT",
+          "favorite_num": 32,
+          "qid": 778,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 778,
+            "subject": "```js\nfunction side(arr) {\n  arr[0] = arr[2];\n}\nfunction a(a, b, c = 3) {\n  c = 10;\n  side(arguments);\n  return a + b + c;\n}\na(1, 1, 1);\n```\n",
+            "title": "Day2:写出执行结果"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        },
+        {
+          "audit_flag": 0,
+          "corp_tag": [],
+          "date": "Wed, 01 Apr 2020 08:21:51 GMT",
+          "favorite_num": 36,
+          "qid": 777,
+          "qtype": "short_answer",
+          "short_answer": {
+            "answer": "",
+            "biz_type": 2,
+            "qid": 777,
+            "subject": "```js\nconsole.log(1);\nsetTimeout(() => {\n  console.log(2);\n  process.nextTick(() => {\n    console.log(3);\n  });\n  new Promise((resolve) => {\n    console.log(4);\n    resolve();\n  }).then(() => {\n    console.log(5);\n  });\n});\nnew Promise((resolve) => {\n  console.log(7);\n  resolve();\n}).then(() => {\n  console.log(8);\n});\nprocess.nextTick(() => {\n  console.log(6);\n});\nsetTimeout(() => {\n  console.log(9);\n  process.nextTick(() => {\n    console.log(10);\n  });\n  new Promise((resolve) => {\n    console.log(11);\n    resolve();\n  }).then(() => {\n    console.log(12);\n  });\n});\n```\n",
+            "title": "Day1:请写出下面代码执行的的结果"
+          },
+          "tech_tag": ["JavaScript"],
+          "uid": 0,
+          "uname": ""
+        }
+      ],
+      "page": 15,
+      "pages": 15,
+      "uid": 23015
+    },
+    "status": 0
+  }
+]

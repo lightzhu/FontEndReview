@@ -1,0 +1,713 @@
+{
+  "msg": "success",
+  "result": {
+    "list": [
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 03 Jul 2020 16:05:10 GMT",
+        "favorite_num": 26,
+        "qid": 867,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 867,
+          "subject": null,
+          "title": "请用算法实现，从给定的无序、不重复的数组data中，取出n个数，使其相加和为sum。并给出算法的时间/空间复杂度。(不需要找到所有的解，找到一个解即可)"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:21:40 GMT",
+        "favorite_num": 21,
+        "qid": 2,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 2,
+          "subject": "",
+          "title": "合并二维有序数组成一维有序数组，归并排序的思路"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["腾讯"],
+        "date": "Fri, 19 Jun 2020 08:21:40 GMT",
+        "favorite_num": 20,
+        "qid": 4,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 4,
+          "subject": "",
+          "title": "字符串出现的不重复最长长度"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["滴滴"],
+        "date": "Fri, 19 Jun 2020 08:21:40 GMT",
+        "favorite_num": 8,
+        "qid": 13,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 13,
+          "subject": "",
+          "title": "有一堆整数，请把他们分成三份，确保每一份和尽量相等（11，42，23，4，5，6 4 5 6 11 23 42 56 78 90）"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["腾讯", "CVTE", "微软"],
+        "date": "Fri, 19 Jun 2020 08:21:40 GMT",
+        "favorite_num": 22,
+        "qid": 3,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 3,
+          "subject": "",
+          "title": "多种方式实现斐波那契数列"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["爱范儿"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 8,
+        "qid": 706,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 706,
+          "subject": "```js\n/* \n  Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.\n  If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).\n  The replacement must be in-place, do not allocate extra memory.\n  Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.\n  1,2,3 → 1,3,2\n  3,2,1 → 1,2,3\n  1,1,5 → 1,5,1\n*/\n```\n",
+          "title": "算法考察：Next Permutation"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["高思教育"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 7,
+        "qid": 729,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 729,
+          "subject": "```js\n/* \n  根据传入参数n(数字)对一维数组(纯数字)按照距离n最近的顺序排序。(距离即数字与n的差值的绝对值)\n*/\nvar arr = [7, 28, -1, 0, 7, 33];\nfunction sort(n) {\n  // your code\n}\n```\n",
+          "title": "按要求实现代码"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["新东方"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 6,
+        "qid": 752,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 752,
+          "subject": "",
+          "title": "输入一个整数，输出该数二进制表示中 1 的个数"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["乘法云"],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 10,
+        "qid": 744,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 744,
+          "subject": "",
+          "title": "找出两个数组的交集元素"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 9,
+        "qid": 756,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 756,
+          "subject": "",
+          "title": "⽤ js 实现随机选取 10–100 之间的 10 个且不重复的数字，存⼊⼀个数组，还要排序"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:44 GMT",
+        "favorite_num": 7,
+        "qid": 761,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 761,
+          "subject": "",
+          "title": "给定⼀个⼤⼩为 n 的数组，找到其中的众数。众数是指在数组中出现次数⼤于 n/2 的元素"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 10,
+        "qid": 676,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 676,
+          "subject": "",
+          "title": "给定一个整数数组 nums，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["会小二"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 14,
+        "qid": 612,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 612,
+          "subject": "",
+          "title": "用 JavaScript 实现一个标准的排序算法(快排、冒泡、选择排序)，对某个数字数组进行由低到高的排序。"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["海风教育"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 11,
+        "qid": 554,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 554,
+          "subject": "",
+          "title": "介绍下 DFS 深度优先"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 4,
+        "qid": 632,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 632,
+          "subject": "",
+          "title": "求 n 以内的所有素数，并说明时间复杂度"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["心娱"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 10,
+        "qid": 623,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 623,
+          "subject": "",
+          "title": "找出“aaaabbcccdddd”字符串中出现最多的字母？"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["百分点"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 6,
+        "qid": 548,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 548,
+          "subject": "",
+          "title": "找到前 K 个最大的元素"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["会小二"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 7,
+        "qid": 605,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 605,
+          "subject": "![递归公式](http://img-static.yidengxuetang.com/wxapp/issue-img/qid-605-digui.png)\n\n```js\nA.O(n)\nB.O(logn)\nC.O(nlogn)\nD.O(n2)\n```",
+          "title": "递归公式的时间复杂度为？(单选题)"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:43 GMT",
+        "favorite_num": 12,
+        "qid": 674,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 674,
+          "subject": "",
+          "title": "给定一个二叉树，找出其最大深度。二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。说明: 叶子节点是指没有子节点的节点"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["有赞"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 10,
+        "qid": 410,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 410,
+          "subject": "",
+          "title": "介绍冒泡排序、选择排序，说说冒泡排序如何优化"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["携程", "心娱"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 7,
+        "qid": 463,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 463,
+          "subject": "",
+          "title": "手写数组去重函数(至少三种以上，说明时间复杂度)"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["有赞"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 9,
+        "qid": 412,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 412,
+          "subject": "",
+          "title": "如何判断链表是否有环"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["有赞"],
+        "date": "Fri, 19 Jun 2020 08:20:42 GMT",
+        "favorite_num": 7,
+        "qid": 413,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 413,
+          "subject": "",
+          "title": "介绍二叉搜索树的特点"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["新东方"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 10,
+        "qid": 180,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 180,
+          "subject": "```js\n/*\n  有效字符串需满⾜：\n \t \t1. 左括号必须⽤相同类型的右括号闭合。\n  \t2. 左括号必须以正确的顺序闭合。\n  注意空字符串可被认为是有效字符串。\n  示例1：\n  \t输⼊: \"()\"\n  \t输出: true\n  示例2：\n  \t输⼊: \"()[]{}\"\n  \t输出: true\n  示例 3:\n  \t输⼊: \"(]\"\n  \t输出: false\n  示例 4:\n  \t输⼊: \"([)]\"\n  \t输出: false\n  示例 5:\n  \t输⼊: \"{[]}\"\n  \t输出: true\n*/\n```\n",
+          "title": "给定⼀个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效."
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["微软"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 7,
+        "qid": 161,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 161,
+          "subject": "```js\n/*\n\t如输入1 返回a\n\t输入26返回z\n\t输入27返回aa\n\t输入28返回ab\n\t输入53返回aaa\n*/\n```\n",
+          "title": "输入一个数字，找到对应的字母"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 5,
+        "qid": 282,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 282,
+          "subject": "",
+          "title": "现在有随机整数数组，例如[2,11,20,160,3,1...]，请挑出数组内，三个随机整数和为 100 的所有数据。"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["易车"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 6,
+        "qid": 173,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 173,
+          "subject": "",
+          "title": "给一个字符串比如'abca'，返回第一个不重复的字母"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["微软"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 6,
+        "qid": 162,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 162,
+          "subject": "```js\n// Given an int n, output Mausoleum Array solutions.\n// Mausoleum Array:\n// Construct by 1,1,2,2,3,3,…,n-1,n-1,n,n\n// first were non-decreasing (i.e., increasing or remained the same), and then — non-increasing (decrease or remained unchanged).\n// Mausoleum Array example:\n// [1, 2, 2, 3, 4, 4, 3, 1];\n// [1, 1];\n// [2, 2, 1, 1];\n// [1, 2, 3, 3, 2, 1].\n// input/output example:\n// n=1, [1,1]\n// n=2, [1,1,2,2],[1,2,2,1],[2,2,1,1]\n// n = 3,[3, 3, 2, 2, 1, 1],[2, 3, 3, 2, 1, 1],[2, 2, 3, 3, 1, 1],[1, 3, 3, 2, 2, 1],[1, 2, 3, 3, 2, 1],[1, 2, 2, 3, 3, 1],[1, 1, 3, 3, 2, 2],[1, 1, 2, 3, 3, 2],[1, 1, 2, 2, 3, 3]\n```\n",
+          "title": "Given an int n, output Mausoleum Array solutions."
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["快手"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 9,
+        "qid": 216,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 216,
+          "subject": "",
+          "title": "一个人每次只能走一层楼梯或者两层楼梯，问走到第 80 层楼梯一共有多少种方法"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["寺库", "百分点"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 10,
+        "qid": 193,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 193,
+          "subject": "",
+          "title": "介绍排序算法和快排原理"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["滴滴"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 9,
+        "qid": 186,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 186,
+          "subject": "",
+          "title": "手动实现一个函数，给定一个数组[1,0,2,3,4,-1,-3]，输出任意两个值和为 0 的下标"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["心娱"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 8,
+        "qid": 306,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 306,
+          "subject": "",
+          "title": "统计一组整形数组的最大差值？"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["微软"],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 6,
+        "qid": 160,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 160,
+          "subject": "",
+          "title": "二叉树序列化反序列化"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:41 GMT",
+        "favorite_num": 6,
+        "qid": 255,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 255,
+          "subject": "",
+          "title": "给定一个数组，形如 [1, 1, 2 , 3, 3, 3, 3, 4, 6, 6]，给定一个数 n，例如 3，找出给定的数 n 在数组内出现的次数，要求时间复杂度小于 O(n)"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 11,
+        "qid": 140,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 140,
+          "subject": "```js\nfunction TreeNode(val){\n  this.val = val;\n  this.left = null;\n  this.right = null;\n}\nfunction rightView(root){\n  // 请你实现\n}\n// => [1,4,3]\n     1       => 1\n   2   4     => 4\n 7   3       => 3\n```\n",
+          "title": "按要求实现 rightView 函数"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["头条"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 17,
+        "qid": 63,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 63,
+          "subject": "",
+          "title": "单向链表实现队列"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["腾讯"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 8,
+        "qid": 33,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 33,
+          "subject": "```js\n算法：输入一条polyline，输出polyline的中点\n绘制：在浏览器中绘制出polyline和中点\n说明：中点是指沿着polyline，到polyline的起点和终点，距离相等，中点要求在polyline上\n输入：[[10, 20], [20, 200], [30, 220], [40, 300], [100, 400]]，以[10, 20]举例，10代表x坐标，20代表y坐标，单位是像素\n要求：提供源代码，用原生JavaScript实现，不使用任何框架、类库、构建工具，本地打开html文件可直接看到效果\n```\n",
+          "title": "[实操题]输入一条 polyline，输出 polyline 的中点"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": ["顺丰"],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 5,
+        "qid": 123,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 123,
+          "subject": "",
+          "title": "实现一个将 52 张牌随机均等的分给四个人，比如输入 [0,1,2,3....51] ，输出[[1,2,16...],[4,3,6..],[....],[....]]"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      },
+      {
+        "audit_flag": 0,
+        "corp_tag": [],
+        "date": "Fri, 19 Jun 2020 08:20:40 GMT",
+        "favorite_num": 10,
+        "qid": 65,
+        "qtype": "short_answer",
+        "short_answer": {
+          "answer": "",
+          "biz_type": 1,
+          "qid": 65,
+          "subject": "```js\n/*\n *数组：[{id:1, parentId: 0}, {id:2, parentId:1},{id:3, parentId:1}]\n *输出结果：[{id:1, parentId: 0,children:[{id:2, parentId:1},{id:3, parentId:1}]}]\n *说明：parentId为0 的是根节点\n */\n```\n",
+          "title": "将给定的数组从顶级分类递归查找子分类，最终构建一个树状数组"
+        },
+        "tech_tag": ["算法"],
+        "uid": 0,
+        "uname": ""
+      }
+    ],
+    "page": 1,
+    "pages": 3,
+    "uid": 23015
+  },
+  "status": 0
+}
